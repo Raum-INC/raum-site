@@ -3,7 +3,7 @@ import { services } from "./data";
 
 const Services = () => {
   return (
-    <div className="w-full p-8 md:px-12 flex flex-col gap-5">
+    <main className="w-full p-8 py-12 md:px-12 flex flex-col gap-10">
       {services.map((service, index) => (
         <div
           className="w-full p-4 md:p-8 border-2 border-primary rounded-3xl flex flex-col-reverse md:flex-row gap-5"
@@ -26,7 +26,7 @@ const Services = () => {
           </div>
         </div>
       ))}
-    </div>
+    </main>
   );
 };
 

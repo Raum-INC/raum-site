@@ -8,8 +8,9 @@ const Assets = {
   under_construction: require("../assets/under_construction.svg").default,
   services_build: require("../assets/services_building.svg").default,
   services_40: require("../assets/services_40.svg").default,
+  sustainable: require("../assets/sustainable.png"),
+  betterliving: require("../assets/betterliving.png"),
+  transforming: require("../assets/transforming.png"),
 };
-
-console.log(Assets.services_40);
 
 export default Assets;

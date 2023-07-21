@@ -5,7 +5,8 @@ const Hero = () => {
     <main className="w-full h-screen p-8 md:px-12 flex justify-center items-center">
       <div className="flex flex-col justify-center items-center gap-8">
         <h1 className="text-2xl md:text-8xl text-center font-semibold leading-8 md:leading-[115px]">
-          Discover Sustainable Housing Solutions for
+          Discover Sustainable
+          <br /> Housing Solutions for
           <br /> All with <span className="text-primary">Raum</span>
         </h1>
         <p className="text-justify leading-5 md:text-center text-fade text-base md:text-2xl">
