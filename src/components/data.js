@@ -1,13 +1,7 @@
 import Assets from "../assets";
 
-const {
-  services_build,
-  services_40,
-  sustainable,
-  betterliving,
-  transforming,
-  test,
-} = Assets;
+const { services_build, services_40, sustainable, betterliving, transforming } =
+  Assets;
 
 export const services = [
   {
@@ -68,5 +62,32 @@ export const features = [
     image: transforming,
     link: "#",
     alt: "features images",
+  },
+];
+
+export const faqs = [
+  {
+    title: "Can I reserve an office for a whole year?",
+    description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit id venenatis pretium risus euismod dictum egestas orci netus feugiat ut egestas ut sagittis tincidunt phasellus elit etiam cursus orci in. Id sed montes. `,
+  },
+  {
+    title: "Can I reserve an office for a whole year?",
+    description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit id venenatis pretium risus euismod dictum egestas orci netus feugiat ut egestas ut sagittis tincidunt phasellus elit etiam cursus orci in. Id sed montes. `,
+  },
+  {
+    title: "Can I reserve an office for a whole year?",
+    description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit id venenatis pretium risus euismod dictum egestas orci netus feugiat ut egestas ut sagittis tincidunt phasellus elit etiam cursus orci in. Id sed montes. `,
+  },
+  {
+    title: "Can I reserve an office for a whole year?",
+    description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit id venenatis pretium risus euismod dictum egestas orci netus feugiat ut egestas ut sagittis tincidunt phasellus elit etiam cursus orci in. Id sed montes. `,
+  },
+  {
+    title: "Can I reserve an office for a whole year?",
+    description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit id venenatis pretium risus euismod dictum egestas orci netus feugiat ut egestas ut sagittis tincidunt phasellus elit etiam cursus orci in. Id sed montes. `,
+  },
+  {
+    title: "Can I reserve an office for a whole year?",
+    description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit id venenatis pretium risus euismod dictum egestas orci netus feugiat ut egestas ut sagittis tincidunt phasellus elit etiam cursus orci in. Id sed montes. `,
   },
 ];
