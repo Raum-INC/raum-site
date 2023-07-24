@@ -2,9 +2,12 @@ import React from "react";
 import Hero from "../components/about/Hero";
 import Metrics from "../components/about/Metrics";
 
-const About = () => {
+const About = ({ nav, setNav }) => {
+  const handleNav = () => {
+    setNav(false);
+  };
   return (
-    <div>
+    <div onClick={handleNav}>
       <Hero />
       <Metrics />
     </div>

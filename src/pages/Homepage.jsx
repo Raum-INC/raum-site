@@ -5,9 +5,12 @@ import Features from "../components/Features";
 import CallToAction from "../components/CallToAction";
 import Faqs from "../components/Faqs";
 
-const Homepage = () => {
+const Homepage = ({ nav, setNav }) => {
+  const handleNav = () => {
+    setNav(!nav);
+  };
   return (
-    <div>
+    <div onClick={handleNav}>
       <Hero />
       <Services />
       <Features />
