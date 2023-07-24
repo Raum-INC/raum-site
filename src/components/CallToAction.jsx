@@ -1,6 +1,6 @@
 import React from "react";
 import "../index.css";
-import Assets from "../assets";
+import { Assets } from "../assets";
 
 const CallToAction = () => {
   return (

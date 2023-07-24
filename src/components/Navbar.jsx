@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import Assets from "../assets";
+import { Assets } from "../assets";
 import "../index.css";
 import { HiMenu } from "react-icons/hi";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [nav, setNav] = useState(false);
@@ -12,35 +13,37 @@ const Navbar = () => {
 
   return (
     <header>
-      <nav className="w-full p-8 md:px-12 flex justify-between items-center">
-        <img src={Assets.raumLogo} alt="Logo" />
+      <nav className="w-full p-8 md:px-12 flex justify-between items-center relative z-40">
+        <Link to="/">
+          <img src={Assets.raumLogo} alt="Logo" />
+        </Link>
         <div className="relative">
           <div className="hidden md:flex">
             <ul className="w-full flex justify-center items-center gap-5">
               <li className="">
-                <a className="p-3" href="#">
+                <Link to="#" className="p-3" href="#">
                   Features
-                </a>
+                </Link>
               </li>
               <li className="">
-                <a className="p-3" href="#">
+                <Link to="#" className="p-3" href="#">
                   Enterprise
-                </a>
+                </Link>
               </li>
               <li className="">
-                <a className="p-3" href="#">
+                <Link to="#" className="p-3" href="#">
                   Pricing
-                </a>
+                </Link>
               </li>
               <li className=" whitespace-nowrap">
-                <a className="p-3" href="#">
+                <Link to="/about" className="p-3" href="#">
                   About Us
-                </a>
+                </Link>
               </li>
               <li className="p-3 px-10 bg-white text-black font-medium rounded-full w-full text-center">
-                <a className="" href="#">
+                <Link to="#" className="" href="#">
                   Join Us
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -56,29 +59,29 @@ const Navbar = () => {
           }
         >
           <li className="p-2">
-            <a className="p-3" href="#">
+            <Link to="#" className="p-3" href="#">
               Features
-            </a>
+            </Link>
           </li>
           <li className="p-2">
-            <a className="p-3" href="#">
+            <Link to="#" className="p-3" href="#">
               Enterprise
-            </a>
+            </Link>
           </li>
           <li className="p-2">
-            <a className="p-3" href="#">
+            <Link to="#" className="p-3" href="#">
               Pricing
-            </a>
+            </Link>
           </li>
           <li className="p-2">
-            <a className="p-3" href="#">
+            <Link to="/about" className="p-3" href="#">
               About Us
-            </a>
+            </Link>
           </li>
           <li className="p-2 bg-white text-black font-medium rounded-full w-full text-center">
-            <a className="" href="#">
+            <Link to="#" className="" href="#">
               Join Us
-            </a>
+            </Link>
           </li>
         </ul>
       </nav>

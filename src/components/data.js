@@ -1,4 +1,4 @@
-import Assets from "../assets";
+import { Assets } from "../assets";
 
 const { services_build, services_40, sustainable, betterliving, transforming } =
   Assets;
@@ -89,5 +89,42 @@ export const faqs = [
   {
     title: "Can I reserve an office for a whole year?",
     description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit id venenatis pretium risus euismod dictum egestas orci netus feugiat ut egestas ut sagittis tincidunt phasellus elit etiam cursus orci in. Id sed montes. `,
+  },
+];
+
+export const MetricsData = [
+  {
+    id: 1,
+    title: "Our numbers",
+    description:
+      "Aliquam at sapien orci tristique tristique et vel eu adipiscing consectetur adipiscing egestas adipiscing nulla diam Id nec amet mollis donec mauris viverra nunc pellentesque.",
+  },
+  {
+    id: 2,
+    title: "200+",
+    subtitle: "Offices around the world",
+    description:
+      "Semper consequat quis dolor sit sollicitudin et neque odio integer a vel scelerisque pharetra.",
+  },
+  {
+    id: 3,
+    title: "100+",
+    subtitle: "Events & activities",
+    description:
+      "Habitant suscipit quis et tellus amet ultricies dignissim rutrumol maecenas vulputate vestibulum.",
+  },
+  {
+    id: 4,
+    title: "10K+",
+    subtitle: "Customers",
+    description:
+      "Semper consequat quis dolor sit sollicitudin et neque odio integer a vel scelerisque pharetra.",
+  },
+  {
+    id: 5,
+    title: "99.9%",
+    subtitle: "Customer satisfaction",
+    description:
+      "Habitant suscipit quis et tellus amet ultricies dignissim rutrumol maecenas vulputate vestibulum.",
   },
 ];

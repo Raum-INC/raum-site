@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Assets from "../assets";
+import { Assets } from "../assets";
 import { faqs } from "./data";
 
 const Faqs = () => {

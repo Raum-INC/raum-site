@@ -4,7 +4,6 @@ import Services from "../components/Services";
 import Features from "../components/Features";
 import CallToAction from "../components/CallToAction";
 import Faqs from "../components/Faqs";
-import Waitlist from "../components/Waitlist";
 
 const Homepage = () => {
   return (
@@ -14,7 +13,6 @@ const Homepage = () => {
       <Features />
       <CallToAction />
       <Faqs />
-      <Waitlist />
     </div>
   );
 };

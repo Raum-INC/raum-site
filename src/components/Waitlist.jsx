@@ -1,34 +1,9 @@
 import React, { useState } from "react";
 
-import axios from "axios";
-
 const Waitlist = () => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
-  const [message, setMessage] = useState("");
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    try {
-      const response = await axios.post(
-        "https://gmail.us13.list-manage.com/subscribe/post?u=946cfc9cb47b3cdfcec580292&id=e2b8a86ef0&f_id=00228ae5f0",
-        {
-          firstName: firstName,
-          lastName: lastName,
-          email: email,
-        }
-      );
-
-      if (response.status === 200) {
-        setMessage("You have succeeded bro");
-      }
-    } catch (error) {
-      setMessage("You have not succeeded bro");
-      console.error(error);
-    }
-  };
 
   return (
     <div className="w-full flex flex-col justify-center items-center m-4 mx-auto p-8 lg:py-20 gap-16">
@@ -98,9 +73,6 @@ const Waitlist = () => {
         type="text/javascript"
         src="//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js"
       ></script>
-
-      {/* Display the message */}
-      {message && <p>{message}</p>}
     </div>
   );
 };

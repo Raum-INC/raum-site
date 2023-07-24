@@ -1,4 +1,4 @@
-const Assets = {
+export const Assets = {
   raumLogo: require("../assets/raum_logo.svg").default,
   email: require("../assets/email_icon.svg").default,
   instagram: require("../assets/instagram.svg").default,
@@ -15,4 +15,15 @@ const Assets = {
   transforming: require("../assets/transforming.png"),
 };
 
-export default Assets;
+export const AboutUs = {
+  globeicon: require("../assets/globeicon.svg").default,
+  awardbadge: require("../assets/awardbadge.svg").default,
+  awardstar: require("../assets/awardstar.svg").default,
+  pincheck: require("../assets/pincheck.svg").default,
+  searchicon: require("../assets/searchicon.svg").default,
+  usersicon: require("../assets/usersicon.svg").default,
+  apartmentbuild: require("../assets/apartmentbuild.png"),
+  meetingroom: require("../assets/meetingroom.png"),
+  meetingroom2: require("../assets/meetingroom2.png"),
+  modernapartment: require("../assets/modernapartment.png"),
+};
