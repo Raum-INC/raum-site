@@ -15,7 +15,7 @@ const Features = () => {
             <h3 className="font-bold text-2xl md:text-6xl leading-8 md:leading-[58px] whitespace-pre">
               {feature.title}
             </h3>
-            <p className="font-normal text-base md:text-xl leading-8 text-justify">
+            <p className="font-normal text-base md:text-xl leading-8 text-left">
               {feature.description}
             </p>
             <a

@@ -7,7 +7,7 @@ import Faqs from "../components/Faqs";
 
 const Homepage = ({ nav, setNav }) => {
   const handleNav = () => {
-    setNav(!nav);
+    setNav(false);
   };
   return (
     <div onClick={handleNav}>

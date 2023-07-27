@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Assets } from "../assets";
 import "../index.css";
 import { HiMenu } from "react-icons/hi";
@@ -19,27 +19,28 @@ const Navbar = ({ nav, setNav }) => {
           <div className="hidden md:flex">
             <ul className="w-full flex justify-center items-center gap-5">
               <li className="">
-                <Link onClick={handleNav} to="#" className="p-3" href="#">
+                <Link onClick={handleNav} to="#" className="p-3">
                   Features
                 </Link>
               </li>
               <li className="">
-                <Link onClick={handleNav} to="#" className="p-3" href="#">
+                <Link onClick={handleNav} className="p-3">
                   Enterprise
                 </Link>
               </li>
-              <li className="">
-                <Link onClick={handleNav} to="#" className="p-3" href="#">
-                  Pricing
-                </Link>
-              </li>
               <li className=" whitespace-nowrap">
-                <Link onClick={handleNav} to="/about" className="p-3" href="#">
+                <Link onClick={handleNav} to="/about" className="p-3">
                   About Us
                 </Link>
               </li>
+              <li className="">
+                <Link onClick={handleNav} to="contact" className="p-3">
+                  Contact
+                </Link>
+              </li>
+
               <li className="p-3 px-10 bg-white text-black font-medium rounded-full w-full text-center">
-                <Link onClick={handleNav} to="#" className="" href="#">
+                <Link onClick={handleNav} to="joinus" className="">
                   Join Us
                 </Link>
               </li>
@@ -57,27 +58,28 @@ const Navbar = ({ nav, setNav }) => {
           }
         >
           <li className="p-2">
-            <Link onClick={handleNav} to="#" className="p-3" href="#">
+            <Link onClick={handleNav} to="#" className="p-3">
               Features
             </Link>
           </li>
           <li className="p-2">
-            <Link onClick={handleNav} to="#" className="p-3" href="#">
+            <Link onClick={handleNav} to="#" className="p-3">
               Enterprise
             </Link>
           </li>
           <li className="p-2">
-            <Link onClick={handleNav} to="#" className="p-3" href="#">
-              Pricing
-            </Link>
-          </li>
-          <li className="p-2">
-            <Link onClick={handleNav} to="/about" className="p-3" href="#">
+            <Link onClick={handleNav} to="/about" className="p-3">
               About Us
             </Link>
           </li>
+          <li className="p-2">
+            <Link onClick={handleNav} to="contact" className="p-3">
+              Contact
+            </Link>
+          </li>
+
           <li className="p-2 bg-white text-black font-medium rounded-full w-full text-center">
-            <Link onClick={handleNav} to="#" className="" href="#">
+            <Link onClick={handleNav} to="#" className="">
               Join Us
             </Link>
           </li>

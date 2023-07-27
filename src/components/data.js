@@ -1,4 +1,4 @@
-import { Assets } from "../assets";
+import { Assets, AboutUs } from "../assets";
 
 const { services_build, services_40, sustainable, betterliving, transforming } =
   Assets;
@@ -126,5 +126,50 @@ export const MetricsData = [
     subtitle: "Customer satisfaction",
     description:
       "Habitant suscipit quis et tellus amet ultricies dignissim rutrumol maecenas vulputate vestibulum.",
+  },
+];
+
+export const ValuesData = [
+  {
+    id: 1,
+    title: "Cutting-edge property management software",
+    description:
+      "Lorem ipsum dolor sit consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore",
+    image: AboutUs.awardbadge,
+  },
+  {
+    id: 2,
+    title: "A real estate investment platform for fractional ownership",
+    description:
+      "Lorem ipsum dolor sit consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore",
+    image: AboutUs.pincheck,
+  },
+  {
+    id: 3,
+    title: "Eco-friendly properties",
+    description:
+      "Lorem ipsum dolor sit consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore",
+    image: AboutUs.awardbadge,
+  },
+  {
+    id: 4,
+    title: "A virtual and augmented reality tour app",
+    description:
+      "Lorem ipsum dolor sit consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore",
+    image: AboutUs.searchicon,
+  },
+  {
+    id: 5,
+    title: "Accesibility",
+    description:
+      "Lorem ipsum dolor sit consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore",
+    image: AboutUs.globeicon,
+  },
+  {
+    id: 6,
+    title: "A co-sharing and short-term listing platform",
+    description:
+      "Lorem ipsum dolor sit consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore",
+    image: AboutUs.usersicon,
   },
 ];

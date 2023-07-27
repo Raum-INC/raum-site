@@ -22,6 +22,8 @@ export const AboutUs = {
   pincheck: require("../assets/pincheck.svg").default,
   searchicon: require("../assets/searchicon.svg").default,
   usersicon: require("../assets/usersicon.svg").default,
+  signature: require("../assets/signature.svg").default,
+  avatar: require("../assets/avatar.png"),
   apartmentbuild: require("../assets/apartmentbuild.png"),
   meetingroom: require("../assets/meetingroom.png"),
   meetingroom2: require("../assets/meetingroom2.png"),
