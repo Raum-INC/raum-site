@@ -14,7 +14,7 @@ const ContactUs = () => {
   return (
     <main className="w-full mx-auto h-auto md:h-screen flex flex-col md:flex-row items-center border-none">
       <div className="w-full md:w-3/5 h-full">
-        <div className="w-full md:w-5/6 h-full flex flex-col justify-center items-start gap-5 p-8 md:p-28">
+        <div className="w-full md:w-4/5 h-full flex flex-col justify-center items-start gap-5 p-8 md:p-28">
           <h1 className="text-2xl md:text-5xl font-bold">Get in touch</h1>
           <p className="text-base md:text-lg font-medium text-[#6c6c6c]">
             Do you have questions, comment, or a suggestion for us? Whether you
