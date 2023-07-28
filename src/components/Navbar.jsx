@@ -12,7 +12,7 @@ const Navbar = ({ nav, setNav }) => {
   return (
     <header>
       <nav className="w-full p-8 md:px-12 flex justify-between items-center relative z-40">
-        <Link to="/">
+        <Link to="/" onClick={() => setNav(false)}>
           <img src={Assets.raumLogo} alt="Logo" />
         </Link>
         <div className="relative">
