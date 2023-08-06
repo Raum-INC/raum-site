@@ -37,7 +37,7 @@ export const services = [
 
 export const features = [
   {
-    id: 1,
+    id: "odd",
     title: `We believe \nin sustainable living`,
     description: `Raum offers eco-friendly homes designed to reduce environmental impact, promoting a greener future for you and the planet.
     No two individuals are alike, and your housing needs shouldn't be either. With Raum, you'll receive personalized recommendations tailored to your preferences, ensuring you find a home that suits your lifestyle and requirements.`,
@@ -46,7 +46,7 @@ export const features = [
     alt: "features images",
   },
   {
-    id: 2,
+    id: "even",
     title: `The key to better\nliving`,
     description: `Raum offers eco-friendly homes designed to reduce environmental impact, promoting a greener future for you and the planet.
     No two individuals are alike, and your housing needs shouldn't be either. With Raum, you'll receive personalized recommendations tailored to your preferences, ensuring you find a home that suits your lifestyle and requirements.`,
@@ -55,7 +55,7 @@ export const features = [
     alt: "features images",
   },
   {
-    id: 3,
+    id: "odd",
     title: `Transforming the\nprocess`,
     description: `Raum offers eco-friendly homes designed to reduce environmental impact, promoting a greener future for you and the planet.
     No two individuals are alike, and your housing needs shouldn't be either. With Raum, you'll receive personalized recommendations tailored to your preferences, ensuring you find a home that suits your lifestyle and requirements.`,

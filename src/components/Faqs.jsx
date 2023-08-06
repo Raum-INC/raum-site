@@ -52,10 +52,14 @@ const Faqs = () => {
             )}
           </div>
           <div className="w-full flex justify-start items-start flex-col gap-4">
-            <h4 className="font-bold text-base text-left">{faq.title}</h4>
+            <h4 className="font-bold text-xs md:text-lg text-left">
+              {faq.title}
+            </h4>
             {icons === index ? (
               <div className="flex transition-all ease-in-out duration-300">
-                <p className={"text-left text-sm"}>{faq.description}</p>
+                <p className="font-normal text-left text-[10px] md:text-base leading-[14px]">
+                  {faq.description}
+                </p>
               </div>
             ) : null}
           </div>

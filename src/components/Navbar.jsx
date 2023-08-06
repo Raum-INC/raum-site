@@ -11,9 +11,9 @@ const Navbar = ({ nav, setNav }) => {
 
   return (
     <header>
-      <nav className="w-full p-8 md:px-12 flex justify-between items-center relative z-40">
+      <nav className="w-full p-4 px-8 md:p-8 md:px-12 flex justify-between items-center relative z-40">
         <Link to="/" onClick={() => setNav(false)}>
-          <img src={Assets.raumLogo} alt="Logo" />
+          <img src={Assets.raumLogo} alt="Logo" className="w-14 md:w-auto" />
         </Link>
         <div className="relative">
           <div className="hidden md:flex">
@@ -48,12 +48,12 @@ const Navbar = ({ nav, setNav }) => {
           </div>
         </div>
         <div onClick={handleNav} className="p-2 block md:hidden">
-          <HiMenu size={25} />
+          <HiMenu size={20} />
         </div>
         <ul
           className={
             nav
-              ? "bg-primary w-4/5 mx-auto rounded-3xl p-4 flex flex-col justify-center items-center gap-3 absolute top-28 left-0 right-0 md:hidden"
+              ? "bg-primary w-4/5 mx-auto rounded-3xl p-4 flex flex-col justify-center items-center gap-3 absolute top-[70px] left-0 right-0 md:hidden"
               : "hidden"
           }
         >

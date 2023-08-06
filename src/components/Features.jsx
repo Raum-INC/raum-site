@@ -9,13 +9,13 @@ const Features = () => {
       {features.map((feature, index) => (
         <div
           key={index}
-          className="w-full border-primary rounded-3xl py-6 flex flex-col md:flex-row even:md:flex-row-reverse justify-between items-center gap-16"
+          className="w-full border-primary py-6 flex flex-col-reverse md:flex-row even:md:flex-row-reverse justify-between items-center gap-8 "
         >
-          <div className="md:w-1/2 flex flex-col gap-5 md:gap-10">
-            <h3 className="font-bold text-2xl md:text-6xl leading-8 md:leading-[58px] whitespace-pre">
+          <div className="md:w-1/2 flex flex-col gap-3 md:gap-7">
+            <h3 className="font-bold text-3xl md:text-5xl leading-8 md:leading-[58px] whitespace-pre">
               {feature.title}
             </h3>
-            <p className="font-normal text-base md:text-xl leading-8 text-left">
+            <p className="font-normal text-sm md:text-lg leading-7 md:leading-8 text-left">
               {feature.description}
             </p>
             <a
@@ -25,13 +25,18 @@ const Features = () => {
               Know more <BsArrowRight className="ml-4" size={20} />
             </a>
           </div>
-          <div className="md:w-1/2">
-            <img
-              src={feature.image}
-              alt={feature.alt}
-              className="w-auto md:w-4/5 mx-auto md:p-4"
-            />
-          </div>
+          <img
+            key={feature.id}
+            src={feature.image}
+            alt={feature.alt}
+            className={
+              feature.id === "odd"
+                ? "w-full md:w-[400px] rounded-3xl md:border-l-8 border-primary"
+                : feature.id === "even"
+                ? "w-full md:w-[400px] rounded-3xl md:border-r-8 border-primary"
+                : ""
+            }
+          />
         </div>
       ))}
     </main>
