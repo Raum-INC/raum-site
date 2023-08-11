@@ -12,9 +12,9 @@ import "../../index.css";
 
 const ContactUs = () => {
   return (
-    <main className="w-full mx-auto h-auto md:h-screen flex flex-col md:flex-row items-center border-none">
-      <div className="w-full md:w-3/5 h-full">
-        <div className="w-full md:w-4/5 h-full flex flex-col justify-center items-start gap-5 p-8 md:p-28">
+    <main className="w-full mx-auto h-auto md:h-screen flex flex-col md:flex-row justify-center items-center">
+      <div className="w-full md:w-3/5 h-[650px] md:h-full">
+        <div className="w-full md:w-4/5 h-full flex flex-col justify-start items-start gap-5 p-8 md:p-28">
           <h1 className="text-2xl md:text-5xl font-bold">Get in touch</h1>
           <p className="text-base md:text-lg font-medium text-[#6c6c6c]">
             Do you have questions, comment, or a suggestion for us? Whether you
@@ -22,13 +22,13 @@ const ContactUs = () => {
             to hear from you
           </p>
           <div className="flex gap-3">
-            <CiMail />
+            <CiMail className="mt-1" />
             <p className="flex flex-col gap-1 text-base md:text-lg">
               Email <span className="text-[#6c6c6c]">info@raumgroup.io</span>
             </p>
           </div>
           <div className="flex gap-3">
-            <BsTelephone />
+            <BsTelephone className="mt-1" />
             <p className="flex flex-col gap-1 text-base md:text-lg">
               Phone <span className="text-[#6c6c6c]">+234 814 822 8901</span>
             </p>
@@ -45,12 +45,12 @@ const ContactUs = () => {
           </div>
         </div>
       </div>
-      <div className="w-full md:w-2/5 h-full flex p-8 bg-white text-black relative">
-        <div className="md:absolute top-10 left-[-190px] w-full h-full mx-auto md:w-[600px] md:h-[90%] bg-white rounded-3xl drop-shadow-about">
-          <div className="p-8 py-10 w-full h-full flex flex-col justify-center items-center">
+      <div className="w-full md:w-2/5 h-[700px] md:h-full bg-white md:relative">
+        <div className="absolute left-0 right-0 top-[550px] md:top-10 md:left-[-190px] w-11/12 h-[800px] mx-auto md:w-[600px] md:h-[90%] bg-white rounded-3xl drop-shadow-about">
+          <div className="w-full h-full flex flex-col justify-center items-center">
             <form
               action=""
-              className="w-full flex flex-col md:grid md:grid-cols-2 gap-5"
+              className="p-8 py-10 w-full flex flex-col md:grid md:grid-cols-2 gap-5"
             >
               <label
                 htmlFor=""
@@ -61,7 +61,7 @@ const ContactUs = () => {
                   type="text"
                   name="FName"
                   placeholder="Full Name"
-                  className="p-4 border-[1px] border-[#6C6C6C] text-[#6c6c6c] rounded-full outline-none"
+                  className="placeholder:font-normal p-4 border-[1px] border-[##F1F1F1] text-[##F1F1F1] rounded-full outline-none"
                 />
               </label>
               <label
@@ -73,7 +73,7 @@ const ContactUs = () => {
                   type="email"
                   name="Email"
                   placeholder="Email"
-                  className="p-4 border-[1px] border-[#6C6C6C] text-[#6c6c6c] rounded-full outline-none"
+                  className="placeholder:font-normal p-4 border-[1px] border-[##F1F1F1] text-[##F1F1F1] rounded-full outline-none"
                 />
               </label>
               <label
@@ -85,7 +85,7 @@ const ContactUs = () => {
                   type="tel"
                   name="Phone_Number"
                   placeholder="Phone"
-                  className="p-4 border-[1px] border-[#6C6C6C] text-[#6c6c6c] rounded-full outline-none"
+                  className="placeholder:font-normal p-4 border-[1px] border-[##F1F1F1] text-[##F1F1F1] rounded-full outline-none"
                 />
               </label>
               <label
@@ -97,7 +97,7 @@ const ContactUs = () => {
                   type="text"
                   name="Subject"
                   placeholder="Subject"
-                  className="p-4 border-[1px] border-[#6C6C6C] text-[#6c6c6c] rounded-full outline-none"
+                  className="placeholder:font-normal p-4 border-[1px] border-[##F1F1F1] text-[##F1F1F1] rounded-full outline-none"
                 />
               </label>
               <label htmlFor="" className="col-span-2 flex flex-col gap-2">
@@ -107,7 +107,7 @@ const ContactUs = () => {
                   id=""
                   cols="30"
                   rows="10"
-                  className="w-full h-28 p-2 border-[1px] border-[#6C6C6C] text-[#6c6c6c] rounded-xl outline-none resize-none overflow-hidden"
+                  className="placeholder:font-normal w-full h-28 p-2 border-[1px] border-[##F1F1F1] text-[##F1F1F1] rounded-xl outline-none resize-none overflow-hidden"
                 ></textarea>
               </label>
               <input

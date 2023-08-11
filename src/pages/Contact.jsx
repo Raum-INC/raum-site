@@ -7,7 +7,10 @@ const Contact = ({ nav, setNav }) => {
     setNav(false);
   };
   return (
-    <div onClick={handleNav}>
+    <div
+      className="flex flex-col space-y-[-2px] md:space-y-0"
+      onClick={handleNav}
+    >
       <ContactUs />
       <Visit />
     </div>

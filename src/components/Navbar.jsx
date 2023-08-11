@@ -3,6 +3,7 @@ import { Assets } from "../assets";
 import "../index.css";
 import { HiMenu } from "react-icons/hi";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 const Navbar = ({ nav, setNav }) => {
   const handleNav = () => {
@@ -10,7 +11,11 @@ const Navbar = ({ nav, setNav }) => {
   };
 
   return (
-    <header>
+    <motion.header
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 1.5 }}
+    >
       <nav className="w-full p-4 px-8 md:p-8 md:px-12 flex justify-between items-center relative z-40">
         <Link to="/" onClick={() => setNav(false)}>
           <img src={Assets.raumLogo} alt="Logo" className="w-14 md:w-auto" />
@@ -85,7 +90,7 @@ const Navbar = ({ nav, setNav }) => {
           </li>
         </ul>
       </nav>
-    </header>
+    </motion.header>
   );
 };
 
