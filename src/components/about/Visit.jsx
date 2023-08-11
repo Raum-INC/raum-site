@@ -7,8 +7,8 @@ import "../../index.css";
 const Visit = () => {
   return (
     <main className="bg-white md:bg-[#F9F9F9] text-black w-full md:max-w-10/12 mx-auto h-auto md:h-screen py-14 md:py-36 md:px-12 flex flex-col justify-center items-center gap-12">
-      <div className=" flex flex-col md:flex-row justify-between items-center gap-5">
-        <div className="md:w-1/2 flex flex-col gap-3 justify-center items-start">
+      <div className="flex flex-col md:flex-row justify-between items-center gap-5">
+        <div className="md:w-1/2 w-10/12 flex flex-col gap-3 justify-start items-start">
           <h1 className="font-bold text-2xl md:text-4xl text-[#121212]">
             Come and visit our
             <br /> amazing office
