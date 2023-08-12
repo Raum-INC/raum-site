@@ -18,7 +18,7 @@ body {
   background: linear-gradient(180deg, rgba(0, 0, 0, 0.00) 40%, rgba(0, 0, 20, 0.9) 65%, #00F 120%);
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
   .drop_shadow {
     box-shadow: 0px 2px 6px 0px rgba(18, 18, 19, 0.06);
   }

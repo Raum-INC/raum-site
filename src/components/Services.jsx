@@ -3,7 +3,7 @@ import { services } from "./data";
 
 const Services = () => {
   return (
-    <main className="w-full mt-40 md:mt-20 p-8 py-12 md:px-12 flex flex-col gap-10">
+    <main className="w-full mt-10 md:mt-20 p-8 py-12 md:px-12 flex flex-col gap-10">
       {services.map((service, index) => (
         <>
           <div className="hidden md:block">
