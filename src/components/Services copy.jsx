@@ -1,25 +1,7 @@
 import React from "react";
 import { services } from "./data";
-import { motion } from "framer-motion";
 
 const Services = () => {
-  const textVariant = {
-    hidden: { opacity: 0, x: -30 },
-    visible: {
-      opacity: 1,
-      x: 0,
-      transition: { duration: 2, ease: "easeInOut" },
-    },
-  };
-
-  const svgVariant = {
-    hidden: { opacity: 0, x: 30 },
-    visible: {
-      opacity: 1,
-      x: 0,
-      transition: { duration: 2, ease: "easeInOut" },
-    },
-  };
   return (
     <main className="w-full mt-10 md:mt-20 p-8 py-12 md:px-12 flex flex-col gap-10">
       {services.map((service, index) => (
@@ -29,27 +11,19 @@ const Services = () => {
               className="w-full p-4 md:p-8 border-2 border-primary rounded-3xl flex flex-col-reverse md:flex-row gap-5"
               key={index}
             >
-              <motion.div
-                variants={textVariant}
-                initial="hidden"
-                whileInView="visible"
-                className="md:w-1/2 flex flex-col justify-between gap-20"
-              >
+              <div className="md:w-1/2 flex flex-col justify-between gap-20">
                 <p className="text-base md:text-xl text-[#E4E4E4]">
                   {service.description}
                 </p>
                 <h2 className="text-xl md:text-5xl md:leading-[58px]">
                   {service.title}
                 </h2>
-              </motion.div>
-              <div className="md:w-1/2 flex justify-end items-end">
-                <motion.img
-                  variants={svgVariant}
-                  initial="hidden"
-                  whileInView="visible"
+              </div>
+              <div className="md:w-1/2 ">
+                <img
                   src={service.image}
                   alt={service.alt}
-                  className="w-[300px] h-[300px] md:w-[400px] md:h-[400px]"
+                  className="w-[300px] h-[300px] md:w-[400px] md:h-[400px] mx-auto p-4"
                 />
               </div>
             </div>

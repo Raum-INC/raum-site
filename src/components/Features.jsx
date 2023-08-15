@@ -5,7 +5,7 @@ import "../index.css";
 
 const Features = () => {
   return (
-    <main className="w-full p-8 py-12 md:px-12 flex flex-col justify-between gap-20">
+    <main className="w-full p-8 py-12 md:px-12 flex flex-col-reverse justify-between gap-20">
       {features.map((feature, index) => (
         <div
           key={index}

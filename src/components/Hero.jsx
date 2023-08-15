@@ -11,13 +11,12 @@ const Hero = () => {
           your next <span className="text-primary">Stay</span>
         </h1>
         <p className="text-center leading-5 text-fade text-xs md:text-2xl">
-          We believe that everyone deserves a safe, affordable, and sustainable
-          home.
+          Discover Your Perfect Stay with Raum, Your All-In-One Real Estate App.
           <br />
-          With our groundbreaking platform powered by blockchain, artificial
-          intelligence,
-          <br className="hidden" /> and machine learning, we're transforming the
-          way you access housing solutions in Nigeria.
+          Book Short-Term Rentals, Find Your Dream Home, and Connect with a
+          Thriving Community.
+          <br />
+          Your Home, Your Experience, Your Social Hub.
         </p>
         <Link to="/about" className="p-3 px-8 md:px-16 bg-primary rounded-3xl">
           Join the future

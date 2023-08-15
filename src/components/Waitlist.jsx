@@ -12,8 +12,8 @@ const Waitlist = () => {
           className="font-semibold text-3xl  lg:text-6xl md:leading-[108px] text-center"
           style={{ lineHeight: "1" }}
         >
-          The Future of
-          <br /> Sustainable Living
+          Join us in creating sustainable spaces
+          <br /> for life, not just living
         </h1>
         <p className="font-[400] text-sm text-center md:text-lg leading-6 p-4">
           Join our waitlist and be part of the dawn of a new era in Health.

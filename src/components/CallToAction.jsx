@@ -9,14 +9,18 @@ const CallToAction = () => {
       <div className="ctaGradient p-4 w-full h-full rounded-[50px] flex flex-col justify-center items-center gap-5 relative overflow-hidden">
         <div className="flex flex-col justify-center items-center gap-5 z-10 text-center mb-24 sm:mb-36">
           <h3 className="font-semibold text-2xl md:text-5xl">
-            Let's take you on a journey into the future of housing
+            Don't miss out on the latest updates in the real estate industry and
+            other exciting news from us.
           </h3>
           <p className="">
-            Raum offers eco-friendly homes designed to reduce environmental
-            impact, promoting a greener future for you and the planet.
+            Want to keep up with trending topics on sustainable living and
+            estate management? Read our blog to stay in the loop.
           </p>
-          <Link to="" className="p-3 px-16 bg-white text-black rounded-3xl">
-            Join the future
+          <Link
+            to="/blog"
+            className="p-3 px-16 bg-white text-black rounded-3xl"
+          >
+            Visit our blog
           </Link>
         </div>
         <img

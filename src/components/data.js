@@ -5,31 +5,23 @@ const { services_build, services_40, sustainable, betterliving, transforming } =
 
 export const services = [
   {
-    id: 1,
-    title: "4/5 people encounter issues renting houses in Nigeria.",
-    description: `Finding a suitable home that is affordable, sustainable,
-    and tailored to your unique needs can be a daunting task.
-    The traditional housing market often falls short, with
-    limited options, skyrocketing costs, and a lack of consideration
-    for environmental impact.`,
+    id: 0,
+    title: `Short-Term Rentals`,
+    description: `with this service you can explore, book, and easily enjoy access to affordable, sustainable and trendy short lets properties anywhere in Nigeria. `,
     image: services_build,
     alt: "raum_services_image1",
   },
   {
-    id: 2,
-    title: "40% are left dissatisfied after their purchase.",
-    description: `Don't settle for less when it comes to your home.
-    With Raum, you have the power to find affordable,
-    sustainable, and personalized housing options that align with your values and aspirations.`,
+    id: 1,
+    title: `Property management application`,
+    description: `For property owners, we offer a unique solution for managing your single or multiple properties using our personalised hosting application. Scale your business, increase revenue and make more informed decisions about your properties. `,
     image: services_40,
     alt: "raum_services_image2",
   },
   {
-    id: 3,
-    title: "40% are left dissatisfied after their purchase.",
-    description: `Don't settle for less when it comes to your home.
-    With Raum, you have the power to find affordable,
-    sustainable, and personalized housing options that align with your values and aspirations.`,
+    id: 2,
+    title: `Real Estate Acquisition Platform`,
+    description: `At an advanced level, we offer premium access to kickstart boost and promote your real estate journey by providing  offering to gain landed properties, long term rentals, shared investments and ai powered recommendations  `,
     image: services_40,
     alt: "raum_services_image3",
   },
@@ -39,17 +31,15 @@ export const features = [
   {
     id: "odd",
     title: `We believe \nin sustainable living`,
-    description: `Raum offers eco-friendly homes designed to reduce environmental impact, promoting a greener future for you and the planet.
-    No two individuals are alike, and your housing needs shouldn't be either. With Raum, you'll receive personalized recommendations tailored to your preferences, ensuring you find a home that suits your lifestyle and requirements.`,
+    description: `Join us in shaping a greener tomorrow, where sustainability meets modern living. We support sustainable living and property features that encourages the use of eco-friendly products, efficient water use, proper waste disposal, solar powered operations and a tight-knit community. Discover our eco-friendly properties and experience the future of real estate`,
     image: sustainable,
     link: "#",
     alt: "features images",
   },
   {
     id: "even",
-    title: `The key to better\nliving`,
-    description: `Raum offers eco-friendly homes designed to reduce environmental impact, promoting a greener future for you and the planet.
-    No two individuals are alike, and your housing needs shouldn't be either. With Raum, you'll receive personalized recommendations tailored to your preferences, ensuring you find a home that suits your lifestyle and requirements.`,
+    title: `The key to Secure\nInvestment`,
+    description: `No two individuals are alike, and your Real estate needs shouldn't be either. We provide you with your personalised real estate growth approach by enabling top class property management, verified listings, and the use of IOT(internet of things)`,
     image: betterliving,
     link: "#",
     alt: "features images",
@@ -57,8 +47,7 @@ export const features = [
   {
     id: "odd",
     title: `Transforming the\nprocess`,
-    description: `Raum offers eco-friendly homes designed to reduce environmental impact, promoting a greener future for you and the planet.
-    No two individuals are alike, and your housing needs shouldn't be either. With Raum, you'll receive personalized recommendations tailored to your preferences, ensuring you find a home that suits your lifestyle and requirements.`,
+    description: `We serve as the medium to intersect technology, realty and sustainable living leveraging AR/VR, IOT(internet of things) and Ai to transform world of Real Estate in Africa and globally. `,
     image: transforming,
     link: "#",
     alt: "features images",
@@ -132,44 +121,52 @@ export const MetricsData = [
 export const ValuesData = [
   {
     id: 1,
-    title: "Cutting-edge property management software",
-    description:
-      "Lorem ipsum dolor sit consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore",
+    title: "Customer-Centric",
+    description: `Our customers are at the heart of everything we do. We strive to exceed their expectations and provide exceptional service while building lasting trust.`,
     image: AboutUs.awardbadge,
   },
   {
     id: 2,
-    title: "A real estate investment platform for fractional ownership",
-    description:
-      "Lorem ipsum dolor sit consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore",
+    title: "Innovation",
+    description: `We embrace cutting-edge technology and creative solutions to constantly redefine and improve the living experience for our customers.`,
     image: AboutUs.pincheck,
   },
   {
     id: 3,
-    title: "Eco-friendly properties",
-    description:
-      "Lorem ipsum dolor sit consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore",
+    title: "Sustainability",
+    description: `We are committed to shaping a greener future by prioritizing sustainable and environmentally friendly practices in every aspect of our business.`,
     image: AboutUs.awardbadge,
   },
   {
     id: 4,
-    title: "A virtual and augmented reality tour app",
-    description:
-      "Lorem ipsum dolor sit consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore",
+    title: "Transparency",
+    description: `We believe in open and honest communication with our customers, partners, and team members, fostering trust and authenticity.`,
     image: AboutUs.searchicon,
   },
   {
     id: 5,
-    title: "Accesibility",
-    description:
-      "Lorem ipsum dolor sit consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore",
+    title: "Empowerment",
+    description: ` We empower our community to make informed decisions about their living spaces, whether it's booking a short-term rental or finding their dream home, fostering a supportive and inclusive terrain`,
     image: AboutUs.globeicon,
   },
   {
     id: 6,
-    title: "A co-sharing and short-term listing platform",
-    description:
-      "Lorem ipsum dolor sit consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore",
+    title: "Collaboration",
+    description: `We value collaboration and partnerships, both internally and externally, to achieve common goals and create mutual success built on trust.`,
     image: AboutUs.usersicon,
+  },
+];
+
+export const experienceData = [
+  {
+    id: 0,
+    title: "Our Vision",
+    description: `Our vision is to revolutionize the real estate industry by helping individuals, businesses and societies attain their realty goals, objectives and dreams.
+      `,
+  },
+  {
+    id: 1,
+    title: "Our Mission",
+    description: `We commit to providing sustainable real estate  solutions geared at reducing the burden of housing and property issues encountered by over 80% of the population down by 50% by 2030. Ultimately, our success will translate to fostering lifelong real estate acquisition, one building at a time!`,
   },
 ];

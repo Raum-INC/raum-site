@@ -50,7 +50,7 @@ const Navbar = ({ nav, setNav }) => {
             <img
               src={Assets.raumLogo}
               alt="Logo"
-              className="w-full md:w-auto"
+              className="w-full md:w-aufto"
             />
           </Link>
         </button>

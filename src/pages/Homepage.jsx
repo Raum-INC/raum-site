@@ -4,6 +4,7 @@ import Services from "../components/Services";
 import Features from "../components/Features";
 import CallToAction from "../components/CallToAction";
 import Faqs from "../components/Faqs";
+import Tester from "../components/Tester";
 
 const Homepage = ({ nav, setNav }) => {
   const handleNav = () => {
@@ -11,6 +12,7 @@ const Homepage = ({ nav, setNav }) => {
   };
   return (
     <div onClick={handleNav}>
+      {/* <Tester /> */}
       <Hero />
       <Services />
       <Features />
