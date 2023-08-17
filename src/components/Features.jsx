@@ -9,7 +9,7 @@ const Features = () => {
       {features.map((feature, index) => (
         <div
           key={index}
-          className="w-full border-primary py-6 flex flex-col-reverse md:flex-row even:md:flex-row-reverse justify-between items-center gap-8 "
+          className="w-full md:h-screen border-primary py-6 flex flex-col-reverse md:flex-row even:md:flex-row-reverse justify-between items-center gap-8 "
         >
           <div className="md:w-1/2 flex flex-col gap-3 md:gap-7">
             <h3 className="font-bold text-3xl md:text-5xl leading-8 md:leading-[58px] whitespace-pre">

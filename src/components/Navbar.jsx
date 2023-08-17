@@ -45,13 +45,9 @@ const Navbar = ({ nav, setNav }) => {
   return (
     <motion.header variants={navbarVariant} initial="hidden" animate="visible">
       <nav className="w-full p-4 px-8 md:p-8 md:px-12 flex justify-between items-center relative z-40">
-        <button className="w-20 py-4">
+        <button className="py-4">
           <Link to="/" onClick={() => setNav(false)}>
-            <img
-              src={Assets.raumLogo}
-              alt="Logo"
-              className="w-full md:w-aufto"
-            />
+            <img src={Assets.raumLogo} alt="Logo" className="w-full" />
           </Link>
         </button>
         <div className="relative">
