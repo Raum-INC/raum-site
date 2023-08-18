@@ -14,11 +14,11 @@ const Navbar = ({ nav, setNav }) => {
   const navbarVariant = {
     hidden: {
       opacity: 0,
-      y: "-10vw",
+      translateY: -50,
     },
     visible: {
       opacity: 1,
-      y: 0,
+      translateY: 0,
       transition: {
         type: "spring",
         stiffness: 30,
