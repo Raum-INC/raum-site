@@ -1,12 +1,32 @@
 import React, { useState } from "react";
+import { motion } from "framer-motion";
 
 const Waitlist = () => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
 
+  const waitlistVariant = {
+    hidden: {
+      opacity: 0,
+    },
+    visible: {
+      opacity: 1,
+      transition: {
+        duration: 1,
+        ease: "easeInOut",
+      },
+    },
+  };
+
   return (
-    <div className="w-full flex flex-col justify-center items-center mx-auto p-8 lg:py-20 gap-16">
+    <motion.div
+      variants={waitlistVariant}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
+      className="w-full flex flex-col justify-center items-center mx-auto p-8 lg:py-20 gap-16"
+    >
       <div className="flex flex-col gap-6 md:gap-11">
         <h1
           className="font-semibold text-3xl  lg:text-6xl md:leading-[108px] text-center"
@@ -73,7 +93,7 @@ const Waitlist = () => {
         type="text/javascript"
         src="//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js"
       ></script>
-    </div>
+    </motion.div>
   );
 };
 

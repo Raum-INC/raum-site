@@ -40,6 +40,7 @@ const Services = () => {
               key={index}
             >
               <motion.div
+                viewport={{ once: true }}
                 variants={textVariant}
                 initial="hidden"
                 whileInView="visible"
@@ -54,6 +55,7 @@ const Services = () => {
               </motion.div>
               <div className="md:w-1/2 flex justify-end items-end">
                 <motion.img
+                  viewport={{ once: true }}
                   variants={svgVariant}
                   initial="hidden"
                   whileInView="visible"
@@ -67,6 +69,7 @@ const Services = () => {
           {/* mobile  */}
           <div className="block md:hidden">
             <motion.div
+              viewport={{ once: true }}
               variants={mobileVariant}
               initial="hidden"
               whileInView="visible"

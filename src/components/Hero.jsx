@@ -8,6 +8,7 @@ const Hero = () => {
       opacity: 1,
       translateY: 0,
       transition: {
+        delay: 0.3,
         type: "spring",
         stiffness: 30,
         duration: 2,
@@ -22,7 +23,7 @@ const Hero = () => {
     <motion.main
       variants={componentVariant}
       initial="hidden"
-      whileInView="visible"
+      animate="visible"
       className="w-full h-[400px] md:h-screen p-8 md:px-12 flex justify-center items-center"
     >
       <div className="flex flex-col justify-center items-center gap-8">

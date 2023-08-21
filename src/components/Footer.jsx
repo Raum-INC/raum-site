@@ -1,9 +1,30 @@
 import React from "react";
 import { Assets } from "../assets";
+import { motion } from "framer-motion";
 
 const Footer = () => {
+  const footerVariant = {
+    hidden: {
+      opacity: 0,
+      translateY: 50,
+    },
+    visible: {
+      opacity: 1,
+      translateY: 0,
+      transition: {
+        duration: 1,
+        type: "spring",
+        stiffness: 30,
+      },
+    },
+  };
   return (
-    <footer>
+    <motion.footer
+      variants={footerVariant}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
+    >
       <div className="w-full mx-auto flex flex-col lg:flex-row justify-between gap-y-6 p-8 my-12">
         <div>
           <img src={Assets.raumLogo} alt="raum-logo" />
@@ -53,7 +74,7 @@ const Footer = () => {
           Copyright © 2023 Raum. All rights reserved
         </p>
       </div>
-    </footer>
+    </motion.footer>
   );
 };
 

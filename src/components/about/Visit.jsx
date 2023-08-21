@@ -3,10 +3,30 @@ import { AboutUs } from "../../assets";
 import { BsChevronLeft, BsChevronRight, BsTelephone } from "react-icons/bs";
 import { CiMail, CiLocationOn } from "react-icons/ci";
 import "../../index.css";
+import { motion } from "framer-motion";
 
 const Visit = () => {
+  const containerVariant = {
+    hidden: {
+      opacity: 0,
+    },
+    visible: {
+      opacity: 1,
+      transition: {
+        duration: 1.2,
+        ease: "easeInOut",
+      },
+    },
+  };
+
   return (
-    <main className="bg-transparent md:bg-white lg:bg-[#F9F9F9] text-black w-full lg:max-w-10/12 mx-auto h-auto lg:h-screen py-14 lg:py-36 lg:px-12 flex flex-col justify-center items-center gap-12">
+    <motion.main
+      variants={containerVariant}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
+      className="bg-transparent md:bg-white lg:bg-[#F9F9F9] text-black w-full lg:max-w-10/12 mx-auto h-auto lg:h-screen py-14 lg:py-36 lg:px-12 flex flex-col justify-center items-center gap-12"
+    >
       <div className="flex flex-col lg:flex-row justify-between items-center gap-5">
         <div className="lg:w-1/2 w-10/12 flex flex-col gap-3 justify-start items-start">
           <h1 className="font-bold text-2xl lg:text-4xl text-white md:text-black">
@@ -49,7 +69,7 @@ const Visit = () => {
           </div>
         </div>
       </div>
-    </main>
+    </motion.main>
   );
 };
 

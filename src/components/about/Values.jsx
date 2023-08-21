@@ -1,10 +1,45 @@
 import React from "react";
 import { ValuesData } from "../data";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 const Values = () => {
+  const containerVariant = {
+    hidden: {
+      opacity: 0,
+    },
+    visible: {
+      opacity: 1,
+      transition: {
+        duration: 1,
+        ease: "easeInOut",
+      },
+    },
+  };
+
+  const valuesVariant = {
+    hidden: {
+      opacity: 0,
+      translateX: -50,
+    },
+    visible: {
+      opacity: 1,
+      translateX: 0,
+      transition: {
+        duration: 1,
+        ease: "easeInOut",
+        delay: 0.4,
+      },
+    },
+  };
   return (
-    <main className="w-full md:max-w-10/12 mx-auto h-auto py-14 md:py-36 md:px-12  flex flex-col justify-center items-center gap-12 bg-white md:bg-transparent">
+    <motion.main
+      variants={containerVariant}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
+      className="w-full md:max-w-10/12 mx-auto h-auto py-14 md:py-36 md:px-12  flex flex-col justify-center items-center gap-12 bg-white md:bg-transparent"
+    >
       <div className="flex flex-col justify-center items-center gap-5 p-8">
         <h3 className="text-black text-center font-bold text-3xl md:text-[44px] md:leading-[52px]">
           The values that drive
@@ -17,10 +52,18 @@ const Values = () => {
           dolor amet
         </p>
       </div>
-      <div className="w-full mx-auto grid md:grid-cols-3 py-12 justify-center items-center md:gap-7">
+      <motion.div
+        variants={valuesVariant}
+        initial="hidden"
+        whileInView="visible"
+        className="w-full mx-auto grid md:grid-cols-3 py-12 justify-center items-center md:gap-7"
+      >
         {ValuesData.map((data, index) => {
           return (
-            <div
+            <motion.div
+              variants={valuesVariant}
+              whileInView="visible"
+              viewport={{ once: true }}
               key={index}
               className="w-full aspect-square mx-auto p-8 flex flex-col justify-center items-start gap-5 bg-white text-black border border-[#cbcbcb] rounded-lg"
             >
@@ -31,10 +74,10 @@ const Values = () => {
               <p className="font-medium text-[#6c6c6c] text-base md:text-lg">
                 {data.description}
               </p>
-            </div>
+            </motion.div>
           );
         })}
-      </div>
+      </motion.div>
       <div>
         <Link
           to="#"
@@ -43,7 +86,7 @@ const Values = () => {
           Browse office spaces
         </Link>
       </div>
-    </main>
+    </motion.main>
   );
 };
 

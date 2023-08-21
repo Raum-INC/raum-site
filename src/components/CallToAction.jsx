@@ -1,11 +1,56 @@
-import React from "react";
-import "../index.css";
+import React, { useEffect, useRef } from "react";
 import { Assets } from "../assets";
 import { Link } from "react-router-dom";
+import { motion, useAnimation, useInView } from "framer-motion";
+import "../index.css";
 
 const CallToAction = () => {
+  const ref = useRef(null);
+  const controls = useAnimation();
+  const isInView = useInView(ref);
+
+  useEffect(() => {
+    if (isInView) {
+      controls.start("visible");
+    }
+  }, [controls, isInView]);
+
+  const ctaVariant = {
+    hidden: {
+      opacity: 0,
+      translateY: 50,
+    },
+    visible: {
+      opacity: 1,
+      translateY: 0,
+    },
+  };
+
+  const ctaImage = {
+    hidden: {
+      opacity: 0,
+      translateY: -50,
+    },
+    visible: {
+      opacity: 1,
+      translateY: 0,
+      transition: {
+        delay: 0.5,
+        duration: 0.7,
+        type: "spring",
+        stiffness: 30,
+      },
+    },
+  };
+
   return (
-    <main className="w-full h-screen p-8 md:px-12 flex flex-col justify-between gap-20">
+    <motion.main
+      variants={ctaVariant}
+      initial="hidden"
+      animate={controls}
+      ref={ref}
+      className="w-full h-screen p-8 md:px-12 flex flex-col justify-between gap-20"
+    >
       <div className="ctaGradient p-4 w-full h-full rounded-[50px] flex flex-col justify-center items-center gap-5 relative overflow-hidden">
         <div className="flex flex-col justify-center items-center gap-5 z-10 text-center mb-24 sm:mb-36">
           <h3 className="font-semibold text-2xl md:text-5xl">
@@ -23,13 +68,14 @@ const CallToAction = () => {
             Visit our blog
           </Link>
         </div>
-        <img
+        <motion.img
+          variants={ctaImage}
           className="w-[200px] md:w-[200px] absolute inset-x-0 bottom-[-135px] md:bottom-[-160px] mx-auto text-[#4E4EFF]"
           src={Assets.services_build}
           alt=""
         />
       </div>
-    </main>
+    </motion.main>
   );
 };
 

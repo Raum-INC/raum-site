@@ -1,24 +1,20 @@
 import React, { useEffect, useRef } from "react";
 import { features } from "./data";
 import { BsArrowRight } from "react-icons/bs";
-import { motion, useAnimation, useInView } from "framer-motion";
+import { motion, stagger, useAnimation, useInView } from "framer-motion";
 import "../index.css";
 
 const Features = () => {
   const ref = useRef(null);
-  const controls = useAnimation();
-  const isInView = useInView(ref);
-
-  useEffect(() => {
-    if (isInView) {
-      controls.start("visible");
-    }
-  }, [controls, isInView]);
 
   const featuresVariant = {
     visible: {
       translateX: 0,
       opacity: 1,
+      transition: {
+        duration: 0.5,
+        delay: 0.4,
+      },
     },
     hidden: {
       translateX: -50,
@@ -30,15 +26,20 @@ const Features = () => {
     <main className="w-full p-8 py-12 md:px-12 flex flex-col-reverse justify-between gap-20 overflow-hidden">
       {features.map((feature, index) => (
         <motion.div
+          viewport={{ once: true }}
           key={index}
           variants={featuresVariant}
           initial="hidden"
-          animate={controls}
-          transition={{ duration: 0.75, delayChildren: 0.7 }}
+          whileInView="visible"
           ref={ref}
           className="w-full md:h-screen border-primary py-6 flex flex-col-reverse md:flex-row even:md:flex-row-reverse justify-between items-center gap-8 "
         >
-          <motion.div className="md:w-1/2 flex flex-col gap-3 md:gap-7">
+          <motion.div
+            viewport={{ once: true }}
+            variants={featuresVariant}
+            whileInView="visible"
+            className="md:w-1/2 flex flex-col gap-3 md:gap-7"
+          >
             <h3 className="font-bold text-3xl md:text-5xl leading-8 md:leading-[58px] whitespace-pre">
               {feature.title}
             </h3>
@@ -53,6 +54,9 @@ const Features = () => {
             </a>
           </motion.div>
           <motion.img
+            viewport={{ once: true }}
+            variants={featuresVariant}
+            whileInView="visible"
             key={feature.id}
             src={feature.image}
             alt={feature.alt}

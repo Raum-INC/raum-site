@@ -9,12 +9,48 @@ import {
   BiLogoYoutube,
 } from "react-icons/bi";
 import "../../index.css";
+import { motion } from "framer-motion";
 
 const ContactUs = () => {
+  const containerVariant = {
+    hidden: {
+      opacity: 0,
+      translateX: -50,
+    },
+    visible: {
+      opacity: 1,
+      translateX: 0,
+      transition: {
+        duration: 1,
+        ease: "easeInOut",
+      },
+    },
+  };
+
+  const contactVariant = {
+    hidden: {
+      opacity: 0,
+      translateY: 50,
+    },
+    visible: {
+      opacity: 1,
+      translateY: 0,
+      transition: {
+        duration: 1,
+        ease: "easeInOut",
+      },
+    },
+  };
+
   return (
     <main className="w-full mx-auto h-auto lg:h-screen flex flex-col lg:flex-row justify-center items-center">
       <div className="w-full lg:w-3/5 h-[650px] lg:h-full">
-        <div className="w-full lg:w-4/5 h-full flex flex-col justify-start items-start gap-5 p-8 lg:p-28">
+        <motion.div
+          variants={containerVariant}
+          initial="hidden"
+          animate="visible"
+          className="w-full lg:w-4/5 h-full flex flex-col justify-start items-start gap-5 p-8 lg:p-28"
+        >
           <h1 className="text-2xl lg:text-5xl font-bold">Get in touch</h1>
           <p className="text-base lg:text-lg font-medium text-[#6c6c6c]">
             Do you have questions, comment, or a suggestion for us? Whether you
@@ -43,10 +79,16 @@ const ContactUs = () => {
               <BiLogoYoutube size={20} />
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
       <div className="w-full lg:w-2/5 h-[700px] lg:h-full bg-white lg:relative">
-        <div className="absolute left-0 right-0 top-[550px] lg:top-10 lg:left-[-190px] w-11/12 h-[800px] mx-auto lg:w-[600px] lg:h-[90%] bg-white rounded-3xl drop-shadow-about">
+        <motion.div
+          variants={contactVariant}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="absolute left-0 right-0 top-[550px] lg:top-10 lg:left-[-190px] w-11/12 h-[800px] mx-auto lg:w-[600px] lg:h-[90%] bg-white rounded-3xl drop-shadow-about"
+        >
           <div className="w-full h-full flex flex-col justify-center items-center">
             <form
               action=""
@@ -118,7 +160,7 @@ const ContactUs = () => {
               />
             </form>
           </div>
-        </div>
+        </motion.div>
       </div>
     </main>
   );
