@@ -1,6 +1,7 @@
 import React from "react";
 import { Assets } from "../assets";
 import { motion } from "framer-motion";
+import { FaFacebookF } from "react-icons/fa";
 
 const Footer = () => {
   const footerVariant = {
@@ -38,7 +39,7 @@ const Footer = () => {
                 href="mailto:Info@raumgroup.io"
                 className="text-sm font-medium text-[#6c6c6c]"
               >
-                Info@raumgroup.io
+                hello@raumhq.co
               </a>
             </div>
           </div>
@@ -55,16 +56,22 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        <div className="flex flex-col lg:flex-row gap-6 ">
+        <div className="flex flex-col lg:flex-row gap-6 justify-center items-start">
           <div className="text-white flex gap-3 md:gap-8">
-            <a href="#">
-              <img src={Assets.twitter} alt="" />
+            <a href="https://twitter.com/rauminc">
+              <img src={Assets.twitter} alt="twitter-handle" />
             </a>
-            <a href="#">
-              <img src={Assets.instagram} alt="" />
+            <a href="https://www.instagram.com/rauminc.hq/">
+              <img src={Assets.instagram} alt="instagram-handle" />
             </a>
-            <a href="#">
-              <img src={Assets.linkedin} alt="" />
+            <a href="https://www.linkedin.com/company/rauminc/">
+              <img src={Assets.linkedin} alt="linkedIn-handle" />
+            </a>
+            <a
+              href="https://www.facebook.com/raumincc"
+              className="flex justify-center items-center"
+            >
+              <FaFacebookF size={22} />
             </a>
           </div>
         </div>

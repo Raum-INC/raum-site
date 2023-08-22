@@ -56,24 +56,6 @@ const Navbar = ({ nav, setNav }) => {
               <motion.li
                 whileHover={{ scale: 1.1 }}
                 transition={{ type: "spring", stiffness: 75 }}
-                className=""
-              >
-                <Link onClick={handleNav} to="#" className="p-3">
-                  Features
-                </Link>
-              </motion.li>
-              <motion.li
-                whileHover={{ scale: 1.1 }}
-                transition={{ type: "spring", stiffness: 75 }}
-                className=""
-              >
-                <Link onClick={handleNav} className="p-3">
-                  Enterprise
-                </Link>
-              </motion.li>
-              <motion.li
-                whileHover={{ scale: 1.1 }}
-                transition={{ type: "spring", stiffness: 75 }}
                 className=" whitespace-nowrap"
               >
                 <Link onClick={handleNav} to="/about" className="p-3">
@@ -90,15 +72,15 @@ const Navbar = ({ nav, setNav }) => {
                 </Link>
               </motion.li>
 
-              <motion.li
-                whileHover={{ scale: 1.1 }}
-                transition={{ type: "spring", stiffness: 75 }}
-                className="p-3 px-10 bg-white text-black font-medium rounded-full w-full text-center"
-              >
-                <Link onClick={handleNav} to="joinus" className="">
+              <Link onClick={handleNav} to="joinus" className="">
+                <motion.li
+                  whileHover={{ scale: 1.1 }}
+                  transition={{ type: "spring", stiffness: 75 }}
+                  className="p-3 px-10 bg-white text-black font-medium rounded-full w-full text-center"
+                >
                   Join Us
-                </Link>
-              </motion.li>
+                </motion.li>
+              </Link>
             </ul>
           </div>
         </div>
@@ -146,16 +128,6 @@ const Navbar = ({ nav, setNav }) => {
               }
             >
               <li className="p-2">
-                <Link onClick={handleNav} to="#" className="p-3">
-                  Features
-                </Link>
-              </li>
-              <li className="p-2">
-                <Link onClick={handleNav} to="#" className="p-3">
-                  Enterprise
-                </Link>
-              </li>
-              <li className="p-2">
                 <Link onClick={handleNav} to="/about" className="p-3">
                   About Us
                 </Link>
@@ -166,11 +138,11 @@ const Navbar = ({ nav, setNav }) => {
                 </Link>
               </li>
 
-              <li className="p-2 bg-primary border-none text-white font-medium rounded-full w-full text-center">
-                <Link onClick={handleNav} to="#" className="">
+              <Link onClick={handleNav} to="joinus" className="">
+                <li className="p-4 bg-primary border-none text-white font-medium rounded-full w-full text-center">
                   Join Us
-                </Link>
-              </li>
+                </li>
+              </Link>
             </motion.ul>
           )}
         </AnimatePresence>

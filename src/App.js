@@ -22,7 +22,7 @@ function App() {
             element={<Contact nav={nav} setNav={setNav} />}
           />
         </Routes>
-        <Waitlist />
+        <Waitlist name="joinus" />
         <Footer />
       </Router>
     </div>

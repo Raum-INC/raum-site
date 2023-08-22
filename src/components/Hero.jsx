@@ -40,8 +40,8 @@ const Hero = () => {
           <br />
           Your Home, Your Experience, Your Social Hub.
         </p>
-        <Link to="/about" className="p-3 px-8 md:px-16 bg-primary rounded-3xl">
-          Join the future
+        <Link to="joinus" className="p-3 px-8 md:px-16 bg-primary rounded-3xl">
+          Join Us
         </Link>
       </div>
     </motion.main>

@@ -17,7 +17,7 @@ const Homepage = ({ nav, setNav }) => {
       <Services />
       <Features />
       <CallToAction />
-      <Faqs />
+      {/* <Faqs /> */}
     </div>
   );
 };

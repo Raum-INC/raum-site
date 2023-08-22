@@ -60,7 +60,7 @@ const Visit = () => {
             </p>
             <p className="flex items-center p-1 text-[#6C6C6C]">
               <CiMail className="w-5 aspect-square mr-2 text-white md:text-black" />
-              Info@raumgroup.io
+              hello@raumhq.co
             </p>
             <p className="flex items-center p-1 text-[#6C6C6C]">
               <BsTelephone className="w-5 aspect-square mr-2 text-white md:text-black" />

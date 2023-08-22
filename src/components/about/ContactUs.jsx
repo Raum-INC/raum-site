@@ -60,7 +60,7 @@ const ContactUs = () => {
           <div className="flex gap-3">
             <CiMail className="mt-1" />
             <p className="flex flex-col gap-1 text-base lg:text-lg">
-              Email <span className="text-[#6c6c6c]">info@raumgroup.io</span>
+              Email <span className="text-[#6c6c6c]">hello@raumhq.co</span>
             </p>
           </div>
           <div className="flex gap-3">
@@ -72,11 +72,18 @@ const ContactUs = () => {
           <div className="flex flex-col gap-3">
             <p>Follow us on social media </p>
             <div className="flex gap-3 justify-start items-center">
-              <BiLogoFacebook size={20} />
-              <BiLogoTwitter size={20} />
-              <BiLogoInstagramAlt size={20} />
-              <BiLogoLinkedin size={20} />
-              <BiLogoYoutube size={20} />
+              <a href="https://www.facebook.com/raumincc">
+                <BiLogoFacebook size={20} />
+              </a>
+              <a href="https://twitter.com/rauminc">
+                <BiLogoTwitter size={20} />
+              </a>
+              <a href="https://www.instagram.com/rauminc.hq/">
+                <BiLogoInstagramAlt size={20} />
+              </a>
+              <a href="https://www.linkedin.com/company/rauminc/">
+                <BiLogoLinkedin size={20} />
+              </a>
             </div>
           </div>
         </motion.div>

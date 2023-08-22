@@ -15,14 +15,14 @@ export const services = [
     id: 1,
     title: `Property management application`,
     description: `For property owners, we offer a unique solution for managing your single or multiple properties using our personalised hosting application. Scale your business, increase revenue and make more informed decisions about your properties. `,
-    image: services_40,
+    image: services_build,
     alt: "raum_services_image2",
   },
   {
     id: 2,
     title: `Real Estate Acquisition Platform`,
     description: `At an advanced level, we offer premium access to kickstart boost and promote your real estate journey by providing  offering to gain landed properties, long term rentals, shared investments and ai powered recommendations  `,
-    image: services_40,
+    image: services_build,
     alt: "raum_services_image3",
   },
 ];
