@@ -41,7 +41,7 @@ const Values = () => {
       className="w-full md:max-w-10/12 mx-auto h-auto py-14 md:py-36 md:px-12  flex flex-col justify-center items-center gap-12 bg-white md:bg-transparent"
     >
       <div className="flex flex-col justify-center items-center gap-5 p-8">
-        <h3 className="text-white text-center font-bold text-3xl md:text-[44px] md:leading-[52px]">
+        <h3 className="text-black md:text-white text-center font-bold text-3xl md:text-[44px] md:leading-[52px]">
           The values that drive
           <br className="block md:hidden" /> our work
         </h3>

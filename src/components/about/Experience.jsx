@@ -38,7 +38,7 @@ const Experience = () => {
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true }}
-      className="w-full h-[850px] md:h-auto bg-[#f8f8f8] text-[#121212] flex flex-col justify-end items-center relative"
+      className="w-full h-[850px] lg:h-auto bg-[#f8f8f8] text-[#121212] flex flex-col justify-end items-center relative"
     >
       <div className="p-8 md:p-28">
         <div className="w-full flex flex-col md:flex-row justify-between items-center gap-4 md:gap-16">

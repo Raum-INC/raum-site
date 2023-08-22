@@ -54,7 +54,7 @@ const Hero = () => {
           </p>
         </div>
         {/* desktop */}
-        <div className="w-full hidden md:flex justify-center md:justify-normal gap-2">
+        <div className="w-full hidden sm:flex justify-center md:justify-normal gap-2">
           <motion.img
             variants={imageVariant}
             initial="left"
@@ -73,14 +73,14 @@ const Hero = () => {
           />
         </div>
         {/* mobile */}
-        <div className="w-full h-[600px] md:h-auto flex md:hidden justify-center md:justify-normal gap-2 relative md:static">
+        <div className="w-full h-[600px] md:h-auto flex sm:hidden justify-center md:justify-normal gap-2 relative md:static">
           <motion.img
             variants={imageVariant}
             initial="left"
             animate="visible"
             src={AboutUs.meetingroom}
             alt=""
-            className="w-[210px] sm:w-[340px] h-fit lg:w-3/5 rounded-xl absolute -left-16 top-28"
+            className="w-[55vw] aspect-auto sm:w-[340px] h-fit lg:w-3/5 rounded-xl absolute -left-16 top-20"
           />
           <motion.img
             variants={imageVariant}
@@ -88,7 +88,7 @@ const Hero = () => {
             animate="visible"
             src={AboutUs.meetingroom2}
             alt=""
-            className="w-[210px] sm:w-[340px] lg:w-[600px] h-fit rounded-xl absolute -right-16"
+            className="w-[55vw] aspect-auto sm:w-[340px] lg:w-[600px] h-fit rounded-xl absolute -right-16"
           />
         </div>
       </div>
