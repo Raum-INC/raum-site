@@ -6,7 +6,6 @@ import {
   BiLogoTwitter,
   BiLogoInstagramAlt,
   BiLogoLinkedin,
-  BiLogoYoutube,
 } from "react-icons/bi";
 import "../../index.css";
 import { motion } from "framer-motion";
@@ -110,7 +109,7 @@ const ContactUs = () => {
                   type="text"
                   name="FName"
                   placeholder="Full Name"
-                  className="placeholder:font-normal p-4 border-[1px] border-[##F1F1F1] text-[##F1F1F1] rounded-full outline-none"
+                  className="font-normal p-4 border-[1px] border-[##F1F1F1] text-[##F1F1F1] rounded-full outline-none"
                 />
               </label>
               <label
@@ -122,7 +121,7 @@ const ContactUs = () => {
                   type="email"
                   name="Email"
                   placeholder="Email"
-                  className="placeholder:font-normal p-4 border-[1px] border-[##F1F1F1] text-[##F1F1F1] rounded-full outline-none"
+                  className="font-normal p-4 border-[1px] border-[##F1F1F1] text-[##F1F1F1] rounded-full outline-none"
                 />
               </label>
               <label
@@ -134,7 +133,7 @@ const ContactUs = () => {
                   type="tel"
                   name="Phone_Number"
                   placeholder="Phone"
-                  className="placeholder:font-normal p-4 border-[1px] border-[##F1F1F1] text-[##F1F1F1] rounded-full outline-none"
+                  className="font-normal p-4 border-[1px] border-[##F1F1F1] text-[##F1F1F1] rounded-full outline-none"
                 />
               </label>
               <label
@@ -146,7 +145,7 @@ const ContactUs = () => {
                   type="text"
                   name="Subject"
                   placeholder="Subject"
-                  className="placeholder:font-normal p-4 border-[1px] border-[##F1F1F1] text-[##F1F1F1] rounded-full outline-none"
+                  className="font-normal p-4 border-[1px] border-[##F1F1F1] text-[##F1F1F1] rounded-full outline-none"
                 />
               </label>
               <label htmlFor="" className="col-span-2 flex flex-col gap-2">
@@ -156,7 +155,7 @@ const ContactUs = () => {
                   id=""
                   cols="30"
                   rows="10"
-                  className="placeholder:font-normal w-full h-28 p-2 border-[1px] border-[##F1F1F1] text-[##F1F1F1] rounded-xl outline-none resize-none overflow-hidden"
+                  className="font-normal w-full h-28 p-2 border-[1px] border-[##F1F1F1] text-black rounded-xl outline-none resize-none overflow-hidden"
                 ></textarea>
               </label>
               <input

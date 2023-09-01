@@ -40,7 +40,6 @@ const Services = () => {
               key={index}
             >
               <motion.div
-                viewport={{ once: true }}
                 variants={textVariant}
                 initial="hidden"
                 whileInView="visible"

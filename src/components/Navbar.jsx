@@ -123,7 +123,7 @@ const Navbar = ({ nav, setNav }) => {
               exit="initial"
               className={
                 nav
-                  ? "bg-black border-[1px] border-primary w-11/12 font-normal mx-auto rounded-3xl p-8 flex flex-col justify-center items-center gap-3 absolute top-[70px] left-0 right-0 md:hidden"
+                  ? "bg-black border-[1px] border-primary w-11/12 font-normal mx-auto rounded-3xl p-8 flex flex-col justify-center items-center gap-3 absolute top-[80px] left-0 right-0 md:hidden"
                   : "hidden"
               }
             >
@@ -139,7 +139,7 @@ const Navbar = ({ nav, setNav }) => {
               </li>
 
               <Link onClick={handleNav} to="joinus" className="">
-                <li className="p-4 bg-primary border-none text-white font-medium rounded-full w-full text-center">
+                <li className="p-3 px-10 bg-primary border-none text-white font-medium rounded-full w-full text-center">
                   Join Us
                 </li>
               </Link>
