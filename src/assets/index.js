@@ -6,13 +6,18 @@ export const Assets = {
   phone: require("../assets/phone_icon.svg").default,
   twitter: require("../assets/twitter.svg").default,
   under_construction: require("../assets/under_construction.svg").default,
-  services_build: require("../assets/services_building.svg").default,
-  services_40: require("../assets/services_40.svg").default,
+  short_term: require("../assets/short_term.svg").default,
+  property_management: require("../assets/property_management.svg").default,
+  real_estate_aqui: require("../assets/real_estate_aqui.svg").default,
   plusicon: require("../assets/plusicon.svg").default,
   closeicon: require("../assets/closeicon.svg").default,
   sustainable: require("../assets/sustainable.png"),
   betterliving: require("../assets/betterliving.png"),
   transforming: require("../assets/transforming.png"),
+  hero_bg1: require("../assets/hero_bg1.svg").default,
+  hero_bg2: require("../assets/hero_bg2.svg").default,
+  hero_bg3: require("../assets/hero_bg3.png"),
+  checkmark: require("../assets/checkmark.svg").default,
 };
 
 export const AboutUs = {

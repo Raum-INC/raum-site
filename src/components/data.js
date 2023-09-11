@@ -1,28 +1,49 @@
 import { Assets, AboutUs } from "../assets";
 
-const { services_build, services_40, sustainable, betterliving, transforming } =
-  Assets;
+const {
+  short_term,
+  property_management,
+  real_estate_aqui,
+  sustainable,
+  betterliving,
+  transforming,
+} = Assets;
 
 export const services = [
   {
     id: 0,
     title: `Short-Term Rentals`,
-    description: `with this service you can explore, book, and easily enjoy access to affordable, sustainable and trendy short lets properties anywhere in Nigeria. `,
-    image: services_build,
+    subtitle: `With this service you can `,
+    description: [
+      `Explore diiferent apartments from the comfort of your home`,
+      `Book and make necessary arrangments without lifting a Leg`,
+      `Easily enjoy access to affordable, sustainable and trendy short lets properties anywhere in Nigeria.`,
+    ],
+    image: short_term,
     alt: "raum_services_image1",
   },
   {
     id: 1,
     title: `Property management application`,
-    description: `For property owners, we offer a unique solution for managing your single or multiple properties using our personalised hosting application. Scale your business, increase revenue and make more informed decisions about your properties. `,
-    image: services_build,
+    subtitle: `For Property owners `,
+    description: [
+      `We offer a unique solution for managing your single or multiple properties using your personalised hosting app`,
+      `Scale your business to a greater height`,
+      `Increase revenue and make more informed decisions about your properties`,
+    ],
+    image: property_management,
     alt: "raum_services_image2",
   },
   {
     id: 2,
     title: `Real Estate Acquisition Platform`,
-    description: `At an advanced level, we offer premium access to kickstart boost and promote your real estate journey by providing  offering to gain landed properties, long term rentals, shared investments and ai powered recommendations  `,
-    image: services_build,
+    subtitle: `At an advanced level, we offer`,
+    description: [
+      `We offer premium access to kickstart and promote your real estate business`,
+      `Virtual/argumented reality for better visualization`,
+      `Long term rentals, shared investments and AI powered recommendations`,
+    ],
+    image: real_estate_aqui,
     alt: "raum_services_image3",
   },
 ];

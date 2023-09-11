@@ -11,6 +11,9 @@ module.exports = {
         fade: "#878787",
         faded: "#5A5A5A",
       },
+      listStyleImage: {
+        checkmark: 'url("/src/assets/checkmark.svg")',
+      },
     },
   },
   plugins: [],
