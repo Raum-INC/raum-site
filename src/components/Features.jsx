@@ -23,7 +23,7 @@ const Features = () => {
   };
 
   return (
-    <main className="w-full p-8 py-12 md:px-12 flex flex-col-reverse justify-between gap-20 overflow-hidden">
+    <main className="w-full p-8 py-12 md:px-12 flex flex-col-reverse justify-between gap-10 overflow-hidden">
       {features.map((feature, index) => (
         <motion.div
           viewport={{ once: true }}
@@ -38,9 +38,9 @@ const Features = () => {
             viewport={{ once: true }}
             variants={featuresVariant}
             whileInView="visible"
-            className="md:w-1/2 flex flex-col gap-3 md:gap-7"
+            className="md:w-1/2 flex flex-col gap-5 md:gap-14"
           >
-            <h3 className="font-bold text-3xl md:text-5xl leading-8 md:leading-[58px] whitespace-pre">
+            <h3 className="font-bold text-3xl md:text-7xl leading-8 md:leading-[58px] whitespace-pre">
               {feature.title}
             </h3>
             <p className="font-normal text-sm md:text-lg leading-7 md:leading-8 text-left">
@@ -48,7 +48,7 @@ const Features = () => {
             </p>
             <a
               href={feature.link}
-              className="w-[140px] text-primary flex items-center py-1 border-b-2 border-b-primary"
+              className="w-[140px] md:w-[180px] font-semibold text-lg md:text-2xl text-primary flex items-center mt-10 py-1 border-b-2 border-b-primary"
             >
               Know more <BsArrowRight className="ml-4" size={20} />
             </a>

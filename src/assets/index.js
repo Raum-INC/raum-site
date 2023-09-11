@@ -9,6 +9,7 @@ export const Assets = {
   short_term: require("../assets/short_term.svg").default,
   property_management: require("../assets/property_management.svg").default,
   real_estate_aqui: require("../assets/real_estate_aqui.svg").default,
+  services_build: require("../assets/services_build.svg").default,
   plusicon: require("../assets/plusicon.svg").default,
   closeicon: require("../assets/closeicon.svg").default,
   sustainable: require("../assets/sustainable.png"),
@@ -18,6 +19,8 @@ export const Assets = {
   hero_bg2: require("../assets/hero_bg2.svg").default,
   hero_bg3: require("../assets/hero_bg3.png"),
   checkmark: require("../assets/checkmark.svg").default,
+  appleicon: require("../assets/appleicon.svg").default,
+  playstoreicon: require("../assets/playstoreicon.svg").default,
 };
 
 export const AboutUs = {

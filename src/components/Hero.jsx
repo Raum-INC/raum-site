@@ -45,13 +45,13 @@ const Hero = () => {
       className="w-full h-auto p-8 md:px-12 flex justify-center items-center relative"
     >
       <div className=" flex flex-col justify-center items-center gap-8">
-        <h1 className="text-4xl md:text-8xl text-center font-extrabold leading-8 md:leading-[80px]">
+        <h1 className="text-4xl md:text-8xl text-center font-extrabold leading-8">
           Discover <span className="text-primary">Your</span> Dream
           <br /> Apartment with <span className="text-primary">Raum</span>
         </h1>
         <p className="md:w-[850px] text-center leading-5 text-fade text-sm md:text-2xl">
           Finding the perfect apartment has never been easier. At Raum, we are
-          your dedicated partners in the world of real estate. Whether you’re
+          your dedicated partners in the world of real estate. Whether you're
           searching for your next home or looking to list your apartment for
           business purposes, we're here to make your journey seamless and
           stress-free

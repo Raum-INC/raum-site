@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
+import { Assets } from "../assets";
 
 const Waitlist = () => {
   const [firstName, setFirstName] = useState("");
@@ -86,6 +87,24 @@ const Waitlist = () => {
             className="mt-[60px] bg-[#0000FF] rounded-full p-2 md:p-4 w-full md:w-[715px] mx-auto"
           />
         </form>
+      </div>
+
+      <div className="p-5 flex flex-col justify-center items-center gap-5">
+        <h1 className="font-bold text-3xl">Want to join our Beta Testers?</h1>
+        <div className="flex justify-center items-center gap-5">
+          <button className="bg-[#1D2025] flex justify-between items-center gap-6 p-4 rounded-lg">
+            <img src={Assets.appleicon} alt="apple-icon" />
+            <p className="flex flex-col items-end">
+              Download<span className="font-bold">For IOS</span>
+            </p>
+          </button>
+          <button className="bg-[#1D2025] flex justify-between items-center gap-6 p-4 rounded-lg">
+            <img src={Assets.playstoreicon} alt="playstore-icon" />
+            <p className="flex flex-col items-end">
+              Download<span className="font-bold">For Android</span>
+            </p>
+          </button>
+        </div>
       </div>
 
       {/* Move the script tags outside of the component */}

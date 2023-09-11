@@ -70,7 +70,7 @@ const CallToAction = () => {
         </div>
         <motion.img
           variants={ctaImage}
-          className="w-[200px] md:w-[200px] absolute inset-x-0 bottom-[-135px] md:bottom-[-160px] mx-auto text-[#4E4EFF]"
+          className="w-[200px] md:w-[250px] absolute inset-x-0 bottom-[-30px] mx-auto text-[#4E4EFF]"
           src={Assets.services_build}
           alt=""
         />
