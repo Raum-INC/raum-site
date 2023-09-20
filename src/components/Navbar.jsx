@@ -58,6 +58,15 @@ const Navbar = ({ nav, setNav }) => {
                 transition={{ type: "spring", stiffness: 75 }}
                 className=" whitespace-nowrap"
               >
+                <Link onClick={handleNav} to="/appguide" className="p-3">
+                  App Guide
+                </Link>
+              </motion.li>
+              <motion.li
+                whileHover={{ scale: 1.1 }}
+                transition={{ type: "spring", stiffness: 75 }}
+                className=" whitespace-nowrap"
+              >
                 <Link onClick={handleNav} to="/about" className="p-3">
                   About Us
                 </Link>
@@ -127,6 +136,9 @@ const Navbar = ({ nav, setNav }) => {
                   : "hidden"
               }
             >
+              <Link onClick={handleNav} to="/appguide" className="p-3">
+                App Guide
+              </Link>
               <li className="p-2">
                 <Link onClick={handleNav} to="/about" className="p-3">
                   About Us

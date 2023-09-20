@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Assets } from "../assets";
 import { IoMdClose } from "react-icons/io";
 
-const Hero = ({ setNav }) => {
+const Hero = () => {
   const [modal, setModal] = useState(true | false);
 
   const handleTrue = () => {

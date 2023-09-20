@@ -6,6 +6,7 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Waitlist from "./components/Waitlist";
 import { useState } from "react";
+import Appguide from "./pages/Appguide";
 
 function App() {
   const [nav, setNav] = useState(false);
@@ -16,6 +17,10 @@ function App() {
         <Navbar nav={nav} setNav={setNav} />
         <Routes>
           <Route path="/" element={<Homepage nav={nav} setNav={setNav} />} />
+          <Route
+            path="/appguide"
+            element={<Appguide nav={nav} setNav={setNav} />}
+          />
           <Route path="/about" element={<About nav={nav} setNav={setNav} />} />
           <Route
             path="/contact"

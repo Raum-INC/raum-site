@@ -37,3 +37,10 @@ export const AboutUs = {
   meetingroom2: require("../assets/meetingroom2.png"),
   modernapartment: require("../assets/modernapartment.png"),
 };
+
+export const Guide = {
+  step1: require("../assets/step1.png"),
+  step2: require("../assets/step2.png"),
+  step3: require("../assets/step3.png"),
+  step4: require("../assets/step4.png"),
+};

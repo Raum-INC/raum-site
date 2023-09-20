@@ -89,16 +89,16 @@ const Waitlist = () => {
         </form>
       </div>
 
-      <div className="p-5 flex flex-col justify-center items-center gap-5">
+      <div className="flex flex-col justify-center items-center gap-5">
         <h1 className="font-bold text-3xl">Want to join our Beta Testers?</h1>
-        <div className="flex justify-center items-center gap-5">
-          <button className="bg-[#1D2025] flex justify-between items-center gap-6 p-4 rounded-lg">
+        <div className="flex flex-col md:flex-row justify-center items-center gap-5">
+          <button className="bg-[#1D2025] w-auto font-medium text-xs md:text-xl flex justify-between items-center gap-2 md:gap-5 p-4 md:p-6 rounded-lg">
             <img src={Assets.appleicon} alt="apple-icon" />
             <p className="flex flex-col items-end">
               Download<span className="font-bold">For IOS</span>
             </p>
           </button>
-          <button className="bg-[#1D2025] flex justify-between items-center gap-6 p-4 rounded-lg">
+          <button className="bg-[#1D2025] w-auto font-medium text-xs md:text-xl flex justify-between items-center gap-2 md:gap-5 p-4 md:p-6 rounded-lg">
             <img src={Assets.playstoreicon} alt="playstore-icon" />
             <p className="flex flex-col items-end">
               Download<span className="font-bold">For Android</span>

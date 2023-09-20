@@ -1,4 +1,4 @@
-import { Assets, AboutUs } from "../assets";
+import { Assets, AboutUs, Guide } from "../assets";
 
 const {
   short_term,
@@ -189,5 +189,74 @@ export const experienceData = [
     id: 1,
     title: "Our Mission",
     description: `We commit to providing sustainable real estate  solutions geared at reducing the burden of housing and property issues encountered by over 80% of the population down by 50% by 2030. Ultimately, our success will translate to fostering lifelong real estate acquisition, one building at a time!`,
+  },
+];
+
+export const userGuideData = [
+  {
+    id: 0,
+    title: "Step 1",
+    description: `Download the app from playstore or apple store and create an account.`,
+    check: Assets.checkmark,
+    image: Guide.step1,
+  },
+  {
+    id: 1,
+    title: "Step 2",
+    description: `Explore and browse through wide varieties of short-lets.`,
+    check: Assets.checkmark,
+    image: Guide.step2,
+  },
+  {
+    id: 2,
+    title: "Step 3",
+    description: `Secure your space by leveraging our secured payment gateway and download to share your receipt.`,
+    check: Assets.checkmark,
+    image: Guide.step3,
+  },
+  {
+    id: 3,
+    title: "Step 4",
+    description: `Keep in touch with your host in real time from point of reservation to check-out day.`,
+    check: Assets.checkmark,
+    image: Guide.step4,
+  },
+];
+
+export const hostGuideData = [
+  {
+    id: 0,
+    title: "Step 1",
+    description: `Become a Raum Host by downloading the Raum host app, creating an account and verifying identity.`,
+    check: Assets.checkmark,
+    image: Guide.step1,
+  },
+  {
+    id: 1,
+    title: "Step 2",
+    description: `Connect your account for receiving your booking settlements.`,
+    check: Assets.checkmark,
+    image: Guide.step2,
+  },
+  {
+    id: 2,
+    title: "Step 3",
+    description: `List your property filling all requirements and get approved.`,
+    check: Assets.checkmark,
+    image: Guide.step3,
+  },
+  {
+    id: 3,
+    title: "Step 4",
+    description: `Start receiving real time booking alerts , engage with your renters in real time.`,
+    check: Assets.checkmark,
+    image: Guide.step4,
+  },
+  {
+    id: 4,
+    title: "Step 5",
+    description: `Make more informed decision from your detailed dashboard property analytics.`,
+    check: Assets.checkmark,
+    image: Guide.step4,
   },
 ];
