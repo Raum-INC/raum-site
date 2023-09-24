@@ -1,6 +1,5 @@
 import React from "react";
 import { ValuesData } from "../data";
-import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 
 const Values = () => {
