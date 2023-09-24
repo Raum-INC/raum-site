@@ -1,47 +1,17 @@
-// Photos from https://citizenofnowhe.re/lines-of-the-city
-import "./styles.css";
-import { useRef } from "react";
-import {
-  motion,
-  useScroll,
-  useSpring,
-  useTransform,
-  MotionValue,
-} from "framer-motion";
+import React from "react";
+import useBearStore from "../store/store";
 
-function useParallax(value, distance) {
-  return useTransform(value, [0, 1], [-distance, distance]);
-}
-
-function Image() {
-  const ref = useRef(null);
-  const { scrollYProgress } = useScroll({ target: ref });
-  const y = useParallax(scrollYProgress, 300);
+const Testing = () => {
+  const { isOpen, toggle } = useBearStore();
 
   return (
-    <section>
-      <div ref={ref}>
-        <img src={`/${id}.jpg`} alt="A London skyscraper" />
-      </div>
-      <motion.h2 style={{ y }}>{`#00${id}`}</motion.h2>
-    </section>
+    <div className="w-full h-screen">
+      <button onClick={toggle} className="text-4xl p-4 bg-white/50">
+        Click Me
+      </button>
+      {isOpen && <h1>I exist</h1>}
+    </div>
   );
-}
+};
 
-export default function App() {
-  const { scrollYProgress } = useScroll();
-  const scaleX = useSpring(scrollYProgress, {
-    stiffness: 100,
-    damping: 30,
-    restDelta: 0.001,
-  });
-
-  return (
-    <>
-      {[1, 2, 3, 4, 5].map((image) => (
-        <Image id={image} />
-      ))}
-      <motion.div className="progress" style={{ scaleX }} />
-    </>
-  );
-}
+export default Testing;

@@ -95,9 +95,9 @@ const Services = () => {
               {service.description.map((desc, index) => (
                 <ul
                   key={index}
-                  className="list-image-none w-full flex flex-col justify-start items-start text-left"
+                  className="w-full flex flex-col justify-start items-start text-left"
                 >
-                  <li className="text-md text-left w-full h-auto flex justify-center items-start gap-3">
+                  <li className="text-md flex justify-center items-start gap-5">
                     <img
                       src={Assets.checkmark}
                       alt="checkmark"

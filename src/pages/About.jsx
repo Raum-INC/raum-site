@@ -3,13 +3,13 @@ import Hero from "../components/about/Hero";
 import Experience from "../components/about/Experience";
 import Values from "../components/about/Values";
 import Visit from "../components/about/Visit";
+import useBearStore from "../store/store";
 
-const About = ({ nav, setNav }) => {
-  const handleNav = () => {
-    setNav(false);
-  };
+const About = () => {
+  const { falseNav } = useBearStore();
+
   return (
-    <div onClick={handleNav}>
+    <div onClick={falseNav}>
       <Hero />
       <Experience />
       <Values />

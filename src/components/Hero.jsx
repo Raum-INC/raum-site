@@ -1,34 +1,11 @@
-import React, { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import React from "react";
+import { motion } from "framer-motion";
 import { Assets } from "../assets";
-import { IoMdClose } from "react-icons/io";
+import Modal from "./Modal";
+import useBearStore from "../store/store";
 
 const Hero = () => {
-  const [modal, setModal] = useState(true | false);
-
-  const handleTrue = () => {
-    setModal(true);
-  };
-  const handleFalse = () => {
-    setModal(false);
-  };
-
-  const modalVariant = {
-    hidden: {
-      opacity: 0,
-      translateY: "100vh",
-      transition: {
-        duration: 1,
-      },
-    },
-    visible: {
-      opacity: 1,
-      translateY: 0,
-      transition: {
-        duration: 1,
-      },
-    },
-  };
+  const { toggle } = useBearStore();
 
   const componentVariant = {
     visible: {
@@ -63,6 +40,7 @@ const Hero = () => {
       translateY: 50,
     },
   };
+
   return (
     <motion.main
       variants={componentVariant}
@@ -71,71 +49,7 @@ const Hero = () => {
       className="w-full h-auto pt-8 flex justify-center items-center relative bgGrade2"
     >
       {/* modal */}
-      <AnimatePresence>
-        {modal === true && (
-          <>
-            <div className="w-full h-screen fixed top-20 overflow-hidden z-30">
-              <motion.div
-                variants={modalVariant}
-                initial="hidden"
-                animate="visible"
-                exit="hidden"
-                className="w-full h-[90%] fixed flex flex-col bg-black border-2 border-primary p-4 md:p-8 md:px-12 rounded-3xl z-40"
-              >
-                <div className="relative">
-                  <button
-                    className="p-2 absolute right-0 border-2 border-primary text-primary hover:bg-primary hover:text-white rounded-lg transition-all duration-500"
-                    onClick={handleFalse}
-                  >
-                    <IoMdClose className="text-xl md:text-4xl" />
-                  </button>
-                  <form action="/">
-                    <div className="flex flex-col justify-center items-center pt-2 md:pt-8 gap-5">
-                      <h2 className="mt-10 font-semibold text-primary text-xl lg:text-6xl md:leading-[108px] text-center p-2">
-                        Join us in creating sustainable spaces
-                        <br className="hidden md:block" /> for life, not just
-                        living.
-                      </h2>
-                      <p className="font-[400] text-sm text-center md:text-xl">
-                        Subscribe to our newsletter and be part of the dawn of a
-                        new era.
-                      </p>
-                      <div className="flex flex-col gap-2 md:gap-5 mt-5">
-                        <input
-                          type="text"
-                          className="bg-[#121212] p-2 md:p-4 outline-none pl-5 text-xl text-[#666] rounded-md"
-                          placeholder="Full Name"
-                        />
-                        <input
-                          type="text"
-                          className="bg-[#121212] p-2 md:p-4 outline-none pl-5 text-xl text-[#666] rounded-md"
-                          placeholder="Full Name"
-                        />
-                        <input
-                          type="text"
-                          className="bg-[#121212] p-2 md:p-4 outline-none pl-5 text-xl text-[#666] rounded-md"
-                          placeholder="Full Name"
-                        />
-                        <input
-                          type="text"
-                          className="bg-[#121212] p-2 md:p-4 outline-none pl-5 text-xl text-[#666] rounded-md"
-                          placeholder="Full Name"
-                        />
-                        <input
-                          type="submit"
-                          value="Join Us Today!"
-                          onClick={handleFalse}
-                          className="bg-primary mt-4 p-2 md:p-4 rounded-md"
-                        />
-                      </div>
-                    </div>
-                  </form>
-                </div>
-              </motion.div>
-            </div>
-          </>
-        )}
-      </AnimatePresence>
+      <Modal />
 
       <div className="w-full h-auto flex flex-col justify-center items-center gap-8">
         <div className="px-8 flex flex-col justify-center items-center gap-8">
@@ -151,8 +65,8 @@ const Hero = () => {
             stress-free
           </p>
           <button
+            onClick={toggle}
             className="p-3 px-8 md:px-16 bg-primary rounded-3xl capitalize"
-            onClick={handleTrue}
           >
             Join the Waitlist
           </button>
@@ -184,11 +98,11 @@ const Hero = () => {
           />
           <div className="w-full h-auto bg-black border border-primary p-6 flex flex-col justify-center items-center gap-8">
             <h1 className="text-3xl font-semibold">Who are you?</h1>
-            <div className="flex flex-col gap-5 md:flex-row">
-              <button className="p-3 px-5 rounded-full border border-primary hover:bg-primary hover:tex-white transition-all duration-500">
+            <div className="w-full h-auto flex flex-col justify-center items-center gap-5 md:flex-row">
+              <button className="p-3 w-full md:w-auto md:px-24 rounded-full border border-primary hover:bg-primary hover:tex-white transition-all duration-500">
                 Property Owner
               </button>
-              <button className="p-3 px-5 rounded-full border capitalize border-primary hover:bg-primary hover:tex-white transition-all duration-500">
+              <button className="p-3 w-full md:w-auto md:px-16 rounded-full border capitalize border-primary hover:bg-primary hover:tex-white transition-all duration-500">
                 Just looking for property
               </button>
             </div>
