@@ -27,7 +27,6 @@ function App() {
             element={<Contact nav={nav} setNav={setNav} />}
           />
         </Routes>
-        <Waitlist name="joinus" />
         <Footer />
       </Router>
     </div>
