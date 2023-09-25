@@ -1,6 +1,6 @@
 import React from "react";
 import { AboutUs } from "../../assets";
-import { BsTelephone } from "react-icons/bs";
+import { BsChevronLeft, BsChevronRight, BsTelephone } from "react-icons/bs";
 import { CiMail, CiLocationOn } from "react-icons/ci";
 import "../../index.css";
 import { motion } from "framer-motion";

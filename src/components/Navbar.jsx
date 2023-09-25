@@ -5,10 +5,11 @@ import { HiOutlineMenuAlt3 } from "react-icons/hi";
 import { MdClose } from "react-icons/md";
 import { Link } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
-import useBearStore from "../store/store";
 
-const Navbar = () => {
-  const { toggle, nav, toggleNav, falseNav } = useBearStore();
+const Navbar = ({ nav, setNav }) => {
+  const handleNav = () => {
+    setNav(!nav);
+  };
 
   const navbarVariant = {
     hidden: {
@@ -45,7 +46,7 @@ const Navbar = () => {
     <motion.header variants={navbarVariant} initial="hidden" animate="visible">
       <nav className="w-full p-4 px-8 md:p-4 md:px-12 flex justify-between items-center relative z-40">
         <button className="py-4">
-          <Link to="/" onClick={falseNav}>
+          <Link to="/" onClick={() => setNav(false)}>
             <img src={Assets.raumLogo} alt="Logo" className="w-full" />
           </Link>
         </button>
@@ -57,7 +58,7 @@ const Navbar = () => {
                 transition={{ type: "spring", stiffness: 75 }}
                 className=" whitespace-nowrap"
               >
-                <Link onClick={toggleNav} to="/appguide" className="p-3">
+                <Link onClick={handleNav} to="/appguide" className="p-3">
                   App Guide
                 </Link>
               </motion.li>
@@ -66,7 +67,7 @@ const Navbar = () => {
                 transition={{ type: "spring", stiffness: 75 }}
                 className=" whitespace-nowrap"
               >
-                <Link onClick={toggleNav} to="/about" className="p-3">
+                <Link onClick={handleNav} to="/about" className="p-3">
                   About Us
                 </Link>
               </motion.li>
@@ -75,26 +76,26 @@ const Navbar = () => {
                 transition={{ type: "spring", stiffness: 75 }}
                 className=""
               >
-                <Link onClick={toggleNav} to="contact" className="p-3">
+                <Link onClick={handleNav} to="contact" className="p-3">
                   Contact
                 </Link>
               </motion.li>
 
-              <button onClick={toggle} className="">
+              <Link onClick={handleNav} to="joinus" className="">
                 <motion.li
                   whileHover={{ scale: 1.1 }}
                   transition={{ type: "spring", stiffness: 75 }}
-                  className="p-3 px-10 bg-primary text-white font-medium rounded-full w-full text-center"
+                  className="p-3 px-10 bg-white text-black font-medium rounded-full w-full text-center"
                 >
                   Join Us
                 </motion.li>
-              </button>
+              </Link>
             </ul>
           </div>
         </div>
         <motion.div
           animate={{ type: "spring", stiffness: 500 }}
-          onClick={toggleNav}
+          onClick={handleNav}
           className="block py-4 pl-4 md:hidden"
         >
           {nav === false && (
@@ -135,30 +136,25 @@ const Navbar = () => {
                   : "hidden"
               }
             >
-              <Link onClick={toggleNav} to="/appguide" className="p-3">
+              <Link onClick={handleNav} to="/appguide" className="p-3">
                 App Guide
               </Link>
               <li className="p-2">
-                <Link onClick={toggleNav} to="/about" className="p-3">
+                <Link onClick={handleNav} to="/about" className="p-3">
                   About Us
                 </Link>
               </li>
               <li className="p-2">
-                <Link onClick={toggleNav} to="contact" className="p-3">
+                <Link onClick={handleNav} to="contact" className="p-3">
                   Contact
                 </Link>
               </li>
 
-              <button
-                onClick={() => {
-                  toggle();
-                  falseNav();
-                }}
-              >
+              <Link onClick={handleNav} to="joinus" className="">
                 <li className="p-3 px-10 bg-primary border-none text-white font-medium rounded-full w-full text-center">
                   Join Us
                 </li>
-              </button>
+              </Link>
             </motion.ul>
           )}
         </AnimatePresence>

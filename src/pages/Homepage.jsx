@@ -3,13 +3,13 @@ import Hero from "../components/Hero";
 import Services from "../components/Services";
 import Features from "../components/Features";
 import CallToAction from "../components/CallToAction";
-import useBearStore from "../store/store";
 
-const Homepage = () => {
-  const { falseNav } = useBearStore();
-
+const Homepage = ({ nav, setNav }) => {
+  const handleNav = () => {
+    setNav(false);
+  };
   return (
-    <div onClick={falseNav}>
+    <div onClick={handleNav}>
       <Hero />
       <Services />
       <Features />

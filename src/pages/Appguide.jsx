@@ -1,12 +1,12 @@
 import React from "react";
 import Hero from "../components/appguide/Hero";
-import useBearStore from "../store/store";
 
-const Appguide = () => {
-  const { falseNav } = useBearStore();
-
+const Appguide = ({ nav, setNav }) => {
+  const handleNav = () => {
+    setNav(false);
+  };
   return (
-    <div onClick={falseNav}>
+    <div onClick={handleNav}>
       <Hero />
     </div>
   );

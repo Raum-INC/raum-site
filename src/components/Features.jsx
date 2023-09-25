@@ -1,7 +1,7 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { features } from "./data";
 import { BsArrowRight } from "react-icons/bs";
-import { motion } from "framer-motion";
+import { motion, stagger, useAnimation, useInView } from "framer-motion";
 import "../index.css";
 
 const Features = () => {
