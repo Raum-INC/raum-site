@@ -8,7 +8,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import useBearStore from "../store/store";
 
 const Navbar = () => {
-  const { toggle, nav, toggleNav, falseNav } = useBearStore();
+  const { toggle, toggleFalse, nav, toggleNav, falseNav } = useBearStore();
 
   const navbarVariant = {
     hidden: {
@@ -45,7 +45,13 @@ const Navbar = () => {
     <motion.header variants={navbarVariant} initial="hidden" animate="visible">
       <nav className="w-full p-4 px-8 md:p-4 md:px-12 flex justify-between items-center relative z-40">
         <button className="py-4">
-          <Link to="/" onClick={falseNav}>
+          <Link
+            to="/"
+            onClick={() => {
+              falseNav();
+              toggleFalse();
+            }}
+          >
             <img src={Assets.raumLogo} alt="Logo" className="w-full" />
           </Link>
         </button>
@@ -57,7 +63,14 @@ const Navbar = () => {
                 transition={{ type: "spring", stiffness: 75 }}
                 className=" whitespace-nowrap"
               >
-                <Link onClick={toggleNav} to="/appguide" className="p-3">
+                <Link
+                  onClick={() => {
+                    toggleNav();
+                    toggleFalse();
+                  }}
+                  to="/appguide"
+                  className="p-3"
+                >
                   App Guide
                 </Link>
               </motion.li>
@@ -66,7 +79,14 @@ const Navbar = () => {
                 transition={{ type: "spring", stiffness: 75 }}
                 className=" whitespace-nowrap"
               >
-                <Link onClick={toggleNav} to="/about" className="p-3">
+                <Link
+                  onClick={() => {
+                    toggleNav();
+                    toggleFalse();
+                  }}
+                  to="/about"
+                  className="p-3"
+                >
                   About Us
                 </Link>
               </motion.li>
@@ -75,12 +95,25 @@ const Navbar = () => {
                 transition={{ type: "spring", stiffness: 75 }}
                 className=""
               >
-                <Link onClick={toggleNav} to="contact" className="p-3">
+                <Link
+                  onClick={() => {
+                    toggleNav();
+                    toggleFalse();
+                  }}
+                  to="contact"
+                  className="p-3"
+                >
                   Contact
                 </Link>
               </motion.li>
 
-              <button onClick={toggle} className="">
+              <button
+                onClick={() => {
+                  toggle();
+                  falseNav();
+                }}
+                className=""
+              >
                 <motion.li
                   whileHover={{ scale: 1.1 }}
                   transition={{ type: "spring", stiffness: 75 }}
@@ -94,7 +127,10 @@ const Navbar = () => {
         </div>
         <motion.div
           animate={{ type: "spring", stiffness: 500 }}
-          onClick={toggleNav}
+          onClick={() => {
+            toggleNav();
+            toggleFalse();
+          }}
           className="block py-4 pl-4 md:hidden"
         >
           {nav === false && (
@@ -135,16 +171,37 @@ const Navbar = () => {
                   : "hidden"
               }
             >
-              <Link onClick={toggleNav} to="/appguide" className="p-3">
+              <Link
+                onClick={() => {
+                  toggleNav();
+                  toggleFalse();
+                }}
+                to="/appguide"
+                className="p-3"
+              >
                 App Guide
               </Link>
               <li className="p-2">
-                <Link onClick={toggleNav} to="/about" className="p-3">
+                <Link
+                  onClick={() => {
+                    toggleNav();
+                    toggleFalse();
+                  }}
+                  to="/about"
+                  className="p-3"
+                >
                   About Us
                 </Link>
               </li>
               <li className="p-2">
-                <Link onClick={toggleNav} to="contact" className="p-3">
+                <Link
+                  onClick={() => {
+                    toggleNav();
+                    toggleFalse();
+                  }}
+                  to="contact"
+                  className="p-3"
+                >
                   Contact
                 </Link>
               </li>

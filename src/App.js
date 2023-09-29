@@ -6,6 +6,7 @@ import Contact from "./pages/Contact";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import useBearStore from "./store/store";
+import Modal from "./components/Modal";
 
 function App() {
   const { isOpen } = useBearStore();
@@ -16,6 +17,8 @@ function App() {
         isOpen && "h-screen overflow-hidden"
       }`}
     >
+      {/* modal */}
+      <Modal />
       <Router>
         <Navbar />
         <Routes>

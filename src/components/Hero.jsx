@@ -1,7 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Assets } from "../assets";
-import Modal from "./Modal";
 import useBearStore from "../store/store";
 import { HashLink } from "react-router-hash-link";
 
@@ -49,9 +48,6 @@ const Hero = () => {
       animate="visible"
       className="w-full h-auto pt-8 flex justify-center items-center relative bgGrade2"
     >
-      {/* modal */}
-      <Modal />
-
       <div className="w-full h-auto flex flex-col justify-center items-center gap-8">
         <div className="px-8 flex flex-col justify-center items-center gap-8">
           <h1 className="text-4xl md:text-8xl text-center font-extrabold leading-8">
