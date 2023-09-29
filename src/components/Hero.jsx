@@ -3,9 +3,10 @@ import { motion } from "framer-motion";
 import { Assets } from "../assets";
 import Modal from "./Modal";
 import useBearStore from "../store/store";
+import { HashLink } from "react-router-hash-link";
 
 const Hero = () => {
-  const { toggle } = useBearStore();
+  const { toggle, toggleUser, toggleHost } = useBearStore();
 
   const componentVariant = {
     visible: {
@@ -96,15 +97,23 @@ const Hero = () => {
             alt="hero-bkg"
             className="md:w-[1000px] mx-auto aspect-auto pt-10 px-8 md:absolute bottom-4 -z-[10]"
           />
-          <div className="w-full h-auto bg-black border border-primary p-6 flex flex-col justify-center items-center gap-8">
+          <div className="w-full h-auto bg-black border-2 md:border border-primary p-6 flex flex-col justify-center items-center gap-8">
             <h1 className="text-3xl font-semibold">Who are you?</h1>
             <div className="w-full h-auto flex flex-col justify-center items-center gap-5 md:flex-row">
-              <button className="p-3 w-full md:w-auto md:px-24 rounded-full border border-primary hover:bg-primary hover:tex-white transition-all duration-500">
+              <HashLink
+                onClick={toggleHost}
+                to="/appguide#host"
+                className="p-3 text-center w-full md:w-auto md:px-24 rounded-full border border-primary hover:bg-primary hover:tex-white transition-all duration-500"
+              >
                 Property Owner
-              </button>
-              <button className="p-3 w-full md:w-auto md:px-16 rounded-full border capitalize border-primary hover:bg-primary hover:tex-white transition-all duration-500">
+              </HashLink>
+              <HashLink
+                onClick={toggleUser}
+                to="/appguide#user"
+                className="p-3 text-center w-full md:w-auto md:px-16 rounded-full border capitalize border-primary hover:bg-primary hover:tex-white transition-all duration-500"
+              >
                 Just looking for property
-              </button>
+              </HashLink>
             </div>
           </div>
         </motion.div>

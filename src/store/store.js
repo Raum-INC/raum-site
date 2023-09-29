@@ -6,6 +6,9 @@ const useBearStore = create((set) => ({
   nav: false,
   toggleNav: () => set((state) => ({ nav: !state.nav })),
   falseNav: () => set((state) => ({ nav: (state.nav = false) })),
+  userType: "user",
+  toggleUser: () => set({ userType: "user" }),
+  toggleHost: () => set({ userType: "host" }),
 }));
 
 export default useBearStore;
