@@ -58,7 +58,7 @@ const Navbar = () => {
         <div className="relative">
           <div className="hidden md:flex">
             <ul className="w-full flex justify-center items-center gap-5">
-              <motion.li
+              {/* <motion.li
                 whileHover={{ scale: 1.1 }}
                 transition={{ type: "spring", stiffness: 75 }}
                 className=" whitespace-nowrap"
@@ -73,7 +73,7 @@ const Navbar = () => {
                 >
                   App Guide
                 </Link>
-              </motion.li>
+              </motion.li> */}
               <motion.li
                 whileHover={{ scale: 1.1 }}
                 transition={{ type: "spring", stiffness: 75 }}
@@ -171,7 +171,7 @@ const Navbar = () => {
                   : "hidden"
               }
             >
-              <Link
+              {/* <Link
                 onClick={() => {
                   toggleNav();
                   toggleFalse();
@@ -180,7 +180,7 @@ const Navbar = () => {
                 className="p-3"
               >
                 App Guide
-              </Link>
+              </Link> */}
               <li className="p-2">
                 <Link
                   onClick={() => {
