@@ -5,7 +5,7 @@ const useFormStore = create((set) => ({
   email: "",
   category: "Renter/User",
   location: "",
-  whatsappNumber: "",
+  phone: "",
   setField: (field, value) => set({ [field]: value }),
   resetForm: () =>
     set({
@@ -13,7 +13,7 @@ const useFormStore = create((set) => ({
       email: "",
       category: "Renter/User",
       location: "",
-      whatsappNumber: "",
+      phone: "",
     }),
 }));
 
