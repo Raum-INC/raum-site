@@ -10,18 +10,18 @@ const Modal = () => {
 
   // const url = "https://api.raumhq.co/v1/newsletter";
 
-  console.log("I updated the site.");
+  console.log("Final Fix");
 
-  const { fullName, email, category, location, phone, setField, resetForm } =
+  const { fullName, email, userType, location, phone, setField, resetForm } =
     useFormStore();
 
   const handleInput = (e) => {
     const { name, value } = e.target;
-    if (name === "category") {
-      // Map category values to server expected values
+    if (name === "userType") {
+      // Map userType values to server expected values
       const userType =
         value === "Renter/User" ? "RENTER_OR_USER" : "SHORTLET_MANAGER";
-      setField("category", category);
+      setField("userType", userType);
     } else {
       setField(name, value);
     }
@@ -29,7 +29,7 @@ const Modal = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const formData = { fullName, email, category, location, phone };
+    const formData = { fullName, email, userType, location, phone };
     try {
       const response = await axios.post(
         "https://api.raumhq.co/v1/newsletter",
@@ -111,8 +111,8 @@ const Modal = () => {
                       </div>
                       <div className="w-full flex flex-col justify-center items-center md:flex-row gap-3 md:gap-10">
                         <select
-                          name="category"
-                          value={category}
+                          name="userType"
+                          value={userType}
                           onChange={handleInput}
                           className="w-full bg-transparent border-b-2 border-[#777777] p-2 md:p-4 outline-none text-xl placeholder:text-[#777777] text-white"
                         >
