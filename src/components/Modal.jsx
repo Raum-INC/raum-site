@@ -8,7 +8,7 @@ import axios from "axios";
 const Modal = () => {
   const { isOpen, toggle } = useBearStore();
 
-  const url = "https://raumhq.co/v1/newsletter";
+  const url = "https://api.raumhq.co/waitlist";
 
   const {
     fullName,
