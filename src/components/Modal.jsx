@@ -8,17 +8,8 @@ import axios from "axios";
 const Modal = () => {
   const { isOpen, toggle } = useBearStore();
 
-  const url = "https://api.raumhq.co/v1/newsletter";
-
-  const {
-    fullName,
-    email,
-    category,
-    location,
-    whatsappNumber,
-    setField,
-    resetForm,
-  } = useFormStore();
+  const { fullName, email, userType, location, phone, setField, resetForm } =
+    useFormStore();
 
   const handleInput = (e) => {
     const { name, value } = e.target;
@@ -27,13 +18,16 @@ const Modal = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const formData = { fullName, email, category, location, whatsappNumber };
+    const formData = { fullName, email, userType, location, phone };
     try {
-      const response = await axios.post(url, formData);
+      const response = await axios.post(
+        "https://api.raumhq.co/v1/newsletter",
+        formData
+      );
       console.log("Dude It Worked!", response.data);
       resetForm();
     } catch (error) {
-      console.error("error submitting form", error);
+      console.error("error submitting form", error.response.data);
     }
   };
 
@@ -106,8 +100,8 @@ const Modal = () => {
                       </div>
                       <div className="w-full flex flex-col justify-center items-center md:flex-row gap-3 md:gap-10">
                         <select
-                          name="category"
-                          value={category}
+                          name="userType"
+                          value={userType}
                           onChange={handleInput}
                           className="w-full bg-transparent border-b-2 border-[#777777] p-2 md:p-4 outline-none text-xl placeholder:text-[#777777] text-white"
                         >
@@ -131,8 +125,8 @@ const Modal = () => {
                         />
                         <input
                           type="tel"
-                          name="whatsappNumber"
-                          value={whatsappNumber}
+                          name="phone"
+                          value={phone}
                           onChange={handleInput}
                           className="w-full bg-transparent border-b-2 border-[#777777]  p-2 md:p-4 outline-none text-xl placeholder:text-[#777777] text-white"
                           placeholder="Whatsapp Number"
