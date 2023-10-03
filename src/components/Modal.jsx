@@ -10,9 +10,9 @@ const Modal = () => {
 
   // const url = "https://api.raumhq.co/v1/newsletter";
 
-  console.log("Final Fix");
+  console.log("Final Fix Abeg.");
 
-  const { fullName, email, userType, location, phone, setField, resetForm } =
+  const { name, email, userType, location, phone, setField, resetForm } =
     useFormStore();
 
   const handleInput = (e) => {
@@ -29,7 +29,7 @@ const Modal = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const formData = { fullName, email, userType, location, phone };
+    const formData = { name, email, userType, location, phone };
     try {
       const response = await axios.post(
         "https://api.raumhq.co/v1/newsletter",
@@ -94,8 +94,8 @@ const Modal = () => {
                       <div className="w-full flex flex-col md:flex-row justify-center items-center gap-3 md:gap-10">
                         <input
                           type="text"
-                          name="fullName"
-                          value={fullName}
+                          name="name"
+                          value={name}
                           onChange={handleInput}
                           className="w-full bg-transparent border-b-2 border-[#777777] p-2 md:p-4 outline-none text-xl placeholder:text-[#777777] text-white"
                           placeholder="Full Name"
