@@ -8,7 +8,7 @@ const app = express();
 app.use(bodyParser.json());
 app.use(cors());
 
-app.post("/waitlist", (req, res) => {
+app.post("/v1/newsletter", (req, res) => {
   const formData = req.body;
   console.log("Received form data:", formData);
   // Add logic to save the form data to a database or perform any other action
