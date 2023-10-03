@@ -2,9 +2,40 @@ import { motion, AnimatePresence } from "framer-motion";
 import React from "react";
 import { IoMdClose } from "react-icons/io";
 import useBearStore from "../store/store";
+import useFormStore from "../store/formStore";
+import axios from "axios";
 
 const Modal = () => {
   const { isOpen, toggle } = useBearStore();
+
+  const url = "https://raumhq.co/v1/newsletter";
+
+  const {
+    fullName,
+    email,
+    category,
+    location,
+    whatsappNumber,
+    setField,
+    resetForm,
+  } = useFormStore();
+
+  const handleInput = (e) => {
+    const { name, value } = e.target;
+    setField(name, value);
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const formData = { fullName, email, category, location, whatsappNumber };
+    try {
+      const response = await axios.post(url, formData);
+      console.log("Dude It Worked!", response.data);
+      resetForm();
+    } catch (error) {
+      console.error("error submitting form", error);
+    }
+  };
 
   const modalVariant = {
     hidden: {
@@ -42,11 +73,8 @@ const Modal = () => {
                 >
                   <IoMdClose className="text-xl md:text-4xl" />
                 </button>
-                <form
-                  action="https://gmail.us13.list-manage.com/subscribe/post?u=946cfc9cb47b3cdfcec580292&amp;id=e2b8a86ef0&amp;f_id=00228ae5f0"
-                  method="post"
-                  target="_blank"
-                >
+                {/* form */}
+                <form onSubmit={handleSubmit}>
                   <div className="flex flex-col justify-center items-center gap-10 md:gap-10">
                     <h2 className="mt-10 md:mt-0 font-semibold text-primary text-xl md:text-[55px] md:leading-[70px] text-center p-2">
                       Join us in creating sustainable spaces
@@ -57,23 +85,30 @@ const Modal = () => {
                       Be the first to try out our product and services
                     </p>
                     <div className="w-full md:w-4/5 flex flex-col justify-center items-center gap-5 md:gap-10">
+                      {/* Inputs */}
                       <div className="w-full flex flex-col md:flex-row justify-center items-center gap-3 md:gap-10">
                         <input
                           type="text"
+                          name="fullName"
+                          value={fullName}
+                          onChange={handleInput}
                           className="w-full bg-transparent border-b-2 border-[#777777] p-2 md:p-4 outline-none text-xl placeholder:text-[#777777] text-white"
                           placeholder="Full Name"
                         />
                         <input
                           type="email"
+                          name="email"
+                          value={email}
+                          onChange={handleInput}
                           className="w-full bg-transparent border-b-2 border-[#777777] p-2 md:p-4 outline-none text-xl placeholder:text-[#777777] text-white"
                           placeholder="Email"
                         />
                       </div>
                       <div className="w-full flex flex-col justify-center items-center md:flex-row gap-3 md:gap-10">
                         <select
-                          name="Category"
-                          value="Category"
-                          id=""
+                          name="category"
+                          value={category}
+                          onChange={handleInput}
                           className="w-full bg-transparent border-b-2 border-[#777777] p-2 md:p-4 outline-none text-xl placeholder:text-[#777777] text-white"
                         >
                           <option className="bg-black p-4" value="Renter/User">
@@ -88,11 +123,17 @@ const Modal = () => {
                         </select>
                         <input
                           type="text"
+                          name="location"
+                          value={location}
+                          onChange={handleInput}
                           className="w-full bg-transparent border-b-2 border-[#777777]  p-2 md:p-4 outline-none text-xl placeholder:text-[#777777] text-white"
                           placeholder="Location"
                         />
                         <input
                           type="tel"
+                          name="whatsappNumber"
+                          value={whatsappNumber}
+                          onChange={handleInput}
                           className="w-full bg-transparent border-b-2 border-[#777777]  p-2 md:p-4 outline-none text-xl placeholder:text-[#777777] text-white"
                           placeholder="Whatsapp Number"
                         />
