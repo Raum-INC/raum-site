@@ -3,17 +3,17 @@ import { create } from "zustand";
 const useFormStore = create((set) => ({
   fullName: "",
   email: "",
-  userType: "Renter/User",
+  category: "Renter/User",
   location: "",
-  phone: "",
+  whatsappNumber: "",
   setField: (field, value) => set({ [field]: value }),
   resetForm: () =>
     set({
       fullName: "",
       email: "",
-      userType: "Renter/User",
+      category: "Renter/User",
       location: "",
-      phone: "",
+      whatsappNumber: "",
     }),
 }));
 

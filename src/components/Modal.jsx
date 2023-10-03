@@ -8,26 +8,39 @@ import axios from "axios";
 const Modal = () => {
   const { isOpen, toggle } = useBearStore();
 
-  const { fullName, email, userType, location, phone, setField, resetForm } =
-    useFormStore();
+  const url = "https://api.raumhq.co/v1/newsletter";
+
+  const {
+    fullName,
+    email,
+    category,
+    location,
+    whatsappNumber,
+    setField,
+    resetForm,
+  } = useFormStore();
 
   const handleInput = (e) => {
     const { name, value } = e.target;
-    setField(name, value);
+    if (name === "category") {
+      // Map category values to server expected values
+      const userType =
+        value === "Renter/User" ? "RENTER_OR_USER" : "SHORTLET_MANAGER";
+      setField("userType", userType);
+    } else {
+      setField(name, value);
+    }
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const formData = { fullName, email, userType, location, phone };
+    const formData = { fullName, email, category, location, whatsappNumber };
     try {
-      const response = await axios.post(
-        "https://api.raumhq.co/v1/newsletter",
-        formData
-      );
+      const response = await axios.post(url, formData);
       console.log("Dude It Worked!", response.data);
       resetForm();
     } catch (error) {
-      console.error("error submitting form", error.response.data);
+      console.error("error submitting form", error);
     }
   };
 
@@ -100,8 +113,8 @@ const Modal = () => {
                       </div>
                       <div className="w-full flex flex-col justify-center items-center md:flex-row gap-3 md:gap-10">
                         <select
-                          name="userType"
-                          value={userType}
+                          name="category"
+                          value={category}
                           onChange={handleInput}
                           className="w-full bg-transparent border-b-2 border-[#777777] p-2 md:p-4 outline-none text-xl placeholder:text-[#777777] text-white"
                         >
@@ -125,8 +138,8 @@ const Modal = () => {
                         />
                         <input
                           type="tel"
-                          name="phone"
-                          value={phone}
+                          name="whatsappNumber"
+                          value={whatsappNumber}
                           onChange={handleInput}
                           className="w-full bg-transparent border-b-2 border-[#777777]  p-2 md:p-4 outline-none text-xl placeholder:text-[#777777] text-white"
                           placeholder="Whatsapp Number"
