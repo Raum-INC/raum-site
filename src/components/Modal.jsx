@@ -10,8 +10,6 @@ const Modal = () => {
 
   // const url = "https://api.raumhq.co/v1/newsletter";
 
-  console.log("Final Fix Abeg.");
-
   const { name, email, userType, location, phone, setField, resetForm } =
     useFormStore();
 
