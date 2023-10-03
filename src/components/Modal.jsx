@@ -10,6 +10,8 @@ const Modal = () => {
 
   const url = "https://api.raumhq.co/v1/newsletter";
 
+  console.log("I updated the site.");
+
   const {
     fullName,
     email,
@@ -26,7 +28,7 @@ const Modal = () => {
       // Map category values to server expected values
       const userType =
         value === "Renter/User" ? "RENTER_OR_USER" : "SHORTLET_MANAGER";
-      setField("userType", userType);
+      setField("category", category);
     } else {
       setField(name, value);
     }
