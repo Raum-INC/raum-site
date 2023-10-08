@@ -4,10 +4,13 @@ import { IoMdClose } from "react-icons/io";
 import useBearStore from "../store/store";
 import useFormStore from "../store/formStore";
 import axios from "axios";
+import ClipLoader from "react-spinners/ClipLoader";
+import { Assets } from "../assets";
 
 const Modal = () => {
   const { isOpen, toggle } = useBearStore();
   const [isSuccess, setIsSuccess] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [errors, setErrors] = useState({});
   const { name, email, userType, location, phone, setField, resetForm } =
     useFormStore();
@@ -23,6 +26,7 @@ const Modal = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setIsLoading(true);
 
     const newErrors = {};
     if (!name) newErrors.name = "Name is required";
@@ -33,6 +37,7 @@ const Modal = () => {
 
     if (Object.keys(newErrors).length > 0) {
       setErrors(newErrors);
+      setIsLoading(false);
       return;
     }
 
@@ -42,12 +47,20 @@ const Modal = () => {
         "https://api.raumhq.co/v1/newsletter",
         formData
       );
-      console.log("Dude It Worked!", response.data);
-      resetForm();
-      setErrors({});
-      setIsSuccess(true);
+
+      // To Check the Email Does Not Exist
+      if (response.data.error === "email_exists") {
+        setErrors({ email: "This email is already in use." });
+      } else {
+        console.log("Dude It Worked!", response.data);
+        resetForm();
+        setErrors({});
+        setIsSuccess(true);
+      }
     } catch (error) {
       console.error("error submitting form", error);
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -87,7 +100,7 @@ const Modal = () => {
     <AnimatePresence>
       {isOpen && (
         <>
-          <div className="w-full h-screen fixed top-20 overflow-hidden z-30">
+          <div className="w-full h-screen fixed top-20 overflow-hidden z-50">
             <motion.div
               variants={modalVariant}
               initial="hidden"
@@ -103,9 +116,15 @@ const Modal = () => {
                   <IoMdClose className="text-xl md:text-4xl" />
                 </button>
                 {isSuccess ? (
-                  <div className="w-full h-[400px] flex justify-center items-center text-center text-primary p-8">
-                    <h2 className="text-xl md:text-5xl font-bold">
-                      Thank you for subscribing!
+                  <div className="w-full h-[500px] flex flex-col justify-center items-center text-cente p-8 gap-10">
+                    <img
+                      src={Assets.circletick}
+                      alt="Success!"
+                      className="w-2/3 md:w-[300px]"
+                    />
+                    <h2 className="text-lg md:text-5xl font-bold">
+                      Submission successful.
+                      <br className="block md:hidden" /> Thank you for you time!
                     </h2>
                   </div>
                 ) : (
@@ -119,8 +138,8 @@ const Modal = () => {
                       <p className="text-sm text-center md:text-xl">
                         Be the first to try out our product and services
                       </p>
-                      <div className="w-full md:w-4/5 flex flex-col justify-center items-center gap-5 md:gap-10">
-                        <div className="w-full flex flex-col md:flex-row justify-center items-start gap-3 md:gap-10">
+                      <div className="w-full md:w-4/5 flex flex-col justify-center items-center gap-5 md:gap-7">
+                        <div className="w-full flex flex-col md:flex-row justify-center items-start gap-3 md:gap-7">
                           <div className="flex flex-col w-full">
                             <input
                               type="text"
@@ -145,8 +164,8 @@ const Modal = () => {
                               name="email"
                               value={email}
                               onChange={handleInput}
-                              className={`w-full bg-transparent border-b-2 border-[#777777] p-2 md:p-4 outline-none text-xl placeholder:text-[#777777] text-white ${
-                                errors.email ? "border-red-500" : ""
+                              className={`w-full bg-transparent border-b-2 border-[#ffffff] p-2 md:p-4 outline-none text-xl placeholder:text-[#777777] text-white ${
+                                errors.email && "border-red-500"
                               }`}
                               placeholder="Email"
                               aria-required
@@ -158,7 +177,7 @@ const Modal = () => {
                             )}
                           </div>
                         </div>
-                        <div className="w-full flex flex-col justify-center items-start md:flex-row gap-3 md:gap-10">
+                        <div className="w-full flex flex-col justify-center items-start md:flex-row gap-3 md:gap-7">
                           <div className="flex flex-col w-full">
                             <select
                               name="userType"
@@ -225,11 +244,24 @@ const Modal = () => {
                             )}
                           </div>
                         </div>
-                        <input
+                        <button
                           type="submit"
                           value="Submit"
-                          className="w-full md:w-1/2 bg-primary mt-4 p-2 md:p-4 rounded-full"
-                        />
+                          className="w-full
+                          md:w-1/2 bg-primary mt-4 p-2 md:p-4 rounded-full flex justify-center items-center gap-4 font-semibold text-lg"
+                        >
+                          {isLoading ? (
+                            <ClipLoader
+                              color="#fff"
+                              loading={isLoading}
+                              size={25}
+                              aria-label="Loading Spinner"
+                              data-testid="loader"
+                            />
+                          ) : (
+                            "Submit"
+                          )}
+                        </button>
                       </div>
                     </div>
                   </form>

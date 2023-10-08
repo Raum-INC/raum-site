@@ -19,6 +19,7 @@ export const Assets = {
   hero_bg2: require("../assets/hero_bg2.svg").default,
   hero_bg3: require("../assets/hero_bg3.png"),
   checkmark: require("../assets/checkmark.svg").default,
+  circletick: require("../assets/circle_tick.svg").default,
   appleicon: require("../assets/appleicon.svg").default,
   playstoreicon: require("../assets/playstoreicon.svg").default,
 };
