@@ -48,9 +48,15 @@ const Modal = () => {
         formData
       );
 
-      // To Check the Email Does Not Exist
-      if (response.data.error === "email_exists") {
-        setErrors({ email: "This email is already in use." });
+      if (response.data.error) {
+        const errorCode = response.data.error.code;
+
+        if (errorCode === 1) {
+          setErrors({ email: "This email has already been used." });
+        } else if (errorCode >= 500 && errorCode < 600) {
+          // Handle 5xx errors (server errors) here
+          console.error("Server error occurred:", response.data.error.message);
+        }
       } else {
         console.log("Dude It Worked!", response.data);
         resetForm();
