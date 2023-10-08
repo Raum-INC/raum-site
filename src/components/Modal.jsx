@@ -171,13 +171,13 @@ const Modal = () => {
                             >
                               <option
                                 className="bg-black p-4"
-                                value="Renter/User"
+                                value="RENTER_OR_USER"
                               >
                                 Renter/User
                               </option>
                               <option
                                 className="bg-black p-4"
-                                value="Shortlet Manager"
+                                value="SHORTLET_MANAGER"
                               >
                                 Shortlet Manager
                               </option>
