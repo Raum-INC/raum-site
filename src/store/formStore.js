@@ -3,7 +3,7 @@ import { create } from "zustand";
 const useFormStore = create((set) => ({
   name: "",
   email: "",
-  userType: "Renter/User",
+  userType: "RENTER_OR_USER",
   location: "",
   phone: "",
   setField: (field, value) => set({ [field]: value }),
@@ -11,7 +11,7 @@ const useFormStore = create((set) => ({
     set({
       name: "",
       email: "",
-      userType: "Renter/User",
+      userType: "RENTER_OR_USER",
       location: "",
       phone: "",
     }),
