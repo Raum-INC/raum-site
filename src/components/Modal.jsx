@@ -17,6 +17,14 @@ const Modal = () => {
 
   const handleInput = (e) => {
     const { name, value } = e.target;
+
+    if (name === "email") {
+      setErrors((prevErrors) => ({
+        ...prevErrors,
+        email: undefined,
+      }));
+    }
+
     setErrors((prevErrors) => ({
       ...prevErrors,
       [name]: undefined,
@@ -53,15 +61,16 @@ const Modal = () => {
 
         if (errorCode === 1) {
           setErrors({ email: "This email has already been used." });
+          console.log("This email has already been used.");
         } else if (errorCode >= 500 && errorCode < 600) {
           // Handle 5xx errors (server errors) here
           console.error("Server error occurred:", response.data.error.message);
+        } else {
+          console.log("Dude It Worked!", response.data);
+          resetForm();
+          setErrors({});
+          setIsSuccess(true);
         }
-      } else {
-        console.log("Dude It Worked!", response.data);
-        resetForm();
-        setErrors({});
-        setIsSuccess(true);
       }
     } catch (error) {
       console.error("error submitting form", error);
