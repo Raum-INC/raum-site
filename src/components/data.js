@@ -77,28 +77,26 @@ export const features = [
 
 export const faqs = [
   {
-    title: "Can I reserve an office for a whole year?",
-    description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit id venenatis pretium risus euismod dictum egestas orci netus feugiat ut egestas ut sagittis tincidunt phasellus elit etiam cursus orci in. Id sed montes. `,
+    title: "What is a short-term rental?",
+    description: `This refers to the practice of renting out a furnished property for a short duration, usually less than 30 days.`,
   },
   {
-    title: "Can I reserve an office for a whole year?",
-    description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit id venenatis pretium risus euismod dictum egestas orci netus feugiat ut egestas ut sagittis tincidunt phasellus elit etiam cursus orci in. Id sed montes. `,
+    title: "Are short-term rentals cheaper than hotels?",
+    description: `Short-term rentals can sometimes offer cost savings compared to hotels, especially for larger groups or longer stays.`,
   },
   {
-    title: "Can I reserve an office for a whole year?",
-    description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit id venenatis pretium risus euismod dictum egestas orci netus feugiat ut egestas ut sagittis tincidunt phasellus elit etiam cursus orci in. Id sed montes. `,
+    title: "How do I book a short-term rental?",
+    description: `To book a short-term rental, you need to visit our mobile app. You can browse listings, select your desired property, check availability, and make a reservation.`,
   },
   {
-    title: "Can I reserve an office for a whole year?",
-    description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit id venenatis pretium risus euismod dictum egestas orci netus feugiat ut egestas ut sagittis tincidunt phasellus elit etiam cursus orci in. Id sed montes. `,
+    title: "Can I host a short-term rental on my own property?",
+    description: `Yes you can, kindly contact our team for assessment and expert guides on how to get started.`,
   },
   {
-    title: "Can I reserve an office for a whole year?",
-    description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit id venenatis pretium risus euismod dictum egestas orci netus feugiat ut egestas ut sagittis tincidunt phasellus elit etiam cursus orci in. Id sed montes. `,
-  },
-  {
-    title: "Can I reserve an office for a whole year?",
-    description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit id venenatis pretium risus euismod dictum egestas orci netus feugiat ut egestas ut sagittis tincidunt phasellus elit etiam cursus orci in. Id sed montes. `,
+    title: "What amenities are included in a short-term rental?",
+    description: `Amenities can vary depending on the specific property; however, common amenities found in
+    short-term rentals include fully equipped kitchens, Wi-Fi, linens, towels, toiletries, and
+    sometimes additional perks such as access to a pool, gym, or parking.`,
   },
 ];
 
