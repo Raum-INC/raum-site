@@ -43,7 +43,7 @@ const Navbar = () => {
 
   return (
     <motion.header variants={navbarVariant} initial="hidden" animate="visible">
-      <nav className="w-full p-4 px-8 md:p-4 md:px-12 flex justify-between items-center relative z-40">
+      <nav className="w-full bg-transparent p-4 px-8 md:p-4 md:px-12 flex justify-between items-center relative z-40">
         <button className="py-4">
           <Link
             to="/"
@@ -74,6 +74,22 @@ const Navbar = () => {
                   App Guide
                 </Link>
               </motion.li> */}
+              <motion.li
+                whileHover={{ scale: 1.1 }}
+                transition={{ type: "spring", stiffness: 75 }}
+                className=" whitespace-nowrap"
+              >
+                <Link
+                  onClick={() => {
+                    toggleNav();
+                    toggleFalse();
+                  }}
+                  to="/blog"
+                  className="p-3"
+                >
+                  Blog
+                </Link>
+              </motion.li>
               <motion.li
                 whileHover={{ scale: 1.1 }}
                 transition={{ type: "spring", stiffness: 75 }}
@@ -181,6 +197,18 @@ const Navbar = () => {
               >
                 App Guide
               </Link> */}
+              <li className="p-2">
+                <Link
+                  onClick={() => {
+                    toggleNav();
+                    toggleFalse();
+                  }}
+                  to="/blog"
+                  className="p-3"
+                >
+                  Blog
+                </Link>
+              </li>
               <li className="p-2">
                 <Link
                   onClick={() => {

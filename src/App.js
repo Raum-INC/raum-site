@@ -8,6 +8,7 @@ import Footer from "./components/Footer";
 import useBearStore from "./store/store";
 import Modal from "./components/Modal";
 import ReactGA from "react-ga";
+import Blog from "./pages/Blog";
 
 function App() {
   const { isOpen } = useBearStore();
@@ -27,6 +28,7 @@ function App() {
         <Navbar />
         <Routes>
           <Route path="/" element={<Homepage />} />
+          <Route path="/blog" element={<Blog />} />
           {/* <Route path="/appguide" element={<Appguide />} /> */}
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
