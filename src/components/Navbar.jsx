@@ -74,7 +74,10 @@ const Navbar = () => {
                   App Guide
                 </Link>
               </motion.li> */}
-              <motion.li
+
+              {/* Blog */}
+
+              {/* <motion.li
                 whileHover={{ scale: 1.1 }}
                 transition={{ type: "spring", stiffness: 75 }}
                 className=" whitespace-nowrap"
@@ -89,7 +92,7 @@ const Navbar = () => {
                 >
                   Blog
                 </Link>
-              </motion.li>
+              </motion.li> */}
               <motion.li
                 whileHover={{ scale: 1.1 }}
                 transition={{ type: "spring", stiffness: 75 }}
@@ -197,7 +200,7 @@ const Navbar = () => {
               >
                 App Guide
               </Link> */}
-              <li className="p-2">
+              {/* <li className="p-2">
                 <Link
                   onClick={() => {
                     toggleNav();
@@ -208,7 +211,7 @@ const Navbar = () => {
                 >
                   Blog
                 </Link>
-              </li>
+              </li> */}
               <li className="p-2">
                 <Link
                   onClick={() => {

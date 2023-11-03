@@ -19,7 +19,8 @@ const BlogList = () => {
         'image': image.asset->url,
         'authorImage': image.asset->url,
         'alt': image.alt,
-        content
+        content,
+        'contentImg': content.image.asset->url,
       }`;
       try {
         const result = await client.fetch(query);
@@ -101,10 +102,6 @@ const BlogList = () => {
                   />
                   <p className="text-secondary font-medium text-lg">
                     {blog?.author}
-                  </p>
-                  <span>|</span>
-                  <p className="text-secondary font-medium text-lg">
-                    {blog.date}
                   </p>
                 </div>
               </div>

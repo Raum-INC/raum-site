@@ -61,10 +61,7 @@ const CallToAction = () => {
             Want to keep up with trending topics on sustainable living and
             estate management? Read our blog to stay in the loop.
           </p>
-          <Link
-            to="/blog"
-            className="p-3 px-16 bg-white text-black rounded-3xl"
-          >
+          <Link to="/#" className="p-3 px-16 bg-white text-black rounded-3xl">
             Visit our blog
           </Link>
         </div>
