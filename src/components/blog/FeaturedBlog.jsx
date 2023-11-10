@@ -1,10 +1,28 @@
 import React, { useState, useEffect } from "react";
 import { client } from "../../lib/sanity";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 const FeaturedBlog = () => {
   const [data, setData] = useState([]);
   const [feature, setFeature] = useState([]);
+
+  const featuredVariants = {
+    visible: {
+      opacity: 1,
+      translateX: 0,
+      transition: {
+        delay: 1,
+        type: "spring",
+        stiffness: 30,
+        duration: 1,
+      },
+    },
+    hidden: {
+      opacity: 0,
+      translateX: 50,
+    },
+  };
 
   useEffect(() => {
     const getData = async () => {
@@ -54,16 +72,17 @@ const FeaturedBlog = () => {
     getData();
   }, []);
 
-  // Shuffle the data array
-  const shuffledBlogs = data.sort(() => Math.floor(Math.random() - 0.5));
-
   // Take the first 3 elements
-  const randomPosts = shuffledBlogs.slice(0, 3);
+  const slicedPosts = data.slice(0, 3);
 
   return (
-    <main className="w-full h-auto flex flex-col lg:flex-row items-center justify-center gap-10">
-      <Link to={`/blog/${feature[0]?.slug}`} key={feature[0]?.slug}>
-        <section className="w-full h-full lg:w-[600px] lg:h-[600px] flex flex-col bg-white text-black rounded-[30px]">
+    <main className="w-full h-auto flex flex-col lg:flex-row items-center justify-between lg:justify-between gap-10 mb-10 lg:mb-0">
+      <Link
+        to={`/blog/${feature[0]?.slug}`}
+        key={feature[0]?.slug}
+        className="lg:w-[600px] lg:h-[650px] hover:scale-105 transition-all duration-300 ease-in-out"
+      >
+        <section className="w-full h-full flex flex-col bg-white text-black rounded-[30px]">
           <div className="w-full h-[360px]">
             <img
               src={feature[0]?.image}
@@ -86,31 +105,38 @@ const FeaturedBlog = () => {
           </div>
         </section>
       </Link>
-      <section className="w-full h-auto lg:w-[600px] lg:h-[635px] flex flex-col justify-center items-center gap-7">
-        {randomPosts.slice(0, 4).map((item) => (
-          <Link to={`/blog/${item.slug}`} key={item.slug}>
-            <div className="w-full lg:h-[200px] flex flex-col lg:flex-row justify-between gap-5">
-              <div className="lg:w-2/5 flex justify-center items-center object-cover">
-                <img
-                  src={item.image}
-                  alt={item.alt}
-                  className="w-full h-full aspect-auto rounded-3xl"
-                />
-              </div>
-              <div className="lg:w-3/5 flex flex-col justify-center gap-5">
-                <p className="flex items-center gap-5 font-normal text-base lg:text-lg text-secondary">
-                  {item.category}
-                  <span className="w-7 h-[1px] bg-[#A3A3A3]"></span>
-                  {item.date}
-                </p>
-                <h2 className="font-bold text-lg lg:text-2xl text-[#C7C7C7]">
-                  {item.title}
-                </h2>
-              </div>
+      <motion.section
+        variants={featuredVariants}
+        initial="hidden"
+        animate="visible"
+        className="w-full h-full lg:w-1/2 flex flex-col justify-center items-center gap-10 lg:gap-2"
+      >
+        {slicedPosts.map((item) => (
+          <Link
+            to={`/blog/${item.slug}`}
+            key={item.slug}
+            className="w-full lg:w-[650px] lg:h-[300px] flex flex-col lg:flex-row gap-10 justify-between items-center hover:scale-105 transition-all duration-300 ease-in-out"
+          >
+            <div className="w-full lg:w-1/2 h-full flex justify-center items-center">
+              <img
+                src={item.image}
+                alt=""
+                className="w-full h-[300px] object-cover lg:w-[300px] lg:h-[250px] rounded-3xl"
+              />
+            </div>
+            <div className="w-full lg:w-1/2">
+              <p className="flex items-center gap-5 font-normal text-base lg:text-lg text-secondary">
+                {item.category}
+                <span className="w-7 h-[1px] bg-[#A3A3A3]"></span>
+                {item.date}
+              </p>
+              <h2 className="font-bold text-lg lg:text-2xl text-[#C7C7C7]">
+                {item.title}
+              </h2>
             </div>
           </Link>
         ))}
-      </section>
+      </motion.section>
     </main>
   );
 };
