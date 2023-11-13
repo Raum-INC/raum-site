@@ -76,7 +76,7 @@ const FeaturedBlog = () => {
   const slicedPosts = data.slice(0, 3);
 
   return (
-    <main className="w-full h-auto flex flex-col lg:flex-row items-center justify-between lg:justify-between gap-10 mb-10 lg:mb-0">
+    <main className="w-full h-auto flex flex-col lg:flex-row items-center justify-between lg:justify-between gap-10 mb-10 lg:mb-0 overflow-hidden">
       <Link
         to={`/blog/${feature[0]?.slug}`}
         key={feature[0]?.slug}
