@@ -8,7 +8,6 @@ const BlogList = () => {
   const [filteredData, setFilteredData] = useState([]);
   const [activeFilter, setActiveFilter] = useState("All");
   const [currentPage, setCurrentPage] = useState(1);
-  const [activePage, setActivePage] = useState("");
   const itemsPerPage = 4;
 
   const componentVariant = {
@@ -120,7 +119,7 @@ const BlogList = () => {
               className={
                 activeFilter === "All"
                   ? "bg-primary_text text-white p-2 px-4 lg:p-4 lg:px-8 border border-secondary rounded-full transition-all duration-500 ease-in-out"
-                  : "bg-white text-primary_text p-2 px-4 lg:p-4 lg:px-8 border border-secondary rounded-full transition-all duration-500 ease-in-out"
+                  : "bg-white text-primary_text p-2 px-4 lg:p-4 lg:px-8 border border-secondary rounded-full hover:bg-primary_text hover:text-white transition-all duration-500 ease-in-out"
               }
             >
               All
@@ -130,7 +129,7 @@ const BlogList = () => {
               className={
                 activeFilter === "Article"
                   ? "bg-primary_text text-white p-2 px-4 lg:p-4 lg:px-8 border border-secondary rounded-full transition-all duration-500 ease-in-out"
-                  : "bg-white text-primary_text p-2 px-4 lg:p-4 lg:px-8 border border-secondary rounded-full transition-all duration-500 ease-in-out"
+                  : "bg-white text-primary_text p-2 px-4 lg:p-4 lg:px-8 border border-secondary rounded-full hover:bg-primary_text hover:text-white transition-all duration-500 ease-in-out"
               }
             >
               Articles
@@ -140,7 +139,7 @@ const BlogList = () => {
               className={
                 activeFilter === "Resource"
                   ? "bg-primary_text text-white p-2 px-4 lg:p-4 lg:px-8 border border-secondary rounded-full transition-all duration-500 ease-in-out"
-                  : "bg-white text-primary_text p-2 px-4 lg:p-4 lg:px-8 border border-secondary rounded-full transition-all duration-500 ease-in-out"
+                  : "bg-white text-primary_text p-2 px-4 lg:p-4 lg:px-8 border border-secondary rounded-full hover:bg-primary_text hover:text-white transition-all duration-500 ease-in-out"
               }
             >
               Resources
@@ -194,28 +193,18 @@ const BlogList = () => {
         <button
           onClick={() => {
             handlePrevPage();
-            setActivePage("prev");
           }}
           disabled={currentPage === 1}
-          className={`${
-            activePage === "prev"
-              ? "bg-primary_text text-white p-2 px-4 lg:p-4 lg:px-8 border border-secondary rounded-full transition-all duration-500 ease-in-out"
-              : "bg-white text-primary_text p-2 px-4 lg:p-4 lg:px-8 border border-secondary rounded-full transition-all duration-500 ease-in-out"
-          }`}
+          className="bg-white text-primary_text p-2 px-4 lg:p-4 lg:px-8 border border-secondary rounded-full cursor-pointer hover:bg-primary_text hover:text-white transition-all duration-500 ease-in-out"
         >
           Previous Page
         </button>
         <button
           onClick={() => {
             handleNextPage();
-            setActivePage("true");
           }}
           disabled={paginatedData.length < itemsPerPage}
-          className={`${
-            activePage === "true"
-              ? "bg-primary_text text-white p-2 px-4 lg:p-4 lg:px-8 border border-secondary rounded-full transition-all duration-500 ease-in-out"
-              : "bg-white text-primary_text p-2 px-4 lg:p-4 lg:px-8 border border-secondary rounded-full transition-all duration-500 ease-in-out"
-          }`}
+          className="bg-white text-primary_text p-2 px-4 lg:p-4 lg:px-8 border border-secondary rounded-full cursor-pointer hover:bg-primary_text hover:text-white transition-all duration-500 ease-in-out"
         >
           Next Page
         </button>

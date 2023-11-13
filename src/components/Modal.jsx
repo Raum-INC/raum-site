@@ -145,14 +145,25 @@ const Modal = () => {
                 ) : (
                   <form onSubmit={handleSubmit}>
                     <div className="flex flex-col justify-center items-center gap-5 md:gap-7">
-                      <h2 className="mt-10 md:mt-0 font-semibold text-primary text-xl md:text-5xl text-center p-2">
-                        Join us in creating sustainable spaces
-                        <br className="hidden md:block" /> for life, not just
-                        living.
-                      </h2>
-                      <p className="text-sm text-center md:text-xl">
-                        Be the first to try out our product and services
-                      </p>
+                      <div className="w-full flex flex-col lg:flex-row justify-center items-center">
+                        <div className="w-full lg:w-1/2">
+                          <h2 className="mt-10 md:mt-0 font-light text-white text-xl md:text-5xl text-center lg:text-left p-2">
+                            Join us in creating sustainable spaces
+                            <br className="hidden md:block" /> for life, not
+                            just living.
+                          </h2>
+                          <p className="text-sm text-center lg:text-left md:text-xl">
+                            Be the first to try out our product and services
+                          </p>
+                        </div>
+                        <div className="w-1/2 hidden lg:flex justify-center  mr-24">
+                          <img
+                            src={Assets.real_estate_aqui}
+                            alt="modal-asset"
+                            className="w-1/2"
+                          />
+                        </div>
+                      </div>
                       <div className="w-full md:w-4/5 flex flex-col justify-center items-center gap-5 md:gap-7">
                         <div className="w-full flex flex-col md:flex-row justify-center items-start gap-3 md:gap-7">
                           <div className="flex flex-col w-full">
@@ -179,7 +190,7 @@ const Modal = () => {
                               name="email"
                               value={email}
                               onChange={handleInput}
-                              className={`w-full bg-transparent border-b-2 border-[#ffffff] p-2 md:p-4 outline-none text-xl placeholder:text-[#777777] text-white ${
+                              className={`w-full bg-transparent border-b-2 border-[#777777] p-2 md:p-4 outline-none text-xl placeholder:text-[#777777] text-white ${
                                 errors.email && "border-red-500"
                               }`}
                               placeholder="Email"
@@ -263,7 +274,7 @@ const Modal = () => {
                           type="submit"
                           value="Submit"
                           className="w-full
-                          md:w-1/2 bg-primary mt-4 p-2 md:p-4 rounded-full flex justify-center items-center gap-4 font-semibold text-lg"
+                          md:w-1/2 bg-primary mt-2 p-2 md:p-4 rounded-full flex justify-center items-center gap-4 font-semibold text-lg"
                         >
                           {isLoading ? (
                             <ClipLoader
