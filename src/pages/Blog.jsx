@@ -30,7 +30,7 @@ const Blog = () => {
       initial="hidden"
       animate="visible"
       onClick={falseNav}
-      className=""
+      className="overflow-hidden"
     >
       <BlogHero />
       <BlogList />
