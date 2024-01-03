@@ -7,9 +7,7 @@ const Terms = () => {
   useEffect(() => {
     const fetchMarkdownContent = async () => {
       try {
-        const response = await fetch(
-          "http://localhost:5000/terms-and-conditions"
-        );
+        const response = await fetch("https://raumhq.co//terms-and-conditions");
         if (response.ok) {
           const data = await response.json();
           setMarkdownContent(data.content.content);
