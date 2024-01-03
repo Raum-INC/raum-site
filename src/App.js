@@ -10,6 +10,8 @@ import Modal from "./components/Modal";
 import ReactGA from "react-ga";
 import Blog from "./pages/Blog";
 import BlogDetails from "./pages/BlogDetails";
+import Terms from "./pages/Terms";
+import Policy from "./pages/Policy";
 
 function App() {
   const { isOpen } = useBearStore();
@@ -34,6 +36,8 @@ function App() {
           {/* <Route path="/appguide" element={<Appguide />} /> */}
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/terms" element={<Terms />} />
+          <Route path="/policy" element={<Policy />} />
         </Routes>
         <Footer />
       </Router>

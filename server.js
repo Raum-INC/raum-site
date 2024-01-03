@@ -15,6 +15,32 @@ app.post("/v1/newsletter", (req, res) => {
   res.send("Form data received successfully!");
 });
 
+app.get("/privacy-policy", async (req, res) => {
+  try {
+    const response = await fetch(
+      "https://cp.raumhq.co/store/content-block/privacy-policy"
+    );
+    const data = await response.json();
+    res.json(data);
+  } catch (error) {
+    console.error("Error fetching data:", error);
+    res.status(500).json({ error: "Error fetching data" });
+  }
+});
+
+app.get("/terms-and-conditions", async (req, res) => {
+  try {
+    const response = await fetch(
+      "https://cp.raumhq.co/store/content-block/terms-and-conditions"
+    );
+    const data = await response.json();
+    res.json(data);
+  } catch (error) {
+    console.error("Error fetching data:", error);
+    res.status(500).json({ error: "Error fetching data" });
+  }
+});
+
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`Server is running on https://api.raumhq.co:${PORT}`);
