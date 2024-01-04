@@ -7,7 +7,9 @@ const Policy = () => {
   useEffect(() => {
     const fetchMarkdownContent = async () => {
       try {
-        const response = await fetch("https://raumhq.co/privacy-policy");
+        const response = await fetch(
+          "https://cp.raumhq.co/store/content-block/privacy-policy"
+        );
         if (response.ok) {
           const data = await response.json();
           setMarkdownContent(data.content.content);
