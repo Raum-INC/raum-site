@@ -24,7 +24,7 @@ const ContentBlock = () => {
     };
 
     fetchMarkdownContent();
-  }, []);
+  }, [id]);
 
   const headings = `prose-headings:text-2xl md:prose-h1:text-5xl md:prose-h2:text-4xl prose-h4:text-3xl prose-headings:text-white`;
   const p = `prose-p:font-medium prose-p:text-white/70 prose-p:text-lg prose-p:text-justify`;
