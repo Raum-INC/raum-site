@@ -1,14 +1,16 @@
 import React, { useEffect, useState } from "react";
 import ReactMarkdown from "react-markdown";
+import { useParams } from "react-router-dom";
 
-const Policy = () => {
+const ContentBlock = () => {
+  const { id } = useParams();
   const [markdownContent, setMarkdownContent] = useState("");
 
   useEffect(() => {
     const fetchMarkdownContent = async () => {
       try {
         const response = await fetch(
-          "https://cp.raumhq.co/store/content-block/privacy-policy"
+          `https://cp.raumhq.co/store/content-block/${id}`
         );
         if (response.ok) {
           const data = await response.json();
@@ -40,4 +42,4 @@ const Policy = () => {
   );
 };
 
-export default Policy;
+export default ContentBlock;
