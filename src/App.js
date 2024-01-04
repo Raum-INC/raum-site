@@ -10,7 +10,6 @@ import Modal from "./components/Modal";
 import ReactGA from "react-ga";
 import Blog from "./pages/Blog";
 import BlogDetails from "./pages/BlogDetails";
-import Policy from "./pages/Policy";
 import ContentBlock from "./pages/ContentBlock";
 
 function App() {
