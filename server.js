@@ -2,6 +2,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
+const fetch = require("node-fetch"); // Import fetch
 
 const app = express();
 
@@ -15,23 +16,13 @@ app.post("/v1/newsletter", (req, res) => {
   res.send("Form data received successfully!");
 });
 
-app.get("/privacy-policy", async (req, res) => {
-  try {
-    const response = await fetch(
-      "https://cp.raumhq.co/store/content-block/privacy-policy"
-    );
-    const data = await response.json();
-    res.json(data);
-  } catch (error) {
-    console.error("Error fetching data:", error);
-    res.status(500).json({ error: "Error fetching data" });
-  }
-});
+// Generic route to fetch content based on ID
+app.get("/content-block/:id", async (req, res) => {
+  const { id } = req.params; // Get the ID from the request params
 
-app.get("/terms-and-conditions", async (req, res) => {
   try {
     const response = await fetch(
-      "https://cp.raumhq.co/store/content-block/terms-and-conditions"
+      `https://cp.raumhq.co/store/content-block/${id}`
     );
     const data = await response.json();
     res.json(data);
