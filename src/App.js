@@ -28,16 +28,18 @@ function App() {
       <Modal />
       <Router>
         <Navbar />
-        <Routes>
-          <Route path="/" element={<Homepage />} />
-          <Route path="/blog" element={<Blog />} />
-          <Route path="/blog/:slug" element={<BlogDetails />} />
-          {/* <Route path="/appguide" element={<Appguide />} /> */}
-          <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/:id" element={<ContentBlock />} />
-        </Routes>
-        <Footer />
+        <div>
+          <Routes>
+            <Route path="/" element={<Homepage />} />
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/blog/:slug" element={<BlogDetails />} />
+            {/* <Route path="/appguide" element={<Appguide />} /> */}
+            <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/:id" element={<ContentBlock />} />
+          </Routes>
+          <Footer />
+        </div>
       </Router>
     </div>
   );
