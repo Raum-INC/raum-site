@@ -1,21 +1,23 @@
 import React from "react";
-import Hero from "../components/Hero";
-import Services from "../components/Services";
-import Features from "../components/Features";
-import CallToAction from "../components/CallToAction";
-import Faqs from "../components/Faqs";
-import useBearStore from "../store/store";
+import Hero from "../components/home/Hero";
+import Services from "../components/home/Services";
+import Features from "../components/home/Features";
+import Earn from "../components/home/Earn";
+import AboutRaum from "../components/home/AboutRaum";
+import Download from "../components/home/Download";
 
 const Homepage = () => {
-  const { falseNav } = useBearStore();
-
+  const heroTitle = "Discover your Dream<br>apartment with Raum";
+  const hostTitle = "Get the Raum app";
   return (
-    <div onClick={falseNav}>
-      <Hero />
+    <div>
+      <Hero heroTitle={heroTitle} hostTitle={hostTitle} />
       <Services />
+      <Earn />
       <Features />
-      <CallToAction />
-      <Faqs />
+      <AboutRaum />
+      <Download />
+      {/* <Faqs /> */}
     </div>
   );
 };

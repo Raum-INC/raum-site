@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from "react";
-import { Assets } from "../assets";
+import { Assets } from "../../assets";
 import { Link } from "react-router-dom";
 import { motion, useAnimation, useInView } from "framer-motion";
 import "../index.css";

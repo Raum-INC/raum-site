@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { Assets } from "../assets";
-import { faqs } from "./data";
 import { motion, AnimatePresence } from "framer-motion";
+import { faqs } from "./data";
+import { FaChevronDown, FaChevronUp } from "react-icons/fa";
 
 const Faqs = () => {
   const [icons, setIcons] = useState(true);
@@ -12,7 +12,6 @@ const Faqs = () => {
     }
     setIcons(index);
   };
-  const { plusicon, closeicon } = Assets;
 
   const containerVariants = {
     hidden: {
@@ -53,11 +52,6 @@ const Faqs = () => {
         <h3 className="font-semibold text-xl md:text-4xl">
           Frequently Asked Questions
         </h3>
-        {/* <p className="text-[#eaeaea] text-xs md:text-sm text-center">
-          Cras tincidunt lobortis feugiat vivamus at morbi leo urna molestie
-          <br />
-          atole elementum eu facilisis faucibus interdum posuere.
-        </p> */}
       </div>
       <AnimatePresence>
         {faqs.map((faq, index) => (
@@ -70,21 +64,19 @@ const Faqs = () => {
             onClick={() => handleActive(index)}
             className={
               icons === index
-                ? "w-full md:w-3/5 mx-auto flex gap-4 md:gap-10 p-5 md:p-10 border-transparent bg-primary text-white rounded-3xl"
-                : "w-full md:w-3/5 mx-auto flex gap-4 md:gap-10 p-5 md:p-10 border-2 border-primary  text-white rounded-3xl"
+                ? "w-full md:w-3/5 mx-auto flex flex-row-reverse gap-4 md:gap-10 p-5 md:p-10 border-transparent bg-primary text-white rounded-3xl"
+                : "w-full md:w-3/5 mx-auto flex flex-row-reverse gap-4 md:gap-10 p-5 md:p-10 border-2 border-white  text-white rounded-3xl"
             }
           >
             <motion.div className="w-10">
               {icons === index ? (
-                <img
-                  src={closeicon}
-                  alt="faq-icons"
+                <FaChevronUp
+                  size={25}
                   className="w-full transition-all ease-in-out duration-300"
                 />
               ) : (
-                <img
-                  src={plusicon}
-                  alt="faq-icons"
+                <FaChevronDown
+                  size={25}
                   className="w-full transition-all ease-in-out duration-300"
                 />
               )}

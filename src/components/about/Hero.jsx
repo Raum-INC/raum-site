@@ -41,7 +41,7 @@ const Hero = () => {
       variants={heroVariant}
       initial="hidden"
       animate="visible"
-      className="w-full h-auto p-8 py-14 md:py-28 md:px-12  overflow-hidden relative"
+      className="w-full h-auto p-8 py-14 md:py-28 md:px-12 overflow-hidden relative"
     >
       <div className="md:w-11/12 mx-auto flex flex-col justify-center items-start gap-8 md:gap-16">
         <div className="md:w-3/5 flex flex-col gap-5">

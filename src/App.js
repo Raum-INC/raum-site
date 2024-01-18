@@ -10,27 +10,30 @@ import Modal from "./components/Modal";
 import ReactGA from "react-ga";
 import Blog from "./pages/Blog";
 import BlogDetails from "./pages/BlogDetails";
+import Host from "./pages/Host";
 import ContentBlock from "./pages/ContentBlock";
 
 function App() {
-  const { isOpen } = useBearStore();
+  const { falseNav } = useBearStore();
 
   const TRACKING_ID = "G-M6PS6FQH1P"; // YOUR_OWN_TRACKING_ID
   ReactGA.initialize(TRACKING_ID);
 
   return (
     <div
-      className={`bgGrade scroll-smooth ${
-        isOpen && "h-screen overflow-hidden"
-      }`}
+    // className={`bgGrade scroll-smooth ${
+    //   isOpen && "h-screen overflow-hidden"
+    // }`}
     >
-      {/* modal */}
       <Modal />
       <Router>
-        <Navbar />
-        <div>
+        <div className="relative z-50">
+          <Navbar />
+        </div>
+        <div onClick={falseNav} className="">
           <Routes>
             <Route path="/" element={<Homepage />} />
+            <Route path="/host" element={<Host />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog/:slug" element={<BlogDetails />} />
             {/* <Route path="/appguide" element={<Appguide />} /> */}
@@ -38,8 +41,8 @@ function App() {
             <Route path="/contact" element={<Contact />} />
             <Route path="/:id" element={<ContentBlock />} />
           </Routes>
-          <Footer />
         </div>
+        <Footer />
       </Router>
     </div>
   );

@@ -1,50 +1,68 @@
 import { Assets, AboutUs, Guide } from "../assets";
 
 const {
-  short_term,
-  property_management,
-  real_estate_aqui,
+  alarm,
+  companies,
+  lease,
   sustainable,
   betterliving,
   transforming,
+  ac,
+  powersupply,
+  gym,
+  kitchen,
+  parking,
+  security,
+  house,
+  earth,
+  account,
+  calender,
+  wallet,
+  payment,
+  assignment,
+  file,
+  home,
 } = Assets;
 
 export const services = [
   {
     id: 0,
-    title: `Short-Term Rentals`,
-    subtitle: `With this service you can `,
-    description: [
-      `Explore diiferent apartments from the comfort of your home`,
-      `Book and make necessary arrangments without lifting a Leg`,
-      `Easily enjoy access to affordable, sustainable and trendy short lets properties anywhere in Nigeria.`,
-    ],
-    image: short_term,
-    alt: "raum_services_image1",
+    title: `Short Term Rentals`,
+    description: `Experience an exclusive short-term rental service with personalized accommodations, seamless booking, and exceptional hosts, redefining travel with memorable and adventurous getaways.`,
+    image: alarm,
+    alt: `${alarm}`,
   },
   {
     id: 1,
-    title: `Property management application`,
-    subtitle: `For Property owners `,
-    description: [
-      `We offer a unique solution for managing your single or multiple properties using your personalised hosting app`,
-      `Scale your business to a greater height`,
-      `Increase revenue and make more informed decisions about your properties`,
-    ],
-    image: property_management,
-    alt: "raum_services_image2",
+    title: `Property Management`,
+    description: `Empower property owners with our advanced property management feature, streamlining bookings, pricing, and guest communication for a seamless and rewarding hosting experience.`,
+    image: companies,
+    alt: `${companies}`,
   },
   {
     id: 2,
-    title: `Real Estate Acquisition Platform`,
-    subtitle: `At an advanced level, we offer`,
-    description: [
-      `We offer premium access to kickstart and promote your real estate business`,
-      `Virtual/argumented reality for better visualization`,
-      `Long term rentals, shared investments and AI powered recommendations`,
-    ],
-    image: real_estate_aqui,
-    alt: "raum_services_image3",
+    title: `Property acquisition`,
+    description: `Explore and secure your ideal real estate investment effortlessly with our innovative property acquisition feature, connecting you with sellers, expert guidance, and a commitment to your investment success.`,
+    image: lease,
+    alt: `${lease}`,
+  },
+];
+
+export const earn = [
+  {
+    id: 0,
+    title: `Host more, earn more`,
+    description: `Our community of 1+ million guests will send you plenty of booking requests. When demand is high, you can maximize your earnings.`,
+  },
+  {
+    id: 1,
+    title: `Set your availability`,
+    description: `Host as frequently and for as long as you prefer. Weekdays, weekends, or evenings — tailor your hosting schedule to suit your lifestyle.`,
+  },
+  {
+    id: 2,
+    title: `Receive weekly payouts`,
+    description: `You'll receive your earnings at the end of each week — no need to wait around for payday.`,
   },
 ];
 
@@ -72,6 +90,124 @@ export const features = [
     image: transforming,
     link: "#",
     alt: "features images",
+  },
+];
+
+export const shortlets = [
+  {
+    title: `Air Conditioning`,
+    image: ac,
+  },
+  {
+    title: `24/7 Power supply`,
+    image: powersupply,
+  },
+  {
+    title: `State-of-the-art
+    Gymnasium`,
+    image: gym,
+  },
+  {
+    title: `Fully equipped
+    kitchen`,
+    image: kitchen,
+  },
+  {
+    title: `Parking`,
+    image: parking,
+  },
+  {
+    title: `Security`,
+    image: security,
+  },
+];
+
+export const aboutRaum = [
+  {
+    title: `Over 200`,
+    subtitle: `listed properties`,
+    image: house,
+  },
+  {
+    title: `23 states and counting`,
+    subtitle: `all with Raum listings`,
+    image: earth,
+  },
+  {
+    title: `25,000`,
+    subtitle: `active users`,
+    image: account,
+  },
+];
+
+export const raumHost = [
+  {
+    title: `Host and earn at your convenience`,
+    subtitle: `Maximize your income during evenings
+    and weekends, or increase your
+    earnings by hosting more frequently.
+    The choice is yours.`,
+    image: calender,
+  },
+  {
+    title: `A dependable stream of earnings`,
+    subtitle: `You'll receive booking requests from our
+    extensive network of guests whenever
+    your space is available.`,
+    image: wallet,
+  },
+  {
+    title: `Weekly payouts`,
+    subtitle: `Receive your earnings at the end of
+    each week. There are no hidden
+    subscription fees and you’ll only pay
+    commission on your earnings.`,
+    image: payment,
+  },
+];
+
+export const getStarted = [
+  {
+    title: `Sign up`,
+    subtitle: `Inform us about the city where you
+    want to host and the type of property
+    you have. We'll send you an email
+    with the subsequent instructions.`,
+    image: assignment,
+  },
+  {
+    title: `Upload your documents`,
+    subtitle: `The requirements for hosting on Raum
+    can vary based on your location. `,
+    image: file,
+  },
+  {
+    title: `List your property`,
+    subtitle: `If you own a property and want
+    to list it, we can guide you through
+    the process to showcase your
+    space to potential guests.`,
+    image: home,
+  },
+];
+
+export const howToHost = [
+  {
+    title: `Accept a booking request`,
+    subtitle: `The Host app will automatically connect you with guests.`,
+    id: 1,
+  },
+  {
+    title: `Welcome your guest`,
+    subtitle: `The app will guide you to your guest's location.
+    Once there, welcome them.`,
+    id: 2,
+  },
+  {
+    title: `Repeat to increase your income`,
+    subtitle: `Continue hosting and earning or go offline —
+    you're always in full control of your hosting schedule.`,
+    id: 3,
   },
 ];
 

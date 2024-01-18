@@ -1,18 +1,28 @@
 import React from "react";
 import { Assets } from "../assets";
 import "../index.css";
-import { HiOutlineMenuAlt3 } from "react-icons/hi";
+import { AiOutlineMenu } from "react-icons/ai";
 import { MdClose } from "react-icons/md";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import useBearStore from "../store/store";
 
 const Navbar = () => {
   const { toggle, toggleFalse, nav, toggleNav, falseNav } = useBearStore();
 
+  const location = useLocation();
+
+  const getLogo = () => {
+    if (location.pathname === "/" || location.pathname === "/host") {
+      return Assets.raumLogo2; // Replace with your special logo asset
+    } else {
+      return Assets.raumLogo; // Default logo for other routes
+    }
+  };
+
   const navbarVariant = {
     hidden: {
-      opacity: 0,
+      opacity: 1,
       translateY: -50,
     },
     visible: {
@@ -42,9 +52,15 @@ const Navbar = () => {
   };
 
   return (
-    <motion.header variants={navbarVariant} initial="hidden" animate="visible">
+    <motion.header
+      variants={navbarVariant}
+      initial="hidden"
+      animate="visible"
+      className="absolute top-0 left-0 right-0"
+    >
       <nav className="w-full bg-transparent p-4 px-8 md:p-4 md:px-12 flex justify-between items-center relative z-40">
-        <button className="py-4">
+        <div className="hidden md:block invisible w-1/3"></div>
+        <button className="w-1/3">
           <Link
             to="/"
             onClick={() => {
@@ -52,131 +68,65 @@ const Navbar = () => {
               toggleFalse();
             }}
           >
-            <img src={Assets.raumLogo} alt="Logo" className="w-full" />
+            <img
+              src={getLogo()}
+              alt="Logo"
+              className="w-[70px] md:w-[150px] md:mx-auto"
+            />
           </Link>
         </button>
-        <div className="relative">
-          <div className="hidden md:flex">
-            <ul className="w-full flex justify-center items-center gap-5">
-              {/* <motion.li
-                whileHover={{ scale: 1.1 }}
-                transition={{ type: "spring", stiffness: 75 }}
-                className=" whitespace-nowrap"
-              >
-                <Link
-                  onClick={() => {
-                    toggleNav();
-                    toggleFalse();
-                  }}
-                  to="/appguide"
-                  className="p-3"
-                >
-                  App Guide
-                </Link>
-              </motion.li> */}
-
-              {/* Blog */}
-
-              {/* <motion.li
-                whileHover={{ scale: 1.1 }}
-                transition={{ type: "spring", stiffness: 75 }}
-                className=" whitespace-nowrap"
-              >
-                <Link
-                  onClick={() => {
-                    toggleNav();
-                    toggleFalse();
-                  }}
-                  to="/blog"
-                  className="p-3"
-                >
-                  Blog
-                </Link>
-              </motion.li> */}
-              <motion.li
-                whileHover={{ scale: 1.1 }}
-                transition={{ type: "spring", stiffness: 75 }}
-                className=" whitespace-nowrap"
-              >
-                <Link
-                  onClick={() => {
-                    toggleNav();
-                    toggleFalse();
-                  }}
-                  to="/about"
-                  className="p-3"
-                >
-                  About Us
-                </Link>
-              </motion.li>
-              <motion.li
-                whileHover={{ scale: 1.1 }}
-                transition={{ type: "spring", stiffness: 75 }}
-                className=""
-              >
-                <Link
-                  onClick={() => {
-                    toggleNav();
-                    toggleFalse();
-                  }}
-                  to="contact"
-                  className="p-3"
-                >
-                  Contact
-                </Link>
-              </motion.li>
-
-              <button
-                onClick={() => {
-                  toggle();
-                  falseNav();
-                }}
-                className=""
-              >
-                <motion.li
-                  whileHover={{ scale: 1.1 }}
-                  transition={{ type: "spring", stiffness: 75 }}
-                  className="p-3 px-10 bg-primary text-white font-medium rounded-full w-full text-center"
-                >
-                  Join Us
-                </motion.li>
-              </button>
-            </ul>
-          </div>
-        </div>
         <motion.div
           animate={{ type: "spring", stiffness: 500 }}
-          onClick={() => {
-            toggleNav();
-            toggleFalse();
-          }}
-          className="block py-4 pl-4 md:hidden"
+          className="py-4 pl-4 w-1/3 flex justify-end items-center"
         >
-          {nav === false && (
-            <AnimatePresence>
-              <motion.button
-                variants={navtoggleVariant}
-                initial="initial"
-                animate="animate"
-                exit="initial"
-              >
-                <HiOutlineMenuAlt3 className="text-white" size={25} />
-              </motion.button>
-            </AnimatePresence>
-          )}
-          {nav === true && (
-            <AnimatePresence>
-              <motion.button
-                variants={navtoggleVariant}
-                initial="initial"
-                animate="animate"
-                exit="initial"
-              >
-                <MdClose className="text-white" size={25} />
-              </motion.button>
-            </AnimatePresence>
-          )}
+          <div
+            onClick={() => {
+              toggleNav();
+              toggleFalse();
+            }}
+            className="w-[30px] h-[30px] flex justify-end items-end"
+          >
+            {nav === false && (
+              <AnimatePresence>
+                <motion.button
+                  variants={navtoggleVariant}
+                  initial="initial"
+                  animate="animate"
+                  exit="initial"
+                >
+                  <AiOutlineMenu
+                    className={`${
+                      location.pathname === "/" || location.pathname === "/host"
+                        ? "text-black"
+                        : "text-white"
+                    }`}
+                    size={25}
+                  />
+                </motion.button>
+              </AnimatePresence>
+            )}
+            {nav === true && (
+              <AnimatePresence>
+                <motion.button
+                  variants={navtoggleVariant}
+                  initial="initial"
+                  animate="animate"
+                  exit="initial"
+                >
+                  <MdClose
+                    className={`${
+                      location.pathname === "/" || location.pathname === "/host"
+                        ? "text-black"
+                        : "text-white"
+                    }`}
+                    size={25}
+                  />
+                </motion.button>
+              </AnimatePresence>
+            )}
+          </div>
         </motion.div>
+
         <AnimatePresence>
           {nav === true && (
             <motion.ul
@@ -186,7 +136,7 @@ const Navbar = () => {
               exit="initial"
               className={
                 nav
-                  ? "bg-black border-[1px] border-primary w-11/12 font-normal mx-auto rounded-3xl p-8 flex flex-col justify-center items-center gap-3 absolute top-[80px] left-0 right-0 md:hidden"
+                  ? "bg-black w-11/12 font-normal  mx-auto rounded-3xl p-8 flex flex-col lg:flex-row justify-center items-center gap-3 absolute top-[80px] left-0 right-0"
                   : "hidden"
               }
             >
@@ -212,6 +162,18 @@ const Navbar = () => {
                   Blog
                 </Link>
               </li> */}
+              <li className="p-2">
+                <Link
+                  onClick={() => {
+                    toggleNav();
+                    toggleFalse();
+                  }}
+                  to="/host"
+                  className="p-3"
+                >
+                  Host App
+                </Link>
+              </li>
               <li className="p-2">
                 <Link
                   onClick={() => {
