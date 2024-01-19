@@ -50,7 +50,7 @@ const Features = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.7 * index }}
               key={index}
-              className="w-[148px] md:w-full h-[180px] lg:h-[200px] bg-transparent border border-primary rounded-[20px] flex flex-col md:flex-row justify-between md:items-start mx-auto gap-3 md:p-8"
+              className="w-full h-[180px] lg:h-[200px] bg-transparent border border-primary rounded-[20px] flex flex-col md:flex-row justify-between md:items-start mx-auto gap-3 md:p-8"
             >
               <div className="md:w-1/2">
                 <p className=" text-left font-semibold text-sm md:text-base p-4 ">

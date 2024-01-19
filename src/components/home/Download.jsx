@@ -66,24 +66,21 @@ const Download = () => {
                   className="w-full h-full flex flex-col justify-center items-start gap-5 p-6 md:p-10"
                 >
                   <h3 className="text-white text-xl md:text-5xl font-bold md:leading-[57.33px]">
-                    <span className="pr-3">
+                    <span className="">
                       {(download === "guests" && "Access to the") ||
                         (download === "hosts" && "Showcase your")}
-                    </span>
+                    </span>{" "}
                     best shortlets at your fingertips.
                   </h3>
-                  <p className="text-white text-base font-normal leading-tight">
-                    Scan the QR code with your phone camera
-                    <br />
-                    to download the Raum app.
-                    <br />
-                    Available for iOS and Android devices.
+                  <p className="text-white text-[11.11px] md:text-base font-normal leading-tight">
+                    Scan the QR code with your phone camera to download the Raum
+                    app. Available for iOS and Android devices.
                   </p>
                   <div className="w-full flex gap-10 justify-between items-center">
-                    <button className="p-2 px-6 md:px-12 h-[50px] font-semibold rounded-full bg-white text-primary text-base">
+                    <button className="w-[110px] h-[34px] md:w-[205px] md:h-[50px] font-semibold rounded-full bg-white text-primary text-base">
                       Android
                     </button>
-                    <button className="p-2 px-6 md:px-12 h-[50px] font-semibold rounded-full bg-white text-primary text-base">
+                    <button className="w-[110px] h-[34px] md:w-[205px] md:h-[50px] font-semibold rounded-full bg-white text-primary text-base">
                       Apple
                     </button>
                   </div>
@@ -100,7 +97,7 @@ const Download = () => {
                       className="w-full h-full flex justify-center items-end"
                     >
                       <img
-                        className="w-[335px] px-4 pt-4"
+                        className="w-[250px] md:w-[335px] px-4 pt-8 md:pt-4"
                         src={Assets.guestMockup}
                         alt="raum-app"
                       />
@@ -116,7 +113,7 @@ const Download = () => {
                       className="w-full h-full flex justify-center items-end overflow-hidden"
                     >
                       <img
-                        className="w-[335px] px-4 pt-4"
+                        className="w-[250px] md:w-[335px] px-4 pt-4"
                         src={Assets.hostMockup}
                         alt="raum-app"
                       />

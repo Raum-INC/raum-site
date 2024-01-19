@@ -28,24 +28,24 @@ const Services = () => {
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true }}
-      className="w-full h-auto p-10"
+      className="w-full h-auto p-8"
     >
       <section className="w-full max-w-6xl my-10 mx-auto flex flex-col lg:flex-row justify-center items-center gap-10">
         {services.map((service, index) => (
           <div
             key={index}
-            className="w-full flex lg:flex-col lg:gap-5 justify-center items-start lg:items-center text-center"
+            className="w-full flex lg:flex-col gap-4 lg:gap-5 justify-start items-start lg:items-center text-center"
           >
-            <div className="w-1/5 p-2">
+            <div className="">
               <img
                 src={service.image}
                 alt={service.alt}
                 className="w-6 md:w-12 h-w-6 md:h-12"
               />
             </div>
-            <div className="w-4/5 flex flex-col justify-center items-start md:items-center">
-              <h2 className="text-sm md:text-2xl p-2">{service.title}</h2>
-              <p className="font-normal text-left lg:text-center text-[9.26px] md:text-base p-2">
+            <div className="w-4/5 flex flex-col justify-center items-start md:items-center gap-2">
+              <h2 className="text-sm md:text-2xl">{service.title}</h2>
+              <p className="font-normal text-left lg:text-center text-[9.26px] md:text-base">
                 {service.description}
               </p>
             </div>

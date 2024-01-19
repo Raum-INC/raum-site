@@ -12,7 +12,7 @@ const AboutRaum = () => {
             <h3 className="font-semibold text-3xl md:text-4xl lg:text-center">
               About Raum
             </h3>
-            <p className="text-left md:text-center w-full max-w-[800px] mx-auto">
+            <p className="text-left md:text-center text-[11.11px] leading-[13.13px] md:text-base w-full max-w-[800px] mx-auto">
               Raum is the premier global hospitality super-platform. We're
               crafting spaces for people, providing superior alternatives for
               every accommodation need — including vacation rentals, shared
@@ -35,10 +35,13 @@ const AboutRaum = () => {
                 <img
                   src={image}
                   alt={`${title}-${subtitle}`}
-                  className="w-12 md:w-16"
+                  className="w-6 md:w-12 h-w-6 md:h-12"
                 />
-                <p className="font-bold text-lg md:text-xl lg:text-center flex flex-col justify-center items-start">
-                  {title} <span className="font-normal">{subtitle}</span>
+                <p className="font-boldfont-normal text-left text-[13.33px] md:text-base lg:text-center flex flex-col justify-center items-start">
+                  {title}{" "}
+                  <span className="font-normal text-[9.26px] md:text-base">
+                    {subtitle}
+                  </span>
                 </p>
               </div>
             ))}

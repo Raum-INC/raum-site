@@ -78,7 +78,7 @@ const Hero = ({ heroTitle, hostTitle }) => {
         variants={componentVariant}
         initial="hidden"
         animate="visible"
-        className="w-full h-auto flex flex-col justify-center items-center"
+        className="w-full h-auto flex flex-col justify-center items-center md:gap-12 lg:gap-0"
       >
         <div className="px-8 flex flex-col justify-center items-center gap-8">
           <h1
@@ -94,9 +94,11 @@ const Hero = ({ heroTitle, hostTitle }) => {
           <Link
             to={location.pathname === "/host" ? "/host" : "/"}
             onClick={getClick}
-            className="p-3 px-8 md:px-12 h-[50px] bg-black text-white rounded-3xl capitalize font-normal"
+            className="bg-black text-[9.25px] md:text-sm text-white rounded-3xl capitalize font-normal"
           >
-            {hostTitle}
+            <button className="w-[110px] h-[34px] md:w-[205px] md:h-[50px]">
+              {hostTitle}
+            </button>
           </Link>
         </div>
         <motion.div
