@@ -72,12 +72,12 @@ const Earn = () => {
                   </div>
                 </li>
               ))}
+              <Link to="/host" onClick={handleLearnMoreClick}>
+                <button className="w-[110px] h-[34px] md:w-[205px] md:h-[50px] text-[9.26px] md:text-base font-bold border-2 border-primary rounded-full hover:bg-primary hover:text-white transition-all duration-300 ease-in-out ">
+                  Learn More
+                </button>
+              </Link>
             </ul>
-            <Link to="/host" onClick={handleLearnMoreClick}>
-              <button className="w-[110px] h-[34px] md:w-[205px] md:h-[50px] text-[9.26px] md:text-base font-bold border-2 border-primary rounded-full hover:bg-primary hover:text-white transition-all duration-300 ease-in-out ">
-                Learn More
-              </button>
-            </Link>
           </div>
         </section>
       </section>

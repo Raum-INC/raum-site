@@ -43,7 +43,7 @@ const Services = () => {
                 className="w-6 md:w-12 h-w-6 md:h-12"
               />
             </div>
-            <div className="w-4/5 flex flex-col justify-center items-start md:items-center gap-2">
+            <div className="w-4/5 flex flex-col justify-center items-start lg:items-center gap-2">
               <h2 className="text-sm md:text-2xl">{service.title}</h2>
               <p className="font-normal text-left lg:text-center text-[9.26px] md:text-base">
                 {service.description}
