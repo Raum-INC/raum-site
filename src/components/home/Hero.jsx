@@ -96,7 +96,11 @@ const Hero = ({ heroTitle, hostTitle }) => {
             onClick={getClick}
             className="bg-black text-[9.25px] md:text-sm text-white rounded-3xl capitalize font-normal"
           >
-            <button className="w-[110px] h-[34px] md:w-[205px] md:h-[50px]">
+            <button
+              className={`w-[110px] h-[34px] md:w-[205px] md:h-[50px] ${
+                location.pathname === "/host" && "w-[140px]"
+              }`}
+            >
               {hostTitle}
             </button>
           </Link>

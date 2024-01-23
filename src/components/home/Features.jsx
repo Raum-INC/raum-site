@@ -35,9 +35,9 @@ const Features = () => {
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true }}
-      className="w-full max-w-6xl mx-auto p-8 xl:p-0 my-16"
+      className="w-full max-w-6xl mx-auto p-8 xl:p-0"
     >
-      <section className="flex flex-col justify-center items-start md:items-center gap-10 lg:gap-14">
+      <section className="flex flex-col justify-center items-start md:items-center gap-10 lg:gap-14 my-10">
         <h3 className="font-semibold text-2xl md:text-5xl">
           Our Shortlet Features
         </h3>

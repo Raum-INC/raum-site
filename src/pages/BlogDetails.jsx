@@ -3,6 +3,8 @@ import { Link, useParams } from "react-router-dom";
 import { client } from "../lib/sanity";
 import { PortableText } from "@portabletext/react";
 import { AnimatePresence, motion } from "framer-motion";
+import { Helmet } from "react-helmet-async";
+import { ClipLoader } from "react-spinners";
 
 const BlogDetails = () => {
   const [blogData, setBlogData] = useState(null);
@@ -116,11 +118,13 @@ const BlogDetails = () => {
           animate="visible"
           className="w-full h-screen flex justify-center items-center"
         >
-          <h1 className="font-bold text-2xl lg:text-5xl text-center">
-            From Raum
-            <br />
-            With Love
-          </h1>
+          <ClipLoader
+            color="#00F"
+            loading={true}
+            size={150}
+            aria-label="Loading Spinner"
+            data-testid="loader"
+          />
         </motion.div>
       </AnimatePresence>
     );
@@ -165,107 +169,127 @@ const BlogDetails = () => {
   };
 
   return (
-    <main className="w-full h-auto">
-      <motion.section
-        variants={componentVariant}
-        initial="hidden"
-        animate="visible"
-        className="space-y-10 overflow-hidden"
-      >
-        <div className="p-4 lg:p-12 space-y-5 h-[350px] md:h-[500px] lg:h-[700px]">
-          <div className="w-full flex gap-5 justify-center items-center">
-            <p className="text-center flex items-center gap-5 font-normal text-base text-white">
-              {blogData.category}
-              <span className="w-7 h-[1px] bg-[#A3A3A3]"></span>
-              {blogData.date}
-            </p>
-          </div>
-          <div className="text-center space-y-5">
-            <h1 className="text-white font-bold text-2xl lg:text-6xl">
-              {blogData.title}
-            </h1>
-            <p className="text-secondary text-base lg:text-lg font-medium">
-              {blogData.description}
-            </p>
-          </div>
-        </div>
-        <div className="p-8 w-full h-auto bg-white text-black relative z-10">
-          <div className="w-11/12 lg:p-8 lg:w-[1200px] lg:h-[700px] aspect-auto mx-auto absolute top-[-160px] md:top-[-360px] lg:top-[-440px] left-0 right-0">
-            <img
-              src={blogData.image}
-              alt={blogData.alt}
-              className="w-full h-full object-cover rounded-3xl"
-            />
-          </div>
-          <div className="mt-16 md:mt-28 lg:mt-[300px] w-full lg:max-w-4xl mx-auto">
-            <PortableText
-              value={blogData.content}
-              components={myPortableTextComponents}
-            />
-            <div className="w-full p-4 lg:p-12 space-y-3">
-              <p className="text-[#BBC8D4] font-bold text-base uppercase">
-                Written By
+    <>
+      <Helmet>
+        <title>{blogData.title} - Raum INC.</title>
+        <meta name="description" content={blogData.description} />
+        <meta
+          property="og:title"
+          content="Make money hosting with Raum in Nigeria - Raum INC."
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:description" content={blogData.description} />
+        <meta
+          property="og:image"
+          content="https://raumhq.co/static/media/raum_logo-2.59c816fbe6de5b47c6ceed6a5cc7c717.svg"
+        />
+        <meta property="og:url" content={`https://raumhq.co/blog/${slug}`} />
+        <link rel="canonical" href={`https://raumhq.co/blog/${slug}`} />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+      </Helmet>
+
+      <main className="w-full h-auto pt-28">
+        <motion.section
+          variants={componentVariant}
+          initial="hidden"
+          animate="visible"
+          className="space-y-10 overflow-hidden"
+        >
+          <div className="p-4 lg:p-12 space-y-5 h-[350px] md:h-[500px] lg:h-[700px]">
+            <div className="w-full flex gap-5 justify-center items-center">
+              <p className="text-center flex items-center gap-5 font-normal text-base text-white">
+                {blogData.category}
+                <span className="w-7 h-[1px] bg-[#A3A3A3]"></span>
+                {blogData.date}
               </p>
-              <h3 className="font-normal text-2xl">{blogData.author}</h3>
+            </div>
+            <div className="text-center space-y-5">
+              <h1 className="text-white font-bold text-2xl lg:text-6xl">
+                {blogData.title}
+              </h1>
+              <p className="text-secondary text-base lg:text-lg font-medium">
+                {blogData.description}
+              </p>
             </div>
           </div>
-          {/* Related Posts */}
-          <motion.div
-            variants={listVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            className=""
-          >
-            <div className="w-full p-4 lg:p-12 flex justify-between items-center">
-              <h4 className="text-primary_text font-bold text-lg lg:text-4xl">
-                Related posts
-              </h4>
-              <Link
-                to="/blog"
-                onClick={() => window.scrollTo(0, 0)}
-                className="bg-white text-primary_text p-2 px-4 lg:p-4 lg:px-8 border border-secondary rounded-full hover:bg-primary_text hover:text-white transition-all duration-500 ease-in-out"
-              >
-                Browse all post
-              </Link>
+          <div className="p-8 w-full h-auto bg-white text-black relative z-10">
+            <div className="w-11/12 lg:p-8 lg:w-[1200px] lg:h-[700px] aspect-auto mx-auto absolute top-[-160px] md:top-[-360px] lg:top-[-440px] left-0 right-0">
+              <img
+                src={blogData.image}
+                alt={blogData.alt}
+                className="w-full h-full object-cover rounded-3xl"
+              />
             </div>
-            <div className="w-full mx-auto grid lg:grid-cols-2 gap-10">
-              {slicedData.map((item) => (
+            <div className="mt-16 md:mt-28 lg:mt-[300px] w-full lg:max-w-4xl mx-auto">
+              <PortableText
+                value={blogData.content}
+                components={myPortableTextComponents}
+              />
+              <div className="w-full p-4 lg:p-12 space-y-3">
+                <p className="text-[#BBC8D4] font-bold text-base uppercase">
+                  Written By
+                </p>
+                <h3 className="font-normal text-2xl">{blogData.author}</h3>
+              </div>
+            </div>
+            {/* Related Posts */}
+            <motion.div
+              variants={listVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              className=""
+            >
+              <div className="w-full p-4 lg:p-12 flex justify-between items-center">
+                <h4 className="text-primary_text font-bold text-lg lg:text-4xl">
+                  Related posts
+                </h4>
                 <Link
-                  to={`/blog/${item.slug}`}
-                  key={item.slug}
-                  className="lg:w-[600px] lg:h-[650px] mx-auto shadow-xl rounded-3xl hover:scale-105 transition-all duration-300 ease-in-out"
+                  to="/blog"
+                  onClick={() => window.scrollTo(0, 0)}
+                  className="bg-white text-primary_text p-2 px-4 lg:p-4 lg:px-8 border border-secondary rounded-full hover:bg-primary_text hover:text-white transition-all duration-500 ease-in-out"
                 >
-                  <section className="w-full h-full flex flex-col bg-white text-black rounded-[30px]">
-                    <div className="w-full h-[360px]">
-                      <img
-                        src={item.image}
-                        alt={item.alt}
-                        className="w-full h-full rounded-t-3xl object-cover"
-                      />
-                    </div>
-                    <div className="w-full h-full p-4 lg:p-8 space-y-5 ">
-                      <p className="flex items-center gap-5 text-secondary font-normal text-base">
-                        {item.category}
-                        <span className="w-7 h-[1px] bg-[#A3A3A3]"></span>
-                        {item.date}
-                      </p>
-                      <h2 className="font-bold text-lg lg:text-2xl text-primary_text">
-                        {item.title}
-                      </h2>
-                      <p className="text-secondary font-medium text-lg">
-                        {item.description}
-                      </p>
-                    </div>
-                  </section>
+                  Browse all post
                 </Link>
-              ))}
-            </div>
-            <div className="w-full h-[500px] bg-[#F8F8F8] absolute bottom-0 left-0 right-0 z-[-1]"></div>
-          </motion.div>
-        </div>
-      </motion.section>
-    </main>
+              </div>
+              <div className="w-full mx-auto grid lg:grid-cols-2 gap-10">
+                {slicedData?.map((item) => (
+                  <Link
+                    to={`/blog/${item.slug}`}
+                    key={item.slug}
+                    className="lg:w-[600px] lg:h-[650px] mx-auto shadow-xl rounded-3xl hover:scale-105 transition-all duration-300 ease-in-out"
+                  >
+                    <section className="w-full h-full flex flex-col bg-white text-black rounded-[30px]">
+                      <div className="w-full h-[360px]">
+                        <img
+                          src={item.image}
+                          alt={item.alt}
+                          className="w-full h-full rounded-t-3xl object-cover"
+                        />
+                      </div>
+                      <div className="w-full h-full p-4 lg:p-8 space-y-5 ">
+                        <p className="flex items-center gap-5 text-secondary font-normal text-base">
+                          {item.category}
+                          <span className="w-7 h-[1px] bg-[#A3A3A3]"></span>
+                          {item.date}
+                        </p>
+                        <h2 className="font-bold text-lg lg:text-2xl text-primary_text">
+                          {item.title}
+                        </h2>
+                        <p className="text-secondary font-medium text-lg">
+                          {item.description}
+                        </p>
+                      </div>
+                    </section>
+                  </Link>
+                ))}
+              </div>
+              <div className="w-full h-[500px] bg-[#F8F8F8] absolute bottom-0 left-0 right-0 z-[-1]"></div>
+            </motion.div>
+          </div>
+        </motion.section>
+      </main>
+    </>
   );
 };
 

@@ -54,7 +54,7 @@ const ContactUs = () => {
           <p className="text-base lg:text-lg font-medium text-[#6c6c6c]">
             Do you have questions, comment, or a suggestion for us? Whether you
             need more information about our products or services, we would love
-            to hear from you
+            to hear from you.
           </p>
           <div className="flex gap-3">
             <CiMail className="mt-1" />

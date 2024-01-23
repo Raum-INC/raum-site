@@ -26,8 +26,8 @@ const Download = () => {
   };
 
   return (
-    <main id="download-section" className="w-full h-auto py-14">
-      <section className="w-full max-w-6xl mx-auto h-full p-8 xl:p-0 space-y-12 ">
+    <main id="download-section" className="w-full h-auto p-8 xl:p-0">
+      <section className="w-full max-w-6xl mx-auto h-full my-10 space-y-12 ">
         <h3 className="font-semibold text-3xl md:text-4xl text-center">
           Download our Apps
         </h3>
@@ -36,8 +36,8 @@ const Download = () => {
             onClick={toggleGuest}
             className={`${
               download === "guests"
-                ? "px-8 md:px-12 h-[50px] text-base font-normal rounded-full bg-primary border-2 border-primary transition-all duration-300 ease-in-out"
-                : "px-8 md:px-12 h-[50px] text-base font-normal rounded-full bg-transparent border-2 border-primary transition-all duration-300 ease-in-out"
+                ? "w-[110px] h-[34px] md:w-[205px] md:h-[50px] text-base font-normal rounded-full bg-primary border-2 border-primary transition-all duration-300 ease-in-out"
+                : "w-[110px] h-[34px] md:w-[205px] md:h-[50px] text-base font-normal rounded-full bg-transparent border-2 border-primary transition-all duration-300 ease-in-out"
             }`}
           >
             Guests
@@ -46,8 +46,8 @@ const Download = () => {
             onClick={toggleHosts}
             className={`${
               download === "hosts"
-                ? "px-8 md:px-12 h-[50px] font-semibold rounded-full bg-primary border-2 border-primary transition-all duration-300 ease-in-out"
-                : "px-8 md:px-12 h-[50px] text-base font-normal rounded-full bg-transparent border-2 border-primary transition-all duration-300 ease-in-out"
+                ? "w-[110px] h-[34px] md:w-[205px] md:h-[50px] font-semibold rounded-full bg-primary border-2 border-primary transition-all duration-300 ease-in-out"
+                : "w-[110px] h-[34px] md:w-[205px] md:h-[50px] text-base font-normal rounded-full bg-transparent border-2 border-primary transition-all duration-300 ease-in-out"
             }`}
           >
             Hosts

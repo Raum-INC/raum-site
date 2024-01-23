@@ -35,9 +35,9 @@ const Earn = () => {
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true }}
-      className="w-full h-auto p-10"
+      className="w-full h-auto p-8"
     >
-      <section className="w-full h-full flex flex-col justify-center lg:items-center gap-10">
+      <section className="w-full h-full flex flex-col justify-center lg:items-center gap-10 my-10">
         <h2 className="font-semibold text-2xl md:text-5xl">
           Earn money with Raum
         </h2>

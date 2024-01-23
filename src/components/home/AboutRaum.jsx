@@ -6,8 +6,8 @@ import { Motion } from "../Motion";
 const AboutRaum = () => {
   return (
     <Motion>
-      <main className="w-full h-auto">
-        <section className="py-14 w-full flex flex-col justify-center items-center gap-12 p-8">
+      <main className="w-full h-auto p-8">
+        <section className="w-full flex flex-col justify-center items-center gap-12 my-10">
           <div className="space-y-5">
             <h3 className="font-semibold text-3xl md:text-4xl lg:text-center">
               About Raum

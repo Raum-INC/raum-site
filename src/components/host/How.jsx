@@ -6,7 +6,7 @@ import { IphonePop } from "../Motion";
 const How = () => {
   return (
     <main className="w-full h-auto p-10">
-      <section className="w-full max-w-6xl lg:h-[640px] bg-bgFade mx-auto flex flex-col justify-center items-start gap-5 md:gap-0 rounded-[20px] pt-6 px-6 overflow-hidden">
+      <section className="w-full max-w-6xl lg:h-[640px] bg-[#252525] mx-auto flex flex-col justify-center items-start gap-5 md:gap-0 rounded-[20px] pt-6 px-6 overflow-hidden my-10">
         <div className="md:p-14">
           <h3 className="font-bold text-2xl md:text-5xl">
             How the Raum Hosts app works

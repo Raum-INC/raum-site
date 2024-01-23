@@ -46,9 +46,9 @@ const Faqs = () => {
       variants={containerVariants}
       initial="hidden"
       whileInView="visible"
-      className="w-full h-auto p-8 py-12 md:px-12 flex flex-col gap-5"
+      className="w-full h-auto p-10 flex flex-col gap-5"
     >
-      <div className="flex flex-col justify-center items-center gap-2 mb-10">
+      <div className="flex flex-col justify-center items-center gap-2 my-10">
         <h3 className="font-semibold text-xl md:text-4xl">
           Frequently Asked Questions
         </h3>

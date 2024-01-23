@@ -3,12 +3,15 @@ import ReactMarkdown from "react-markdown";
 import { useParams } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { ClipLoader } from "react-spinners";
+import { Helmet } from "react-helmet-async";
 
 const ContentBlock = () => {
   const { id } = useParams();
   const [markdownContent, setMarkdownContent] = useState("");
   const [content, setContent] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [title, setTitle] = useState("");
+  const [desc, setDesc] = useState("");
 
   useEffect(() => {
     const fetchMarkdownContent = async () => {
@@ -20,6 +23,8 @@ const ContentBlock = () => {
         if (response.ok) {
           const data = await response.json();
           setMarkdownContent(data.content.content);
+          setTitle(data.content.title);
+          setDesc(data.content.desc);
           setContent(true);
           setIsLoading(false);
         } else {
@@ -63,6 +68,24 @@ const ContentBlock = () => {
 
   return (
     <>
+      <Helmet>
+        <title>{title} - Raum INC.</title>
+        <meta name="description" content={desc} />
+        <meta
+          property="og:title"
+          content="Make money hosting with Raum in Nigeria - Raum INC."
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:description" content={desc} />
+        <meta
+          property="og:image"
+          content="https://raumhq.co/static/media/raum_logo-2.59c816fbe6de5b47c6ceed6a5cc7c717.svg"
+        />
+        <meta property="og:url" content={`https://raumhq.co/${id}`} />
+        <link rel="canonical" href={`https://raumhq.co/${id}`} />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+      </Helmet>
+
       {content ? (
         <AnimatePresence>
           <motion.article
@@ -75,7 +98,7 @@ const ContentBlock = () => {
             } max-w-6xl mx-auto md:py-10 p-8 md:p-0`}
           >
             <ReactMarkdown
-              className={`w-full h-auto max-w-6xl mx-auto prose ${headings} ${p} ${strong} ${anchorLists}`}
+              className={`w-full h-auto max-w-6xl mx-auto prose ${headings} ${p} ${strong} ${anchorLists} pt-24`}
             >
               {markdownContent}
             </ReactMarkdown>

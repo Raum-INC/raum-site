@@ -6,7 +6,7 @@ const RaumHost = () => {
   return (
     <Motion>
       <main className="w-full h-auto p-10">
-        <section className="w-full max-w-6xl mx-auto flex flex-col gap-10">
+        <section className="w-full max-w-6xl mx-auto flex flex-col gap-10 my-10">
           <div className="space-y-5">
             <h1 className="font-semibold text-2xl md:text-4xl">
               Why become a Raum Host?
