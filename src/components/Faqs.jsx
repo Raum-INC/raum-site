@@ -64,8 +64,8 @@ const Faqs = () => {
             onClick={() => handleActive(index)}
             className={
               icons === index
-                ? "w-full md:w-3/5 mx-auto flex flex-row-reverse gap-4 md:gap-10 p-5 md:p-10 border-transparent bg-primary text-white rounded-3xl"
-                : "w-full md:w-3/5 mx-auto flex flex-row-reverse gap-4 md:gap-10 p-5 md:p-10 border-2 border-white  text-white rounded-3xl"
+                ? "w-full md:w-4/5 mx-auto flex flex-row-reverse gap-4 md:gap-10 p-5 md:p-10 border-transparent bg-primary text-white rounded-3xl"
+                : "w-full md:w-4/5 mx-auto flex flex-row-reverse gap-4 md:gap-10 p-5 md:p-10 border-2 border-white  text-white rounded-3xl"
             }
           >
             <motion.div className="w-10">

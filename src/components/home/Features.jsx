@@ -53,13 +53,13 @@ const Features = () => {
               className="w-full h-[180px] lg:h-[200px] bg-transparent border border-primary rounded-[20px] flex flex-col md:flex-row justify-between md:items-start mx-auto gap-3 md:p-8"
             >
               <div className="md:w-1/2">
-                <p className=" text-left font-semibold text-sm md:text-base p-4 ">
+                <p className=" text-left font-semibold text-base md:text-base p-4 ">
                   {shortlet.title}
                 </p>
               </div>
-              <div className="w-full md:w-1/2 h-full flex justify-end items-center">
+              <div className="w-full md:w-1/2 h-full flex justify-end items-end">
                 <img
-                  className="w-[100px] md:w-full"
+                  className="w-[90px] md:w-full"
                   src={shortlet.image}
                   alt={shortlet.title}
                 />

@@ -81,7 +81,7 @@ const Hero = ({ heroTitle, hostTitle }) => {
             dangerouslySetInnerHTML={{ __html: sanitizedTitle }}
           />
 
-          <p className="hero-description w-[300px] lg:w-[650px] text-center leading-[13.13px] text-bgFade text-[11.11px] md:text-base font-normal">
+          <p className="hero-description w-4/5 lg:w-[650px] text-center leading-[20px] text-bgFade text-lg md:text-xl font-normal">
             Whether you're searching for your next home or looking to list your
             apartment for business purposes, we're here to make your journey
             seamless and stress-free.
@@ -89,11 +89,11 @@ const Hero = ({ heroTitle, hostTitle }) => {
           <Link
             to={location.pathname === "/host" ? "/host" : "/"}
             onClick={getClick}
-            className="bg-black text-[9.25px] md:text-sm text-white rounded-3xl capitalize font-normal"
+            className="bg-black text-sm md:text-base text-white rounded-3xl capitalize font-normal"
           >
             <button
-              className={`hero-btn w-[110px] h-[34px] md:w-[205px] md:h-[50px] ${
-                location.pathname === "/host" && "w-[140px]"
+              className={`hero-btn w-[160px] h-[34px] md:w-[205px] md:h-[50px] ${
+                location.pathname === "/host" && "w-[220px]"
               }`}
             >
               {hostTitle}

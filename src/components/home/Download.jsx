@@ -72,7 +72,7 @@ const Download = () => {
                     </span>{" "}
                     best shortlets at your fingertips.
                   </h3>
-                  <p className="text-white text-[11.11px] md:text-base font-normal leading-tight">
+                  <p className="text-white text-base font-normal leading-tight">
                     Scan the QR code with your phone camera to download the Raum
                     app. Available for iOS and Android devices.
                   </p>

@@ -11,7 +11,7 @@ const How = () => {
           <h3 className="font-bold text-2xl md:text-5xl">
             How the Raum Hosts app works
           </h3>
-          <p className="">
+          <p className="text-base my-5">
             Reliable and user-friendly, with all the essentials for hosting and
             earning at your convenience.
           </p>
@@ -27,8 +27,12 @@ const How = () => {
                   {item.id}
                 </span>
                 <div>
-                  <p className="font-semibold text-base">{item.title}</p>
-                  <p className="font-normal text-base">{item.subtitle}</p>
+                  <p className="font-semibold text-lg md:text-2xl">
+                    {item.title}
+                  </p>
+                  <p className="font-normal text-sm md:text-lg pt-2">
+                    {item.subtitle}
+                  </p>
                 </div>
               </div>
             ))}

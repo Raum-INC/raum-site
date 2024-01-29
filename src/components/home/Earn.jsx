@@ -63,17 +63,15 @@ const Earn = () => {
                 <li key={index} className="flex gap-10">
                   <div className="w-5 h-5 aspect-square bg-primary mt-1"></div>
                   <div className="space-y-3">
-                    <p className="font-semibold text-sm md:text-2xl">
+                    <p className="font-semibold text-lg md:text-2xl">
                       {data.title}
                     </p>
-                    <p className="text-[9.26px] md:text-lg">
-                      {data.description}
-                    </p>
+                    <p className="text-sm md:text-lg">{data.description}</p>
                   </div>
                 </li>
               ))}
               <Link to="/host" onClick={handleLearnMoreClick}>
-                <button className="w-[110px] h-[34px] md:w-[205px] md:h-[50px] text-[9.26px] md:text-base font-bold border-2 border-primary rounded-full hover:bg-primary hover:text-white transition-all duration-300 ease-in-out ">
+                <button className="w-[140px] h-[34px] md:w-[205px] md:h-[50px] text-base font-bold border-2 border-primary rounded-full hover:bg-primary hover:text-white transition-all duration-300 ease-in-out ">
                   Learn More
                 </button>
               </Link>
