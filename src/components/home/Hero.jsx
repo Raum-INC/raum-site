@@ -89,15 +89,13 @@ const Hero = ({ heroTitle, hostTitle }) => {
           <Link
             to={location.pathname === "/host" ? "/host" : "/"}
             onClick={getClick}
-            className="bg-black text-sm md:text-base text-white rounded-3xl capitalize font-normal"
+            className={`bg-black text-sm md:text-base text-white rounded-3xl capitalize font-normal flex justify-center items-center ${
+              location.pathname === "/host"
+                ? "w-[230px] h-[34px] md:h-[50px]"
+                : "w-[180px] h-[34px] md:h-[50px]"
+            }`}
           >
-            <button
-              className={`hero-btn w-[160px] h-[34px] md:w-[205px] md:h-[50px] ${
-                location.pathname === "/host" && "w-[220px]"
-              }`}
-            >
-              {hostTitle}
-            </button>
+            <p>{hostTitle}</p>
           </Link>
         </div>
         <motion.div
