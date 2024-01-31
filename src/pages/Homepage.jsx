@@ -5,6 +5,7 @@ import Features from "../components/home/Features";
 import Earn from "../components/home/Earn";
 import AboutRaum from "../components/home/AboutRaum";
 import Download from "../components/home/Download";
+import CallToAction from "../components/home/CallToAction";
 import HomepageHelmet from "../components/helmets/HomepageHelmet";
 
 const Homepage = () => {
@@ -19,6 +20,7 @@ const Homepage = () => {
       <Features />
       <AboutRaum />
       <Download />
+      <CallToAction />
       {/* <Faqs /> */}
     </div>
   );

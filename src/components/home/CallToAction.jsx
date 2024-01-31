@@ -1,78 +1,35 @@
-import React, { useEffect, useRef } from "react";
-import { Assets } from "../../assets";
-import { Link } from "react-router-dom";
-import { motion, useAnimation, useInView } from "framer-motion";
-import "../index.css";
+import React from "react";
+import { FaWhatsapp } from "react-icons/fa";
 
 const CallToAction = () => {
-  const ref = useRef(null);
-  const controls = useAnimation();
-  const isInView = useInView(ref);
-
-  useEffect(() => {
-    if (isInView) {
-      controls.start("visible");
-    }
-  }, [controls, isInView]);
-
-  const ctaVariant = {
-    hidden: {
-      opacity: 0,
-      translateY: 50,
-    },
-    visible: {
-      opacity: 1,
-      translateY: 0,
-    },
-  };
-
-  const ctaImage = {
-    hidden: {
-      opacity: 0,
-      translateY: -50,
-    },
-    visible: {
-      opacity: 1,
-      translateY: 0,
-      transition: {
-        delay: 0.5,
-        duration: 0.7,
-        type: "spring",
-        stiffness: 30,
-      },
-    },
-  };
-
   return (
-    <motion.main
-      variants={ctaVariant}
-      initial="hidden"
-      animate={controls}
-      ref={ref}
-      className="w-full h-screen p-8 md:px-12 flex flex-col justify-between gap-20"
-    >
-      <div className="ctaGradient p-4 w-full h-full rounded-[50px] flex flex-col justify-center items-center gap-5 relative overflow-hidden">
-        <div className="flex flex-col justify-center items-center gap-5 z-10 text-center mb-24 sm:mb-36">
-          <h3 className="font-semibold text-2xl md:text-5xl">
-            Don't miss out on the latest updates in the real estate industry and
-            other exciting news from us.
-          </h3>
-          <p className="">
-            Want to keep up with trending topics on sustainable living and
-            estate management? Read our blog to stay in the loop.
+    <main className="w-full my-10 px-8">
+      <section className="w-full max-w-6xl mx-auto p-8 flex flex-col md:flex-row justify-center items-center gap-5 bg-primary md:h-[200px] rounded-3xl">
+        <div className="md:w-2/3 w-full space-y-3">
+          <h4 className="text-xl md:text-2xl font-bold">
+            Struggling to find the perfect short-term rental?
+          </h4>
+          <p className="text-base">
+            <br className="hidden" /> Connect with us on WhatsApp for
+            personalized assistance.
+            <br className="hidden" /> Let's make your shortlet search
+            hassle-free.{" "}
           </p>
-          <Link to="/#" className="p-3 px-16 bg-white text-black rounded-3xl">
-            Visit our blog
-          </Link>
         </div>
-        <motion.img
-          variants={ctaImage}
-          className="w-[200px] md:w-[250px] absolute inset-x-0 bottom-[-30px] mx-auto text-[#4E4EFF]"
-          src={Assets.services_build}
-          alt=""
-        />
-      </div>
-    </motion.main>
+        <div className="md:w-1/3 w-full flex justify-center items-center">
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            title="Chat with Raum on WhatsApp"
+            className="w-[200px] h-[34px] md:w-[205px] md:h-[50px] text-sm rounded-full border-2 border-white text-white hover:bg-white hover:text-primary md:text-base font-bold flex justify-center items-center transition-all duration-300 ease-in-out"
+            href="https://wa.me/message/ZVNY4C3AJ6F5I1"
+          >
+            <FaWhatsapp size={20} className="mr-2" />
+            Chat with us!
+          </a>
+        </div>
+      </section>
+    </main>
   );
 };
 
