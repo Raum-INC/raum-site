@@ -20,11 +20,7 @@ function App() {
   ReactGA.initialize(TRACKING_ID);
 
   return (
-    <div
-    // className={`bgGrade scroll-smooth ${
-    //   isOpen && "h-screen overflow-hidden"
-    // }`}
-    >
+    <div>
       <Modal />
       <Router>
         <div className="relative z-50">

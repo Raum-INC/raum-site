@@ -71,12 +71,12 @@ const ContentBlock = () => {
       <Helmet>
         <title>{title} - Raum INC.</title>
         <meta name="description" content={desc} />
-        <meta
-          property="og:title"
-          content="Make money hosting with Raum in Nigeria - Raum INC."
-        />
+        <meta property="og:title" content={` ${title} - Raum INC.`} />
         <meta property="og:type" content="website" />
-        <meta property="og:description" content={desc} />
+        <meta
+          property="og:description"
+          content={desc ? desc : `${title} of Raum INC.`}
+        />
         <meta
           property="og:image"
           content="https://raumhq.co/static/media/raum_logo-2.59c816fbe6de5b47c6ceed6a5cc7c717.svg"
