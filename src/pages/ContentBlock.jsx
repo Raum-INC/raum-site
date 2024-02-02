@@ -70,7 +70,10 @@ const ContentBlock = () => {
     <>
       <Helmet>
         <title>{title} - Raum INC.</title>
-        <meta name="description" content={desc} />
+        <meta
+          name="description"
+          content={desc ? desc : `${title} of Raum INC.`}
+        />
         <meta property="og:title" content={` ${title} - Raum INC.`} />
         <meta property="og:type" content="website" />
         <meta
