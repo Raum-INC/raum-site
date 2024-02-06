@@ -2,3 +2,6 @@ https://raumhq.co/
 https://raumhq.co/host
 https://raumhq.co/about
 https://raumhq.co/contact
+https://raumhq.co/default-cancellation-policy
+https://raumhq.co/privacy-policy
+https://raumhq.co/terms-and-conditions

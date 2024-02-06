@@ -162,7 +162,8 @@ const Navbar = () => {
                   Blog
                 </Link>
               </li> */}
-              <li className="p-2">
+
+              <li className="p-2 hover:text-primary hover:scale-105 hover:-translate-y-1 transition-all duration-300 ease-in-out">
                 <Link
                   onClick={() => {
                     toggleNav();
@@ -174,7 +175,7 @@ const Navbar = () => {
                   Host App
                 </Link>
               </li>
-              <li className="p-2">
+              <li className="p-2 hover:text-primary hover:scale-105 hover:-translate-y-1 transition-all duration-300 ease-in-out">
                 <Link
                   onClick={() => {
                     toggleNav();
@@ -186,7 +187,7 @@ const Navbar = () => {
                   About Us
                 </Link>
               </li>
-              <li className="p-2">
+              <li className="p-2 hover:text-primary hover:scale-105 hover:-translate-y-1 transition-all duration-300 ease-in-out">
                 <Link
                   onClick={() => {
                     toggleNav();
@@ -199,6 +200,42 @@ const Navbar = () => {
                 </Link>
               </li>
 
+              <li className="p-2 hover:text-primary hover:scale-105 hover:-translate-y-1 transition-all duration-300 ease-in-out">
+                <Link
+                  onClick={() => {
+                    toggleNav();
+                    toggleFalse();
+                  }}
+                  to="/terms-and-conditions"
+                  className="p-3"
+                >
+                  Our Terms
+                </Link>
+              </li>
+              <li className="p-2 hover:text-primary hover:scale-105 hover:-translate-y-1 transition-all duration-300 ease-in-out">
+                <Link
+                  onClick={() => {
+                    toggleNav();
+                    toggleFalse();
+                  }}
+                  to="/privacy-policy"
+                  className="p-3"
+                >
+                  Privacy Policy
+                </Link>
+              </li>
+              <li className="p-2 hover:text-primary hover:scale-105 hover:-translate-y-1 transition-all duration-300 ease-in-out">
+                <Link
+                  onClick={() => {
+                    toggleNav();
+                    toggleFalse();
+                  }}
+                  to="/default-cancellation-policy"
+                  className="p-3"
+                >
+                  Cancellations
+                </Link>
+              </li>
               <button
                 onClick={() => {
                   toggle();
