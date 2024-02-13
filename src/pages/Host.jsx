@@ -5,6 +5,7 @@ import How from "../components/host/How";
 import Faqs from "../components/Faqs";
 import HostDownload from "../components/host/HostDownload";
 import HostHelmet from "../components/helmets/HostHelmet";
+import CallToAction from "../components/home/CallToAction";
 
 const Host = () => {
   const heroTitle = "Make money hosting<br>with Raum in Nigeria";
@@ -13,11 +14,11 @@ const Host = () => {
   return (
     <section>
       <HostHelmet />
-
       <Hero heroTitle={heroTitle} hostTitle={hostTitle} />
       <HostHero />
       <How />
       <Faqs />
+      <CallToAction />
       <HostDownload />
     </section>
   );
