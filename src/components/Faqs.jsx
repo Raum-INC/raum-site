@@ -46,6 +46,7 @@ const Faqs = () => {
       variants={containerVariants}
       initial="hidden"
       whileInView="visible"
+      viewport={{ once: true }}
       className="w-full h-auto p-10 flex flex-col gap-5"
     >
       <div className="flex flex-col justify-center items-center gap-2 my-10">

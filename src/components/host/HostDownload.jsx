@@ -1,6 +1,6 @@
 import React from "react";
 import { Assets } from "../../assets";
-import { Motion } from "../Motion";
+import { IphonePop, Motion } from "../Motion";
 
 const HostDownload = () => {
   return (
@@ -34,11 +34,13 @@ const HostDownload = () => {
                 exit="hidden"
                 className="w-full h-full flex justify-center items-end"
               >
-                <img
-                  className="w-[250px] md:w-[335px] px-4 pt-8 md:pt-4"
-                  src={Assets.hostMockup}
-                  alt="raum-app"
-                />
+                <IphonePop>
+                  <img
+                    className="w-[250px] md:w-[335px] px-4 pt-8 md:pt-4"
+                    src={Assets.hostMockup}
+                    alt="raum-app"
+                  />
+                </IphonePop>
               </div>
             </div>
           </div>

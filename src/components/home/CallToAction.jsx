@@ -2,6 +2,7 @@ import React from "react";
 import { FaWhatsapp } from "react-icons/fa";
 import { FaWpforms } from "react-icons/fa";
 import { useLocation } from "react-router-dom";
+import "../../index.css";
 
 const CallToAction = () => {
   const location = useLocation();
@@ -9,7 +10,7 @@ const CallToAction = () => {
   return (
     <main className="w-full my-10 px-8">
       <section
-        className={`w-full max-w-6xl mx-auto p-8 flex flex-col md:flex-row justify-center items-center gap-5 bg-primary md:h-auto rounded-3xl`}
+        className={`animate-bounce custom-bounce w-full max-w-6xl mx-auto p-8 flex flex-col md:flex-row justify-center items-center gap-5 bg-primary md:h-auto rounded-3xl`}
       >
         {locale === "/host" ? (
           <>
