@@ -6,17 +6,17 @@ import "../../index.css";
 
 const CallToAction = () => {
   const location = useLocation();
-  const locale = location.pathname;
+  const currentRoute = location.pathname;
   return (
     <main className="w-full my-10 px-8">
       <section
         className={`animate-bounce custom-bounce w-full max-w-6xl mx-auto p-8 flex flex-col md:flex-row justify-center items-center gap-5 bg-primary md:h-auto rounded-3xl`}
       >
-        {locale === "/host" ? (
+        {currentRoute === "/host" ? (
           <>
             <div className="md:w-2/3 w-full space-y-3">
               <h4 className="text-xl md:text-2xl font-bold">
-                Not a Registered Business yet? That won't do!
+                Not a Registered Business? That won't do!
               </h4>
               <p className="text-base">
                 Let's get you registered in 10 business working days. Just fill
