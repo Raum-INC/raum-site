@@ -1,7 +1,7 @@
 import React from "react";
 import { Assets } from "../assets";
 import { motion } from "framer-motion";
-// import { FaFacebookF } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   const footerVariant = {
@@ -65,10 +65,11 @@ const Footer = () => {
           </a>
         </div>
       </div>
-      <div className="w-full p-8">
-        <p className="text-center text-base md:text-xl font-normal leading-7 text-[#585858]">
-          © 2023 Raum Inc
-        </p>
+      <div className="w-full p-8 text-center text-base md:text-xl font-normal leading-7 text-[#585858] space-y-3">
+        <Link to="/privacy-policy" className="p-3">
+          Privacy Policy
+        </Link>
+        <p className="">© 2023 Raum Inc</p>
       </div>
     </motion.footer>
   );
