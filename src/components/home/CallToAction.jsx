@@ -28,7 +28,7 @@ const CallToAction = () => {
                   Create a safe environment for your customers to transact with
                   your business.
                 </li>
-                <li>Gain access to all the services Raum has to offer you.</li>
+                <li>Gain access to all the services Raum Africa has to offer you.</li>
               </ul>
             </div>
             <div className="md:w-1/3 w-full flex justify-center items-center">
@@ -61,7 +61,7 @@ const CallToAction = () => {
               <a
                 target="_blank"
                 rel="noopener noreferrer"
-                title="Chat with Raum on WhatsApp"
+                title="Chat with Raum Africa on WhatsApp"
                 className="w-[200px] h-[34px] md:w-[205px] md:h-[50px] text-sm rounded-full border-2 border-white text-white hover:bg-white hover:text-primary md:text-base font-bold flex justify-center items-center transition-all duration-300 ease-in-out"
                 href="https://wa.me/message/ZVNY4C3AJ6F5I1"
               >

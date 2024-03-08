@@ -9,7 +9,7 @@ import CallToAction from "../components/home/CallToAction";
 import HomepageHelmet from "../components/helmets/HomepageHelmet";
 
 const Homepage = () => {
-  const heroTitle = "Discover your Dream<br>apartment with Raum";
+  const heroTitle = "Discover your Dream<br>apartment with Raum Africa";
   const hostTitle = "Get the Raum app";
   return (
     <div>

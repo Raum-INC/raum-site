@@ -107,17 +107,17 @@ const Hero = ({ heroTitle, hostTitle }) => {
         >
           <div className="w-full flex justify-center items-center h-auto">
             <img
-              title="Short-Term Rentals in Nigeria | Discover Raum - Raum INC."
+              title="Short-Term Rentals in Nigeria | Discover Raum Africa"
               loading="lazy"
               src={Assets.hero_bg3}
-              alt="Short-Term Rentals in Nigeria | Discover Raum - Raum INC."
+              alt="Short-Term Rentals in Nigeria | Discover Raum Africa"
               className="hero-mobile-image mt-14 block lg:hidden w-full md:w-[1000px] md:h-[500px] mx-auto px-8 object-cover object-top aspect-auto md:absolute bottom-0"
             />
             <img
-              title="Short-Term Rentals in Nigeria | Discover Raum - Raum INC."
+              title="Short-Term Rentals in Nigeria | Discover Raum Africa"
               loading="lazy"
               src={Assets.herosection}
-              alt="Short-Term Rentals in Nigeria | Discover Raum - Raum INC."
+              alt="Short-Term Rentals in Nigeria | Discover Raum Africa"
               className="hero-desktop-image hidden lg:block w-full md:w-[1000px] md:h-[500px] mx-auto px-8 object-cover object-top aspect-auto md:absolute bottom-0"
             />
           </div>

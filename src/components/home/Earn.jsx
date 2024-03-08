@@ -39,7 +39,7 @@ const Earn = () => {
     >
       <section className="w-full h-full flex flex-col justify-center lg:items-center gap-10 my-10">
         <h2 className="font-semibold text-2xl md:text-5xl">
-          Earn money with Raum
+          Earn money with Raum Africa
         </h2>
         <section className="w-full h-full max-w-6xl mx-auto flex flex-col lg:flex-row justify-center items-center gap-10 lg:gap-20">
           <div className="w-full lg:w-1/2 lg:h-full">

@@ -13,7 +13,7 @@ const RaumHost = () => {
             </h1>
             <p className="text-base md:text-2xl font-normal">
               Whether you want to host for a few days occasionally or want to
-              earn money more frequently, with Raum you can fit hosting around
+              earn money more frequently, with Raum Africa you can fit hosting around
               your schedule.
             </p>
           </div>

@@ -10,10 +10,10 @@ const AboutRaum = () => {
         <section className="w-full flex flex-col justify-center items-center gap-12 my-10">
           <div className="space-y-5">
             <h3 className="font-semibold text-3xl md:text-4xl lg:text-center">
-              About Raum
+              About Raum Africa
             </h3>
             <p className="text-left lg:text-center text-base md:text-lg w-full max-w-[800px] mx-auto">
-              Raum is the premier global hospitality super-platform. We're
+              Raum Africa is the premier global hospitality super-platform. We're
               crafting spaces for people, providing superior alternatives for
               every accommodation need — including vacation rentals, shared
               homes, unique stays, and experiences in various destinations.

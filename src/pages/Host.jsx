@@ -8,7 +8,7 @@ import HostHelmet from "../components/helmets/HostHelmet";
 import CallToAction from "../components/home/CallToAction";
 
 const Host = () => {
-  const heroTitle = "Make money hosting<br>with Raum in Nigeria";
+  const heroTitle = "Make money hosting<br>with Raum Africa in Nigeria";
   const hostTitle = "Get the Raum Hosts app";
 
   return (

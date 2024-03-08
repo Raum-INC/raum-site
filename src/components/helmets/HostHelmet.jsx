@@ -4,7 +4,7 @@ import { Helmet } from "react-helmet-async";
 const HostHelmet = () => {
   return (
     <Helmet>
-      <title>Make money hosting with Raum in Nigeria - Raum INC.</title>
+      <title>Make money hosting with Raum in Nigeria - Raum Africa</title>
       <meta
         name="description"
         content="Whether you're searching for your next home or looking to list your
@@ -13,7 +13,7 @@ const HostHelmet = () => {
       />
       <meta
         property="og:title"
-        content="Make money hosting with Raum in Nigeria - Raum INC."
+        content="Make money hosting with Raum in Nigeria - Raum Africa"
       />
       <meta property="og:type" content="website" />
       <meta
@@ -33,9 +33,9 @@ const HostHelmet = () => {
       {/* Additional metadata for search engines */}
       <meta
         name="keywords"
-        content="Raum, explore short term rental, earn with Raum, make money with raum, find services in Nigeria, download raum app, dream apartments, faq, information"
+        content="Raum, Raum Africa, explore short term rental, earn with Raum Africa, make money with raum, find services in Nigeria, download raum app, dream apartments, faq, information"
       />
-      <meta name="author" content="Raum INC." />
+      <meta name="author" content="Raum Africa" />
 
       {/* Additional metadata for Twitter Sharing */}
       <meta name="twitter:card" content="summary_large_image" />
@@ -45,7 +45,7 @@ const HostHelmet = () => {
       />
       <meta
         name="twitter:title"
-        content="Make money hosting with Raum in Nigeria - Raum INC."
+        content="Make money hosting with Raum in Nigeria - Raum Africa"
       />
       <meta name="twitter:creator" content="@rauminc" />
       <meta name="twitter:site" content="@rauminc" />

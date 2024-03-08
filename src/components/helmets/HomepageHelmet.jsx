@@ -4,19 +4,19 @@ import { Helmet } from "react-helmet-async";
 const HomepageHelmet = () => {
   return (
     <Helmet>
-      <title>Short-Term Rentals in Nigeria | Discover Raum - Raum INC.</title>
+      <title>Short-Term Rentals in Nigeria | Discover Raum Africa</title>
       <meta
         name="description"
-        content="Explore Raum, the app for short-term rentals in Nigeria. Discover your dream apartment, find services, features, and earning opportunities. Download now!"
+        content="Explore Raum Africa, the app for short-term rentals in Nigeria. Discover your dream apartment, find services, features, and earning opportunities. Download now!"
       />
       <meta
         property="og:title"
-        content="Short-Term Rentals in Nigeria | Discover Raum - Raum INC."
+        content="Short-Term Rentals in Nigeria | Discover Raum Africa."
       />
       <meta property="og:type" content="website" />
       <meta
         property="og:description"
-        content="Explore Raum, the app for short-term rentals in Nigeria. Discover your dream apartment, find services, features, and earning opportunities. Download now!"
+        content="Explore Raum Africa, the app for short-term rentals in Nigeria. Discover your dream apartment, find services, features, and earning opportunities. Download now!"
       />
       <meta
         property="og:image"
@@ -29,9 +29,9 @@ const HomepageHelmet = () => {
       {/* Additional metadata for search engines */}
       <meta
         name="keywords"
-        content="Raum, explore short term rental, earn with Raum, find services in Nigeria, download raum app, dream apartments, faq, information"
+        content="Raum, Raum Africa, explore short term rental, earn with Raum Africa, find services in Nigeria, download raum app, dream apartments, faq, information"
       />
-      <meta name="author" content="Raum INC." />
+      <meta name="author" content="Raum Africa" />
 
       {/* Additional metadata for Twitter Sharing */}
       <meta name="twitter:card" content="summary_large_image" />
@@ -41,13 +41,13 @@ const HomepageHelmet = () => {
       />
       <meta
         name="twitter:title"
-        content="Short-Term Rentals in Nigeria | Discover Raum - Raum INC."
+        content="Short-Term Rentals in Nigeria | Discover Raum Africa"
       />
       <meta name="twitter:creator" content="@rauminc" />
       <meta name="twitter:site" content="@rauminc" />
       <meta
         name="twitter:description"
-        content="Explore Raum, the app for short-term rentals in Nigeria. Discover your dream apartment, find services, features, and earning opportunities. Download now!"
+        content="Explore Raum Africa, the app for short-term rentals in Nigeria. Discover your dream apartment, find services, features, and earning opportunities. Download now!"
       />
     </Helmet>
   );

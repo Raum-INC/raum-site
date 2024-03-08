@@ -69,7 +69,7 @@ const Footer = () => {
         <Link to="/privacy-policy" className="p-3">
           Privacy Policy
         </Link>
-        <p className="">© 2023 Raum Inc</p>
+        <p className="">© 2024 Raum Africa</p>
       </div>
     </motion.footer>
   );

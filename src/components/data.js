@@ -177,7 +177,7 @@ export const getStarted = [
   },
   {
     title: `Upload your documents`,
-    subtitle: `The requirements for hosting on Raum
+    subtitle: `The requirements for hosting on Raum Africa
     can vary based on your location. `,
     image: file,
   },

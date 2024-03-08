@@ -69,16 +69,16 @@ const ContentBlock = () => {
   return (
     <>
       <Helmet>
-        <title>{title} - Raum INC.</title>
+        <title>{title} - Raum Africa</title>
         <meta
           name="description"
-          content={desc ? desc : `${title} of Raum INC.`}
+          content={desc ? desc : `${title} of Raum Africa`}
         />
-        <meta property="og:title" content={` ${title} - Raum INC.`} />
+        <meta property="og:title" content={` ${title} - Raum Africa`} />
         <meta property="og:type" content="website" />
         <meta
           property="og:description"
-          content={desc ? desc : `${title} of Raum INC.`}
+          content={desc ? desc : `${title} of Raum Africa`}
         />
         <meta
           property="og:image"

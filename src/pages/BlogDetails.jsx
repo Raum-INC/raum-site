@@ -171,11 +171,11 @@ const BlogDetails = () => {
   return (
     <>
       <Helmet>
-        <title>{blogData.title} - Raum INC.</title>
+        <title>{blogData.title} - Raum Africa</title>
         <meta name="description" content={blogData.description} />
         <meta
           property="og:title"
-          content="Make money hosting with Raum in Nigeria - Raum INC."
+          content="Make money hosting with Raum in Nigeria - Raum Africa"
         />
         <meta property="og:type" content="website" />
         <meta property="og:description" content={blogData.description} />

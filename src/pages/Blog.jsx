@@ -34,14 +34,14 @@ const Blog = () => {
       className="overflow-hidden pt-28"
     >
       <Helmet>
-        <title>Stay up-todate with the latest from the Blog - Raum INC.</title>
+        <title>Stay up-todate with the latest from the Blog - Raum Africa</title>
         <meta
           name="description"
           content="We are revolutionizing staycations by providing an all-in-one platform for booking short-term and long stays, along with dream properties, using AI, VR tours, smart home tech, and prioritize sustainability."
         />
         <meta
           property="og:title"
-          content="Stay up-todate with the latest from the Blog - Raum INC."
+          content="Stay up-todate with the latest from the Blog - Raum Africa"
         />
         <meta property="og:type" content="website" />
         <meta
