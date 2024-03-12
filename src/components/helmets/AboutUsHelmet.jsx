@@ -1,11 +1,13 @@
 import React from "react";
 import { Helmet } from "react-helmet-async";
+import { Assets } from "../../assets";
 
 const AboutUsHelmet = () => {
   return (
     <Helmet>
       <title>
-        Discover the story behind Raum Africa, and Learn More About Us - Raum Africa
+        Discover the story behind Raum Africa, and Learn More About Us - Raum
+        Africa
       </title>
       <meta
         name="description"
@@ -17,12 +19,9 @@ const AboutUsHelmet = () => {
         property="og:description"
         content="Discover the story behind Raum Africa, our values, and the experience we offer. Learn more about us here at Raum Africa!"
       />
-      <meta
-        property="og:image"
-        content="https://raumhq.co/static/media/raum_logo-2.59c816fbe6de5b47c6ceed6a5cc7c717.svg"
-      />
-      <meta property="og:url" content="https://raumhq.co/about" />
-      <link rel="canonical" href="https://raumhq.co/about" />
+      <meta property="og:image" content={Assets.raumFaviSvg} />
+      <meta property="og:url" content="https://raum.africa/about" />
+      <link rel="canonical" href="https://raum.africa/about" />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
 
       {/* Additional metadata for search engines */}
@@ -34,10 +33,7 @@ const AboutUsHelmet = () => {
 
       {/* Additional metadata for Twitter Sharing */}
       <meta name="twitter:card" content="summary_large_image" />
-      <meta
-        name="twitter:image"
-        content="https://raumhq.co/static/media/raum_logo-2.59c816fbe6de5b47c6ceed6a5cc7c717.svg"
-      />
+      <meta name="twitter:image" content={Assets.raumFaviSvg} />
       <meta
         name="twitter:title"
         content="Discover the story behind Raum Africa, and Learn More About Us - Raum Africa"

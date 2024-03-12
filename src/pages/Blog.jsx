@@ -4,6 +4,7 @@ import useBearStore from "../store/store";
 import BlogList from "../components/blog/BlogList";
 import { motion } from "framer-motion";
 import { Helmet } from "react-helmet-async";
+import { Assets } from "../assets";
 
 const Blog = () => {
   const { falseNav } = useBearStore();
@@ -34,7 +35,9 @@ const Blog = () => {
       className="overflow-hidden pt-28"
     >
       <Helmet>
-        <title>Stay up-todate with the latest from the Blog - Raum Africa</title>
+        <title>
+          Stay up-todate with the latest from the Blog - Raum Africa
+        </title>
         <meta
           name="description"
           content="We are revolutionizing staycations by providing an all-in-one platform for booking short-term and long stays, along with dream properties, using AI, VR tours, smart home tech, and prioritize sustainability."
@@ -48,12 +51,9 @@ const Blog = () => {
           property="og:description"
           content="We are revolutionizing staycations by providing an all-in-one platform for booking short-term and long stays, along with dream properties, using AI, VR tours, smart home tech, and prioritize sustainability."
         />
-        <meta
-          property="og:image"
-          content="https://raumhq.co/static/media/raum_logo-2.59c816fbe6de5b47c6ceed6a5cc7c717.svg"
-        />
-        <meta property="og:url" content="https://raumhq.co/blog" />
-        <link rel="canonical" href="https://raumhq.co/blog" />
+        <meta property="og:image" content={Assets.raumFaviSvg} />
+        <meta property="og:url" content="https://raum.africa/blog" />
+        <link rel="canonical" href="https://raum.africa/blog" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Helmet>
 

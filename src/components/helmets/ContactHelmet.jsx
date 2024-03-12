@@ -1,5 +1,6 @@
 import React from "react";
 import { Helmet } from "react-helmet-async";
+import { Assets } from "../../assets";
 
 const ContactHelmet = () => {
   return (
@@ -22,12 +23,9 @@ const ContactHelmet = () => {
         need more information about our products or services, we at Raum Africa would love
         to hear from you"
       />
-      <meta
-        property="og:image"
-        content="https://raumhq.co/static/media/raum_logo-2.59c816fbe6de5b47c6ceed6a5cc7c717.svg"
-      />
-      <meta property="og:url" content="https://raumhq.co/contact" />
-      <link rel="canonical" href="https://raumhq.co/contact" />
+      <meta property="og:image" content={Assets.raumFaviSvg} />
+      <meta property="og:url" content="https://raum.africa/contact" />
+      <link rel="canonical" href="https://raum.africa/contact" />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       {/* Additional metadata for search engines */}
       <meta
@@ -38,10 +36,7 @@ const ContactHelmet = () => {
 
       {/* Additional metadata for Twitter Sharing */}
       <meta name="twitter:card" content="summary_large_image" />
-      <meta
-        name="twitter:image"
-        content="https://raumhq.co/static/media/raum_logo-2.59c816fbe6de5b47c6ceed6a5cc7c717.svg"
-      />
+      <meta name="twitter:image" content={Assets.raumFaviSvg} />
       <meta
         name="twitter:title"
         content="Contact Us for more information! - Raum Africa."

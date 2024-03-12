@@ -1,5 +1,6 @@
 import React from "react";
 import { Helmet } from "react-helmet-async";
+import { Assets } from "../../assets";
 
 const HostHelmet = () => {
   return (
@@ -22,12 +23,9 @@ const HostHelmet = () => {
           apartment for business purposes, we're here to make your journey
           seamless and stress-free. Download now!"
       />
-      <meta
-        property="og:image"
-        content="https://raumhq.co/static/media/raum_logo-2.59c816fbe6de5b47c6ceed6a5cc7c717.svg"
-      />
-      <meta property="og:url" content="https://raumhq.co/host" />
-      <link rel="canonical" href="https://raumhq.co/host" />
+      <meta property="og:image" content={Assets.raumFaviSvg} />
+      <meta property="og:url" content="https://raum.africa/host" />
+      <link rel="canonical" href="https://raum.africa/host" />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
 
       {/* Additional metadata for search engines */}
@@ -39,10 +37,7 @@ const HostHelmet = () => {
 
       {/* Additional metadata for Twitter Sharing */}
       <meta name="twitter:card" content="summary_large_image" />
-      <meta
-        name="twitter:image"
-        content="https://raumhq.co/static/media/raum_logo-2.59c816fbe6de5b47c6ceed6a5cc7c717.svg"
-      />
+      <meta name="twitter:image" content={Assets.raumFaviSvg} />
       <meta
         name="twitter:title"
         content="Make money hosting with Raum in Nigeria - Raum Africa"

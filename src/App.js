@@ -12,6 +12,7 @@ import Blog from "./pages/Blog";
 import BlogDetails from "./pages/BlogDetails";
 import Host from "./pages/Host";
 import ContentBlock from "./pages/ContentBlock";
+import Hidden from "./pages/Hidden";
 
 function App() {
   const { falseNav } = useBearStore();
@@ -36,6 +37,7 @@ function App() {
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/:id" element={<ContentBlock />} />
+            <Route path="/hidden" element={<Hidden />} />
           </Routes>
         </div>
         <Footer />
