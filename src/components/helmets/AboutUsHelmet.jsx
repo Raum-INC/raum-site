@@ -1,6 +1,5 @@
 import React from "react";
 import { Helmet } from "react-helmet-async";
-import { Assets } from "../../assets";
 
 const AboutUsHelmet = () => {
   return (
@@ -19,7 +18,10 @@ const AboutUsHelmet = () => {
         property="og:description"
         content="Discover the story behind Raum Africa, our values, and the experience we offer. Learn more about us here at Raum Africa!"
       />
-      <meta property="og:image" content={Assets.raumFaviSvg} />
+      <meta
+        property="og:image"
+        content="https://raum.africa/static/media/raum_favi.0d01f8c1fa4643d291b20d68809af99d.svg"
+      />
       <meta property="og:url" content="https://raum.africa/about" />
       <link rel="canonical" href="https://raum.africa/about" />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -33,7 +35,10 @@ const AboutUsHelmet = () => {
 
       {/* Additional metadata for Twitter Sharing */}
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:image" content={Assets.raumFaviSvg} />
+      <meta
+        name="twitter:image"
+        content="https://raum.africa/static/media/raum_favi.0d01f8c1fa4643d291b20d68809af99d.svg"
+      />
       <meta
         name="twitter:title"
         content="Discover the story behind Raum Africa, and Learn More About Us - Raum Africa"

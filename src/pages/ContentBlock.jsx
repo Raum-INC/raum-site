@@ -4,7 +4,6 @@ import { useParams } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { ClipLoader } from "react-spinners";
 import { Helmet } from "react-helmet-async";
-import { Assets } from "../assets";
 
 const ContentBlock = () => {
   const { id } = useParams();
@@ -81,7 +80,10 @@ const ContentBlock = () => {
           property="og:description"
           content={desc ? desc : `${title} of Raum Africa`}
         />
-        <meta property="og:image" content={Assets.raumFaviSvg} />
+        <meta
+          property="og:image"
+          content="https://raum.africa/static/media/raum_favi.0d01f8c1fa4643d291b20d68809af99d.svg"
+        />
         <meta property="og:url" content={`https://raum.africa/${id}`} />
         <link rel="canonical" href={`https://raum.africa/${id}`} />
         <meta name="viewport" content="width=device-width, initial-scale=1" />

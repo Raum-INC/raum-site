@@ -4,7 +4,6 @@ import useBearStore from "../store/store";
 import BlogList from "../components/blog/BlogList";
 import { motion } from "framer-motion";
 import { Helmet } from "react-helmet-async";
-import { Assets } from "../assets";
 
 const Blog = () => {
   const { falseNav } = useBearStore();
@@ -51,7 +50,10 @@ const Blog = () => {
           property="og:description"
           content="We are revolutionizing staycations by providing an all-in-one platform for booking short-term and long stays, along with dream properties, using AI, VR tours, smart home tech, and prioritize sustainability."
         />
-        <meta property="og:image" content={Assets.raumFaviSvg} />
+        <meta
+          property="og:image"
+          content="https://raum.africa/static/media/raum_favi.0d01f8c1fa4643d291b20d68809af99d.svg"
+        />
         <meta property="og:url" content="https://raum.africa/blog" />
         <link rel="canonical" href="https://raum.africa/blog" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />

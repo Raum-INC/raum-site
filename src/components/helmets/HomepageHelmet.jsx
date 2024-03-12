@@ -5,6 +5,7 @@ const HomepageHelmet = () => {
   return (
     <Helmet>
       <title>Short-Term Rentals in Nigeria | Discover Raum Africa</title>
+      <meta property="og:site_name" content="Raum Africa" />
       <meta
         name="description"
         content="Explore Raum Africa, the app for short-term rentals in Nigeria. Discover your dream apartment, find services, features, and earning opportunities. Download now!"
@@ -20,7 +21,7 @@ const HomepageHelmet = () => {
       />
       <meta
         property="og:image"
-        content="https://raumhq.co/static/media/raum_logo-2.59c816fbe6de5b47c6ceed6a5cc7c717.svg"
+        content="https://raum.africa/static/media/raum_favi.0d01f8c1fa4643d291b20d68809af99d.svg"
       />
       <meta property="og:url" content="https://raumhq.co/" />
       <link rel="canonical" href="https://raumhq.co/" />
@@ -37,7 +38,7 @@ const HomepageHelmet = () => {
       <meta name="twitter:card" content="summary_large_image" />
       <meta
         name="twitter:image"
-        content="https://raumhq.co/static/media/raum_logo-2.59c816fbe6de5b47c6ceed6a5cc7c717.svg"
+        content="https://raum.africa/static/media/raum_favi.0d01f8c1fa4643d291b20d68809af99d.svg"
       />
       <meta
         name="twitter:title"

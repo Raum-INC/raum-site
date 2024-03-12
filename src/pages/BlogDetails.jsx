@@ -5,7 +5,6 @@ import { PortableText } from "@portabletext/react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Helmet } from "react-helmet-async";
 import { ClipLoader } from "react-spinners";
-import { Assets } from "../assets";
 
 const BlogDetails = () => {
   const [blogData, setBlogData] = useState(null);
@@ -180,7 +179,10 @@ const BlogDetails = () => {
         />
         <meta property="og:type" content="website" />
         <meta property="og:description" content={blogData.description} />
-        <meta property="og:image" content={Assets.raumFaviSvg} />
+        <meta
+          property="og:image"
+          content="https://raum.africa/static/media/raum_favi.0d01f8c1fa4643d291b20d68809af99d.svg"
+        />
         <meta property="og:url" content={`https://raum.africa/blog/${slug}`} />
         <link rel="canonical" href={`https://raum.africa/blog/${slug}`} />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
