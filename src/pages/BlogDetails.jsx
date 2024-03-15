@@ -174,6 +174,10 @@ const BlogDetails = () => {
         <title>{blogData.title} - Raum Africa</title>
         <meta name="description" content={blogData.description} />
         <meta
+          property="og:site_name"
+          content={`Raum Africa: ${blogData.title}`}
+        />
+        <meta
           property="og:title"
           content="Make money hosting with Raum in Nigeria - Raum Africa"
         />

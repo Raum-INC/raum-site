@@ -37,6 +37,7 @@ const Blog = () => {
         <title>
           Stay up-todate with the latest from the Blog - Raum Africa
         </title>
+        <meta property="og:site_name" content="Raum Africa's Blog" />
         <meta
           name="description"
           content="We are revolutionizing staycations by providing an all-in-one platform for booking short-term and long stays, along with dream properties, using AI, VR tours, smart home tech, and prioritize sustainability."

@@ -5,18 +5,22 @@ const AboutUsHelmet = () => {
   return (
     <Helmet>
       <title>
-        Discover the story behind Raum Africa, and Learn More About Us - Raum
-        Africa
+        Learn About Raum Africa: Our Mission, Services, and Vision for
+        Short-Term Stays
       </title>
+      <meta property="og:site_name" content="About Raum Africa" />
       <meta
         name="description"
-        content="Discover the story behind Raum Africa, our values, and the experience we offer. Learn more about us here at Raum Africa!"
+        content="Delve into Raum Africa: our values, services, and commitment to revolutionizing short-term stays. Explore our story and vision today!"
       />
-      <meta property="og:title" content="About Us - Raum Africa" />
+      <meta
+        property="og:title"
+        content="Learn About Raum Africa: Our Mission, Services, and Vision for Short-Term Stays"
+      />
       <meta property="og:type" content="website" />
       <meta
         property="og:description"
-        content="Discover the story behind Raum Africa, our values, and the experience we offer. Learn more about us here at Raum Africa!"
+        content="Delve into Raum Africa: our values, services, and commitment to revolutionizing short-term stays. Explore our story and vision today!"
       />
       <meta
         property="og:image"
@@ -29,7 +33,7 @@ const AboutUsHelmet = () => {
       {/* Additional metadata for search engines */}
       <meta
         name="keywords"
-        content="Raum, short term rental, learn more, about us, values, experience, story behind"
+        content="Raum, short term rental, learn more about raum africa, shaping the short-term space with raum africa, about us, our mission at raum africa, our services we render at Raum Africa, the vision behind raum africa"
       />
       <meta name="author" content="Raum Africa" />
 
@@ -41,13 +45,13 @@ const AboutUsHelmet = () => {
       />
       <meta
         name="twitter:title"
-        content="Discover the story behind Raum Africa, and Learn More About Us - Raum Africa"
+        content="Discover the story behind Raum Africa, and Learn More Learn About Raum Africa: Our Mission, Services, and Vision for Short-Term Stays"
       />
       <meta name="twitter:creator" content="@rauminc" />
       <meta name="twitter:site" content="@rauminc" />
       <meta
         name="twitter:description"
-        content="Discover the story behind Raum Africa, our values, and the experience we offer. Learn more about us here at Raum Africa!"
+        content="Delve into Raum Africa: our values, services, and commitment to revolutionizing short-term stays. Explore our story and vision today!"
       />
     </Helmet>
   );

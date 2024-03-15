@@ -4,23 +4,22 @@ import { Helmet } from "react-helmet-async";
 const ContactHelmet = () => {
   return (
     <Helmet>
-      <title>Contact Us for more information! - Raum Africa.</title>
+      <title>
+        Contact Raum Africa: Let's Start a Conversation About Your Stay
+      </title>
+      <meta property="og:site_name" content="Raum Africa Host App" />
       <meta
         name="description"
-        content="Do you have questions, comment, or a suggestion for Raum Africa? Whether you
-            need more information about our products or services, we at Raum Africa would love
-            to hear from you"
+        content="Reach out to Raum Africa for inquiries, feedback, or assistance. Whether it's about our products, services, or anything else, we're eager to hear from you!"
       />
       <meta
         property="og:title"
-        content="Contact Us for more information! - Raum Africa."
+        content="Contact Raum Africa: Let's Start a Conversation About Your Stay"
       />
       <meta property="og:type" content="website" />
       <meta
         property="og:description"
-        content="Do you have questions, comment, or a suggestion for Raum Africa? Whether you
-        need more information about our products or services, we at Raum Africa would love
-        to hear from you"
+        content="Reach out to Raum Africa for inquiries, feedback, or assistance. Whether it's about our products, services, or anything else, we're eager to hear from you!"
       />
       <meta
         property="og:image"
@@ -44,15 +43,13 @@ const ContactHelmet = () => {
       />
       <meta
         name="twitter:title"
-        content="Contact Us for more information! - Raum Africa."
+        content="Contact Raum Africa: Let's Start a Conversation About Your Stay"
       />
       <meta name="twitter:creator" content="@rauminc" />
       <meta name="twitter:site" content="@rauminc" />
       <meta
         name="twitter:description"
-        content="Do you have questions, comment, or a suggestion for Raum Africa? Whether you
-        need more information about our products or services, we at Raum Africa would love
-        to hear from you"
+        content="Reach out to Raum Africa for inquiries, feedback, or assistance. Whether it's about our products, services, or anything else, we're eager to hear from you!"
       />
     </Helmet>
   );
