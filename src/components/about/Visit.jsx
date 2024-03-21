@@ -21,6 +21,8 @@ const Visit = () => {
 
   return (
     <motion.main
+      itemScope
+      itemType="https://raum.africa/about"
       variants={containerVariant}
       initial="hidden"
       whileInView="visible"
@@ -29,11 +31,17 @@ const Visit = () => {
     >
       <div className="flex flex-col lg:flex-row justify-between items-center gap-5">
         <div className="lg:w-1/2 w-10/12 flex flex-col gap-3 justify-start items-start">
-          <h1 className="font-bold text-2xl lg:text-4xl text-white md:text-black">
+          <h1
+            itemProp="title"
+            className="font-bold text-2xl lg:text-4xl text-white md:text-black"
+          >
             Come and visit our
             <br /> amazing office
           </h1>
-          <p className="font-medium text-[#6c6c6c] text-base lg:text-lg">
+          <p
+            itemProp="description"
+            className="font-medium text-[#6c6c6c] text-base lg:text-lg"
+          >
             It will be an amazing experice to have you
             <br /> visit our office.
           </p>
@@ -41,28 +49,41 @@ const Visit = () => {
         <div className="w-10/12 flex flex-col lg:flex-row gap-5 lg:gap-0 items-center lg:w-[756px] md:bg-white drop_shadow rounded-3xl text-white">
           <div className="w-full">
             <img
+              itemProp="image"
               src={AboutUs.modernapartment}
               alt="visit-apartment"
               className="w-full object-cover rounded-t-3xl lg:rounded-l-3xl"
             />
           </div>
           <div className="w-full flex flex-col justify-center items-start gap-2 lg:p-6 text-secondary font-normal text-base lg:text-lg">
-            <h1 className="font-bold text-lg lg:text-3xl md:text-black">
+            <h1
+              itemProp="location"
+              className="font-bold text-lg lg:text-3xl md:text-black"
+            >
               Lagos, Nigeria.
             </h1>
-            <p className="text-[#6C6C6C]">
+            <p itemProp="description" className="text-[#6C6C6C]">
               Want to meet us physically? or do you want to have a chat with us?
               Then visit us.
             </p>
-            <p className="flex items-start p-1 text-[#6C6C6C]">
+            <p
+              itemProp="address"
+              className="flex items-start p-1 text-[#6C6C6C]"
+            >
               <CiLocationOn className="w-6 aspect-square mt-1 mr-2 text-white md:text-black" />
               42 Saka Tinubu st, Victoria Island, 101241
             </p>
-            <p className="flex items-center p-1 text-[#6C6C6C]">
+            <p
+              itemProp="email"
+              className="flex items-center p-1 text-[#6C6C6C]"
+            >
               <CiMail className="w-5 aspect-square mr-2 text-white md:text-black" />
               hello@raumhq.co
             </p>
-            <p className="flex items-center p-1 text-[#6C6C6C]">
+            <p
+              itemProp="phone"
+              className="flex items-center p-1 text-[#6C6C6C]"
+            >
               <BsTelephone className="w-5 aspect-square mr-2 text-white md:text-black" />
               +234 814 822 8901
             </p>

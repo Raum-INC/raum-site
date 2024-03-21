@@ -7,7 +7,7 @@ const ContactHelmet = () => {
       <title>
         Contact Raum Africa: Let's Start a Conversation About Your Stay
       </title>
-      <meta property="og:site_name" content="Raum Africa Host App" />
+      <meta property="og:site_name" content="Contact Raum Africa" />
       <meta
         name="description"
         content="Reach out to Raum Africa for inquiries, feedback, or assistance. Whether it's about our products, services, or anything else, we're eager to hear from you!"

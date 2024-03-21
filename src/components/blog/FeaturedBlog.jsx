@@ -76,7 +76,11 @@ const FeaturedBlog = () => {
   const slicedPosts = data.slice(0, 3);
 
   return (
-    <main className="w-full h-auto flex flex-col lg:flex-row items-center justify-between lg:justify-between gap-10 mb-10 lg:mb-0 overflow-hidden">
+    <main
+      itemScope
+      itemType="https://raum.africa/blog"
+      className="w-full h-auto flex flex-col lg:flex-row items-center justify-between lg:justify-between gap-10 mb-10 lg:mb-0 overflow-hidden"
+    >
       <Link
         to={`/blog/${feature[0]?.slug}`}
         key={feature[0]?.slug}
@@ -85,21 +89,31 @@ const FeaturedBlog = () => {
         <section className="w-full h-full flex flex-col bg-white text-black rounded-[30px]">
           <div className="w-full h-[360px]">
             <img
+              itemProp="image"
               src={feature[0]?.image}
               alt={feature[0]?.alt}
               className="w-full h-full rounded-t-3xl object-cover"
             />
           </div>
           <div className="w-full h-full p-4 lg:p-8 space-y-5 ">
-            <p className="flex items-center gap-5 text-secondary font-normal text-base">
+            <p
+              itemProp="blogCategory"
+              className="flex items-center gap-5 text-secondary font-normal text-base"
+            >
               {feature[0]?.category}
-              <span className="w-7 h-[1px] bg-[#A3A3A3]"></span>
+              <span itemProp="date" className="w-7 h-[1px] bg-[#A3A3A3]"></span>
               {feature[0]?.date}
             </p>
-            <h2 className="font-bold text-lg lg:text-2xl text-primary_text">
+            <h2
+              itemProp="title"
+              className="font-bold text-lg lg:text-2xl text-primary_text"
+            >
               {feature[0]?.title}
             </h2>
-            <p className="text-secondary font-medium text-lg">
+            <p
+              itemProp="description"
+              className="text-secondary font-medium text-lg"
+            >
               {feature[0]?.description}
             </p>
           </div>
@@ -119,18 +133,28 @@ const FeaturedBlog = () => {
           >
             <div className="w-full lg:w-1/2 h-full flex justify-center items-center">
               <img
+                itemProp="image"
                 src={item.image}
-                alt=""
+                alt={item.title}
                 className="w-full h-[300px] object-cover lg:w-[300px] lg:h-[250px] rounded-3xl"
               />
             </div>
             <div className="w-full lg:w-1/2">
-              <p className="flex items-center gap-5 font-normal text-base lg:text-lg text-secondary">
+              <p
+                itemProp="blogCategory"
+                className="flex items-center gap-5 font-normal text-base lg:text-lg text-secondary"
+              >
                 {item.category}
-                <span className="w-7 h-[1px] bg-[#A3A3A3]"></span>
+                <span
+                  itemProp="date"
+                  className="w-7 h-[1px] bg-[#A3A3A3]"
+                ></span>
                 {item.date}
               </p>
-              <h2 className="font-bold text-lg lg:text-2xl text-[#C7C7C7]">
+              <h2
+                itemProp="title"
+                className="font-bold text-lg lg:text-2xl text-[#C7C7C7]"
+              >
                 {item.title}
               </h2>
             </div>

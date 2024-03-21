@@ -8,17 +8,25 @@ const CallToAction = () => {
   const location = useLocation();
   const currentRoute = location.pathname;
   return (
-    <main className="w-full my-10 px-8">
+    <main
+      itemScope
+      itemType={
+        currentRoute === "/host"
+          ? "https://raum.africa/host"
+          : "https://raum.africa/"
+      }
+      className="w-full my-10 px-8"
+    >
       <section
         className={`animate-bounce custom-bounce w-full max-w-6xl mx-auto p-8 flex flex-col md:flex-row justify-center items-center gap-5 bg-primary md:h-auto rounded-3xl`}
       >
         {currentRoute === "/host" ? (
           <>
             <div className="md:w-2/3 w-full space-y-3">
-              <h4 className="text-xl md:text-2xl font-bold">
+              <h4 itemProp="title" className="text-xl md:text-2xl font-bold">
                 Not a Registered Business? That won't do!
               </h4>
-              <p className="text-base">
+              <p itemProp="description" className="text-base">
                 Let's get you registered in 10 business working days. Just fill
                 out our form and we'll be right with you.
               </p>
@@ -28,11 +36,14 @@ const CallToAction = () => {
                   Create a safe environment for your customers to transact with
                   your business.
                 </li>
-                <li>Gain access to all the services Raum Africa has to offer you.</li>
+                <li>
+                  Gain access to all the services Raum Africa has to offer you.
+                </li>
               </ul>
             </div>
             <div className="md:w-1/3 w-full flex justify-center items-center">
               <a
+                itemProp="form"
                 target="_blank"
                 rel="noopener noreferrer"
                 title="Fill the form!"
@@ -47,10 +58,10 @@ const CallToAction = () => {
         ) : (
           <>
             <div className="md:w-2/3 w-full space-y-3">
-              <h4 className="text-xl md:text-2xl font-bold">
+              <h4 itemProp="title" className="text-xl md:text-2xl font-bold">
                 Struggling to find the perfect short-term rental?
               </h4>
-              <p className="text-base">
+              <p itemProp="description" className="text-base">
                 <br className="hidden" /> Connect with us on WhatsApp for
                 personalized assistance.
                 <br className="hidden" /> Let's make your shortlet search
@@ -59,6 +70,7 @@ const CallToAction = () => {
             </div>
             <div className="md:w-1/3 w-full flex justify-center items-center">
               <a
+                itemProp="form"
                 target="_blank"
                 rel="noopener noreferrer"
                 title="Chat with Raum Africa on WhatsApp"

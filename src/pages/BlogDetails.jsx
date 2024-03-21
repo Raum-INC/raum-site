@@ -133,15 +133,25 @@ const BlogDetails = () => {
   const myPortableTextComponents = {
     block: {
       // Ex. 1: customizing common block types
-      h1: ({ children }) => <h1 className="text-4xl py-4">{children}</h1>,
+      h1: ({ children }) => (
+        <h1 itemProp="heading" className="text-4xl py-4">
+          {children}
+        </h1>
+      ),
       h2: ({ children }) => (
-        <h2 className="text-3xl py-4 text-left">{children}</h2>
+        <h2 itemProp="heading" className="text-3xl py-4 text-left">
+          {children}
+        </h2>
       ),
       h3: ({ children }) => (
-        <h3 className="text-2xl py-4 text-left">{children}</h3>
+        <h3 itemProp="heading" className="text-2xl py-4 text-left">
+          {children}
+        </h3>
       ),
       h4: ({ children }) => (
-        <h4 className="text-xl py-4 text-left">{children}</h4>
+        <h4 itemProp="heading" className="text-xl py-4 text-left">
+          {children}
+        </h4>
       ),
       blockquote: ({ children }) => (
         <blockquote className="bg-primary_text text-white p-12 rounded-md">
@@ -149,21 +159,29 @@ const BlogDetails = () => {
         </blockquote>
       ),
       basic: ({ children }) => (
-        <p className="text-4xl text-justify">{children}</p>
+        <p itemProp="article" className="text-4xl text-justify">
+          {children}
+        </p>
       ),
     },
     list: {
       // Ex. 1: customizing common list types
       bullet: ({ children }) => (
-        <ul className="list-disc list-inside p-5 space-y-3">{children}</ul>
+        <ul itemProp="list" className="list-disc list-inside p-5 space-y-3">
+          {children}
+        </ul>
       ),
       number: ({ children }) => (
-        <ol className="list-decimal list-inside p-5 space-y-3">{children}</ol>
+        <ol itemProp="list" className="list-decimal list-inside p-5 space-y-3">
+          {children}
+        </ol>
       ),
 
       // Ex. 2: rendering custom lists
       checkmarks: ({ children }) => (
-        <ol className="m-auto text-lg">{children}</ol>
+        <ol itemProp="list" className="m-auto text-lg">
+          {children}
+        </ol>
       ),
     },
   };
@@ -192,7 +210,11 @@ const BlogDetails = () => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Helmet>
 
-      <main className="w-full h-auto pt-28">
+      <main
+        itemScope
+        itemType={`https://raum.africa/${slug}`}
+        className="w-full h-auto pt-28"
+      >
         <motion.section
           variants={componentVariant}
           initial="hidden"
@@ -201,17 +223,26 @@ const BlogDetails = () => {
         >
           <div className="p-4 lg:p-12 space-y-5 h-[350px] md:h-[500px] lg:h-[700px]">
             <div className="w-full flex gap-5 justify-center items-center">
-              <p className="text-center flex items-center gap-5 font-normal text-base text-white">
+              <p
+                itemProp="blogCategory"
+                className="text-center flex items-center gap-5 font-normal text-base text-white"
+              >
                 {blogData.category}
                 <span className="w-7 h-[1px] bg-[#A3A3A3]"></span>
-                {blogData.date}
+                <span itemProp="date">{blogData.date}</span>
               </p>
             </div>
             <div className="text-center space-y-5">
-              <h1 className="text-white font-bold text-2xl lg:text-6xl">
+              <h1
+                itemProp="title"
+                className="text-white font-bold text-2xl lg:text-6xl"
+              >
                 {blogData.title}
               </h1>
-              <p className="text-secondary text-base lg:text-lg font-medium">
+              <p
+                itemProp="description"
+                className="text-secondary text-base lg:text-lg font-medium"
+              >
                 {blogData.description}
               </p>
             </div>
@@ -219,6 +250,7 @@ const BlogDetails = () => {
           <div className="p-8 w-full h-auto bg-white text-black relative z-10">
             <div className="w-11/12 lg:p-8 lg:w-[1200px] lg:h-[700px] aspect-auto mx-auto absolute top-[-160px] md:top-[-360px] lg:top-[-440px] left-0 right-0">
               <img
+                itemProp="image"
                 src={blogData.image}
                 alt={blogData.alt}
                 className="w-full h-full object-cover rounded-3xl"
@@ -233,7 +265,9 @@ const BlogDetails = () => {
                 <p className="text-[#BBC8D4] font-bold text-base uppercase">
                   Written By
                 </p>
-                <h3 className="font-normal text-2xl">{blogData.author}</h3>
+                <h3 itemProp="author" className="font-normal text-2xl">
+                  {blogData.author}
+                </h3>
               </div>
             </div>
             {/* Related Posts */}
@@ -266,21 +300,31 @@ const BlogDetails = () => {
                     <section className="w-full h-full flex flex-col bg-white text-black rounded-[30px]">
                       <div className="w-full h-[360px]">
                         <img
+                          itemProp="image"
                           src={item.image}
                           alt={item.alt}
                           className="w-full h-full rounded-t-3xl object-cover"
                         />
                       </div>
                       <div className="w-full h-full p-4 lg:p-8 space-y-5 ">
-                        <p className="flex items-center gap-5 text-secondary font-normal text-base">
+                        <p
+                          itemProp="blogCategory"
+                          className="flex items-center gap-5 text-secondary font-normal text-base"
+                        >
                           {item.category}
                           <span className="w-7 h-[1px] bg-[#A3A3A3]"></span>
                           {item.date}
                         </p>
-                        <h2 className="font-bold text-lg lg:text-2xl text-primary_text">
+                        <h2
+                          itemProp="title"
+                          className="font-bold text-lg lg:text-2xl text-primary_text"
+                        >
                           {item.title}
                         </h2>
-                        <p className="text-secondary font-medium text-lg">
+                        <p
+                          itemProp="description"
+                          className="text-secondary font-medium text-lg"
+                        >
                           {item.description}
                         </p>
                       </div>

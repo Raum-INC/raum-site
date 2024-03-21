@@ -33,6 +33,8 @@ const Values = () => {
   };
   return (
     <motion.main
+      itemScope
+      itemType="https://raum.africa/about"
       variants={containerVariant}
       initial="hidden"
       whileInView="visible"
@@ -40,7 +42,10 @@ const Values = () => {
       className="w-full md:max-w-10/12 mx-auto h-auto py-14 md:py-36 md:px-12  flex flex-col justify-center items-center gap-12 bg-white md:bg-transparent"
     >
       <div className="flex flex-col justify-center items-center gap-5 p-8">
-        <h3 className="text-black md:text-white text-center font-bold text-3xl md:text-[44px] md:leading-[52px]">
+        <h3
+          itemProp="title"
+          className="text-black md:text-white text-center font-bold text-3xl md:text-[44px] md:leading-[52px]"
+        >
           The values that drive
           <br className="block md:hidden" /> our work
         </h3>
@@ -67,10 +72,16 @@ const Values = () => {
               className="w-full aspect-square mx-auto p-8 flex flex-col justify-center items-start gap-5 bg-white text-black border border-[#cbcbcb] rounded-lg"
             >
               <img src={data.image} alt="icons" className="w-10" />
-              <h4 className="font-bold text-[#121212] text-lg md:text-xl">
+              <h4
+                itemProp="title"
+                className="font-bold text-[#121212] text-lg md:text-xl"
+              >
                 {data.title}
               </h4>
-              <p className="font-medium text-[#6c6c6c] text-base md:text-lg">
+              <p
+                itemProp="description"
+                className="font-medium text-[#6c6c6c] text-base md:text-lg"
+              >
                 {data.description}
               </p>
             </motion.div>

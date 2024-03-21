@@ -68,7 +68,11 @@ const Hero = ({ heroTitle, hostTitle }) => {
   };
 
   return (
-    <header className="hero-section w-full h-auto flex justify-center items-center relative bg-white text-black pt-24 overflow-hidden">
+    <main
+      itemScope
+      itemType="https://raum.africa/host"
+      className="hero-section w-full h-auto flex justify-center items-center relative bg-white text-black pt-24 overflow-hidden"
+    >
       <motion.div
         variants={componentVariant}
         initial="hidden"
@@ -77,11 +81,15 @@ const Hero = ({ heroTitle, hostTitle }) => {
       >
         <div className="text-content px-8 flex flex-col justify-center items-center gap-8">
           <h1
+            itemProp="Title"
             className="hero-title text-2xl md:text-5xl lg:text-[72px] text-center font-extrabold lg:leading-[87px]"
             dangerouslySetInnerHTML={{ __html: sanitizedTitle }}
           />
 
-          <p className="hero-description w-4/5 lg:w-[650px] text-center leading-[20px] text-bgFade text-lg md:text-xl font-normal">
+          <p
+            itemType="description"
+            className="hero-description w-4/5 lg:w-[650px] text-center leading-[20px] text-bgFade text-lg md:text-xl font-normal"
+          >
             Whether you're searching for your next home or looking to list your
             apartment for business purposes, we're here to make your journey
             seamless and stress-free.
@@ -123,7 +131,7 @@ const Hero = ({ heroTitle, hostTitle }) => {
           </div>
         </motion.div>
       </motion.div>
-    </header>
+    </main>
   );
 };
 

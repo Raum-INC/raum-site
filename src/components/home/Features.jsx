@@ -31,6 +31,8 @@ const Features = () => {
 
   return (
     <motion.main
+      itemScope
+      itemType="https://raum.africa/"
       variants={containerVariant}
       initial="hidden"
       whileInView="visible"
@@ -38,7 +40,7 @@ const Features = () => {
       className="w-full max-w-6xl mx-auto p-8 xl:p-0"
     >
       <section className="flex flex-col justify-center items-start md:items-center gap-10 lg:gap-14 my-10">
-        <h3 className="font-semibold text-2xl md:text-5xl">
+        <h3 itemProp="title" className="font-semibold text-2xl md:text-5xl">
           Our Shortlet Features
         </h3>
         <div className="w-full grid grid-cols-2 lg:grid-cols-3 gap-5 md:gap-12">
@@ -53,12 +55,16 @@ const Features = () => {
               className="w-full h-[180px] lg:h-[200px] bg-transparent border border-primary rounded-[20px] flex flex-col md:flex-row justify-between md:items-start mx-auto gap-3 md:p-8"
             >
               <div className="md:w-1/2">
-                <p className=" text-left font-semibold text-base md:text-base p-4 ">
+                <p
+                  itemProp="shortletFeature"
+                  className=" text-left font-semibold text-base md:text-base p-4 "
+                >
                   {shortlet.title}
                 </p>
               </div>
               <div className="w-full md:w-1/2 h-full flex justify-end items-end">
                 <img
+                  itemProp="image"
                   className="w-[90px] md:w-full"
                   src={shortlet.image}
                   alt={shortlet.title}

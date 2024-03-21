@@ -34,6 +34,8 @@ const Experience = () => {
   };
   return (
     <motion.main
+      itemScope
+      itemType="https://raum.africa/about"
       variants={containerVariant}
       initial="hidden"
       whileInView="visible"
@@ -44,6 +46,7 @@ const Experience = () => {
         <div className="w-full flex flex-col md:flex-row justify-between items-center gap-4 md:gap-16">
           <div className="w-full flex justify-start items-center">
             <motion.img
+              itemProp="image"
               variants={experienceVariant}
               src={AboutUs.apartmentbuild}
               alt="apartment-building"
@@ -57,10 +60,15 @@ const Experience = () => {
                 key={data.id}
                 className="flex flex-col justify-center items-start gap-5 py-3 border-b-2 border-[#cbcbcb]"
               >
-                <h1 className="text-3xl md:text-4xl font-bold text-[#121212]">
+                <h1
+                  itemProp="title"
+                  className="text-3xl md:text-4xl font-bold text-[#121212]"
+                >
                   {data.title}
                 </h1>
-                <p className="text-lg text-[#6c6c6c]">{data.description}</p>
+                <p itemProp="description" className="text-lg text-[#6c6c6c]">
+                  {data.description}
+                </p>
               </motion.div>
             ))}
           </div>

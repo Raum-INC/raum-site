@@ -92,6 +92,8 @@ const ContentBlock = () => {
       {content ? (
         <AnimatePresence>
           <motion.article
+            itemScope
+            itemType={`https://raum.africa/${id}`}
             variants={componentVariant}
             initial="hidden"
             animate="visible"

@@ -26,13 +26,22 @@ const Download = () => {
   };
 
   return (
-    <main id="download-section" className="w-full h-auto p-8 xl:p-0">
+    <main
+      itemScope
+      itemType="https://raum.africa/"
+      id="download-section"
+      className="w-full h-auto p-8 xl:p-0"
+    >
       <section className="w-full max-w-6xl mx-auto h-full my-10 space-y-12 ">
-        <h3 className="font-semibold text-3xl md:text-4xl text-center">
+        <h3
+          itemProp="title"
+          className="font-semibold text-3xl md:text-4xl text-center"
+        >
           Download our Apps
         </h3>
         <div className="flex justify-center items-center gap-10">
           <button
+            itemProp="guestsApp"
             onClick={toggleGuest}
             className={`${
               download === "guests"
@@ -43,6 +52,7 @@ const Download = () => {
             Guests
           </button>
           <button
+            itemProp="hostsApp"
             onClick={toggleHosts}
             className={`${
               download === "hosts"
@@ -58,6 +68,8 @@ const Download = () => {
             {(download === "guests" || download === "hosts") && (
               <motion.div className="w-full min-w-full h-auto md:h-[560px] flex flex-col lg:flex-row justify-between items-center bg-primary rounded-3xl">
                 <motion.div
+                  itemScope
+                  itemType="https://raum.africa/"
                   key={download}
                   variants={slideVariant}
                   initial="hidden"
@@ -97,6 +109,7 @@ const Download = () => {
                       className="w-full h-full flex justify-center items-end"
                     >
                       <img
+                        itemProp="image"
                         className="w-[250px] md:w-[335px] px-4 pt-8 md:pt-4"
                         src={Assets.guestMockup}
                         alt="raum-app"
@@ -113,6 +126,7 @@ const Download = () => {
                       className="w-full h-full flex justify-center items-end overflow-hidden"
                     >
                       <img
+                        itemProp="image"
                         className="w-[250px] md:w-[335px] px-4 pt-4"
                         src={Assets.hostMockup}
                         alt="raum-app"

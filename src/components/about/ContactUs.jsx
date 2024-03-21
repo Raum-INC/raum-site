@@ -42,7 +42,11 @@ const ContactUs = () => {
   };
 
   return (
-    <main className="w-full mx-auto h-auto lg:h-screen flex flex-col lg:flex-row justify-center items-center">
+    <main
+      itemScope
+      itemType="https://raum.africa/contact"
+      className="w-full mx-auto h-auto lg:h-screen flex flex-col lg:flex-row justify-center items-center"
+    >
       <div className="w-full lg:w-3/5 h-[650px] lg:h-full">
         <motion.div
           variants={containerVariant}
@@ -50,37 +54,54 @@ const ContactUs = () => {
           animate="visible"
           className="w-full lg:w-4/5 h-full flex flex-col justify-start items-start gap-5 p-8 lg:p-28"
         >
-          <h1 className="text-2xl lg:text-5xl font-bold">Get in touch</h1>
-          <p className="text-base lg:text-lg font-medium text-[#6c6c6c]">
+          <h1 itemProp="title" className="text-2xl lg:text-5xl font-bold">
+            Contact Raum Africa
+          </h1>
+          <p
+            itemProp="description"
+            className="text-base lg:text-lg font-medium text-[#6c6c6c]"
+          >
             Do you have questions, comment, or a suggestion for us? Whether you
             need more information about our products or services, we would love
             to hear from you.
           </p>
           <div className="flex gap-3">
             <CiMail className="mt-1" />
-            <p className="flex flex-col gap-1 text-base lg:text-lg">
+            <p
+              itemProp="email"
+              className="flex flex-col gap-1 text-base lg:text-lg"
+            >
               Email <span className="text-[#6c6c6c]">hello@raumhq.co</span>
             </p>
           </div>
           <div className="flex gap-3">
             <BsTelephone className="mt-1" />
-            <p className="flex flex-col gap-1 text-base lg:text-lg">
+            <p
+              itemProp="phone"
+              className="flex flex-col gap-1 text-base lg:text-lg"
+            >
               Phone <span className="text-[#6c6c6c]">+234 814 822 8901</span>
             </p>
           </div>
           <div className="flex flex-col gap-3">
             <p>Follow us on social media </p>
             <div className="flex gap-3 justify-start items-center">
-              <a href="https://www.facebook.com/raumincc">
+              <a itemProp="facebook" href="https://www.facebook.com/raumincc">
                 <BiLogoFacebook size={20} />
               </a>
-              <a href="https://twitter.com/rauminc">
+              <a itemProp="twitter" href="https://twitter.com/rauminc">
                 <BiLogoTwitter size={20} />
               </a>
-              <a href="https://www.instagram.com/rauminc.hq/">
+              <a
+                itemProp="instagram"
+                href="https://www.instagram.com/rauminc.hq/"
+              >
                 <BiLogoInstagramAlt size={20} />
               </a>
-              <a href="https://www.linkedin.com/company/rauminc/">
+              <a
+                itemProp="linkedin"
+                href="https://www.linkedin.com/company/rauminc/"
+              >
                 <BiLogoLinkedin size={20} />
               </a>
             </div>

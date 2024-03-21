@@ -24,6 +24,8 @@ const Services = () => {
 
   return (
     <motion.main
+      itemScope
+      itemType="https://raum.africa/"
       variants={containerVariant}
       initial="hidden"
       whileInView="visible"
@@ -38,14 +40,20 @@ const Services = () => {
           >
             <div className="">
               <img
+                itemProp="image"
                 src={service.image}
                 alt={service.alt}
                 className="w-6 md:w-12 h-w-6 md:h-12"
               />
             </div>
             <div className="w-4/5 flex flex-col justify-center items-start lg:items-center gap-2">
-              <h2 className="text-lg md:text-2xl">{service.title}</h2>
-              <p className="font-normal text-left lg:text-center text-sm">
+              <h2 itemProp="title" className="text-lg md:text-2xl">
+                {service.title}
+              </h2>
+              <p
+                itemProp="description"
+                className="font-normal text-left lg:text-center text-sm"
+              >
                 {service.description}
               </p>
             </div>

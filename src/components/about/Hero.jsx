@@ -38,6 +38,8 @@ const Hero = () => {
   };
   return (
     <motion.main
+      itemScope
+      itemType="https://raum.africa/about"
       variants={heroVariant}
       initial="hidden"
       animate="visible"
@@ -45,8 +47,13 @@ const Hero = () => {
     >
       <div className="md:w-11/12 mx-auto flex flex-col justify-center items-start gap-8 md:gap-16">
         <div className="md:w-3/5 flex flex-col gap-5">
-          <h1 className="font-bold text-3xl md:text-6xl ">About us</h1>
-          <p className="md:pr-5 text-left font-medium text-base md:text-md leading-normal md:leading-8">
+          <h1 itemProp="title" className="font-bold text-3xl md:text-6xl ">
+            About Raum Africa
+          </h1>
+          <p
+            itemProp="description"
+            className="md:pr-5 text-left font-medium text-base md:text-md leading-normal md:leading-8"
+          >
             We are revolutionizing staycations by providing an all-in-one
             platform for booking short-term and long stays, along with dream
             properties, using AI, VR tours, smart home tech, and prioritize
@@ -56,6 +63,7 @@ const Hero = () => {
         {/* desktop */}
         <div className="w-full hidden sm:flex justify-center md:justify-normal gap-2">
           <motion.img
+            itemProp="image"
             variants={imageVariant}
             initial="left"
             animate="visible"
@@ -64,6 +72,7 @@ const Hero = () => {
             className="w-1/2 h-fit md:w-3/5 rounded-xl"
           />
           <motion.img
+            itemProp="image"
             variants={imageVariant}
             initial="right"
             animate="visible"
@@ -75,6 +84,7 @@ const Hero = () => {
         {/* mobile */}
         <div className="w-full h-[600px] md:h-auto flex sm:hidden justify-center md:justify-normal gap-2 relative md:static">
           <motion.img
+            itemProp="image"
             variants={imageVariant}
             initial="left"
             animate="visible"
@@ -83,6 +93,7 @@ const Hero = () => {
             className="w-[55vw] aspect-auto sm:w-[340px] h-fit lg:w-3/5 rounded-xl absolute -left-16 top-20"
           />
           <motion.img
+            itemProp="image"
             variants={imageVariant}
             initial="right"
             animate="visible"

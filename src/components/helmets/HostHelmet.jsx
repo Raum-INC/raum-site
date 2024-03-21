@@ -5,7 +5,8 @@ const HostHelmet = () => {
   return (
     <Helmet>
       <title>
-        Boost your STR Business growth with Raum Africa: Host more, Earn more!
+        Boost your STR Business growth with Raum Africa Host App: Host more,
+        Earn more!
       </title>
       <meta
         name="description"
@@ -14,7 +15,7 @@ const HostHelmet = () => {
       <meta property="og:site_name" content="Raum Africa Host App" />
       <meta
         property="og:title"
-        content="Boost your STR Business growth with Raum Africa: Host more, Earn more!"
+        content="Boost your STR Business growth with Raum Africa Host App: Host more, Earn more!"
       />
       <meta property="og:type" content="website" />
       <meta
@@ -44,7 +45,7 @@ const HostHelmet = () => {
       />
       <meta
         name="twitter:title"
-        content="Boost your STR Business growth with Raum Africa: Host more, Earn more!"
+        content="Boost your STR Business growth with Raum Africa Host App: Host more, Earn more!"
       />
       <meta name="twitter:creator" content="@rauminc" />
       <meta name="twitter:site" content="@rauminc" />

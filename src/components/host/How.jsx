@@ -5,13 +5,17 @@ import { IphonePop } from "../Motion";
 
 const How = () => {
   return (
-    <main className="w-full h-auto p-10">
+    <main
+      itemScope
+      itemType="https://raum.africa/host"
+      className="w-full h-auto p-10"
+    >
       <section className="w-full max-w-6xl lg:h-[640px] bg-[#252525] mx-auto flex flex-col justify-center items-start gap-5 md:gap-0 rounded-[20px] pt-6 px-6 overflow-hidden my-10">
         <div className="md:p-14">
-          <h3 className="font-bold text-2xl md:text-5xl">
+          <h3 itemProp="title" className="font-bold text-2xl md:text-5xl">
             How the Raum Hosts app works
           </h3>
-          <p className="text-base my-5">
+          <p itemProp="subtitle" className="text-base my-5">
             Reliable and user-friendly, with all the essentials for hosting and
             earning at your convenience.
           </p>
@@ -23,14 +27,23 @@ const How = () => {
                 key={index}
                 className="flex justify-start items-start gap-3 md:gap-5"
               >
-                <span className="w-8 h-8 md:w-10 md:h-10 aspect-square flex justify-center items-center bg-primary">
+                <span
+                  itemProp="mpn"
+                  className="w-8 h-8 md:w-10 md:h-10 aspect-square flex justify-center items-center bg-primary"
+                >
                   {item.id}
                 </span>
                 <div>
-                  <p className="font-semibold text-lg md:text-2xl">
+                  <p
+                    itemProp="title"
+                    className="font-semibold text-lg md:text-2xl"
+                  >
                     {item.title}
                   </p>
-                  <p className="font-normal text-sm md:text-lg pt-2">
+                  <p
+                    itemProp="description"
+                    className="font-normal text-sm md:text-lg pt-2"
+                  >
                     {item.subtitle}
                   </p>
                 </div>
@@ -40,6 +53,7 @@ const How = () => {
           <div className="lg:w-1/3 h-full flex justify-center items-end">
             <IphonePop>
               <img
+                itemProp="image"
                 className="w-[335px] md:w-full"
                 src={Assets.hostMockup}
                 alt="raum-app"
