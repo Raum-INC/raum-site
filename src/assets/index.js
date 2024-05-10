@@ -1,4 +1,8 @@
 export const Assets = {
+  homeicon: require("../assets/homeicon.svg").default,
+  dooricon: require("../assets/dooricon.svg").default,
+  calendar: require("../assets/calendar.svg").default,
+  logo: require("../assets/logo.svg").default,
   raumLogo: require("../assets/raum_logo.svg").default,
   raumLogo2: require("../assets/raum_logo-2.svg").default,
   raumFavi: require("../assets/raum_favi.png"),

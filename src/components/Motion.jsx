@@ -58,3 +58,27 @@ export const IphonePop = ({ children }) => {
     </motion.section>
   );
 };
+
+export const LoaderMotion = ({ children }) => {
+  const loadingVariant = {
+    hidden: {
+      opacity: 0,
+    },
+    visible: {
+      opacity: 1,
+      transition: {
+        duration: 0.7,
+      },
+    },
+  };
+  return (
+    <motion.section
+      variants={loadingVariant}
+      initial="hidden"
+      whileInView="visible"
+      className="w-full h-screen flex justify-center items-center"
+    >
+      {children}
+    </motion.section>
+  );
+};

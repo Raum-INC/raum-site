@@ -27,13 +27,13 @@ const Footer = () => {
       viewport={{ once: true }}
     >
       <div className="w-full mx-auto flex flex-col lg:flex-row justify-between gap-y-6 p-8 my-12">
-        <div>
+        <Link to="/">
           <img
             src={Assets.raumLogo}
             alt="raum-logo"
             className="w-[70px] md:w-[150px]"
           />
-        </div>
+        </Link>
         <div className="flex justify-end items-center gap-10">
           <a href="mailto:Info@raumgroup.io">
             <img
