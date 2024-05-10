@@ -1,0 +1,11 @@
+[
+    {
+      "relation": ["delegate_permission/common.handle_all_urls"],
+      "target": {
+        "namespace": "android_app",
+        "package_name": "com.raumhq.raum_mobile",
+        "sha256_cert_fingerprints":
+          ["FF:43:D6:09:A4:14:F6:D5:02:DF:3E:B2:78:F2:E0:82:1B:EC:93:6A:72:EB:A4:5A:47:11:01:B6:E5:7B:FF:74"]
+      }
+    }
+  ]
