@@ -15,7 +15,7 @@ import ContentBlock from "./pages/ContentBlock";
 import Hidden from "./pages/Hidden";
 import Navigation from "./components/Navigation";
 import DashHome from "./pages/DashHome";
-import ListingDetails from "./components/dashboard/ListingDetails";
+import ListingDetails from "./components/listings/ListingDetails";
 
 function App() {
   const { falseNav } = useBearStore();

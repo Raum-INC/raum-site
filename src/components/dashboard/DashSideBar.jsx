@@ -7,7 +7,7 @@ import { CiMenuBurger } from "react-icons/ci";
 
 const DashSideBar = () => {
   return (
-    <main className="w-[100px] flex flex-col item-center h-full text-black">
+    <main className="w-[100px] flex flex-col item-center h-full text-white">
       <div className="w-full flex justify-center items-center py-6">
         <button>
           <CiMenuBurger size={30} />

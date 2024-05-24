@@ -10,6 +10,7 @@ module.exports = {
         secondary: "#6C6C6C",
         fade: "#878787",
         faded: "#5A5A5A",
+        bkg: "#171717",
       },
       listStyleImage: {
         checkmark: 'url("/src/assets/checkmark.svg")',

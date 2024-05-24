@@ -1,7 +1,7 @@
 import React from "react";
 import { Assets } from "../assets";
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const Footer = () => {
   const footerVariant = {
@@ -19,14 +19,19 @@ const Footer = () => {
       },
     },
   };
+  const location = useLocation();
+  const isAdminDashboard = location.pathname.startsWith("/admin-dashboard");
   return (
     <motion.footer
       variants={footerVariant}
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true }}
+      className={`${isAdminDashboard ? "bg-primary_text" : ""}`}
     >
-      <div className="w-full mx-auto flex flex-col lg:flex-row justify-between gap-y-6 p-8 my-12">
+      <div
+        className={` w-full mx-auto flex flex-col lg:flex-row justify-between gap-y-6 p-8`}
+      >
         <Link to="/">
           <img
             src={Assets.raumLogo}

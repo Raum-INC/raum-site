@@ -5,11 +5,11 @@ import DashCategory from "../components/dashboard/DashCategory";
 
 const DashHome = () => {
   return (
-    <main className="w-full min-h-screen flex relative overflow-hidden">
-      <section className="w-auto min-h-full bg-white">
+    <main className="w-full h-auto md:min-h-screen flex relative">
+      <section className="hidden md:block w-auto min-h-full bg-primary_text">
         <DashSideBar />
       </section>
-      <section className="w-full min-h-screen bg-fixed">
+      <section className="w-full min-h-screen overflow-hidden">
         <FeaturedList />
         <DashCategory />
       </section>
