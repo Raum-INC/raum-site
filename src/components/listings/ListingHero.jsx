@@ -1,5 +1,7 @@
 import React from "react";
 import { IoIosStar } from "react-icons/io";
+import { Link } from "react-router-dom";
+import { IoIosArrowRoundBack } from "react-icons/io";
 
 const ListingHero = ({
   product,
@@ -22,6 +24,13 @@ const ListingHero = ({
       }}
       onClick={() => setIsFullScreen(!isFullScreen)} // Toggle full-screen mode
     >
+      <Link
+        to="/admin-dashboard"
+        className="absolute top-3 md:top-10 right-3 md:right-10 z-50 p-5 underline underline-offset-1 flex gap-2 justify-start items-center"
+      >
+        <IoIosArrowRoundBack size={20} />
+        back
+      </Link>
       <div className="w-full h-full absolute inset-0 bg-black/20"></div>
       <div className="relative w-full h-full max-w-7xl mx-auto flex flex-col gap-2 justify-end items-start">
         <h1 className="font-bold text-base md:text-4xl drop-shadow-md">
