@@ -114,16 +114,16 @@ const ListingDetails = () => {
           <div className="flex gap-5 justify-start items-center">
             <p className="flex gap-2 items-center justify-start">
               <IoIosStar size={20} className="text-primary" />
-              {reviews[0].rating}
+              {reviews[0]?.rating}
             </p>
             |
             <p className="text-sm">
-              {reviews.length} review{reviews.length > 1 ? "s" : ""}
+              {reviews?.length} review{reviews.length > 1 ? "s" : ""}
             </p>
           </div>
           <div className="w-full h-auto grid grid-flow-col gap-5 overflow-x-auto">
-            {reviews.length > 0 ? (
-              reviews.map((review) => (
+            {reviews?.length > 0 ? (
+              reviews?.map((review) => (
                 <div
                   key={review.id}
                   className="w-[280px] md:w-[400px] h-[200px] bg-[#1E1E1E] p-5 rounded md"
@@ -136,14 +136,15 @@ const ListingDetails = () => {
                     />
                     <div>
                       <p className="text-sm  capitalize">
-                        {review.customer.first_name} {review.customer.last_name}
+                        {review?.customer.first_name}{" "}
+                        {review.customer.last_name}
                       </p>
                       <p className="text-xs text-gray-400">
-                        {formatDate(review.created_at)}
+                        {formatDate(review?.created_at)}
                       </p>
                     </div>
                   </div>
-                  <p className="text-sm py-3">{review.content}</p>
+                  <p className="text-sm py-3">{review?.content}</p>
                 </div>
               ))
             ) : (
