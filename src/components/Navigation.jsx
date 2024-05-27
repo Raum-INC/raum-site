@@ -1,80 +1,91 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Navbar from "./Navbar";
-import { useLocation } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 import { Assets } from "../assets";
-import { CiMenuBurger } from "react-icons/ci";
-import { Link } from "react-router-dom";
-import { CiSearch } from "react-icons/ci";
+import { CiMenuBurger, CiSearch } from "react-icons/ci";
 
 const Navigation = () => {
   const location = useLocation();
   const isAdminDashboard = location.pathname.startsWith("/admin-dashboard");
-  const isProductPage = location.pathname.startsWith(
-    "/admin-dashboard/product/"
-  );
+  const [products, setProducts] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
+
+  useEffect(() => {
+    if (searchTerm.length >= 3) {
+      fetch("https://cp.raumhq.co/store/products?currency_code=ngn")
+        .then((response) => response.json())
+        .then((data) => {
+          const filteredProducts = data.products.filter((product) =>
+            product.title.toLowerCase().includes(searchTerm.toLowerCase())
+          );
+          setProducts(filteredProducts);
+        })
+        .catch((error) => console.error("Error fetching products:", error));
+    } else {
+      setProducts([]);
+    }
+  }, [searchTerm]);
+
+  const handleLinkClick = () => {
+    setSearchTerm("");
+  };
 
   return (
     <>
       {isAdminDashboard ? (
-        <main className="w-full h-auto bg-primary_text text-white p-4 px-8 md:px-9 flex justify-between items-center">
-          <nav className="w-full h-auto flex justify-between items-center">
-            <div className="w-[150px] flex items-center">
+        <main className="w-full h-auto bg-primary_text text-white p-4 px-8 md:px-9 flex justify-between items-center gap-10">
+          <nav className="w-[full] h-auto flex justify-between items-center gap-10">
+            <div className="w-full md:w-[150px] flex items-center">
               <Link to="/">
-                <img src={Assets.raumLogo} alt="raum-logo" />
+                <img src={Assets.raumLogo} alt="raum-logo" className="w-full" />
               </Link>
             </div>
-            <section
-              className={`w-full h-auto flex justify-between items-center`}
-            >
-              {isProductPage ? (
-                <div className="invisible w-full text-white"></div>
-              ) : (
-                <form
-                  action=""
-                  className="w-full h-auto flex items-center gap-10"
-                >
-                  <div className="w-full p-2 text-white/30 md:w-[540px] h-auto flex justify-center items-center bg-bkg rounded-full">
-                    <input
-                      type="search"
-                      name=""
-                      id=""
-                      className="w-4/5 md:w-[540px] h-auto p-2 bg-transparent"
+
+            <section className="w-full h-[35px] md:h-[55px]">
+              <form
+                action=""
+                className="w-full h-full flex gap-5"
+                onSubmit={(e) => e.preventDefault()}
+              >
+                <div className="w-[145px] md:w-[400px] h-full flex justify-start items-center rounded-full bg-bkg">
+                  <input
+                    type="text"
+                    placeholder="Search"
+                    className="w-[100px] md:w-10/12 h-full bg-transparent p-3 outline-none"
+                    value={searchTerm}
+                    onChange={(e) => setSearchTerm(e.target.value)}
+                  />
+                  <button>
+                    <CiSearch
+                      size={30}
+                      className="w-[30px] h-[30px] md:ml-4 pl-2 border-l-2 border-white/30"
                     />
-                    <button className="w-1/5 px-2 flex justify-center items-center border-l border-fade">
-                      <CiSearch />
-                    </button>
-                  </div>
-                  <div className="hidden md:w-[150px] h-auto relative md:flex justify-center items-center">
-                    <input
-                      type="search"
-                      name=""
-                      id=""
-                      className="border border-fade rounded-full w-[150px] h-auto bg-bkg"
-                    />
-                    <button className="px-2 border-l border-fade text-white/30 absolute top-[20%] right-5">
-                      filter
-                    </button>
-                  </div>
-                </form>
-              )}
-              <div className="w-[300px] flex text-white justify-end items-center gap-5">
-                <button className="hidden md:block">
-                  <p className="text-nowrap font-semibold">Become a Host</p>
-                </button>
-                <div className="flex gap-2 p-2 border border-fade rounded-full">
-                  <button className="w-10 flex justify-center items-center">
-                    <CiMenuBurger size={25} />
                   </button>
-                  <div className="w-10 h-10">
-                    <img
-                      src={Assets.earn}
-                      alt=""
-                      className="rounded-full w-full h-full object-cover"
-                    />
-                  </div>
                 </div>
+              </form>
+              {/* Display filtered product links */}
+              <div className="mt-2">
+                {products.map((product) => (
+                  <Link
+                    key={product.id}
+                    to={`/admin-dashboard/product/${product.id}`}
+                    className="block text-white p-2 hover:bg-gray-700 rounded"
+                    onClick={handleLinkClick}
+                  >
+                    {product.title}
+                  </Link>
+                ))}
               </div>
             </section>
+
+            <div className="w-full h-full flex justify-end items-center">
+              <div className="w-[30px] h-[30px]">
+                <img src={Assets.account} alt="" className="w-full" />
+              </div>
+              <button>
+                <CiMenuBurger size={25} className="" />
+              </button>
+            </div>
           </nav>
         </main>
       ) : (
