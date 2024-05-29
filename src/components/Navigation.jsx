@@ -34,7 +34,7 @@ const Navigation = () => {
     <>
       {isAdminDashboard ? (
         <main className="w-full h-auto bg-primary_text text-white p-4 px-8 md:px-9 flex justify-between items-center gap-10">
-          <nav className="w-[full] h-auto flex justify-between items-center gap-10">
+          <nav className="w-full h-auto flex justify-between items-center gap-10">
             <div className="w-full md:w-[150px] flex items-center">
               <Link to="/">
                 <img src={Assets.raumLogo} alt="raum-logo" className="w-full" />
@@ -64,15 +64,17 @@ const Navigation = () => {
                 </div>
               </form>
               {/* Display filtered product links */}
-              <div className="mt-2">
+              <div className="md:w-[400px] mt-2 bg-bkg divide-y-2 divide-white/20 rounded-xl">
                 {products.map((product) => (
                   <Link
                     key={product.id}
                     to={`/admin-dashboard/product/${product.id}`}
-                    className="block text-white p-2 hover:bg-gray-700 rounded"
+                    className="block text-white first:rounded-t-xl last:rounded-b-xl hover:bg-white/20"
                     onClick={handleLinkClick}
                   >
-                    {product.title}
+                    <p className="w-full h-full p-2 py-4 truncate">
+                      {product.title}
+                    </p>
                   </Link>
                 ))}
               </div>
