@@ -33,9 +33,9 @@ const Navigation = () => {
   return (
     <>
       {isAdminDashboard ? (
-        <main className="w-full h-auto bg-primary_text text-white p-4 px-8 md:px-9 flex justify-between items-center gap-10">
+        <main className="w-full h-auto bg-primary_text text-white p-4 px-5 md:px-9 flex justify-between items-center gap-10">
           <nav className="w-full h-auto flex justify-between items-center gap-10">
-            <div className="w-full md:w-[150px] flex items-center">
+            <div className="w-[120px] md:w-[150px] flex items-center">
               <Link to="/">
                 <img src={Assets.raumLogo} alt="raum-logo" className="w-full" />
               </Link>
@@ -80,14 +80,14 @@ const Navigation = () => {
               </div>
             </section>
 
-            <div className="w-full h-full flex justify-end items-center">
+            {/* <div className="w-full h-full flex justify-end items-center">
               <div className="w-[30px] h-[30px]">
                 <img src={Assets.account} alt="" className="w-full" />
               </div>
               <button>
                 <CiMenuBurger size={25} className="" />
               </button>
-            </div>
+            </div> */}
           </nav>
         </main>
       ) : (

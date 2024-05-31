@@ -52,11 +52,11 @@ const DashCategory = () => {
     <main className="w-full md:h-[500px] bg-primary_text p-4 px-8 md:px-9 pb-20 text-black">
       <h2 className="text-sm font-semibold py-5 text-white">Category</h2>
       <section className="flex flex-col gap-5">
-        <div className="w-full flex md:gap-5 justify-start gap-4 items-center">
+        <div className="w-full flex md:gap-5 justify-start gap-3 items-center">
           {categories.map((category) => (
             <button
               key={category.id}
-              className={`p-2 whitespace-nowrap text-white rounded-full border border-primary ${
+              className={`p-2 px-[14px] md:px-6 text-sm md:text-base whitespace-nowrap text-white rounded-full border border-primary ${
                 selectedCategory === category.id
                   ? "bg-primary "
                   : "bg-bkg text-white/30 border-white/10"
