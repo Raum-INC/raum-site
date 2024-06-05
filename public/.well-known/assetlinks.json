@@ -1,20 +1,22 @@
 [
-    {
-      "relation": ["delegate_permission/common.handle_all_urls"],
-      "target": {
-        "namespace": "android_app",
-        "package_name": "com.raumhq.raum_mobile",
-        "sha256_cert_fingerprints":
-          ["FF:43:D6:09:A4:14:F6:D5:02:DF:3E:B2:78:F2:E0:82:1B:EC:93:6A:72:EB:A4:5A:47:11:01:B6:E5:7B:FF:74"]
-      }
-    },
-    {
-      "relation": ["delegate_permission/common.handle_all_urls"],
-      "target": {
-        "namespace": "android_app",
-        "package_name": "com.raumhq.raum_mobile_host",
-        "sha256_cert_fingerprints":
-          ["B5:3F:74:24:21:AF:92:39:79:95:50:C2:35:B3:F4:3F:41:BD:C6:19:07:F2:8B:43:1C:19:8C:60:A2:E9:9F:06"]
-      }
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.raumhq.raum",
+      "sha256_cert_fingerprints": [
+        "A6:1F:3D:4B:31:49:E1:97:0A:53:53:89:95:AB:50:25:1C:55:B3:34:97:9E:E5:05:3B:4A:C0:C3:BA:13:64:C6"
+      ]
     }
-  ]
+  },
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.raumhq.raum_mobile_host",
+      "sha256_cert_fingerprints": [
+        "B5:3F:74:24:21:AF:92:39:79:95:50:C2:35:B3:F4:3F:41:BD:C6:19:07:F2:8B:43:1C:19:8C:60:A2:E9:9F:06"
+      ]
+    }
+  }
+]
