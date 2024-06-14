@@ -2,6 +2,7 @@ import React from "react";
 import DashSideBar from "../components/dashboard/DashSideBar";
 import FeaturedList from "../components/dashboard/FeaturedList";
 import DashCategory from "../components/dashboard/DashCategory";
+import { FadeIn } from "../components/Motion";
 
 const DashHome = () => {
   return (
@@ -10,8 +11,12 @@ const DashHome = () => {
         <DashSideBar />
       </section> */}
       <section className="w-full min-h-screen overflow-hidden">
-        <FeaturedList />
-        <DashCategory />
+        <FadeIn>
+          <FeaturedList />
+        </FadeIn>
+        <FadeIn>
+          <DashCategory />
+        </FadeIn>
       </section>
     </main>
   );
