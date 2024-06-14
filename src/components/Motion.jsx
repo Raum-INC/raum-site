@@ -82,3 +82,29 @@ export const LoaderMotion = ({ children }) => {
     </motion.section>
   );
 };
+
+export const FadeIn = ({ children }) => {
+  const loadingVariant = {
+    hidden: {
+      opacity: 0,
+      translateY: -50,
+    },
+    visible: {
+      opacity: 1,
+      translateY: 0,
+      transition: {
+        duration: 0.7,
+      },
+    },
+  };
+  return (
+    <motion.section
+      variants={loadingVariant}
+      initial="hidden"
+      whileInView="visible"
+      className="w-full h-auto flex justify-center items-center overflow-hidden"
+    >
+      {children}
+    </motion.section>
+  );
+};
