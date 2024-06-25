@@ -10,7 +10,7 @@ const DashHome = () => {
       {/* <section className="hidden md:block w-auto min-h-full bg-primary_text">
         <DashSideBar />
       </section> */}
-      <section className="w-full min-h-screen overflow-hidden">
+      <section className="w-full min-h-screen overflow-hidden bg-primary_text">
         <FadeIn>
           <FeaturedList />
         </FadeIn>

@@ -49,10 +49,10 @@ const DashCategory = () => {
   console.log(filteredProducts);
 
   return (
-    <main className="w-full md:h-[500px] bg-primary_text p-4 px-8 md:px-9 pb-20 text-black">
+    <main className="w-full md:h-[500px] bg-primary_text p-5 md:px-9 pb-20 text-black">
       <h2 className="text-sm font-semibold py-5 text-white">Category</h2>
       <section className="flex flex-col gap-5">
-        <div className="w-full flex md:gap-5 justify-start gap-3 items-center">
+        <div className="w-full flex md:gap-5 justify-start gap-3 items-center overflow-x-auto no-scrollbar">
           {categories.map((category) => (
             <button
               key={category.id}

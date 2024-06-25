@@ -26,9 +26,9 @@ const FeaturedList = () => {
   }, []);
 
   return (
-    <main className="w-full h-auto bg-primary_text p-5">
+    <main className="w-full h-auto bg-primary_text p-5 md:px-9">
       <h1 className="text-4xl text-white font-bold pb-5">Featured Listings</h1>
-      <div className="w-full h-full overflow-x-auto no-scrollbar grid grid-flow-col gap-5 pr-32">
+      <div className="w-full h-full overflow-x-auto no-scrollbar grid grid-flow-col gap-5 pr-20">
         {listings.map((listing, index) => (
           <Link
             key={index}

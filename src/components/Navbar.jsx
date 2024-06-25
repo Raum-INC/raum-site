@@ -96,21 +96,6 @@ const Navbar = () => {
           animate={{ type: "spring", stiffness: 500 }}
           className="py-4 pl-4 w-auto md:w-1/3 flex justify-end items-center gap-5 overflow-hidden"
         >
-          {location.pathname === "/host" && (
-            <motion.div
-              variants={adminVariant}
-              initial="initial"
-              animate="animate"
-              className="w-auto h-auto p-1"
-            >
-              <Link
-                to="/admin-dashboard"
-                className="font-light bg-black text-sm md:text-base text-white p-2 px-4 md:px-6 rounded-full whitespace-nowrap"
-              >
-                Admin Dashboard
-              </Link>
-            </motion.div>
-          )}
           <div
             onClick={() => {
               toggleNav();

@@ -94,17 +94,32 @@ const Hero = ({ heroTitle, hostTitle }) => {
             apartment for business purposes, we're here to make your journey
             seamless and stress-free.
           </p>
-          <Link
-            to={location.pathname === "/host" ? "/host" : "/"}
-            onClick={getClick}
-            className={`bg-black text-sm md:text-base text-white rounded-3xl capitalize font-normal flex justify-center items-center ${
-              location.pathname === "/host"
-                ? "w-[230px] h-[34px] md:h-[50px]"
-                : "w-[180px] h-[34px] md:h-[50px]"
-            }`}
-          >
-            <p>{hostTitle}</p>
-          </Link>
+          <div className="flex gap-4">
+            <Link
+              to={location.pathname === "/host" ? "/host" : "/"}
+              onClick={getClick}
+              className={`bg-black text-sm md:text-base text-white rounded-3xl capitalize font-normal flex justify-center items-center ${
+                location.pathname === "/host"
+                  ? "w-[230px] h-[34px] md:h-[50px]"
+                  : "w-[180px] h-[34px] md:h-[50px]"
+              }`}
+            >
+              <p>{hostTitle}</p>
+            </Link>
+            {location.pathname === "/host" && (
+              <Link
+                to="/admin-dashboard"
+                onClick={getClick}
+                className={`bg-white border-2 border-black text-sm md:text-base text-black rounded-3xl capitalize font-bold flex justify-center items-center ${
+                  location.pathname === "/host"
+                    ? "w-[230px] h-[34px] md:h-[50px]"
+                    : "w-[180px] h-[34px] md:h-[50px]"
+                }`}
+              >
+                <p>Check out listings</p>
+              </Link>
+            )}
+          </div>
         </div>
         <motion.div
           variants={heroVariant}
