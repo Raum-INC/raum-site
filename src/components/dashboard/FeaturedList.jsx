@@ -61,17 +61,12 @@ const FeaturedList = () => {
               >
                 {listing.title}
               </h2>
-              <p
-                className={`${
-                  index === 0 ? "md:text-lg" : "md:text-base"
-                } text-xs text-[#1D88FE]`}
-              >
-                {/* Assuming there's a price property in your data */}N
-                {listing.variants[0].original_price.toLocaleString("en-NG")}
+              <p className={`text-xs text-[#1D88FE]`}>
+                N{listing.variants[0].original_price.toLocaleString("en-NG")}
               </p>
             </div>
             <div>
-              <p className="text-xs flex gap-1 items-center">
+              <p className="text-xs flex gap-1 items-center whitespace-nowrap">
                 <MdLocationPin /> {listing.generalAddressArea}
               </p>
             </div>
