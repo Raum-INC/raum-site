@@ -9,56 +9,58 @@ const ListingHero = ({
   setIsFullScreen,
   currentImage,
   setCurrentImage,
+  thumbnail,
 }) => {
-  const { title, generalAddressArea, images } = product;
+  const { title, generalAddressArea, metadata } = product;
   return (
-    <section
-      id="fullwidth-image"
-      className={`w-full mx-auto relative p-5 ${
-        isFullScreen ? "full-screen" : "h-[300px] md:h-[650px]"
-      }`}
-      style={{
-        backgroundImage: `url(${currentImage})`, // Use currentImage state for the URL
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-      }}
-      onClick={() => setIsFullScreen(!isFullScreen)} // Toggle full-screen mode
-    >
+    <section className="w-full h-screen relative">
+      <img
+        src={currentImage}
+        alt={title}
+        className="w-full h-full object-cover"
+      />
       <Link
         to="/admin-dashboard"
-        className="absolute top-3 md:top-10 right-3 md:right-10 z-50 p-5 underline underline-offset-1 flex gap-2 justify-start items-center"
+        className="absolute top-3 md:top-10 right-3 md:right-10 z-50 bg-white text-black rounded-full p-2 underline underline-offset-1 flex gap-2 justify-start items-center shadow-2xl"
       >
-        <IoIosArrowRoundBack size={20} />
-        back
+        <IoIosArrowRoundBack size={40} />
       </Link>
-      <div className="w-full h-full absolute inset-0 bg-black/20"></div>
-      <div className="relative w-full h-full max-w-7xl mx-auto flex flex-col gap-2 justify-end items-start">
-        <h1 className="font-bold text-base md:text-4xl drop-shadow-md">
+      <div className="w-full h-full absolute inset-0 z-10 bg-gradient-to-b from-50% from-white/0 to-90% to-black/70 p-5 md:p-10 flex flex-col justify-end items-start">
+        <h1 className="font-bold text-lg md:text-5xl drop-shadow-md">
           {title}
         </h1>
-        <div>
-          <p className="text-xs flex gap-1 justify-center items-center">
-            <IoIosStar size={18} className="text-yellow-400" />
-            5.0 <span className="underline pl-2">7 reviews</span>
-            <span className="underline pl-2"> {generalAddressArea}</span>
+        <p className="text-base md:text-lg font-normal w-[250px] truncate">
+          {product.description}
+        </p>
+        <div className="w-full overflow-hidden">
+          <p className="text-sm flex gap-3 my-3 justify-start items-center">
+            <IoIosStar size={20} className="text-white" />
+            5.0{" "}
+            <span className="bg-white text-black p-1 px-3 rounded-full">
+              7 reviews
+            </span>
+            <span className="bg-white text-black p-1 px-3 rounded-full">
+              {" "}
+              {generalAddressArea}
+            </span>
           </p>
-        </div>
-        <div className="flex gap-5 overflow-hidden">
-          {images.map((image, index) => (
-            <div
-              key={index}
-              className="w-[50px] md:w-[150px] h-[40px] md:h-[150px] border-4 border-white/40 rounded-md cursor-pointer"
-              style={{
-                backgroundImage: `url(${image.url})`,
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-              }}
-              onClick={(e) => {
-                e.stopPropagation(); // Prevent triggering the full-width image click event
-                setCurrentImage(image.url); // Set clicked image as full-width image
-              }}
-            ></div>
-          ))}
+          <div className="w-2/3 h-auto overflow-x-auto no-scrollbar flex gap-3">
+            {metadata.images.map((image, index) => (
+              <div
+                key={index}
+                className="w-[50px] md:w-[150px] h-[40px] md:h-[100px] rounded-md cursor-pointer"
+              >
+                <img
+                  src={image.url}
+                  alt={title}
+                  className="w-full h-full object-cover rounded-lg"
+                  onClick={(e) => {
+                    setCurrentImage(image.url);
+                  }}
+                />
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

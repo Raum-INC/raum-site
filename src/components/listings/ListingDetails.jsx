@@ -12,6 +12,7 @@ import { Assets } from "../../assets";
 import { FaPhoneAlt } from "react-icons/fa";
 import { LuMail } from "react-icons/lu";
 import { IoIosStar } from "react-icons/io";
+import VideoDisplay from "./VideoDisplay";
 
 const ListingDetails = () => {
   const { productId } = useParams();
@@ -21,6 +22,9 @@ const ListingDetails = () => {
   const [currentImage, setCurrentImage] = useState(null);
   const [isFullScreen, setIsFullScreen] = useState(false);
 
+  const videoUrl = "https://www.youtube.com/watch?v=PnojSH4yDOk";
+  const videoTitle = "Your Video Title";
+
   useEffect(() => {
     // Fetch product data using the product ID from URL params
     setLoading(true);
@@ -28,7 +32,7 @@ const ListingDetails = () => {
       .get(`https://cp.raumhq.co/store/products/${productId}?currency_code=ngn`)
       .then((response) => {
         setProduct(response.data.product);
-        setCurrentImage(response.data.product.thumbnail); // Set initial full-width image
+        setCurrentImage(response.data.product.metadata.images[0].url); // Set initial full-width image
         setLoading(false);
       })
       .catch((error) => {
@@ -84,6 +88,7 @@ const ListingDetails = () => {
           setIsFullScreen={setIsFullScreen}
           currentImage={currentImage}
           setCurrentImage={setCurrentImage}
+          thumbnail={thumbnail}
         />
       </FadeIn>
 
@@ -94,13 +99,7 @@ const ListingDetails = () => {
       </FadeIn>
 
       <FadeIn>
-        <div className="w-full md:w-1/2 mx-auto p-5">
-          <img
-            src={thumbnail}
-            alt={title}
-            className="w-full h-full object-cover rounded-md"
-          />
-        </div>
+        <VideoDisplay videoUrl={videoUrl} videoTitle={videoTitle} />
       </FadeIn>
 
       <FadeIn>

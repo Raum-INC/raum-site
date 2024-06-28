@@ -67,6 +67,10 @@ const Hero = ({ heroTitle, hostTitle }) => {
     }
   };
 
+  const scrollToTop = () => {
+    window.scrollTo(0, 0);
+  };
+
   return (
     <main
       itemScope
@@ -109,7 +113,10 @@ const Hero = ({ heroTitle, hostTitle }) => {
             {location.pathname === "/host" && (
               <Link
                 to="/admin-dashboard"
-                onClick={getClick}
+                onClick={() => {
+                  getClick();
+                  scrollToTop();
+                }}
                 className={`bg-white border-2 border-black text-sm md:text-base text-black rounded-3xl capitalize font-bold flex justify-center items-center ${
                   location.pathname === "/host"
                     ? "w-[230px] h-[34px] md:h-[50px]"
