@@ -6,7 +6,7 @@ import AutoPlay from "embla-carousel-autoplay";
 
 const EmblaCarousel = ({ slides }) => {
   const [emblaRef] = useEmblaCarousel({ loop: true }, [
-    AutoPlay({ delay: 5000 }),
+    AutoPlay({ delay: 5000, stopOnInteraction: false }),
   ]);
 
   return (
