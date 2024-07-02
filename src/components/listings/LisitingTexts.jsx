@@ -11,7 +11,9 @@ const LisitingTexts = ({ product }) => {
           <div>
             <h2 className="font-medium text-sm md:text-2xl">
               Entire rental unit hosted by{" "}
-              <span className="capitalize">{owner.first_name}</span>
+              <span className="capitalize">
+                {owner.last_name} {owner.first_name}
+              </span>
             </h2>
             <div className="w-full flex divide-x-2 text-xs">
               <p className="pr-2">{metadata.parameters.beds} Beds</p>
@@ -66,7 +68,7 @@ const LisitingTexts = ({ product }) => {
               <p>Free cancellation before Feb before 48 hours of due date</p>
             </li>
           </ul>
-          <ListingReserve variants={variants} />
+          <ListingReserve metadata={metadata} variants={variants} />
         </div>
 
         <div className="w-full hyphens-auto py-10 text-base divide-y-2 divide-white/30">

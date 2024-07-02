@@ -45,7 +45,7 @@ const Hero = () => {
       animate="visible"
       className="w-full h-auto p-8 py-14 md:py-28 md:px-12 overflow-hidden relative"
     >
-      <div className="md:w-11/12 mx-auto flex flex-col justify-center items-start gap-8 md:gap-16">
+      <div className="md:w-11/12 mx-auto mt-10 md:mt-0 flex flex-col justify-center items-start gap-8 md:gap-16">
         <div className="md:w-3/5 flex flex-col gap-5">
           <h1 itemProp="title" className="font-bold text-3xl md:text-6xl ">
             About Raum Africa

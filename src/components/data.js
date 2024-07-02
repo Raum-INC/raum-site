@@ -61,8 +61,8 @@ export const earn = [
   },
   {
     id: 2,
-    title: `Receive weekly payouts`,
-    description: `You'll receive your earnings at the end of each week — no need to wait around for payday.`,
+    title: `Receive payouts in minutes`,
+    description: `You will receive your earnings within an hour of receiving the notification of a booking payment confirmation. No need to wait around for payday.`,
   },
 ];
 
@@ -157,11 +157,8 @@ export const raumHost = [
     image: wallet,
   },
   {
-    title: `Weekly payouts`,
-    subtitle: `Receive your earnings at the end of
-    each week. There are no hidden
-    subscription fees and you’ll only pay
-    commission on your earnings.`,
+    title: `Receive payouts in minutes`,
+    subtitle: `You will receive your earnings within an hour of receiving the notification of a booking payment confirmation. No need to wait around for payday.`,
     image: payment,
   },
 ];
