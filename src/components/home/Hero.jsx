@@ -98,7 +98,7 @@ const Hero = ({ heroTitle, hostTitle }) => {
             apartment for business purposes, we're here to make your journey
             seamless and stress-free.
           </p>
-          <div className="flex gap-4">
+          <div className="w-full flex flex-col md:flex-row justify-center items-center gap-4">
             <Link
               to={location.pathname === "/host" ? "/host" : "/"}
               onClick={getClick}
@@ -110,18 +110,14 @@ const Hero = ({ heroTitle, hostTitle }) => {
             >
               <p>{hostTitle}</p>
             </Link>
-            {location.pathname === "/host" && (
+            {location.pathname === "/" && (
               <Link
                 to="/admin-dashboard"
                 onClick={() => {
                   getClick();
                   scrollToTop();
                 }}
-                className={`bg-white border-2 border-black text-sm md:text-base text-black rounded-3xl capitalize font-bold flex justify-center items-center ${
-                  location.pathname === "/host"
-                    ? "w-[230px] h-[34px] md:h-[50px]"
-                    : "w-[180px] h-[34px] md:h-[50px]"
-                }`}
+                className={`bg-white border-2 border-black text-sm md:text-base text-black rounded-3xl capitalize font-bold flex justify-center items-center w-[180px] h-[34px] md:h-[50px]`}
               >
                 <p>Check out listings</p>
               </Link>
@@ -133,22 +129,22 @@ const Hero = ({ heroTitle, hostTitle }) => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="hero-image w-full md:h-[500px] flex flex-col justify-start items-center relative"
+          className="hero-image w-full h-[250px] md:h-[500px] flex flex-col justify-start items-center relative"
         >
-          <div className="w-full flex justify-center items-center h-auto">
+          <div className="w-full h-full flex flex-col justify-end items-center mt-10 mx-auto relative">
+            <img
+              title="Short-Term Rentals in Nigeria | Discover Raum Africa"
+              loading="lazy"
+              src={Assets.mobileHero}
+              alt="Short-Term Rentals in Nigeria | Discover Raum Africa"
+              className="w-10/12 block lg:hidden"
+            />
             <img
               title="Short-Term Rentals in Nigeria | Discover Raum Africa"
               loading="lazy"
               src={Assets.hero_bg3}
               alt="Short-Term Rentals in Nigeria | Discover Raum Africa"
-              className="hero-mobile-image mt-14 block lg:hidden w-full md:w-[1000px] md:h-[500px] mx-auto px-8 object-cover object-top aspect-auto md:absolute bottom-0"
-            />
-            <img
-              title="Short-Term Rentals in Nigeria | Discover Raum Africa"
-              loading="lazy"
-              src={Assets.herosection}
-              alt="Short-Term Rentals in Nigeria | Discover Raum Africa"
-              className="hero-desktop-image hidden lg:block w-full md:w-[1000px] md:h-[500px] mx-auto px-8 object-cover object-top aspect-auto md:absolute bottom-0"
+              className="hero-desktop-image hidden lg:block w-10/12 md:h-[500px] mx-auto px-8 object-cover object-top aspect-auto md:absolute bottom-0"
             />
           </div>
         </motion.div>

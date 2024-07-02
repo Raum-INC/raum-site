@@ -13,7 +13,7 @@ const ListingHero = ({
 }) => {
   const { title, generalAddressArea, metadata } = product;
   return (
-    <section className="w-full h-screen relative">
+    <section className="w-full h-[calc(100vh-85px)] relative">
       <img
         src={currentImage}
         alt={title}
@@ -34,11 +34,12 @@ const ListingHero = ({
         </p>
         <div className="w-full overflow-hidden">
           <p className="text-sm flex gap-3 my-3 justify-start items-center">
-            <IoIosStar size={20} className="text-white" />
-            5.0{" "}
-            <span className="bg-white text-black p-1 px-3 rounded-full">
-              7 reviews
-            </span>
+            {metadata.rating_summary?.rating ? (
+              <>
+                <IoIosStar size={20} className="text-white" />
+                <span>{metadata.rating_summary?.rating} .</span>
+              </>
+            ) : null}{" "}
             <span className="bg-white text-black p-1 px-3 rounded-full">
               {" "}
               {generalAddressArea}

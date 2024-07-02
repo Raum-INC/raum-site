@@ -43,16 +43,16 @@ const FeaturedList = () => {
           }}
           className="w-full h-full"
         >
-          <div className="w-auto h-6 px-2 flex justify-center items-center gap-1 bg-black/40 absolute top-5 right-5 rounded-md text-white text-center">
-            <IoIosStar className="text-yellow-400" />
-            <p className="text-sm md:text-base">
-              {!listing.metadata.rating_summary?.rating
-                ? "Not Rated Yet"
-                : listing.metadata.rating_summary?.rating}
-            </p>
-          </div>
           <div className="w-full h-full absolute inset-0 bg-gradient-to-t from-black/60 to-white/0"></div>
           <div className="w-full h-full relative z-30 flex justify-between items-end p-5">
+            {listing.metadata.rating_summary?.rating ? (
+              <div className="w-auto h-6 px-2 flex justify-center items-center gap-1 bg-black/40 absolute top-5 right-5 rounded-md text-white text-center">
+                <IoIosStar className="text-yellow-400" />
+                <p className="text-sm md:text-base">
+                  {listing.metadata.rating_summary?.rating}
+                </p>
+              </div>
+            ) : null}
             <div className="flex flex-col gap-2 ">
               <h2
                 className={`${

@@ -40,28 +40,28 @@ const Footer = () => {
           />
         </Link>
         <div className="flex justify-end items-center gap-10">
-          <a href="mailto:Info@raumgroup.io">
+          <a href="mailto:hello@raum.africa">
             <img
               src={Assets.mail}
               alt="instagram-handle"
               className="w-6 h-6 md:w-[50px] md:h-[50px]"
             />
           </a>
-          <a href="https://www.instagram.com/rauminc.hq/">
+          <a href="https://www.instagram.com/raumafrica/">
             <img
               src={Assets.instagram}
               alt="instagram-handle"
               className="w-6 h-6 md:w-[50px] md:h-[50px]"
             />
           </a>
-          <a href="https://twitter.com/rauminc">
+          <a href="https://x.com/raumafrica">
             <img
               src={Assets.twitter}
               alt="twitter-handle"
               className="w-6 h-6 md:w-[50px] md:h-[50px]"
             />
           </a>
-          <a href="https://www.linkedin.com/company/rauminc/">
+          <a href="https://www.linkedin.com/company/rauminc">
             <img
               src={Assets.linkedin}
               alt="linkedIn-handle"
