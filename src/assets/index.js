@@ -47,6 +47,7 @@ export const Assets = {
   hero_bg1: require("../assets/hero_bg1.svg").default,
   hero_bg2: require("../assets/hero_bg2.svg").default,
   hero_bg3: require("../assets/hero_bg3.png"),
+  mobileHero: require("../assets/mobileHero.png"),
   herosection: require("../assets/herosection.png"),
   earn: require("../assets/earn.png"),
   earn_mobile: require("../assets/earn_mobile.png"),

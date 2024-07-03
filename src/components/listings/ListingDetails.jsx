@@ -74,7 +74,7 @@ const ListingDetails = () => {
     return new Date(isoString).toLocaleDateString(undefined, options);
   };
 
-  const { thumbnail, title, metadata } = product;
+  const { thumbnail, title, metadata, owner } = product;
 
   return (
     <main
@@ -98,9 +98,9 @@ const ListingDetails = () => {
         </section>
       </FadeIn>
 
-      <FadeIn>
+      {/* <FadeIn>
         <VideoDisplay videoUrl={videoUrl} videoTitle={videoTitle} />
-      </FadeIn>
+      </FadeIn> */}
 
       <FadeIn>
         <section className="w-full h-auto max-w-7xl mx-auto flex justify-between items-start gap-10">
@@ -168,10 +168,16 @@ const ListingDetails = () => {
       <FadeIn>
         <section className="w-full h-auto border-t border-b border-[#2C2C2C]">
           <div className="max-w-7xl mx-auto flex flex-col justify-between items-start gap-5 p-5">
-            <h3 className="text-base md:text-3xl font-semibold">Raum Host</h3>
+            <h3 className="text-base md:text-3xl font-semibold">
+              {owner.first_name} {owner.last_name}
+            </h3>
             <div className="flex gap-10 justify-start items-center">
               <div className="w-[60px]">
-                <img src={Assets.raumLogo} alt="raum logo" />
+                <img
+                  src={thumbnail}
+                  alt="raum logo"
+                  className="aspect-square object-cover rounded-full"
+                />
               </div>
               <div className="flex gap-5 justify-start item text-primary">
                 <a href="tel:+2348148228901">

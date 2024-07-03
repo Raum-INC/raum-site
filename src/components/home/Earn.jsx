@@ -58,18 +58,20 @@ const Earn = () => {
               className="block lg:hidden w-full h-full rounded-3xl"
             />
           </div>
-          <div className="md:w-[645px] md:h-[570px] flex flex-col justify-between items-start gap-5">
+          <div className="w-full md:w-[645px] md:h-[570px] flex flex-col justify-between items-start gap-5">
             <h3
               itemProp="heading"
               className="hidden lg:block font-semibold text-2xl md:text-4xl"
             >
               Host and earn income
             </h3>
-            <ul className="flex flex-col justify-start items-start gap-5">
+            <ul className="w-full flex flex-col justify-start items-start gap-5">
               {earn.map((data, index) => (
-                <li itemProp="list" key={index} className="flex gap-10">
-                  <div className="w-5 h-5 aspect-square bg-primary mt-1"></div>
-                  <div className="space-y-3">
+                <li itemProp="list" key={index} className="w-full flex gap-10">
+                  <div className="w-10">
+                    <div className="w-5 h-5 aspect-square bg-primary mt-1"></div>
+                  </div>
+                  <div className="w-full space-y-3">
                     <p
                       itemProp="subtitle"
                       className="font-semibold text-lg md:text-2xl"

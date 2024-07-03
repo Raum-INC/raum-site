@@ -33,7 +33,7 @@ const Navigation = () => {
   return (
     <>
       {isAdminDashboard ? (
-        <main className="w-full h-auto bg-primary_text text-white p-4 px-5 md:px-9 flex justify-between items-center gap-10">
+        <main className="w-full h-[85px] bg-primary_text text-white p-4 px-5 md:px-9 flex justify-between items-center gap-10">
           <nav className="w-full h-auto flex justify-between items-center gap-10">
             <div className="w-[120px] md:w-[150px] flex items-center">
               <Link to="/">
