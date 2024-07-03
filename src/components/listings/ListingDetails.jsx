@@ -169,7 +169,7 @@ const ListingDetails = () => {
         <section className="w-full h-auto border-t border-b border-[#2C2C2C]">
           <div className="max-w-7xl mx-auto flex flex-col justify-between items-start gap-5 p-5">
             <h3 className="text-base md:text-3xl font-semibold">
-              {owner.first_name} {owner.last_name}
+              {owner.last_name} {owner.first_name}
             </h3>
             <div className="flex gap-10 justify-start items-center">
               <div className="w-[60px]">
