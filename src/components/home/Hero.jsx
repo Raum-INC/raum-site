@@ -99,7 +99,7 @@ const Hero = ({ heroTitle, hostTitle }) => {
             here to make your journey seamless and stress-free.
           </p>
           <div className="w-full flex flex-col md:flex-row justify-center items-center gap-4">
-            <Link
+            {/* <Link
               to={location.pathname === "/host" ? "/host" : "/"}
               onClick={getClick}
               className={`bg-black text-sm md:text-base text-white rounded-3xl capitalize font-normal flex justify-center items-center ${
@@ -109,7 +109,7 @@ const Hero = ({ heroTitle, hostTitle }) => {
               }`}
             >
               <p>{hostTitle}</p>
-            </Link>
+            </Link> */}
             {location.pathname === "/" && (
               <Link
                 to="/admin-dashboard"
