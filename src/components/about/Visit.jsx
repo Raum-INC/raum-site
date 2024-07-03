@@ -78,7 +78,7 @@ const Visit = () => {
               className="flex items-center p-1 text-[#6C6C6C]"
             >
               <CiMail className="w-5 aspect-square mr-2 text-white md:text-black" />
-              hello@raumhq.co
+              hello@raum.africa
             </p>
             <p
               itemProp="phone"

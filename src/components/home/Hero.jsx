@@ -94,9 +94,9 @@ const Hero = ({ heroTitle, hostTitle }) => {
             itemType="description"
             className="hero-description w-4/5 lg:w-[650px] text-center leading-[20px] text-bgFade text-lg md:text-xl font-normal"
           >
-            Whether you're searching for your next home or looking to list your
-            apartment for business purposes, we're here to make your journey
-            seamless and stress-free.
+            Whether you're searching for your next vacation home or looking to
+            list your short-term rental apartment for business purposes, we're
+            here to make your journey seamless and stress-free.
           </p>
           <div className="flex gap-4">
             <Link

@@ -71,7 +71,7 @@ const ContactUs = () => {
               itemProp="email"
               className="flex flex-col gap-1 text-base lg:text-lg"
             >
-              Email <span className="text-[#6c6c6c]">hello@raumhq.co</span>
+              Email <span className="text-[#6c6c6c]">hello@raum.africa</span>
             </p>
           </div>
           <div className="flex gap-3">
