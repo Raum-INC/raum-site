@@ -21,7 +21,15 @@ const FeaturedList = () => {
         );
         // Limit the number of listings to 10
         const limitedFeaturedListings = featuredListings.slice(0, 10);
-        setListings(limitedFeaturedListings);
+        // Format the price by dividing original_price by 100
+        const formattedListings = limitedFeaturedListings.map((listing) => ({
+          ...listing,
+          variants: listing.variants.map((variant) => ({
+            ...variant,
+            original_price: variant.original_price / 100,
+          })),
+        }));
+        setListings(formattedListings);
       })
       .catch((error) => {
         console.error("Error fetching data:", error);

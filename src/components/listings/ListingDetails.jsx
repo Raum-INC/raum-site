@@ -31,8 +31,16 @@ const ListingDetails = () => {
     axios
       .get(`https://cp.raumhq.co/store/products/${productId}?currency_code=ngn`)
       .then((response) => {
-        setProduct(response.data.product);
-        setCurrentImage(response.data.product.metadata.images[0].url); // Set initial full-width image
+        // Format the price by dividing original_price within variants by 100
+        const formattedProduct = {
+          ...response.data.product,
+          variants: response.data.product.variants.map((variant) => ({
+            ...variant,
+            original_price: variant.original_price / 100,
+          })),
+        };
+        setProduct(formattedProduct);
+        setCurrentImage(formattedProduct.metadata.images[0].url); // Set initial full-width image
         setLoading(false);
       })
       .catch((error) => {

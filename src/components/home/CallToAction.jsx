@@ -97,7 +97,7 @@ const CallToAction = () => {
           rel="noopener noreferrer"
           title="Fill the form!"
           className="w-[200px] h-[34px] md:w-[205px] md:h-[50px] text-sm rounded-full border-2 border-white text-white hover:bg-white hover:text-primary md:text-base font-bold flex justify-center items-center transition-all duration-300 ease-in-out"
-          href="https://forms.gle/nGqvBQTDqCT9SyaX6"
+          href="https://forms.gle/X25r6hjhN4gL1tzH7"
         >
           Join the Waitlist
         </a>

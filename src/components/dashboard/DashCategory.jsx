@@ -26,7 +26,16 @@ const DashCategory = () => {
       .get("https://cp.raumhq.co/store/products?currency_code=ngn")
       .then((response) => {
         console.log("Products:", response.data.products); // Log products
-        setProducts(response.data.products);
+        const formattedProducts = response.data.products.map((product) => {
+          return {
+            ...product,
+            variants: product.variants.map((variant) => ({
+              ...variant,
+              original_price: variant.original_price / 100,
+            })),
+          };
+        });
+        setProducts(formattedProducts);
       })
       .catch((error) => {
         console.error("Error fetching products:", error);

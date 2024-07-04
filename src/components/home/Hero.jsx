@@ -111,6 +111,23 @@ const Hero = ({ heroTitle, hostTitle }) => {
               <p>{hostTitle}</p>
             </Link> */}
             {location.pathname === "/" && (
+              <a
+                itemProp="form"
+                target="_blank"
+                rel="noopener noreferrer"
+                title="Fill the form!"
+                onClick={getClick}
+                className={`bg-black text-sm md:text-base text-white rounded-3xl capitalize font-normal flex justify-center items-center ${
+                  location.pathname === "/"
+                    ? "w-[230px] h-[34px] md:h-[50px]"
+                    : "w-[180px] h-[34px] md:h-[50px]"
+                }`}
+                href="https://forms.gle/X25r6hjhN4gL1tzH7"
+              >
+                Join the Waitlist
+              </a>
+            )}
+            {location.pathname === "/" && (
               <Link
                 to="/admin-dashboard"
                 onClick={() => {
