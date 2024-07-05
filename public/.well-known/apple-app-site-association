@@ -3,8 +3,8 @@
     "details": [
       {
         "appIDs": [
-          "ABCDE12345.com.example.app",
-          "ABCDE12345.com.example.app2"
+          "QVWW2UBYVV.com.raumhq.raum",
+          "QVWW2UBYVV.com.raumhq.raum-host"
         ],
         "components": [
           {
@@ -15,9 +15,19 @@
           {
             "/": "/product/prod_*",
             "comment": "Matches any URL with a path that starts with /product/prod_."
+          },
+          {
+            "/": "/tagged/ptag_*",
+            "comment": "Matches any URL with a path that starts with /tagged/ptag_."
           }
         ]
       }
+    ]
+  },
+  "webcredentials": {
+    "apps": [
+      "QVWW2UBYVV.com.raumhq.raum",
+      "QVWW2UBYVV.com.raumhq.raum-host"
     ]
   }
 }
