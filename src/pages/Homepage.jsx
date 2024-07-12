@@ -20,7 +20,7 @@ const Homepage = () => {
       <Earn />
       <Features />
       <AboutRaum />
-      {/* <Download /> */}
+      <Download />
       <CallToAction />
       {/* <Faqs /> */}
     </div>

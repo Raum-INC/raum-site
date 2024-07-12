@@ -124,7 +124,7 @@ const Hero = ({ heroTitle, hostTitle }) => {
                 }`}
                 href="https://forms.gle/X25r6hjhN4gL1tzH7"
               >
-                Join the Waitlist
+                Attend the Launch
               </a>
             )}
             {location.pathname === "/" && (
