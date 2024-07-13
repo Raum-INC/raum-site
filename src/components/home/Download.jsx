@@ -102,9 +102,9 @@ const Download = () => {
                     >
                       Android
                     </a>
-                    <button className="w-[110px] h-[34px] md:w-[205px] md:h-[50px] font-semibold rounded-full bg-white text-primary text-base flex justify-center items-center">
+                    {/* <button className="w-[110px] h-[34px] md:w-[205px] md:h-[50px] font-semibold rounded-full bg-white text-primary text-base flex justify-center items-center">
                       Apple
-                    </button>
+                    </button> */}
                   </div>
                 </motion.div>
 
