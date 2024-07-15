@@ -18,12 +18,18 @@ const HostDownload = () => {
                 It takes just 2 minutes to submit your information.
               </p>
               <div className="w-full flex gap-10 justify-between items-center">
-                <button className="w-[110px] h-[34px] md:w-[205px] md:h-[50px] font-semibold rounded-full bg-white text-primary text-base">
+                <a
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title="Download on Android!"
+                  href="https://play.google.com/store/apps/details?id=com.raumhq.raum_mobile_host&pcampaignid=web_share"
+                  className="w-[110px] h-[34px] md:w-[205px] md:h-[50px] font-semibold rounded-full bg-white text-primary text-base flex justify-center items-center"
+                >
                   Android
-                </button>
-                <button className="w-[110px] h-[34px] md:w-[205px] md:h-[50px] font-semibold rounded-full bg-white text-primary text-base">
+                </a>
+                {/* <button className="w-[110px] h-[34px] md:w-[205px] md:h-[50px] font-semibold rounded-full bg-white text-primary text-base flex justify-center items-center">
                   Apple
-                </button>
+                </button> */}
               </div>
             </div>
 

@@ -89,12 +89,22 @@ const Download = () => {
                     app. Available for iOS and Android devices.
                   </p>
                   <div className="w-full flex gap-10 justify-between items-center">
-                    <button className="w-[110px] h-[34px] md:w-[205px] md:h-[50px] font-semibold rounded-full bg-white text-primary text-base">
+                    <a
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      title="Download on Android!"
+                      href={
+                        download === "guests"
+                          ? "https://play.google.com/store/apps/details?id=com.raumhq.raum&pcampaignid=web_share"
+                          : "https://play.google.com/store/apps/details?id=com.raumhq.raum_mobile_host&pcampaignid=web_share"
+                      }
+                      className="w-[110px] h-[34px] md:w-[205px] md:h-[50px] font-semibold rounded-full bg-white text-primary text-base flex justify-center items-center"
+                    >
                       Android
-                    </button>
-                    <button className="w-[110px] h-[34px] md:w-[205px] md:h-[50px] font-semibold rounded-full bg-white text-primary text-base">
+                    </a>
+                    {/* <button className="w-[110px] h-[34px] md:w-[205px] md:h-[50px] font-semibold rounded-full bg-white text-primary text-base flex justify-center items-center">
                       Apple
-                    </button>
+                    </button> */}
                   </div>
                 </motion.div>
 

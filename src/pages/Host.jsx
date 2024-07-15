@@ -19,7 +19,7 @@ const Host = () => {
       <How />
       <Faqs />
       <CallToAction />
-      {/* <HostDownload /> */}
+      <HostDownload />
     </section>
   );
 };
