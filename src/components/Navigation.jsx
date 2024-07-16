@@ -12,7 +12,7 @@ const Navigation = () => {
 
   useEffect(() => {
     if (searchTerm.length >= 3) {
-      fetch("https://cp.raumhq.co/store/products?currency_code=ngn")
+      fetch("https://cp.raum.africa/store/products?currency_code=ngn")
         .then((response) => response.json())
         .then((data) => {
           const filteredProducts = data.products.filter((product) =>

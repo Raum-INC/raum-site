@@ -18,7 +18,7 @@ const ContentBlock = () => {
       setIsLoading(true);
       try {
         const response = await fetch(
-          `https://cp.raumhq.co/store/content-block/${id}`
+          `https://cp.raum.africa/store/content-block/${id}`
         );
         if (response.ok) {
           const data = await response.json();
