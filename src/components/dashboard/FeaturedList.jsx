@@ -12,7 +12,7 @@ const FeaturedList = () => {
 
   useEffect(() => {
     axios
-      .get("https://cp.raumhq.co/store/products?currency_code=ngn")
+      .get("https://cp.raum.africa/store/products?currency_code=ngn")
       .then((response) => {
         // Filter only the featured products
         const featuredListings = response.data.products.filter(

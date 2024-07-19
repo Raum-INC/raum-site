@@ -12,7 +12,7 @@ const DashCategory = () => {
   useEffect(() => {
     // Fetch categories
     axios
-      .get("https://cp.raumhq.co/store/product-categories")
+      .get("https://cp.raum.africa/store/product-categories")
       .then((response) => {
         console.log("Categories:", response.data.product_categories); // Log categories
         setCategories(response.data.product_categories);
@@ -23,7 +23,7 @@ const DashCategory = () => {
 
     // Fetch products
     axios
-      .get("https://cp.raumhq.co/store/products?currency_code=ngn")
+      .get("https://cp.raum.africa/store/products?currency_code=ngn")
       .then((response) => {
         console.log("Products:", response.data.products); // Log products
         const formattedProducts = response.data.products.map((product) => {

@@ -19,6 +19,10 @@
           {
             "/": "/tagged/ptag_*",
             "comment": "Matches any URL with a path that starts with /tagged/ptag_."
+          },
+          {
+            "/": "/bookings/lbook_*",
+            "comment": "Matches any URL with a path that starts with /bookings/lbook_."
           }
         ]
       }

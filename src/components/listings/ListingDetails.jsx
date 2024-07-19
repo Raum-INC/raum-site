@@ -29,7 +29,7 @@ const ListingDetails = () => {
     // Fetch product data using the product ID from URL params
     setLoading(true);
     axios
-      .get(`https://cp.raumhq.co/store/products/${productId}?currency_code=ngn`)
+      .get(`https://cp.raum.africa/store/products/${productId}?currency_code=ngn`)
       .then((response) => {
         // Format the price by dividing original_price within variants by 100
         const formattedProduct = {
@@ -50,7 +50,7 @@ const ListingDetails = () => {
 
     // Fetch reviews data for the product
     axios
-      .get(`https://cp.raumhq.co/store/products/${productId}/reviews`)
+      .get(`https://cp.raum.africa/store/products/${productId}/reviews`)
       .then((response) => {
         setReviews(response.data.reviews);
       })
