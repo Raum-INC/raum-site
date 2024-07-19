@@ -111,12 +111,10 @@ const Hero = ({ heroTitle, hostTitle }) => {
               <p>{hostTitle}</p>
             </Link> */}
             {location.pathname === "/" && (
-              <a
+              <button
                 itemProp="form"
-                target="_blank"
-                rel="noopener noreferrer"
-                title="Fill the form!"
-                onClick={getClick}
+                title="Get the app!"
+                onClick={handleGetAppClick}
                 className={`bg-black text-sm md:text-base text-white rounded-3xl capitalize font-normal flex justify-center items-center ${
                   location.pathname === "/"
                     ? "w-[230px] h-[34px] md:h-[50px]"
@@ -124,8 +122,8 @@ const Hero = ({ heroTitle, hostTitle }) => {
                 }`}
                 href="https://forms.gle/X25r6hjhN4gL1tzH7"
               >
-                Attend the Launch
-              </a>
+                Get the app
+              </button>
             )}
             {location.pathname === "/" && (
               <Link

@@ -27,9 +27,15 @@ const HostDownload = () => {
                 >
                   Android
                 </a>
-                {/* <button className="w-[110px] h-[34px] md:w-[205px] md:h-[50px] font-semibold rounded-full bg-white text-primary text-base flex justify-center items-center">
+                <a
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title="Download on Apple!"
+                  href="https://apps.apple.com/us/app/raum-hosts/id6514303259"
+                  className="w-[110px] h-[34px] md:w-[205px] md:h-[50px] font-semibold rounded-full bg-white text-primary text-base flex justify-center items-center"
+                >
                   Apple
-                </button> */}
+                </a>
               </div>
             </div>
 
