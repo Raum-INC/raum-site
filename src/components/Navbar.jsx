@@ -260,7 +260,7 @@ const Navbar = () => {
                 }}
               >
                 <li className="p-3 px-10 bg-primary border-none text-white font-medium rounded-full w-full text-center">
-                  Join Us
+                  Earn More
                 </li>
               </button>
             </motion.ul>

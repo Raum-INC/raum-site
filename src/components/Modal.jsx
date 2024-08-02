@@ -115,7 +115,7 @@ const Modal = () => {
     <AnimatePresence>
       {isOpen && (
         <>
-          <div className="w-full h-screen fixed top-20 overflow-hidden z-50">
+          {/* <div className="w-full h-screen fixed top-20 overflow-hidden z-50">
             <motion.div
               variants={modalVariant}
               initial="hidden"
@@ -294,7 +294,47 @@ const Modal = () => {
                 )}
               </div>
             </motion.div>
-          </div>
+          </div> */}
+          <motion.main
+            variants={modalVariant}
+            initial="hidden"
+            animate="visible"
+            exit="hidden"
+            className="bg-black w-full h-screen fixed top-20 overflow-hidden z-50"
+          >
+            <section className="p-5 w-full h-full max-w-5xl mx-auto flex flex-col justify-center items-center">
+              <button
+                className="p-2 absolute top-10 right-10 border-2 border-primary text-primary hover:bg-primary hover:text-white rounded-lg transition-all duration-500"
+                onClick={toggle}
+              >
+                <IoMdClose className="text-xl md:text-4xl" />
+              </button>
+              <p className="text-base font-light">
+                <span className="font-bold text-primary">Earn</span> with Raum
+                Africa
+              </p>
+              <p className="text-3xl md:text-7xl font-semibold">
+                Become a <span className="font-bold text-primary">Rauman</span>
+              </p>
+              <p className="text-center py-5 leading-8 md:text-lg">
+                Earn up to{" "}
+                <span className="font-bold text-primary">40% commission</span>{" "}
+                on every reservation you refer.
+                <br className="hidden md:block" /> Turn your network into an{" "}
+                <span className="font-bold text-primary">income generator</span>{" "}
+                effortlessly.
+              </p>
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                title="Become a Rauman"
+                href="https://chat.whatsapp.com/Dpqjjtjc4Rf8qyQW1fQHZb"
+                className="w-[140px] h-[40px] md:w-[205px] md:h-[50px] flex justify-center items-center text-base font-bold border-2 border-primary rounded-full hover:bg-primary hover:text-white transition-all duration-300 ease-in-out "
+              >
+                Join us now
+              </a>
+            </section>
+          </motion.main>
         </>
       )}
     </AnimatePresence>
