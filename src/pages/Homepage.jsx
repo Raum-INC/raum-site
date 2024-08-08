@@ -7,13 +7,14 @@ import AboutRaum from "../components/home/AboutRaum";
 import Download from "../components/home/Download";
 import CallToAction from "../components/home/CallToAction";
 import HomepageHelmet from "../components/helmets/HomepageHelmet";
+import Faqs from "../components/Faqs";
 
 const Homepage = () => {
   const heroTitle = "Discover your Dream<br>apartment with Raum Africa";
   const hostTitle = "Get the Raum app";
 
   return (
-    <div>
+    <main>
       <HomepageHelmet />
       <Hero heroTitle={heroTitle} hostTitle={hostTitle} />
       <Services />
@@ -21,9 +22,9 @@ const Homepage = () => {
       <Features />
       <AboutRaum />
       <Download />
+      <Faqs />
       <CallToAction />
-      {/* <Faqs /> */}
-    </div>
+    </main>
   );
 };
 

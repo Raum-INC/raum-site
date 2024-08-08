@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { faqs } from "./data";
 import { FaChevronDown, FaChevronUp } from "react-icons/fa";
+import { useLocation } from "react-router-dom";
 
 const Faqs = () => {
   const [icons, setIcons] = useState(true);
@@ -41,10 +42,16 @@ const Faqs = () => {
     },
   };
 
+  const location = useLocation();
+
   return (
     <motion.main
       itemScope
-      itemType="https://raum.africa/host"
+      itemType={
+        location.pathname === "/host"
+          ? "https://raum.africa/host"
+          : "https://raum.africa"
+      }
       variants={containerVariants}
       initial="hidden"
       whileInView="visible"
@@ -92,13 +99,28 @@ const Faqs = () => {
                 {faq.title}
               </h4>
               {icons === index ? (
-                <div className="flex transition-all ease-in-out duration-300">
+                <div className="flex flex-col transition-all ease-in-out duration-300">
                   <p
                     itemProp="description"
                     className="font-normal text-left text-[10px] md:text-base leading-[14px]"
                   >
                     {faq.description}
                   </p>
+                  {faq.list && (
+                    <ul className="list-disc py-2 list-inside font-normal text-left text-[10px] md:text-base leading-[14px]">
+                      {faq.list.map((item, index) => (
+                        <li key={index}>{item}</li>
+                      ))}
+                    </ul>
+                  )}
+                  {faq.link && (
+                    <a
+                      href={`tel:${faq.link}`}
+                      className="my-2 p-2 px-5 bg-white rounded-full w-fit text-[#151419] font-bold"
+                    >
+                      Call Now
+                    </a>
+                  )}
                 </div>
               ) : null}
             </div>

@@ -210,26 +210,33 @@ export const howToHost = [
 
 export const faqs = [
   {
-    title: "What is a short-term rental?",
-    description: `This refers to the practice of renting out a furnished property for a short duration, usually less than 30 days.`,
+    title: "How do I book a short term rental through the app?",
+    description: `To book an apartment for a short stay, kindly go through these steps;`,
+    list: [
+      `Download and install the app from playstore or apple store`,
+      `Browse or search for listings suitable for your needs`,
+      `Select a property`,
+      `Select suitable dates on the calendar and tap the reserve button`,
+      `If you don't have an account, you'll be directed to create an account or sign in`,
+      `⁠Complete your reservation by confirming payment and then you'll receive a confirmation message`,
+      `Enjoy your stay. For further assistance kindly click the link below for a swift response.`,
+    ],
+    link: "+2348146072247",
   },
   {
-    title: "Are short-term rentals cheaper than hotels?",
-    description: `Short-term rentals can sometimes offer cost savings compared to hotels, especially for larger groups or longer stays.`,
+    title: "Can I modify or cancel my booking?",
+    description: `For any assistance with cancellation or modification of your booking, kindly reach out to our support or click the link below for a swift response.`,
+    link: "+2348146072247",
   },
   {
-    title: "How do I book a short-term rental?",
-    description: `To book a short-term rental, you need to visit our mobile app. You can browse listings, select your desired property, check availability, and make a reservation.`,
+    title: "Are pets allowed in the apartments?",
+    description: `Pet policies vary by property. Each rental listing will indicate whether pets are allowed. You can check for specific details about pet policies under each listing. For further assistance kindly click the link below for a swift response.`,
+    link: "+2348146072247",
   },
   {
-    title: "Can I host a short-term rental on my own property?",
-    description: `Yes you can, kindly contact our team for assessment and expert guides on how to get started.`,
-  },
-  {
-    title: "What amenities are included in a short-term rental?",
-    description: `Amenities can vary depending on the specific property; however, common amenities found in
-    short-term rentals include fully equipped kitchens, Wi-Fi, linens, towels, toiletries, and
-    sometimes additional perks such as access to a pool, gym, or parking.`,
+    title: "What is your refund policy?",
+    description: `Refund policies can be found in the details of each listing. Kindly check for specific details of refund policy under each listing. For further assistance kindly click the link below for a swift response.`,
+    link: "+2348146072247",
   },
 ];
 

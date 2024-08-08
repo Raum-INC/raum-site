@@ -12,7 +12,7 @@ const Host = () => {
   const hostTitle = "Get the Raum Hosts app";
 
   return (
-    <section>
+    <main>
       <HostHelmet />
       <Hero heroTitle={heroTitle} hostTitle={hostTitle} />
       <HostHero />
@@ -20,7 +20,7 @@ const Host = () => {
       <Faqs />
       <CallToAction />
       <HostDownload />
-    </section>
+    </main>
   );
 };
 
