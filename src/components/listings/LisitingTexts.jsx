@@ -2,7 +2,7 @@ import React from "react";
 import ListingReserve from "./ListingReserve";
 import { Assets } from "../../assets";
 
-const LisitingTexts = ({ product }) => {
+const LisitingTexts = ({ product, productId }) => {
   const { description, metadata, owner, variants, thumbnail, title } = product;
   return (
     <>
@@ -68,7 +68,11 @@ const LisitingTexts = ({ product }) => {
               <p>Free cancellation before Feb before 48 hours of due date</p>
             </li>
           </ul>
-          <ListingReserve metadata={metadata} variants={variants} />
+          <ListingReserve
+            productId={productId}
+            metadata={metadata}
+            variants={variants}
+          />
         </div>
 
         <div className="w-full hyphens-auto py-10 text-base divide-y-2 divide-white/30">
