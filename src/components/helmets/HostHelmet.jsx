@@ -30,6 +30,12 @@ const HostHelmet = () => {
       <link rel="canonical" href="https://raum.africa/host" />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
 
+      <meta
+        name="apple-itunes-app"
+        content={`app-id=6514303259, app-argument=raumhost://raumhost.app.link/`}
+        data-rh="true"
+      />
+
       {/* Additional metadata for search engines */}
       <meta
         name="keywords"

@@ -27,8 +27,7 @@ const ListingReserve = ({ variants, metadata, productId }) => {
           <a
             target="_blank"
             rel="noopener noreferrer"
-            // href="https://wa.me/message/ZVNY4C3AJ6F5I1"
-            href={`https://raum.africa/product/${productId}?pt={pt}&ct={ct}"`}
+            href="https://wa.me/message/ZVNY4C3AJ6F5I1"
             className="text-white w-full h-full flex justify-center items-center"
           >
             Reserve

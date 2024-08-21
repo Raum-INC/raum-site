@@ -117,7 +117,8 @@ const ListingDetails = () => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta
           name="apple-itunes-app"
-          content={`app-id=6514297891, app-argument=https://raum.africa/product/${productId}?pt={pt}&ct={ct}`}
+          content={`app-id=6514297891, app-argument=raum://raum.app.link/`}
+          data-rh="true"
         />
       </Helmet>
       <main

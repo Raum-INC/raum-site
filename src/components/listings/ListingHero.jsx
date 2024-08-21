@@ -13,7 +13,7 @@ const ListingHero = ({
 }) => {
   const { title, generalAddressArea, metadata } = product;
   return (
-    <section className="w-full h-[calc(100vh-85px)] relative">
+    <section className="w-full h-[400px] lg:h-[calc(100vh-85px)] relative">
       <img
         src={currentImage}
         alt={title}
@@ -21,9 +21,9 @@ const ListingHero = ({
       />
       <Link
         to="/admin-dashboard"
-        className="absolute top-3 md:top-10 right-3 md:right-10 z-50 bg-white text-black rounded-full p-2 underline underline-offset-1 flex gap-2 justify-start items-center shadow-2xl"
+        className="absolute top-5 md:top-10 right-5 md:right-10 z-50 bg-white text-black rounded-full p-2 underline underline-offset-1 flex gap-2 justify-start items-center shadow-2xl"
       >
-        <IoIosArrowRoundBack size={40} />
+        <IoIosArrowRoundBack size={35} />
       </Link>
       <div className="w-full h-full absolute inset-0 z-10 bg-gradient-to-b from-50% from-white/0 to-90% to-black/70 p-5 md:p-10 flex flex-col justify-end items-start">
         <h1 className="font-bold text-lg md:text-5xl drop-shadow-md">
