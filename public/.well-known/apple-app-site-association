@@ -17,6 +17,10 @@
             "comment": "Matches any URL with a path that starts with /product/prod_."
           },
           {
+            "/": "/host/cus_*",
+            "comment": "Matches any URL with a path that starts with /host/cus_."
+          },
+          {
             "/": "/tagged/ptag_*",
             "comment": "Matches any URL with a path that starts with /tagged/ptag_."
           },
