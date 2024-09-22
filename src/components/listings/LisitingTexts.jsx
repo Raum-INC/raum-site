@@ -69,6 +69,7 @@ const LisitingTexts = ({ product, productId }) => {
             </li>
           </ul>
           <ListingReserve
+            product={product}
             productId={productId}
             metadata={metadata}
             variants={variants}

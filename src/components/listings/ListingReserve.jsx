@@ -2,7 +2,7 @@ import React from "react";
 import { PiFlag } from "react-icons/pi";
 import { FaRegStar } from "react-icons/fa";
 
-const ListingReserve = ({ variants, metadata, productId }) => {
+const ListingReserve = ({ variants, metadata, productId, product }) => {
   return (
     <main className="w-full md:w-2/5 h-full text-white my-10">
       <div className="w-full h-auto rounded-md shadow-xl border border-white/30 bg-[#232323] p-5">
@@ -27,7 +27,7 @@ const ListingReserve = ({ variants, metadata, productId }) => {
           <a
             target="_blank"
             rel="noopener noreferrer"
-            href="https://wa.me/message/ZVNY4C3AJ6F5I1"
+            href={`https://wa.me/message/ZVNY4C3AJ6F5I1/?text=${encodeURI(`Hi, I'm interested in making a reservation for ${product.title}\n\nhttps://raum.africa/admin-dashboard/product/${productId}\n\n`)}`}
             className="text-white w-full h-full flex justify-center items-center"
           >
             Reserve
