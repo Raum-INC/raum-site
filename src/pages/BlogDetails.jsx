@@ -106,7 +106,7 @@ const BlogDetails = () => {
           if(e.markDefs && e.markDefs.length > 0) {
             e.markDefs.forEach((md) => {
               if(md.href.indexOf('play.google.com') > -1)
-                md.href = `https://play.google.com/store/apps/details?id=${(new URLSearchParams(md.href)).get('id')}${androidAttribution}`
+                md.href = `https://play.google.com/store/apps/details?id=${(new URL(md.href)).searchParams.get('id')}${androidAttribution}`
               else if(md.href.indexOf('apps.apple.com') > -1) 
                 md.href = `${md.href}${md.href.indexOf('?')>-1?`${appleAttribution}`:`?${appleAttribution}`}`
             })
