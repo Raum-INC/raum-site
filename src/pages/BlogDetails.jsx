@@ -10,6 +10,8 @@ const BlogDetails = () => {
   const [blogData, setBlogData] = useState(null);
   const [data, setData] = useState(null);
   const { slug } = useParams(); // This will give you the slug from the URL
+  const { appleAttribution, androidAttribution } = useAttribution();
+
 
   const componentVariant = {
     visible: {
@@ -98,6 +100,17 @@ const BlogDetails = () => {
       }`;
       try {
         const result = await client.fetch(query, { slug });
+        // appends attribution links to urls
+        result[0].content.forEach((e) => {
+          if(e.markDefs && e.markDefs.length > 0) {
+            e.markDefs.forEach((md) => {
+              if(md.href.indexOf('play.google.com') > -1)
+                md.href = `https://play.google.com/store/apps/details?id=${(new URLSearchParams(md.href)).get('id')}${androidAttribution}`
+              else if(md.href.indexOf('apps.apple.com') > -1) 
+                md.href = `${md.href}${md.href.indexOf('?')>-1?`${appleAttribution}`:`?${appleAttribution}`}`
+            })
+          }
+         })
         setBlogData(result[0]); // Assuming the slug is unique and only one blog post matches
       } catch (error) {
         console.error("Error fetching blog data:", error);
