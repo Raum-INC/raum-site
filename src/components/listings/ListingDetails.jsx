@@ -23,6 +23,8 @@ const ListingDetails = () => {
   const [loading, setLoading] = useState(false);
   const [currentImage, setCurrentImage] = useState(null);
   const [isFullScreen, setIsFullScreen] = useState(false);
+  const {appleAttribution} = useAttribution();
+
 
   const videoUrl = "https://www.youtube.com/watch?v=PnojSH4yDOk";
   const videoTitle = "Your Video Title";
@@ -87,7 +89,6 @@ const ListingDetails = () => {
   };
 
   const { thumbnail, title, description, metadata, owner } = product;
-  const {appleAttribution} = useAttribution();
 
   return (
     <>
