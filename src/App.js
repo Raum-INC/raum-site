@@ -66,6 +66,21 @@ function App() {
   const TRACKING_ID = "G-M6PS6FQH1P"; // YOUR_OWN_TRACKING_ID
   ReactGA.initialize(TRACKING_ID);
 
+  // cache campaign parameters
+  const params = new Proxy(new URLSearchParams(window.location.search), {
+    get: (searchParams, prop) => searchParams.get(prop),
+  });
+
+  // for android type campaigns
+  if(params.utm_source) localStorage.setItem('utm_source', params.utm_source);
+  if(params.utm_medium) localStorage.setItem('utm_medium', params.utm_medium);
+  if(params.utm_campaign) localStorage.setItem('utm_campaign', params.utm_campaign);
+
+  // for ios type campaigns
+  if(params.mt) localStorage.setItem('mt', params.mt);
+  if(params.ct) localStorage.setItem('ct', params.ct);
+  if(params.pt) localStorage.setItem('pt', params.pt);
+
   return (
     <div>
       <Modal />

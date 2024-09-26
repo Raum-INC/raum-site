@@ -1,8 +1,12 @@
 import React from "react";
 import { Assets } from "../../assets";
 import { IphonePop, Motion } from "../Motion";
+import { useAttribution } from "../home/Download";
 
 const HostDownload = () => {
+
+  const { appleAttribution, androidAttribution } = useAttribution();
+
   return (
     <Motion>
       <main id="host-section" className="w-full h-auto p-10">
@@ -22,7 +26,7 @@ const HostDownload = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   title="Download on Android!"
-                  href="https://play.google.com/store/apps/details?id=com.raumhq.raum_mobile_host&pcampaignid=web_share"
+                  href={`https://play.google.com/store/apps/details?id=com.raumhq.raum_mobile_host${androidAttribution}`}
                   className="w-[110px] h-[34px] md:w-[205px] md:h-[50px] font-semibold rounded-full bg-white text-primary text-base flex justify-center items-center"
                 >
                   Android
@@ -31,7 +35,7 @@ const HostDownload = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   title="Download on Apple!"
-                  href="https://apps.apple.com/us/app/raum-hosts/id6514303259"
+                  href={`https://apps.apple.com/us/app/raum-hosts/id6514303259?${appleAttribution}`}
                   className="w-[110px] h-[34px] md:w-[205px] md:h-[50px] font-semibold rounded-full bg-white text-primary text-base flex justify-center items-center"
                 >
                   Apple

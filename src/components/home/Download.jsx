@@ -3,8 +3,30 @@ import { Assets } from "../../assets";
 import useDownloadStore from "../../store/downloadStore";
 import { motion, AnimatePresence } from "framer-motion";
 
+export function useAttribution() {
+  // for android type campaigns
+  const utm_source = localStorage.getItem('utm_source');
+  const utm_medium = localStorage.getItem('utm_medium');
+  const utm_campaign = localStorage.getItem('utm_campaign');
+
+  
+  // for ios type campaigns
+  const mt = localStorage.getItem('mt');
+  const ct = localStorage.getItem('ct');
+  const pt = localStorage.getItem('pt');
+
+  const appleAttribution = `${mt?`&mt=${mt}`:''}${ct?`&ct=${ct}`:''}${pt?`&pt=${pt}`:''}`
+  const androidAttribution = `${utm_source?`&utm_source=${utm_source}`:''}${utm_medium?`&utm_medium=${utm_medium}`:''}${utm_campaign?`&utm_campaign=${utm_campaign}`:''}`
+
+  return {
+    appleAttribution,
+    androidAttribution
+  }
+}
+
 const Download = () => {
   const { download, toggleGuest, toggleHosts } = useDownloadStore();
+  const { appleAttribution, androidAttribution } = useAttribution();
 
   const slideVariant = {
     hidden: {
@@ -95,8 +117,8 @@ const Download = () => {
                       title="Download on Android!"
                       href={
                         download === "guests"
-                          ? "https://play.google.com/store/apps/details?id=com.raumhq.raum&pcampaignid=web_share"
-                          : "https://play.google.com/store/apps/details?id=com.raumhq.raum_mobile_host&pcampaignid=web_share"
+                          ? `https://play.google.com/store/apps/details?id=com.raumhq.raum${androidAttribution}`
+                          : `https://play.google.com/store/apps/details?id=com.raumhq.raum_mobile_host${androidAttribution}`
                       }
                       className="w-[110px] h-[34px] md:w-[205px] md:h-[50px] font-semibold rounded-full bg-white text-primary text-base flex justify-center items-center"
                     >
@@ -108,8 +130,8 @@ const Download = () => {
                       title="Download on Apple!"
                       href={
                         download === "guests"
-                          ? "https://apps.apple.com/us/app/raum-africa/id6514297891"
-                          : "https://apps.apple.com/us/app/raum-hosts/id6514303259"
+                          ? `https://apps.apple.com/us/app/raum-africa/id6514297891?${appleAttribution}`
+                          : `https://apps.apple.com/us/app/raum-hosts/id6514303259?${appleAttribution}`
                       }
                       className="w-[110px] h-[34px] md:w-[205px] md:h-[50px] font-semibold rounded-full bg-white text-primary text-base flex justify-center items-center"
                     >
