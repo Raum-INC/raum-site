@@ -5,6 +5,7 @@ import { PortableText } from "@portabletext/react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Helmet } from "react-helmet-async";
 import { ClipLoader } from "react-spinners";
+import { useAttribution } from "../components/home/Download";
 
 const BlogDetails = () => {
   const [blogData, setBlogData] = useState(null);
@@ -269,7 +270,7 @@ const BlogDetails = () => {
                 className="w-full h-full object-cover rounded-3xl"
               />
             </div>
-            <div className="mt-16 md:mt-28 lg:mt-[300px] w-full lg:max-w-4xl mx-auto">
+            <div className="mt-16 md:mt-28 lg:mt-[300px] w-full lg:max-w-4xl mx-auto blog-content">
               <PortableText
                 value={blogData.content}
                 components={myPortableTextComponents}

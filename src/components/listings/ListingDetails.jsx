@@ -14,6 +14,7 @@ import { LuMail } from "react-icons/lu";
 import { IoIosStar } from "react-icons/io";
 import VideoDisplay from "./VideoDisplay";
 import { Helmet } from "react-helmet-async";
+import { useAttribution } from "../home/Download";
 
 const ListingDetails = () => {
   const { productId } = useParams();
@@ -86,6 +87,7 @@ const ListingDetails = () => {
   };
 
   const { thumbnail, title, description, metadata, owner } = product;
+  const {appleAttribution} = useAttribution();
 
   return (
     <>
@@ -115,9 +117,10 @@ const ListingDetails = () => {
           href={`https://raum.africa/admin-dashboard/product/${productId}`}
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        {/* app-argument isn't available to app clips*/}
         <meta
           name="apple-itunes-app"
-          content={`app-id=6514297891, app-argument=raum://raum.app.link/`}
+          content={`app-id=6514297891, app-argument=raum://raum.app.link/admin-dashboard/product/${productId}, app-clip-bundle-id=com.raumhq.raum.Clip, app-clip-display=card`}
           data-rh="true"
         />
       </Helmet>

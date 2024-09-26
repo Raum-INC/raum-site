@@ -82,3 +82,6 @@ body {
   overflow: hidden;
 }
 
+.blog-content a {
+  color: blue !important;
+}
