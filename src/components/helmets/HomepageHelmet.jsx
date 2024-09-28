@@ -31,7 +31,7 @@ const HomepageHelmet = () => {
 
       <meta
         name="apple-itunes-app"
-        content={`app-id=6514297891, app-argument=raum://raum.app.link/`}
+        content={`app-id=6514297891, app-argument=raum://raum.app.link/, app-clip-bundle-id=com.raumhq.raum.Clip, app-clip-display=card`}
         data-rh="true"
       />
 
