@@ -52,17 +52,17 @@ const Features = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.7 * index }}
               key={index}
-              className="w-full h-[180px] lg:h-[200px] bg-transparent border border-primary rounded-[20px] flex flex-col md:flex-row justify-between md:items-start mx-auto gap-3 md:p-8"
+              className="w-full h-[180px] lg:h-[200px] bg-transparent border border-primary rounded-[20px] flex flex-col md:flex-row justify-between items-start md:items-center mx-auto gap-3 p-4 md:p-8"
             >
-              <div className="md:w-1/2">
+              <div className="md:w-auto">
                 <p
                   itemProp="shortletFeature"
-                  className=" text-left font-semibold text-base md:text-base p-4 "
+                  className=" text-left font-semibold text-base md:text-base"
                 >
                   {shortlet.title}
                 </p>
               </div>
-              <div className="w-full md:w-1/2 h-full flex justify-end items-end">
+              <div className="w-full md:w-[120px] h-full flex justify-end items-end lg:justify-center lg:items-center">
                 <img
                   itemProp="image"
                   className="w-[90px] md:w-full"

@@ -23,7 +23,7 @@ const Homepage = () => {
       <AboutRaum />
       <Download />
       <Faqs />
-      <CallToAction />
+      {/* <CallToAction /> */}
     </main>
   );
 };

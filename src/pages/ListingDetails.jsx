@@ -2,19 +2,19 @@ import axios from "axios";
 import { AnimatePresence } from "framer-motion";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { FadeIn, LoaderMotion } from "../Motion";
+import { FadeIn, LoaderMotion } from "../components/Motion";
 import { ClipLoader } from "react-spinners";
-import LisitingTexts from "./LisitingTexts";
-import Facilities from "../dashboard/Facilities";
-import ListingHero from "./ListingHero";
-import ListingRules from "./ListingRules";
-import { Assets } from "../../assets";
+import LisitingTexts from "../components/listings/LisitingTexts";
+import Facilities from "../components/dashboard/Facilities";
+import ListingHero from "../components/listings/ListingHero";
+import ListingRules from "../components/listings/ListingRules";
+import { Assets } from "../assets";
 import { FaPhoneAlt } from "react-icons/fa";
 import { LuMail } from "react-icons/lu";
 import { IoIosStar } from "react-icons/io";
-import VideoDisplay from "./VideoDisplay";
+// import VideoDisplay from "../components/listings/VideoDisplay";
 import { Helmet } from "react-helmet-async";
-import { useAttribution } from "../home/Download";
+// import { useAttribution } from "../home/Download";
 
 const ListingDetails = () => {
   const { productId } = useParams();
@@ -23,11 +23,10 @@ const ListingDetails = () => {
   const [loading, setLoading] = useState(false);
   const [currentImage, setCurrentImage] = useState(null);
   const [isFullScreen, setIsFullScreen] = useState(false);
-  const {appleAttribution} = useAttribution();
+  // const {appleAttribution} = useAttribution();
 
-
-  const videoUrl = "https://www.youtube.com/watch?v=PnojSH4yDOk";
-  const videoTitle = "Your Video Title";
+  // const videoUrl = "https://www.youtube.com/watch?v=PnojSH4yDOk";
+  // const videoTitle = "Your Video Title";
 
   useEffect(() => {
     // Fetch product data using the product ID from URL params

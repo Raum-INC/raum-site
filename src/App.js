@@ -5,6 +5,7 @@ import {
   useNavigate,
   useParams,
 } from "react-router-dom";
+
 import Homepage from "./pages/Homepage";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
@@ -18,10 +19,11 @@ import Host from "./pages/Host";
 import ContentBlock from "./pages/ContentBlock";
 import Hidden from "./pages/Hidden";
 import Navigation from "./components/Navigation";
-import DashHome from "./pages/DashHome";
-import ListingDetails from "./components/listings/ListingDetails";
+import ListingDetails from "./pages/ListingDetails";
 import NotFound from "./pages/NotFound";
 import React, { useEffect, useState } from "react";
+import AdminDashboard from "./pages/AdminDashboard";
+import SelfHelp from "./components/SelfHelp";
 
 function ContentWrapper({ children }) {
   const [isContentAvailable, setIsContentAvailable] = useState(false);
@@ -72,17 +74,19 @@ function App() {
   });
 
   // for android type campaigns
-  if(params.utm_source) localStorage.setItem('utm_source', params.utm_source);
-  if(params.utm_medium) localStorage.setItem('utm_medium', params.utm_medium);
-  if(params.utm_campaign) localStorage.setItem('utm_campaign', params.utm_campaign);
+  if (params.utm_source) localStorage.setItem("utm_source", params.utm_source);
+  if (params.utm_medium) localStorage.setItem("utm_medium", params.utm_medium);
+  if (params.utm_campaign)
+    localStorage.setItem("utm_campaign", params.utm_campaign);
 
   // for ios type campaigns
-  if(params.mt) localStorage.setItem('mt', params.mt);
-  if(params.ct) localStorage.setItem('ct', params.ct);
-  if(params.pt) localStorage.setItem('pt', params.pt);
+  if (params.mt) localStorage.setItem("mt", params.mt);
+  if (params.ct) localStorage.setItem("ct", params.ct);
+  if (params.pt) localStorage.setItem("pt", params.pt);
 
   return (
-    <div>
+    <div className="w-full h-auto relative">
+      <SelfHelp />
       <Modal />
       <Router>
         <div className="relative z-50">
@@ -93,7 +97,7 @@ function App() {
             <Route path="/" element={<Homepage />} />
             <Route path="/host" element={<Host />} />
             <Route path="/blog" element={<Blog />} />
-            <Route path="/admin-dashboard" element={<DashHome />} />
+            <Route path="/admin-dashboard/*" element={<AdminDashboard />} />
             <Route path="/blog/:slug" element={<BlogDetails />} />
             <Route
               path="/admin-dashboard/product/:productId"

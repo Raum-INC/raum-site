@@ -32,7 +32,7 @@ const Services = () => {
       viewport={{ once: true }}
       className="w-full h-auto p-8"
     >
-      <section className="w-full max-w-6xl my-10 mx-auto flex flex-col lg:flex-row justify-center items-center gap-10">
+      <section className="w-full max-w-6xl my-10 mx-auto flex flex-col lg:flex-row justify-center items-center gap-10 lg:gap-0 lg:divide-x-[0.8px] divide-primary">
         {services.map((service, index) => (
           <div
             key={index}
@@ -43,7 +43,7 @@ const Services = () => {
                 itemProp="image"
                 src={service.image}
                 alt={service.alt}
-                className="w-6 md:w-12 h-w-6 md:h-12"
+                className="w-6 md:w-20 h-w-6 md:h-20"
               />
             </div>
             <div className="w-4/5 flex flex-col justify-center items-start lg:items-center gap-2">
@@ -52,7 +52,7 @@ const Services = () => {
               </h2>
               <p
                 itemProp="description"
-                className="font-normal text-left lg:text-center text-sm"
+                className="font-normal text-left lg:text-center text-xs md:text-base"
               >
                 {service.description}
               </p>
