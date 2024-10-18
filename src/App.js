@@ -86,11 +86,11 @@ function App() {
 
   return (
     <div className="w-full h-auto relative">
-      <SelfHelp />
       <Modal />
       <Router>
         <div className="relative z-50">
           <Navigation />
+          <SelfHelp />
         </div>
         <div onClick={falseNav} className="">
           <Routes>
