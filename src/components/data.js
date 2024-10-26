@@ -13,6 +13,9 @@ const {
   kitchen,
   parking,
   security,
+  wifi,
+  swimming,
+  bath,
   house,
   earth,
   account,
@@ -119,6 +122,18 @@ export const shortlets = [
   {
     title: `Security`,
     image: security,
+  },
+  {
+    title: `WiFi`,
+    image: wifi,
+  },
+  {
+    title: `Swimming Pool`,
+    image: swimming,
+  },
+  {
+    title: `Hot Bath`,
+    image: bath,
   },
 ];
 

@@ -10,6 +10,8 @@ export default defineConfig({
   projectId: 'onb7zrn9',
   dataset: 'production',
 
+  basePath: '/raum-cms',
+
   plugins: [deskTool(), visionTool()],
 
   schema: {
