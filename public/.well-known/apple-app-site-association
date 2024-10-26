@@ -16,10 +16,6 @@
             "comment": "Matches any URL with a fragment that equals no_universal_links and instructs the system not to open it as a universal link."
           },
           {
-            "/": "/product/prod_*",
-            "comment": "Matches any URL with a path that starts with /product/prod_."
-          },
-          {
             "/": "/host/cus_*",
             "comment": "Matches any URL with a path that starts with /host/cus_."
           },
@@ -28,8 +24,20 @@
             "comment": "Matches any URL with a path that starts with /tagged/ptag_."
           },
           {
+            "/": "/product/prod_*",
+            "comment": "Matches any URL with a path that starts with /product/prod_."
+          },
+          {
+            "/": "/admin-dashboard/product/prod_*",
+            "comment": "Matches any URL with a path that starts with /admin-dashboard/product/prod_."
+          },
+          {
             "/": "/bookings/lbook_*",
             "comment": "Matches any URL with a path that starts with /bookings/lbook_."
+          },
+          {
+            "/": "/admin-dashboard/bookings/lbook_*",
+            "comment": "Matches any URL with a path that starts with /admin-dashboard/bookings/lbook_."
           }
         ]
       }
