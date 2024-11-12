@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { GoHomeFill } from "react-icons/go";
 import { IoCompass } from "react-icons/io5";
 import { AiOutlineMessage } from "react-icons/ai";
@@ -7,57 +7,55 @@ import { CiMenuBurger } from "react-icons/ci";
 import { VscSettings } from "react-icons/vsc";
 import { MdBookmarkAdded } from "react-icons/md";
 import { Link } from "react-router-dom";
+import useBearStore from "../../store/store";
 
 const DashSideBar = () => {
-  const [sideBar, setSideBar] = useState(false);
-
-  const handleSideBar = () => {
-    setSideBar(!sideBar);
-  };
+  const { isAdminOpen, toggleAdminOpen, toggleFalseAdminOpen } = useBearStore();
 
   return (
     <main
       className={`${
-        sideBar === true ? "w-[200px]" : "w-[100px] "
-      } flex flex-col item-center h-full text-white transition-all ease-in-out duration-700`}
+        isAdminOpen === true ? "w-[100px] md:w-[200px]" : "w-[50px] md:w-[90px]"
+      } item-center flex h-full flex-col overflow-hidden text-white transition-all duration-700 ease-in-out`}
     >
-      <div className="w-full flex justify-start items-center p-6 px-8 gap-3">
-        <button onClick={handleSideBar} className={``}>
+      <div className="flex w-full items-center justify-start gap-3 p-2 py-6 md:p-6 md:px-8">
+        <button onClick={toggleAdminOpen} className={``}>
           <CiMenuBurger size={30} />
         </button>
         <p
           className={`${
-            sideBar ? "block opacity-100" : "hidden opacity-0"
-          }  transition-all ease-in-out duration-700 delay-700`}
+            isAdminOpen ? "block opacity-100" : "hidden opacity-0"
+          } transition-all delay-700 duration-700 ease-in-out`}
         >
+          <div className=""></div>
           Menu
         </p>
       </div>
-      <nav className="w-full h-auto pt-10 text-fade ">
-        <ul className="w-full h-auto flex flex-col justify-center items-start p-8 gap-5">
+      <nav className="h-auto w-full text-fade">
+        <ul className="flex h-auto w-full flex-col items-start justify-center gap-5 p-2 md:p-8">
           <Link to="/admin-dashboard">
-            <li className="w-full flex justify-start items-center text-primary py-2 gap-3">
+            <li className="flex w-full items-center justify-start gap-3 py-2 text-primary">
               <button>
                 <GoHomeFill size={30} />
               </button>
               <p
                 className={`${
-                  sideBar ? "block opacity-100" : "hidden opacity-0"
-                }  transition-all ease-in-out duration-700 delay-300`}
+                  isAdminOpen ? "block opacity-100" : "hidden opacity-0"
+                } transition-all delay-300 duration-700 ease-in-out`}
               >
                 Home
               </p>
             </li>
           </Link>
           <Link to="/admin-dashboard/filter">
-            <li className="w-full flex justify-start items-center py-2 gap-3">
+            <li className="flex w-full items-center justify-start gap-3 py-2">
               <button>
                 <VscSettings size={30} />
               </button>
               <p
                 className={`${
-                  sideBar ? "block opacity-100" : "hidden opacity-0"
-                }  transition-all ease-in-out duration-700 delay-300`}
+                  isAdminOpen ? "block opacity-100" : "hidden opacity-0"
+                } transition-all delay-300 duration-700 ease-in-out`}
               >
                 Filter
               </p>
@@ -69,7 +67,7 @@ const DashSideBar = () => {
             </button>
             <p
               className={`${
-                sideBar ? "block opacity-100" : "hidden opacity-0"
+                isAdminOpen ? "block opacity-100" : "hidden opacity-0"
               }  transition-all ease-in-out duration-700 delay-300`}
             >
               Explore
@@ -81,7 +79,7 @@ const DashSideBar = () => {
             </button>
             <p
               className={`${
-                sideBar ? "block opacity-100" : "hidden opacity-0"
+                isAdminOpen ? "block opacity-100" : "hidden opacity-0"
               }  transition-all ease-in-out duration-700 delay-300`}
             >
               Bookings
@@ -93,7 +91,7 @@ const DashSideBar = () => {
             </button>
             <p
               className={`${
-                sideBar ? "block opacity-100" : "hidden opacity-0"
+                isAdminOpen ? "block opacity-100" : "hidden opacity-0"
               }  transition-all ease-in-out duration-700 delay-300`}
             >
               Profile
@@ -105,7 +103,7 @@ const DashSideBar = () => {
             </button>
             <p
               className={`${
-                sideBar === true ? "block opacity-100" : "hidden opacity-0"
+                isAdminOpen === true ? "block opacity-100" : "hidden opacity-0"
               }  transition-all ease-in-out duration-700 delay-300`}
             >
               Text

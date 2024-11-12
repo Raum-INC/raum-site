@@ -24,6 +24,8 @@ import NotFound from "./pages/NotFound";
 import React, { useEffect, useState } from "react";
 import AdminDashboard from "./pages/AdminDashboard";
 import SelfHelp from "./components/SelfHelp";
+import DashFilter from "./pages/DashFilter";
+import ReserveBooking from "./pages/ReserveBooking";
 
 function ContentWrapper({ children }) {
   const [isContentAvailable, setIsContentAvailable] = useState(false);
@@ -35,7 +37,7 @@ function ContentWrapper({ children }) {
     const fetchContent = async () => {
       try {
         const response = await fetch(
-          `https://cp.raum.africa/store/content-block/${id}`
+          `https://cp.raum.africa/store/content-block/${id}`,
         );
         if (response.ok) {
           const data = await response.json();
@@ -85,7 +87,7 @@ function App() {
   if (params.pt) localStorage.setItem("pt", params.pt);
 
   return (
-    <div className="w-full h-auto relative">
+    <div className="relative h-auto w-full">
       <Modal />
       <Router>
         <div className="relative z-50">
@@ -97,11 +99,16 @@ function App() {
             <Route path="/" element={<Homepage />} />
             <Route path="/host" element={<Host />} />
             <Route path="/blog" element={<Blog />} />
-            <Route path="/admin-dashboard/*" element={<AdminDashboard />} />
+            <Route path="/admin-dashboard" element={<AdminDashboard />} />
+            <Route path="/admin-dashboard/filter" element={<DashFilter />} />
             <Route path="/blog/:slug" element={<BlogDetails />} />
             <Route
               path="/admin-dashboard/product/:productId"
               element={<ListingDetails />}
+            />
+            <Route
+              path="admin-dashboard/product/reserve/:productId"
+              element={<ReserveBooking />}
             />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />

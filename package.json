@@ -4,6 +4,7 @@
   "description": "Welcome to the Raum Web Codebase.",
   "private": true,
   "dependencies": {
+    "@paystack/inline-js": "^2.22.1",
     "@portabletext/react": "^3.0.11",
     "@sanity/asset-utils": "^1.3.0",
     "@sanity/block-content-to-react": "^3.0.0",
@@ -20,7 +21,9 @@
     "embla-carousel-react": "^8.1.5",
     "express": "^4.18.2",
     "framer-motion": "^10.15.0",
+    "prettier-plugin-tailwindcss": "^0.6.8",
     "react": "^18.2.0",
+    "react-datepicker": "^7.5.0",
     "react-dom": "^18.2.0",
     "react-ga": "^3.3.1",
     "react-helmet-async": "^2.0.4",
