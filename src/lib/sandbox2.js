@@ -1,4 +1,5 @@
-const axios = require("axios");
+import axios from "axios";
+
 // const BASE_URL = "http://localhost:9000/";
 const BASE_URL = "https://staging-cp.raum.africa/";
 
@@ -67,8 +68,8 @@ export async function reservePropeerty(
  */
 export async function provideContactInformationForBooking(
   bookingId,
-  email,
   phone,
+  email,
   fullname,
 ) {
   try {
@@ -77,9 +78,9 @@ export async function provideContactInformationForBooking(
       {
         metadata: {
           contact: {
-            email,
-            phone,
-            fullname,
+            phone: phone,
+            email: email,
+            name: fullname,
           },
         },
       },
@@ -139,22 +140,23 @@ export async function exec(
   let bookingId = clickedExistingBookingId;
 
   if (!bookingId) {
-    await getPropertyAvailability(
-      productId,
-      startDate.toISOString().slice(0, 10),
-    );
+    await getPropertyAvailability(productId, startDate);
     const { booking } = await reservePropeerty(
       productId,
-      startDate.toISOString().slice(0, 10),
-      endDate.toISOString().slice(0, 10),
+      startDate,
+      endDate,
       guestCount,
     );
     bookingId = booking?.id;
   }
 
+  console.log("Booking ID:", bookingId);
+
   await provideContactInformationForBooking(bookingId, email, phone, fullname);
 
   const checkoutUrl = await getPaymentSession(bookingId, variantId, email);
+
+  console.log("Checkout URL:", checkoutUrl);
 }
 
 export async function exec2(cartId = "cart_01JBJ1M2BC2FK0QCYN58RBAC5H") {

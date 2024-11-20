@@ -74,6 +74,17 @@ const ReserveBooking = () => {
   const makePayment = async (e) => {
     e.preventDefault();
 
+    console.table(
+      productId,
+      variantId,
+      startDate,
+      endDate,
+      guestCount,
+      fullname,
+      email,
+      phone,
+    );
+
     try {
       const result = await exec(
         productId,
@@ -225,7 +236,7 @@ const ReserveBooking = () => {
                 >
                   Phone Number:
                   <input
-                    type="tel"
+                    type="text"
                     name="customerPhoneNumber"
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
