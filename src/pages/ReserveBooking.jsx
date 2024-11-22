@@ -5,7 +5,7 @@ import { FaCircleCheck } from "react-icons/fa6";
 import { TiMinus, TiPlus } from "react-icons/ti";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import { exec } from "../lib/sandbox2";
+import { exec, exec2 } from "../lib/sandbox2";
 
 const ReserveBooking = () => {
   const { productId } = useParams();
@@ -17,9 +17,26 @@ const ReserveBooking = () => {
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
   const [guestCount, setGuestCount] = useState(1);
-  const [fullname, setFullName] = useState("");
-  const [email, setEmail] = useState("");
+  const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
+  const [email, setEmail] = useState("");
+  const [emailError, setEmailError] = useState(false);
+  const [formErrors, setFormErrors] = useState({});
+  const [globalError, setGlobalError] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [paymentURL, setPaymentURL] = useState(null);
+  const [cartId, setCartId] = useState(null);
+
+  const validateEmail = (email) => {
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    return emailRegex.test(email);
+  };
+
+  const handleEmailChange = (e) => {
+    const value = e.target.value;
+    setEmail(value);
+    setEmailError(!validateEmail(value)); // Update error state based on validation
+  };
 
   const increment = () => {
     setGuestCount(guestCount + 1);
@@ -74,40 +91,52 @@ const ReserveBooking = () => {
   const makePayment = async (e) => {
     e.preventDefault();
 
-    console.table(
-      productId,
-      variantId,
-      startDate,
-      endDate,
-      guestCount,
-      fullname,
-      email,
-      phone,
-    );
+    // Validation flags
+    const errors = {};
+    if (!name) errors.name = "Full name is required.";
+    if (!email) errors.email = "Email is required.";
+    else if (emailError) errors.email = "Please enter a valid email address.";
+    if (!phone) errors.phone = "Phone number is required.";
+    if (!startDate || !endDate)
+      errors.dates = "Check-in and check-out dates are required.";
+
+    if (Object.keys(errors).length > 0) {
+      setFormErrors(errors); // Set errors in state
+      return;
+    }
+
+    setLoading(true);
+    setFormErrors({}); // Clear errors on successful validation
 
     try {
       const result = await exec(
+        null,
         productId,
         variantId,
         startDate,
         endDate,
         guestCount,
-        fullname,
+        name,
         email,
         phone,
       );
 
-      if (!result) {
-        throw new Error("Exec function did not complete successfully.");
+      if (result) {
+        setPaymentURL(result.checkoutUrl);
+        setCartId(result.cartId);
       }
-
-      console.log(
-        "Payment initiated. Please complete the transaction on the payment gateway.",
-      );
     } catch (error) {
-      console.error("Error initiating payment:", error);
+      console.error("Error in payment process:", error);
+    } finally {
+      setLoading(false);
     }
   };
+
+  useEffect(() => {
+    if (cartId) {
+      exec2(cartId);
+    }
+  }, [cartId]); // Trigger exec2 when cartId changes
 
   return (
     <main className="min-h-screen w-full p-6 lg:p-9">
@@ -204,45 +233,68 @@ const ReserveBooking = () => {
             <section className="flex h-full w-full flex-col items-center gap-5 lg:w-2/3 lg:px-10">
               <div className="flex h-auto w-full flex-col items-start justify-center gap-3 lg:w-7/12">
                 <p className="text-xl font-medium">Customer Details</p>
-                <label
-                  htmlFor=""
-                  className="flex w-full items-start justify-between whitespace-nowrap"
-                >
-                  Full Name:
-                  <input
-                    type="text"
-                    name="customerFullName"
-                    value={fullname}
-                    onChange={(e) => setFullName(e.target.value)}
-                    className="w-2/3 rounded border border-fade bg-transparent p-1 text-fade"
-                  />
-                </label>
-                <label
-                  htmlFor=""
-                  className="flex w-full items-start justify-between whitespace-nowrap"
-                >
-                  Email:
-                  <input
-                    type="email"
-                    name="customerEmail"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    className="w-2/3 rounded border border-fade bg-transparent p-1 text-fade"
-                  />
-                </label>
-                <label
-                  htmlFor=""
-                  className="flex w-full items-start justify-between whitespace-nowrap"
-                >
-                  Phone Number:
-                  <input
-                    type="text"
-                    name="customerPhoneNumber"
-                    value={phone}
-                    onChange={(e) => setPhone(e.target.value)}
-                    className="w-2/3 rounded border border-fade bg-transparent p-1 text-fade"
-                  />
-                </label>
+                <div className="flex h-auto w-full flex-col items-end justify-between">
+                  <label className="flex w-full items-start justify-between whitespace-nowrap">
+                    Full Name:
+                    <input
+                      required
+                      type="text"
+                      name="customername"
+                      value={name}
+                      onChange={(e) => setName(e.target.value)}
+                      className={`w-2/3 rounded border ${
+                        formErrors.name ? "border-red-500" : "border-fade"
+                      } bg-transparent p-1 text-fade`}
+                    />
+                  </label>
+                  {formErrors.name && (
+                    <p className="mt-1 text-sm text-red-500">
+                      {formErrors.name}
+                    </p>
+                  )}{" "}
+                </div>
+
+                <div className="flex h-auto w-full flex-col items-end justify-between">
+                  <label className="flex w-full items-start justify-between whitespace-nowrap">
+                    Email:
+                    <input
+                      required
+                      type="email"
+                      name="customerEmail"
+                      value={email}
+                      onChange={handleEmailChange}
+                      className={`w-2/3 rounded border ${
+                        formErrors.email ? "border-red-500" : "border-fade"
+                      } bg-transparent p-1 text-fade`}
+                    />
+                  </label>
+                  {formErrors.email && (
+                    <p className="mt-1 text-sm text-red-500">
+                      {formErrors.email}
+                    </p>
+                  )}{" "}
+                </div>
+
+                <div className="flex h-auto w-full flex-col items-end justify-between">
+                  <label className="flex h-auto w-full items-center justify-between whitespace-nowrap">
+                    Phone Number:
+                    <input
+                      required
+                      type="text"
+                      name="customerPhoneNumber"
+                      value={phone}
+                      onChange={(e) => setPhone(e.target.value)}
+                      className={`w-2/3 rounded border ${
+                        formErrors.phone ? "border-red-500" : "border-fade"
+                      } bg-transparent p-1 text-fade`}
+                    />
+                  </label>
+                  {formErrors.phone && (
+                    <p className="mt-1 text-sm text-red-500">
+                      {formErrors.phone}
+                    </p>
+                  )}
+                </div>
               </div>
 
               <div className="flex w-full flex-col gap-3 lg:w-7/12">
@@ -315,13 +367,34 @@ const ReserveBooking = () => {
               </div>
 
               <div className="mt-10 flex w-full justify-end lg:w-7/12">
-                <button
-                  type="submit"
-                  onClick={makePayment}
-                  className="rounded bg-primary p-3 text-white"
-                >
-                  Proceed to payment
-                </button>
+                {!paymentURL ? (
+                  <button
+                    type="submit"
+                    onClick={makePayment}
+                    className={`rounded bg-primary p-3 text-white ${
+                      loading ? "cursor-not-allowed opacity-50" : ""
+                    }`}
+                    disabled={loading}
+                  >
+                    {loading ? (
+                      <div className="flex items-center justify-center gap-2">
+                        <span className="loader"></span> {/* Spinner */}
+                        Processing...
+                      </div>
+                    ) : (
+                      "Generate Payment Link"
+                    )}
+                  </button>
+                ) : (
+                  <a
+                    href={paymentURL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="rounded border border-primary bg-transparent p-3 text-white transition-all duration-300 ease-in-out hover:bg-primary"
+                  >
+                    Complete Payment
+                  </a>
+                )}
               </div>
             </section>
           </>

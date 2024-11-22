@@ -8,10 +8,10 @@ const BASE_URL = "https://staging-cp.raum.africa/";
  * @param date provide any date in the month of the calendar for which you want to get available dates, must conform to ISO8601
  * @returns PropertyBooking[]
  */
-export async function getPropertyAvailability(propertyId, date) {
+export async function getPropertyAvailability(productId, startDate) {
   try {
     const { data } = await axios.get(
-      `${BASE_URL}store/products/availability?propertyId=${propertyId}&date=${date}`,
+      `${BASE_URL}store/products/availability?propertyId=${productId}&date=${startDate.toISOString().slice(0, 10)}`,
     );
     console.warn(JSON.stringify(data));
     return data;
@@ -43,18 +43,19 @@ export async function completeCartAfterPayment(cartId) {
  * @returns PropertyBooking
  */
 export async function reservePropeerty(
-  propertyId,
+  productId,
   startDate,
   endDate,
   guestCount,
 ) {
   try {
     const { data } = await axios.post(`${BASE_URL}store/products/reserve`, {
-      startDate,
-      endDate,
+      propertyId: productId,
+      startDate: startDate.toISOString().slice(0, 10),
+      endDate: endDate.toISOString().slice(0, 10), // Use the correct variable
       guests: guestCount,
-      propertyId,
     });
+
     console.warn(JSON.stringify(data));
     return data;
   } catch (e) {
@@ -68,25 +69,29 @@ export async function reservePropeerty(
  */
 export async function provideContactInformationForBooking(
   bookingId,
-  phone,
   email,
-  fullname,
+  phone,
+  name,
 ) {
   try {
-    const { data } = await axios.post(
-      `${BASE_URL}store/bookings/${bookingId}`,
-      {
-        metadata: {
-          contact: {
-            phone: phone,
-            email: email,
-            name: fullname,
-          },
+    const payload = {
+      metadata: {
+        contact: {
+          email: email,
+          phone: phone,
+          name: name,
         },
       },
+    };
+    console.log("Payload being sent:", payload);
+
+    const { data } = await axios.post(
+      `${BASE_URL}store/bookings/${bookingId}`,
+      payload,
     );
+
     console.log("Contact information provided:", data);
-    return data; // Ensure it returns data
+    return data;
   } catch (e) {
     console.error("Error message:", e.response?.data?.message || e.message);
     console.error("Error URL:", e.response?.config?.url);
@@ -100,7 +105,7 @@ async function getPaymentSession(bookingId, variantId, email, discountCode) {
     });
 
     const cartId = data?.cart?.id;
-    console.error(cartId);
+    console.log("Cart ID:", cartId);
 
     await axios.post(`${BASE_URL}store/carts/${cartId}/line-items`, {
       variant_id: variantId,
@@ -118,8 +123,10 @@ async function getPaymentSession(bookingId, variantId, email, discountCode) {
 
     const paymentUrl =
       data4?.cart?.payment_session?.data?.paystackTxAuthData?.authorization_url;
-    console.error(paymentUrl);
-    return paymentUrl;
+
+    console.log("Payment URL:", paymentUrl);
+
+    return { paymentUrl, cartId };
   } catch (e) {
     console.error("Error message:", e.response?.data?.message || e.message);
     console.error("Error URL:", e.response?.config?.url);
@@ -133,7 +140,7 @@ export async function exec(
   startDate,
   endDate,
   guestCount,
-  fullname,
+  name,
   email,
   phone,
 ) {
@@ -141,25 +148,54 @@ export async function exec(
 
   if (!bookingId) {
     await getPropertyAvailability(productId, startDate);
-    const { booking } = await reservePropeerty(
+    const response = await reservePropeerty(
       productId,
       startDate,
       endDate,
       guestCount,
     );
-    bookingId = booking?.id;
+
+    if (!response || !response.booking) {
+      console.error("Error: Booking could not be created.");
+      return;
+    }
+
+    bookingId = response.booking.id;
   }
 
   console.log("Booking ID:", bookingId);
 
-  await provideContactInformationForBooking(bookingId, email, phone, fullname);
+  const contactResponse = await provideContactInformationForBooking(
+    bookingId,
+    email,
+    phone,
+    name,
+  );
 
-  const checkoutUrl = await getPaymentSession(bookingId, variantId, email);
+  if (!contactResponse) {
+    console.error("Error: Failed to provide contact information.");
+    return;
+  }
 
-  console.log("Checkout URL:", checkoutUrl);
+  const { paymentUrl, cartId } = await getPaymentSession(
+    bookingId,
+    variantId,
+    email,
+    null,
+  );
+
+  if (!paymentUrl) {
+    console.error("Error: Failed to retrieve checkout URL.");
+    return;
+  }
+
+  console.log("Checkout URL:", paymentUrl);
+  console.log("Cart ID:", cartId);
+
+  return { checkoutUrl: paymentUrl, cartId };
 }
 
-export async function exec2(cartId = "cart_01JBJ1M2BC2FK0QCYN58RBAC5H") {
+export async function exec2(cartId) {
   const completedSuccessfully = await completeCartAfterPayment(cartId);
   console.error(`completed payment successfully: ${completedSuccessfully}`);
 }
