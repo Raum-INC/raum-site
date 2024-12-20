@@ -13,48 +13,48 @@ const ListingHero = ({
 }) => {
   const { title, generalAddressArea, metadata } = product;
   return (
-    <section className="w-full h-[400px] lg:h-[calc(100vh-85px)] relative">
+    <section className="relative h-[600px] w-full lg:h-[calc(100vh-85px)]">
       <img
         src={currentImage}
         alt={title}
-        className="w-full h-full object-cover"
+        className="h-full w-full object-cover"
       />
       <Link
         to="/admin-dashboard"
-        className="absolute top-5 md:top-10 right-5 md:right-10 z-50 bg-white text-black rounded-full p-2 underline underline-offset-1 flex gap-2 justify-start items-center shadow-2xl"
+        className="absolute right-5 top-5 z-50 flex items-center justify-start gap-2 rounded-full bg-white p-2 text-black underline underline-offset-1 shadow-2xl md:right-10 md:top-10"
       >
-        <IoIosArrowRoundBack size={35} />
+        <IoIosArrowRoundBack size={28} />
       </Link>
-      <div className="w-full h-full absolute inset-0 z-10 bg-gradient-to-b from-50% from-white/0 to-90% to-black/70 p-5 md:p-10 flex flex-col justify-end items-start">
-        <h1 className="font-bold text-lg md:text-5xl drop-shadow-md">
+      <div className="absolute inset-0 z-10 flex h-full w-full flex-col items-start justify-end bg-gradient-to-b from-white/0 from-50% to-black/70 to-90% p-5 md:p-10">
+        <h1 className="text-lg font-bold drop-shadow-md md:text-5xl">
           {title}
         </h1>
-        <p className="text-base md:text-lg font-normal w-[250px] truncate">
+        <p className="w-[250px] truncate text-base font-normal md:text-lg">
           {product.description}
         </p>
         <div className="w-full overflow-hidden">
-          <p className="text-sm flex gap-3 my-3 justify-start items-center">
+          <p className="my-3 flex items-center justify-start gap-3 text-sm">
             {metadata.rating_summary?.rating ? (
               <>
                 <IoIosStar size={20} className="text-white" />
                 <span>{metadata.rating_summary?.rating} .</span>
               </>
             ) : null}{" "}
-            <span className="bg-white text-black p-1 px-3 rounded-full">
+            <span className="rounded-full bg-white p-1 px-3 text-black">
               {" "}
               {generalAddressArea}
             </span>
           </p>
-          <div className="w-2/3 h-auto overflow-x-auto no-scrollbar flex gap-3">
+          <div className="no-scrollbar flex h-auto w-2/3 gap-3 overflow-x-auto">
             {metadata.images.map((image, index) => (
               <div
                 key={index}
-                className="w-[50px] md:w-[150px] h-[40px] md:h-[100px] rounded-md cursor-pointer"
+                className="h-[40px] w-[50px] cursor-pointer rounded-md md:h-[100px] md:w-[150px]"
               >
                 <img
                   src={image.url}
                   alt={title}
-                  className="w-full h-full object-cover rounded-lg"
+                  className="h-full w-full rounded-lg object-cover"
                   onClick={(e) => {
                     setCurrentImage(image.url);
                   }}

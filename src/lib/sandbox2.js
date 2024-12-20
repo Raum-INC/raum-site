@@ -1,12 +1,12 @@
 import axios from "axios";
+import Paystack from "@paystack/inline-js";
 
-// const BASE_URL = "http://localhost:9000/";
 const BASE_URL = "https://staging-cp.raum.africa/";
+const PAYSTACK_SECRET_KEY =
+  "Bearer pk_test_2827a38e3fad06d96245a33aa94f749de05f60ce";
 
 /**
- * @param propertyId
- * @param date provide any date in the month of the calendar for which you want to get available dates, must conform to ISO8601
- * @returns PropertyBooking[]
+ * Fetch property availability based on date.
  */
 export async function getPropertyAvailability(productId, startDate) {
   try {
@@ -22,7 +22,7 @@ export async function getPropertyAvailability(productId, startDate) {
 }
 
 /**
- * to be called after successful payment to paystack, might scrap eventually
+ * Complete the cart after successful payment.
  */
 export async function completeCartAfterPayment(cartId) {
   try {
@@ -37,10 +37,7 @@ export async function completeCartAfterPayment(cartId) {
 }
 
 /**
- * @param startDate conform to ISO8601
- * @param endDate conform to ISO8601
- * @param email providing the customer’s email allows them to overwrite existing bookings in this timeslot if they created them
- * @returns PropertyBooking
+ * Reserve a property based on the provided criteria.
  */
 export async function reservePropeerty(
   productId,
@@ -52,10 +49,9 @@ export async function reservePropeerty(
     const { data } = await axios.post(`${BASE_URL}store/products/reserve`, {
       propertyId: productId,
       startDate: startDate.toISOString().slice(0, 10),
-      endDate: endDate.toISOString().slice(0, 10), // Use the correct variable
+      endDate: endDate.toISOString().slice(0, 10),
       guests: guestCount,
     });
-
     console.warn(JSON.stringify(data));
     return data;
   } catch (e) {
@@ -65,7 +61,7 @@ export async function reservePropeerty(
 }
 
 /**
- * @returns PropertyBooking
+ * Provide contact information for booking.
  */
 export async function provideContactInformationForBooking(
   bookingId,
@@ -98,13 +94,34 @@ export async function provideContactInformationForBooking(
   }
 }
 
+/**
+ * Fetch booking details by booking ID.
+ */
+export async function fetchBookingDetails(bookingId) {
+  try {
+    const { data } = await axios.get(`${BASE_URL}store/bookings/${bookingId}`);
+    console.log("Booking Details:", data);
+    return data;
+  } catch (e) {
+    console.error(
+      "Error fetching booking details:",
+      e.response?.data?.message || e.message,
+    );
+    console.error("Error URL:", e.response?.config?.url);
+    return null;
+  }
+}
+
+/**
+ * Creates a payment session and initializes Paystack with proper callbacks.
+ */
 async function getPaymentSession(bookingId, variantId, email, discountCode) {
   try {
-    const { data } = await axios.post(`${BASE_URL}store/carts`, {
+    const { data: cartData } = await axios.post(`${BASE_URL}store/carts`, {
       region_id: "reg_01HF59W065XF8CC9SKBYRH4F6P",
     });
 
-    const cartId = data?.cart?.id;
+    const cartId = cartData?.cart?.id;
     console.log("Cart ID:", cartId);
 
     await axios.post(`${BASE_URL}store/carts/${cartId}/line-items`, {
@@ -117,22 +134,49 @@ async function getPaymentSession(bookingId, variantId, email, discountCode) {
       email,
     });
 
-    const { data: data4 } = await axios.post(
+    const { data: paymentData } = await axios.post(
       `${BASE_URL}store/carts/${cartId}/payment-sessions`,
     );
 
     const paymentUrl =
-      data4?.cart?.payment_session?.data?.paystackTxAuthData?.authorization_url;
+      paymentData?.cart?.payment_session?.data?.paystackTxAuthData
+        ?.authorization_url;
+    const accessCode =
+      paymentData?.cart?.payment_session?.data?.paystackTxAuthData?.access_code;
+
+    if (!paymentUrl || !accessCode) {
+      console.error("Error: Payment URL or Access Code is missing.");
+      return null;
+    }
 
     console.log("Payment URL:", paymentUrl);
+    console.log("Access Code:", accessCode);
 
-    return { paymentUrl, cartId };
-  } catch (e) {
-    console.error("Error message:", e.response?.data?.message || e.message);
-    console.error("Error URL:", e.response?.config?.url);
+    const paystackPopup = new Paystack();
+
+    paystackPopup.resumeTransaction(accessCode, {
+      onSuccess: async (data) => {
+        console.log("Payment successful! ", data);
+        const completedSuccessfully = await completeCartAfterPayment(cartId);
+        console.log(`Completed payment successfully: ${completedSuccessfully}`);
+      },
+      onError: (data) => {
+        console.error("Payment failed: ", data);
+      },
+      onCancel: (data) => {
+        console.log("Payment cancelled. ", data);
+      },
+    });
+
+    return { cartId };
+  } catch (error) {
+    console.error("Error in getPaymentSession:", error.message);
   }
 }
 
+/**
+ * Execute the payment and fetch booking details upon success.
+ */
 export async function exec(
   clickedExistingBookingId,
   productId,
@@ -143,9 +187,11 @@ export async function exec(
   name,
   email,
   phone,
+  discountCode,
 ) {
   let bookingId = clickedExistingBookingId;
 
+  // Step 1: Create or retrieve the booking
   if (!bookingId) {
     await getPropertyAvailability(productId, startDate);
     const response = await reservePropeerty(
@@ -165,6 +211,7 @@ export async function exec(
 
   console.log("Booking ID:", bookingId);
 
+  // Step 2: Provide contact information for the booking
   const contactResponse = await provideContactInformationForBooking(
     bookingId,
     email,
@@ -177,25 +224,38 @@ export async function exec(
     return;
   }
 
-  const { paymentUrl, cartId } = await getPaymentSession(
+  // Step 3: Initialize the payment session
+  const { cartId } = await getPaymentSession(
     bookingId,
     variantId,
     email,
-    null,
+    discountCode,
   );
 
-  if (!paymentUrl) {
-    console.error("Error: Failed to retrieve checkout URL.");
+  if (!cartId) {
+    console.error("Error: Failed to retrieve cart ID.");
     return;
   }
 
-  console.log("Checkout URL:", paymentUrl);
-  console.log("Cart ID:", cartId);
+  console.log("Cart ID from Payment Session:", cartId);
 
-  return { checkoutUrl: paymentUrl, cartId };
+  // Step 5: Fetch booking details after successful payment
+  const bookingDetails = await fetchBookingDetails(bookingId);
+  if (bookingDetails) {
+    console.log("Booking Details after Payment:", bookingDetails);
+  } else {
+    console.error("Error: Failed to fetch booking details.");
+  }
+
+  return bookingDetails;
 }
 
+/**
+ * Finalizes the cart after successful payment.
+ */
 export async function exec2(cartId) {
   const completedSuccessfully = await completeCartAfterPayment(cartId);
-  console.error(`completed payment successfully: ${completedSuccessfully}`);
+  console.log(`Completed payment successfully: ${completedSuccessfully}`);
+
+  return completedSuccessfully;
 }
