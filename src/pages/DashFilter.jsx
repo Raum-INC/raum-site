@@ -1,7 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import DashSideBar from "../components/dashboard/DashSideBar";
 
 const DashFilter = () => {
+  const [categories, setCategories] = useState([{}]);
+  const [highlights, setHighlights] = useState([{}]);
+  const [facilities, setFacilities] = useState([]);
+  const [safetyItems, setSafetyItems] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [selectedHighlights, setSelectedHighlights] = useState([]);
   const [selectedBedrooms, setSelectedBedrooms] = useState(1);
@@ -10,6 +15,109 @@ const DashFilter = () => {
   const [selectedSafety, setSafety] = useState([]);
   const [priceRange, setPriceRange] = useState(75000);
 
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const fetchFilters = async () => {
+      try {
+        const response = await fetch("https://cp.raum.africa/admin/domain");
+        if (!response.ok) {
+          throw new Error("Failed to fetch filter options");
+        }
+        const data = await response.json();
+
+        // console.log("Filter Options Response:", data);
+
+        setFacilities(
+          data.store.metadata.facilities?.map((facility) => facility.tag) || [],
+        );
+        setSafetyItems(
+          data.store.metadata.safety_items?.map((item) => item.tag) || [],
+        );
+
+        console.log(
+          "Parsed Facilities:",
+          data.store.metadata.facilities?.map((facility) => facility.tag),
+        );
+        console.log(
+          "Parsed Safety Items:",
+          data.store.metadata.safety_items?.map((item) => item.tag),
+        );
+      } catch (error) {
+        console.error("Error fetching filter options:", error);
+      }
+    };
+
+    fetchFilters();
+  }, []);
+
+  useEffect(() => {
+    const highlightFetch = async () => {
+      try {
+        const response = await fetch(
+          "https://cp.raum.africa/store/product-tags",
+        );
+
+        if (!response.ok) {
+          throw new Error("Failed to fetch product tags");
+        }
+
+        const data = await response.json();
+
+        if (data.product_tags && Array.isArray(data.product_tags)) {
+          console.log("Tags Response:", data.product_tags);
+
+          setHighlights(
+            data.product_tags.map((tag) => ({
+              id: tag.id,
+              value: tag.value,
+            })),
+          );
+        } else {
+          console.warn("No product tags found in response");
+          setHighlights([]);
+        }
+      } catch (error) {
+        console.error("Error fetching product tags:", error);
+      }
+    };
+
+    highlightFetch();
+  }, []);
+
+  useEffect(() => {
+    const categoriesFetch = async () => {
+      try {
+        const response = await fetch(
+          "https://cp.raum.africa/store/product-categories",
+        );
+
+        if (!response.ok) {
+          throw new Error("Failed to fetch categories");
+        }
+
+        const data = await response.json();
+        console.log("Categories Response:", data.product_categories);
+
+        if (data.product_categories && Array.isArray(data.product_categories)) {
+          setCategories(
+            data.product_categories.map((category) => ({
+              id: category.id,
+              name: category.name, // Change to `name` to match rendering logic
+            })),
+          );
+        } else {
+          console.warn("No categories found in response");
+          setCategories([]); // Set to empty array if no categories
+        }
+      } catch (error) {
+        console.error("Error fetching categories:", error);
+      }
+    };
+
+    categoriesFetch();
+  }, []);
+
   const handleClearAllFilters = () => {
     setSelectedCategory("All");
     setSelectedHighlights([]);
@@ -17,7 +125,7 @@ const DashFilter = () => {
     setSelectedBathrooms(1);
     setSelectedFacilities([]);
     setSafety([]);
-    setPriceRange(500000);
+    setPriceRange(75000);
   };
 
   const handlePriceChange = (event) => {
@@ -32,15 +140,76 @@ const DashFilter = () => {
     );
   };
 
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
+
+    const facilityFilters = selectedFacilities.map(
+      (facility) => `metadata.facilities.${facility}=1`,
+    );
+    const safetyFilters = selectedSafety.map(
+      (safety) => `metadata.safety_items.${safety}=1`,
+    );
+
+    let filters = [
+      ...facilityFilters,
+      ...safetyFilters,
+      `metadata.parameters.beds IN [${selectedBedrooms}]`,
+      `metadata.parameters.baths IN [${selectedBathrooms}]`,
+      `prices_ngn >= ${priceRange}`,
+      `tags IN [${selectedHighlights.join(",")}]`,
+    ];
+
+    if (selectedCategory !== "All") {
+      filters.push(`categories IN [${selectedCategory}]`);
+    }
+
+    const body = {
+      limit: 1,
+      offset: 0,
+      filter: filters.join(" AND "),
+    };
+
+    try {
+      const response = await fetch(
+        "https://cp.raum.africa/store/products/search?status=published",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(body),
+        },
+      );
+
+      console.log("Search Request:", body);
+
+      if (!response.ok) {
+        throw new Error("Failed to fetch data");
+      }
+
+      const data = await response.json();
+      console.log("Search Results:", data);
+
+      // Navigate to results page with query data
+      navigate("/admin-dashboard/filter/result", {
+        state: { queryData: body },
+      });
+    } catch (error) {
+      console.error("Error fetching search results:", error);
+    }
+  };
+
   return (
     <main className="relative flex h-auto w-full overflow-hidden bg-primary_text md:min-h-screen">
       <section className="block min-h-full w-auto">
         <DashSideBar />
       </section>
-      <form className="flex w-full flex-col space-y-6 p-4 md:p-6 md:px-8">
+      <form
+        onSubmit={handleFormSubmit}
+        className="flex w-full flex-col space-y-6 p-4 md:p-6 md:px-8"
+      >
         <div className="flex items-center justify-between">
           <h1 className="text-2xl font-bold md:text-3xl">Filters</h1>
           <button
+            type="button"
             onClick={handleClearAllFilters}
             className="text-primary underline underline-offset-2"
           >
@@ -52,22 +221,20 @@ const DashFilter = () => {
         <div>
           <p className="mb-2 text-base font-medium md:text-lg">Categories</p>
           <div className="flex flex-wrap gap-2 md:gap-4">
-            {["All", "Apartments", "Studio", "Duplex", "Selfcons"].map(
-              (item) => (
-                <button
-                  key={item}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    setSelectedCategory(item);
-                  }}
-                  className={`rounded-full px-3 py-1 text-sm transition-colors md:px-4 md:py-2 md:text-base ${
-                    selectedCategory === item ? "bg-primary" : "bg-gray-800"
-                  }`}
-                >
-                  {item}
-                </button>
-              ),
-            )}
+            {categories.map((item) => (
+              <button
+                key={item.id}
+                onClick={(e) => {
+                  e.preventDefault();
+                  setSelectedCategory(item.id);
+                }}
+                className={`rounded-full px-3 py-1 text-sm transition-colors md:px-4 md:py-2 md:text-base ${
+                  selectedCategory === item.id ? "bg-primary" : "bg-gray-800"
+                }`}
+              >
+                {item.name}
+              </button>
+            ))}
           </div>
         </div>
 
@@ -75,30 +242,24 @@ const DashFilter = () => {
         <div>
           <p className="mb-2 text-base font-medium md:text-lg">Highlights</p>
           <div className="flex flex-wrap gap-2 md:gap-4">
-            {[
-              "Spacious",
-              "Partying",
-              "Peaceful",
-              "Smoking allowed",
-              "Pets allowed",
-            ].map((highlight) => (
+            {highlights.map((highlight) => (
               <button
-                key={highlight}
+                key={highlight.id}
                 onClick={(e) => {
                   e.preventDefault();
                   toggleSelection(
                     setSelectedHighlights,
                     selectedHighlights,
-                    highlight,
+                    highlight.id,
                   );
                 }}
                 className={`rounded-full px-3 py-1 text-sm transition-colors md:px-4 md:py-2 md:text-base ${
-                  selectedHighlights.includes(highlight)
+                  selectedHighlights.includes(highlight.id)
                     ? "bg-primary"
                     : "bg-gray-800"
                 }`}
               >
-                {highlight}
+                {highlight.value}
               </button>
             ))}
           </div>
@@ -171,17 +332,7 @@ const DashFilter = () => {
         <div>
           <p className="mb-2 text-base font-medium md:text-lg">Facilities</p>
           <div className="flex flex-wrap gap-2 md:gap-4">
-            {[
-              "Wifi",
-              "Swimming pool",
-              "Gym",
-              "Cinema",
-              "Parking space",
-              "Air conditioning",
-              "TV",
-              "Security camera",
-              "Washer",
-            ].map((facility) => (
+            {facilities.map((facility) => (
               <button
                 key={facility}
                 onClick={(e) => {
@@ -192,7 +343,7 @@ const DashFilter = () => {
                     facility,
                   );
                 }}
-                className={`rounded-full px-3 py-1 text-sm transition-colors md:px-4 md:py-2 md:text-base ${
+                className={`rounded-full px-3 py-1 text-sm capitalize transition-colors md:px-4 md:py-2 md:text-base ${
                   selectedFacilities.includes(facility)
                     ? "bg-primary"
                     : "bg-gray-800"
@@ -208,14 +359,14 @@ const DashFilter = () => {
         <div>
           <p className="mb-2 text-base font-medium md:text-lg">Safety Items</p>
           <div className="flex flex-wrap gap-2 md:gap-4">
-            {["Smoke alarm", "First aid", "Fire extinguisher"].map((item) => (
+            {safetyItems.map((item) => (
               <button
                 key={item}
                 onClick={(e) => {
                   e.preventDefault();
                   toggleSelection(setSafety, selectedSafety, item);
                 }}
-                className={`rounded-full px-3 py-1 text-sm transition-colors md:px-4 md:py-2 md:text-base ${
+                className={`rounded-full px-3 py-1 text-sm capitalize transition-colors md:px-4 md:py-2 md:text-base ${
                   selectedSafety.includes(item) ? "bg-primary" : "bg-gray-800"
                 }`}
               >
@@ -226,7 +377,10 @@ const DashFilter = () => {
         </div>
 
         {/* Search Button */}
-        <button className="mt-4 w-full rounded-full bg-primary py-2 text-base font-semibold text-white transition-colors hover:bg-blue-700 md:mt-6 md:py-3 md:text-lg">
+        <button
+          type="submit"
+          className="mt-4 w-full rounded-full bg-primary py-2 text-base font-semibold text-white transition-colors hover:bg-blue-700 md:mt-6 md:py-3 md:text-lg"
+        >
           Search
         </button>
       </form>

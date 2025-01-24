@@ -1,9 +1,9 @@
 import {
-BrowserRouter as Router,
-Route,
-Routes,
-useNavigate,
-useParams,
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  useNavigate,
+  useParams,
 } from "react-router-dom";
 
 import Homepage from "./pages/Homepage";
@@ -26,109 +26,114 @@ import AdminDashboard from "./pages/AdminDashboard";
 import SelfHelp from "./components/SelfHelp";
 import DashFilter from "./pages/DashFilter";
 import ReserveBooking from "./pages/ReserveBooking";
+import DashResult from "./pages/DashResult";
 
 function ContentWrapper({ children }) {
-const [isContentAvailable, setIsContentAvailable] = useState(false);
-const [contentData, setContentData] = useState(null);
-const navigate = useNavigate();
-const { id } = useParams();
+  const [isContentAvailable, setIsContentAvailable] = useState(false);
+  const [contentData, setContentData] = useState(null);
+  const navigate = useNavigate();
+  const { id } = useParams();
 
-useEffect(() => {
-  const fetchContent = async () => {
-    try {
-      const response = await fetch(
-        `https://cp.raum.africa/store/content-block/${id}`,
-      );
-      if (response.ok) {
-        const data = await response.json();
-        if (data.content) {
-          setIsContentAvailable(true);
-          setContentData(data.content);
+  useEffect(() => {
+    const fetchContent = async () => {
+      try {
+        const response = await fetch(
+          `https://cp.raum.africa/store/content-block/${id}`,
+        );
+        if (response.ok) {
+          const data = await response.json();
+          if (data.content) {
+            setIsContentAvailable(true);
+            setContentData(data.content);
+          } else {
+            navigate("/not-found");
+          }
         } else {
           navigate("/not-found");
         }
-      } else {
+      } catch (error) {
         navigate("/not-found");
       }
-    } catch (error) {
-      navigate("/not-found");
-    }
-  };
+    };
 
-  fetchContent();
-}, [id, navigate]);
+    fetchContent();
+  }, [id, navigate]);
 
-if (!isContentAvailable) {
-  return null; // Or a loading spinner, etc.
-}
+  if (!isContentAvailable) {
+    return null; // Or a loading spinner, etc.
+  }
 
-return React.cloneElement(children, { contentData });
+  return React.cloneElement(children, { contentData });
 }
 
 function App() {
-const { falseNav } = useBearStore();
-const TRACKING_ID = "G-M6PS6FQH1P"; // YOUR_OWN_TRACKING_ID
-ReactGA.initialize(TRACKING_ID);
+  const { falseNav } = useBearStore();
+  const TRACKING_ID = "G-M6PS6FQH1P"; // YOUR_OWN_TRACKING_ID
+  ReactGA.initialize(TRACKING_ID);
 
-// cache campaign parameters
-const params = new Proxy(new URLSearchParams(window.location.search), {
-  get: (searchParams, prop) => searchParams.get(prop),
-});
+  // cache campaign parameters
+  const params = new Proxy(new URLSearchParams(window.location.search), {
+    get: (searchParams, prop) => searchParams.get(prop),
+  });
 
-// for android type campaigns
-if (params.utm_source) localStorage.setItem("utm_source", params.utm_source);
-if (params.utm_medium) localStorage.setItem("utm_medium", params.utm_medium);
-if (params.utm_campaign)
-  localStorage.setItem("utm_campaign", params.utm_campaign);
+  // for android type campaigns
+  if (params.utm_source) localStorage.setItem("utm_source", params.utm_source);
+  if (params.utm_medium) localStorage.setItem("utm_medium", params.utm_medium);
+  if (params.utm_campaign)
+    localStorage.setItem("utm_campaign", params.utm_campaign);
 
-// for ios type campaigns
-if (params.mt) localStorage.setItem("mt", params.mt);
-if (params.ct) localStorage.setItem("ct", params.ct);
-if (params.pt) localStorage.setItem("pt", params.pt);
+  // for ios type campaigns
+  if (params.mt) localStorage.setItem("mt", params.mt);
+  if (params.ct) localStorage.setItem("ct", params.ct);
+  if (params.pt) localStorage.setItem("pt", params.pt);
 
-return (
-  <div className="relative h-auto w-full">
-    <Modal />
-    <Router>
-      <div className="relative z-50">
-        <Navigation />
-        <SelfHelp />
-      </div>
-      <div onClick={falseNav} className="">
-        <Routes>
-          <Route path="/" element={<Homepage />} />
-          <Route path="/host" element={<Host />} />
-          <Route path="/blog" element={<Blog />} />
-          <Route path="/admin-dashboard" element={<AdminDashboard />} />
-          <Route path="/admin-dashboard/filter" element={<DashFilter />} />
-          <Route path="/blog/:slug" element={<BlogDetails />} />
-          <Route
-            path="/admin-dashboard/product/:productId"
-            element={<ListingDetails />}
-          />
-          <Route
-            path="admin-dashboard/product/reserve/:productId"
-            element={<ReserveBooking />}
-          />
-          <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/hidden" element={<Hidden />} />
-          <Route
-            path="/:id"
-            element={
-              <ContentWrapper>
-                <ContentBlock />
-              </ContentWrapper>
-            }
-          />
-          <Route path="/not-found" element={<NotFound />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </div>
-      <Footer />
-    </Router>
-  </div>
-);
+  return (
+    <div className="relative h-auto w-full">
+      <Modal />
+      <Router>
+        <div className="relative z-50">
+          <Navigation />
+          <SelfHelp />
+        </div>
+        <div onClick={falseNav} className="">
+          <Routes>
+            <Route path="/" element={<Homepage />} />
+            <Route path="/host" element={<Host />} />
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/admin-dashboard" element={<AdminDashboard />} />
+            <Route path="/admin-dashboard/filter" element={<DashFilter />} />
+            <Route
+              path="/admin-dashboard/filter/result"
+              element={<DashResult />}
+            />
+            <Route path="/blog/:slug" element={<BlogDetails />} />
+            <Route
+              path="/admin-dashboard/product/:productId"
+              element={<ListingDetails />}
+            />
+            <Route
+              path="admin-dashboard/product/reserve/:productId"
+              element={<ReserveBooking />}
+            />
+            <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/hidden" element={<Hidden />} />
+            <Route
+              path="/:id"
+              element={
+                <ContentWrapper>
+                  <ContentBlock />
+                </ContentWrapper>
+              }
+            />
+            <Route path="/not-found" element={<NotFound />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </div>
+        <Footer />
+      </Router>
+    </div>
+  );
 }
 
 export default App;
