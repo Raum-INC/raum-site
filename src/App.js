@@ -22,8 +22,8 @@ import Navigation from "./components/Navigation";
 import ListingDetails from "./pages/ListingDetails";
 import NotFound from "./pages/NotFound";
 import React, { useEffect, useState } from "react";
-import AdminDashboard from "./pages/AdminDashboard";
 import SelfHelp from "./components/SelfHelp";
+import DashHome from "./pages/DashHome";
 
 function ContentWrapper({ children }) {
   const [isContentAvailable, setIsContentAvailable] = useState(false);
@@ -97,7 +97,7 @@ function App() {
             <Route path="/" element={<Homepage />} />
             <Route path="/host" element={<Host />} />
             <Route path="/blog" element={<Blog />} />
-            <Route path="/admin-dashboard/*" element={<AdminDashboard />} />
+            <Route path="/admin-dashboard/*" element={<DashHome />} />
             <Route path="/blog/:slug" element={<BlogDetails />} />
             <Route
               path="/admin-dashboard/product/:productId"
