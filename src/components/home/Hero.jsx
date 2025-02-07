@@ -75,30 +75,30 @@ const Hero = ({ heroTitle, hostTitle }) => {
     <main
       itemScope
       itemType="https://raum.africa/host"
-      className="hero-section w-full h-auto flex justify-center items-center relative bg-white text-black pt-24 overflow-hidden"
+      className="hero-section relative flex h-auto w-full items-center justify-center overflow-hidden bg-white pt-24 text-black"
     >
       <motion.div
         variants={componentVariant}
         initial="hidden"
         animate="visible"
-        className="hero-content w-full h-auto flex flex-col justify-center items-center md:gap-12 lg:gap-0"
+        className="hero-content flex h-auto w-full flex-col items-center justify-center md:gap-12 lg:gap-0"
       >
-        <div className="text-content px-8 flex flex-col justify-center items-center gap-8">
+        <div className="text-content flex flex-col items-center justify-center gap-8 px-8 pb-20 md:pb-0">
           <h1
             itemProp="Title"
-            className="hero-title text-2xl md:text-5xl lg:text-[72px] text-center font-extrabold lg:leading-[87px]"
+            className="hero-title text-center text-2xl font-extrabold md:text-5xl lg:text-[72px] lg:leading-[87px]"
             dangerouslySetInnerHTML={{ __html: sanitizedTitle }}
           />
 
           <p
             itemType="description"
-            className="hero-description w-4/5 lg:w-[650px] text-center leading-[20px] text-bgFade text-lg md:text-xl font-normal"
+            className="hero-description text-bgFade w-4/5 text-center text-lg font-normal leading-[20px] md:text-xl lg:w-[650px]"
           >
             Whether you're searching for your next vacation home or looking to
             list your short-term rental apartment for business purposes, we're
             here to make your journey seamless and stress-free.
           </p>
-          <div className="w-full flex flex-col md:flex-row justify-center items-center gap-4">
+          <div className="flex w-full flex-col items-center justify-center gap-4 md:flex-row">
             {/* <Link
               to={location.pathname === "/host" ? "/host" : "/"}
               onClick={getClick}
@@ -115,10 +115,10 @@ const Hero = ({ heroTitle, hostTitle }) => {
                 itemProp="form"
                 title="Get the app!"
                 onClick={handleGetAppClick}
-                className={`bg-black text-sm md:text-base text-white rounded-3xl capitalize font-normal flex justify-center items-center ${
+                className={`flex items-center justify-center rounded-3xl bg-black text-sm font-normal capitalize text-white md:text-base ${
                   location.pathname === "/"
-                    ? "w-[230px] h-[34px] md:h-[50px]"
-                    : "w-[180px] h-[34px] md:h-[50px]"
+                    ? "h-[34px] w-[230px] md:h-[50px]"
+                    : "h-[34px] w-[180px] md:h-[50px]"
                 }`}
                 href="https://forms.gle/X25r6hjhN4gL1tzH7"
               >
@@ -132,7 +132,7 @@ const Hero = ({ heroTitle, hostTitle }) => {
                   getClick();
                   scrollToTop();
                 }}
-                className={`bg-white border-2 border-black text-sm md:text-base text-black rounded-3xl capitalize font-bold flex justify-center items-center w-[180px] h-[34px] md:h-[50px]`}
+                className={`flex h-[34px] w-[180px] items-center justify-center rounded-3xl border-2 border-black bg-white text-sm font-bold capitalize text-black md:h-[50px] md:text-base`}
               >
                 <p>Check out listings</p>
               </Link>
@@ -144,22 +144,22 @@ const Hero = ({ heroTitle, hostTitle }) => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="hero-image w-full h-[250px] md:h-[500px] flex flex-col justify-start items-center relative"
+          className="hero-image relative flex h-[250px] w-full flex-col items-center justify-start md:h-[500px]"
         >
-          <div className="w-full h-full flex flex-col justify-end items-center mt-10 mx-auto relative">
+          <div className="relative mx-auto mt-10 flex h-full w-full flex-col items-center justify-end">
             <img
               title="Short-Term Rentals in Nigeria | Discover Raum Africa"
               loading="lazy"
               src={Assets.mobileHero}
               alt="Short-Term Rentals in Nigeria | Discover Raum Africa"
-              className="w-10/12 block lg:hidden"
+              className="block w-10/12 lg:hidden"
             />
             <img
               title="Short-Term Rentals in Nigeria | Discover Raum Africa"
               loading="lazy"
               src={Assets.hero_bg3}
               alt="Short-Term Rentals in Nigeria | Discover Raum Africa"
-              className="hero-desktop-image hidden lg:block w-10/12 md:h-[500px] mx-auto px-8 object-cover object-top aspect-auto md:absolute bottom-0"
+              className="hero-desktop-image bottom-0 mx-auto hidden aspect-auto w-10/12 object-cover object-top px-8 md:absolute md:h-[500px] lg:block"
             />
           </div>
         </motion.div>

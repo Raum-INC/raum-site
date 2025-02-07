@@ -76,7 +76,7 @@ export const LoaderMotion = ({ children }) => {
       variants={loadingVariant}
       initial="hidden"
       whileInView="visible"
-      className="w-full h-screen flex justify-center items-center"
+      className="flex h-screen w-full items-center justify-center"
     >
       {children}
     </motion.section>
@@ -102,9 +102,29 @@ export const FadeIn = ({ children }) => {
       variants={loadingVariant}
       initial="hidden"
       whileInView="visible"
-      className="w-full h-auto flex justify-center items-center overflow-hidden"
+      className="flex h-auto w-full items-center justify-center overflow-hidden"
     >
       {children}
     </motion.section>
   );
 };
+
+const pageVariants = {
+  initial: { opacity: 0 },
+  animate: { opacity: 1, transition: { duration: 0.8, ease: "easeOut" } },
+  exit: { opacity: 0, transition: { duration: 0.5, ease: "easeIn" } },
+};
+
+export default function PageWrapper({ children }) {
+  return (
+    <motion.div
+      variants={pageVariants}
+      initial="initial"
+      animate="animate"
+      exit="exit"
+      className=""
+    >
+      {children}
+    </motion.div>
+  );
+}

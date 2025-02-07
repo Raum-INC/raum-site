@@ -22,8 +22,12 @@ import Navigation from "./components/Navigation";
 import ListingDetails from "./pages/ListingDetails";
 import NotFound from "./pages/NotFound";
 import React, { useEffect, useState } from "react";
+import AdminDashboard from "./pages/AdminDashboard";
 import SelfHelp from "./components/SelfHelp";
-import DashHome from "./pages/DashHome";
+import DashFilter from "./pages/DashFilter";
+import ReserveBooking from "./pages/ReserveBooking";
+import DashResult from "./pages/DashResult";
+import { AnimatePresence } from "framer-motion";
 
 function ContentWrapper({ children }) {
   const [isContentAvailable, setIsContentAvailable] = useState(false);
@@ -35,7 +39,7 @@ function ContentWrapper({ children }) {
     const fetchContent = async () => {
       try {
         const response = await fetch(
-          `https://cp.raum.africa/store/content-block/${id}`
+          `https://cp.raum.africa/store/content-block/${id}`,
         );
         if (response.ok) {
           const data = await response.json();
@@ -85,7 +89,7 @@ function App() {
   if (params.pt) localStorage.setItem("pt", params.pt);
 
   return (
-    <div className="w-full h-auto relative">
+    <div className="relative h-auto w-full">
       <Modal />
       <Router>
         <div className="relative z-50">
@@ -93,30 +97,41 @@ function App() {
           <SelfHelp />
         </div>
         <div onClick={falseNav} className="">
-          <Routes>
-            <Route path="/" element={<Homepage />} />
-            <Route path="/host" element={<Host />} />
-            <Route path="/blog" element={<Blog />} />
-            <Route path="/admin-dashboard/*" element={<DashHome />} />
-            <Route path="/blog/:slug" element={<BlogDetails />} />
-            <Route
-              path="/admin-dashboard/product/:productId"
-              element={<ListingDetails />}
-            />
-            <Route path="/about" element={<About />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/hidden" element={<Hidden />} />
-            <Route
-              path="/:id"
-              element={
-                <ContentWrapper>
-                  <ContentBlock />
-                </ContentWrapper>
-              }
-            />
-            <Route path="/not-found" element={<NotFound />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
+          <AnimatePresence>
+            <Routes>
+              <Route path="/" element={<Homepage />} />
+              <Route path="/host" element={<Host />} />
+              <Route path="/blog" element={<Blog />} />
+              <Route path="/admin-dashboard" element={<AdminDashboard />} />
+              <Route path="/admin-dashboard/filter" element={<DashFilter />} />
+              <Route
+                path="/admin-dashboard/filter/result"
+                element={<DashResult />}
+              />
+              <Route path="/blog/:slug" element={<BlogDetails />} />
+              <Route
+                path="/admin-dashboard/product/:productId"
+                element={<ListingDetails />}
+              />
+              <Route
+                path="admin-dashboard/product/reserve/:productId"
+                element={<ReserveBooking />}
+              />
+              <Route path="/about" element={<About />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/hidden" element={<Hidden />} />
+              <Route
+                path="/:id"
+                element={
+                  <ContentWrapper>
+                    <ContentBlock />
+                  </ContentWrapper>
+                }
+              />
+              <Route path="/not-found" element={<NotFound />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </AnimatePresence>
         </div>
         <Footer />
       </Router>

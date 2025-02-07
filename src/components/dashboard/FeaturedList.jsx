@@ -17,7 +17,8 @@ const FeaturedList = () => {
         // Filter only the featured products
         const featuredListings = response.data.products.filter(
           (product) =>
-            product.tags && product.tags.some((tag) => tag.value === "Featured")
+            product.tags &&
+            product.tags.some((tag) => tag.value === "Featured"),
         );
         // Limit the number of listings to 10
         const limitedFeaturedListings = featuredListings.slice(0, 10);
@@ -41,7 +42,7 @@ const FeaturedList = () => {
       <Link
         key={index}
         to={`/admin-dashboard/product/${listing.id}`}
-        className="block w-full h-[230px] md:h-[370px] rounded-xl relative overflow-hidden"
+        className="relative block h-[230px] w-full overflow-hidden rounded-xl md:h-[370px]"
       >
         <div
           style={{
@@ -49,19 +50,19 @@ const FeaturedList = () => {
             backgroundSize: "cover",
             backgroundPosition: "center",
           }}
-          className="w-full h-full"
+          className="h-full w-full"
         >
-          <div className="w-full h-full absolute inset-0 bg-gradient-to-t from-black/60 to-white/0"></div>
-          <div className="w-full h-full relative z-30 flex justify-between items-end p-5">
+          <div className="absolute inset-0 h-full w-full bg-gradient-to-t from-black/60 to-white/0"></div>
+          <div className="relative z-30 flex h-full w-full items-end justify-between p-5">
             {listing.metadata.rating_summary?.rating ? (
-              <div className="w-auto h-6 px-2 flex justify-center items-center gap-1 bg-black/40 absolute top-5 right-5 rounded-md text-white text-center">
+              <div className="absolute right-5 top-5 flex h-6 w-auto items-center justify-center gap-1 rounded-md bg-black/40 px-2 text-center text-white">
                 <IoIosStar className="text-yellow-400" />
                 <p className="text-sm md:text-base">
                   {listing.metadata.rating_summary?.rating}
                 </p>
               </div>
             ) : null}
-            <div className="flex flex-col gap-2 ">
+            <div className="flex flex-col gap-2">
               <h2
                 className={`${
                   index === 0 ? "md:text-xl" : "md:text-lg"
@@ -74,7 +75,7 @@ const FeaturedList = () => {
               </p>
             </div>
             <div>
-              <p className="text-xs flex gap-1 items-center whitespace-nowrap">
+              <p className="flex items-center gap-1 whitespace-nowrap text-xs">
                 <MdLocationPin /> {listing.generalAddressArea}
               </p>
             </div>
@@ -84,8 +85,8 @@ const FeaturedList = () => {
     ));
 
   return (
-    <main className="w-full h-auto bg-primary_text p-5 md:px-9">
-      <h1 className="text-4xl text-white font-bold pb-5">Featured Listings</h1>
+    <main className="h-auto w-full bg-primary_text p-5 md:px-9">
+      <h1 className="pb-5 text-4xl font-bold text-white">Featured Listings</h1>
       <EmblaCarousel slides={renderSlides()} />
     </main>
   );

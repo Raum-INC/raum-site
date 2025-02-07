@@ -14,7 +14,7 @@ const DashCategory = () => {
     axios
       .get("https://cp.raum.africa/store/product-categories")
       .then((response) => {
-        console.log("Categories:", response.data.product_categories); // Log categories
+        // console.log("Categories:", response.data.product_categories); // Log categories
         setCategories(response.data.product_categories);
       })
       .catch((error) => {
@@ -25,7 +25,7 @@ const DashCategory = () => {
     axios
       .get("https://cp.raum.africa/store/products?currency_code=ngn")
       .then((response) => {
-        console.log("Products:", response.data.products); // Log products
+        // console.log("Products:", response.data.products); // Log products
         const formattedProducts = response.data.products.map((product) => {
           return {
             ...product,
@@ -52,23 +52,21 @@ const DashCategory = () => {
     selectedCategory === "all-categories"
       ? products
       : products.filter((product) =>
-          product.categories.some((cat) => cat.id === selectedCategory)
+          product.categories.some((cat) => cat.id === selectedCategory),
         );
 
-  console.log(filteredProducts);
-
   return (
-    <main className="w-full md:h-[500px] bg-primary_text p-5 md:px-9 pb-20 text-black">
-      <h2 className="text-sm font-semibold py-5 text-white">Category</h2>
+    <main className="w-full bg-primary_text p-5 pb-20 text-black md:h-[500px] md:px-9">
+      <h2 className="py-5 text-sm font-semibold text-white">Category</h2>
       <section className="flex flex-col gap-5">
-        <div className="w-full flex md:gap-5 justify-start gap-3 items-center overflow-x-auto no-scrollbar">
+        <div className="no-scrollbar flex w-full items-center justify-start gap-3 overflow-x-auto md:gap-5">
           {categories.map((category) => (
             <button
               key={category.id}
-              className={`p-2 px-[14px] md:px-6 text-sm md:text-base whitespace-nowrap text-white rounded-full border border-primary ${
+              className={`whitespace-nowrap rounded-full border border-primary p-2 px-[14px] text-sm text-white md:px-6 md:text-base ${
                 selectedCategory === category.id
-                  ? "bg-primary "
-                  : "bg-bkg text-white/30 border-white/10"
+                  ? "bg-primary"
+                  : "border-white/10 bg-bkg text-white/30"
               }`}
               onClick={() => {
                 handleCategorySelect(category.id);
@@ -78,34 +76,34 @@ const DashCategory = () => {
             </button>
           ))}
         </div>
-        <div className="w-full h-full md:overflow-x-auto no-scrollbar md:flex grid grid-cols-2 gap-5">
+        <div className="no-scrollbar grid h-full w-full grid-cols-2 gap-5 md:flex md:overflow-x-auto">
           {filteredProducts.map((product, index) => (
             <Link
               to={`/admin-dashboard/product/${product.id}`}
               key={index}
-              className="md:w-[260px] h-[240px] md:h-[315px] flex-shrink-0 flex flex-col justify-start items-start gap-5 md:gap-3 rounded-2xl p-3 border border-secondary/10 bg-bkg"
+              className="flex h-[240px] flex-shrink-0 flex-col items-start justify-start gap-5 rounded-2xl border border-secondary/10 bg-bkg p-3 md:h-[315px] md:w-[260px] md:gap-3"
             >
               <img
                 src={product.thumbnail}
                 alt="Category"
-                className="w-full h-full aspect-video object-cover rounded-md"
+                className="aspect-video h-full w-full rounded-md object-cover"
               />
-              <div className="w-full flex justify-between items-center text-white">
+              <div className="flex w-full items-center justify-between text-white">
                 <div className="space-y-2">
-                  <h3 className="text-xs md:text-md font-bold w-4/5 md:w-auto line-clamp-2">
+                  <h3 className="md:text-md line-clamp-2 w-4/5 text-xs font-bold md:w-auto">
                     {product.title}
                   </h3>
-                  <p className="text-sm md:text-lg font-semibold ">
+                  <p className="text-sm font-semibold md:text-lg">
                     N
                     {product.variants[0].original_price.toLocaleString("en-NG")}
                   </p>
-                  <p className="text-xs text-fade flex gap-2 justify-start items-center">
+                  <p className="flex items-center justify-start gap-2 text-xs text-fade">
                     <MdLocationPin />
                     Lekki, Lagos
                   </p>
                 </div>
                 <div>
-                  <i className="w-10 h-10 bg-[#0000FF0A] rounded-md flex justify-center items-center">
+                  <i className="flex h-10 w-10 items-center justify-center rounded-md bg-[#0000FF0A]">
                     <CiHeart size={25} className="text-[#FF0000]" />
                   </i>
                 </div>
