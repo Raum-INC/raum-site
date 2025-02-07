@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import FeaturedList from "../components/dashboard/FeaturedList";
 import DashCategory from "../components/dashboard/DashCategory";
 import { Helmet } from "react-helmet-async";
-import { FadeIn } from "../components/Motion";
+import PageWrapper, { FadeIn } from "../components/Motion";
 import { motion, AnimatePresence } from "framer-motion";
 import { ClipLoader } from "react-spinners";
 
@@ -59,18 +59,20 @@ const DashHome = () => {
           data-rh="true"
         />
       </Helmet>
-      <main className="relative flex h-auto w-full md:min-h-screen">
-        {showContent ? (
-          <section className="min-h-screen w-full overflow-hidden bg-primary_text">
-            <FadeIn>
-              <FeaturedList />
-            </FadeIn>
-            <FadeIn>
-              <DashCategory />
-            </FadeIn>
-          </section>
-        ) : null}
-      </main>
+      <FadeIn>
+        <main className="relative flex h-auto w-full md:min-h-screen">
+          {showContent ? (
+            <section className="min-h-screen w-full overflow-hidden bg-primary_text">
+              <FadeIn>
+                <FeaturedList />
+              </FadeIn>
+              <FadeIn>
+                <DashCategory />
+              </FadeIn>
+            </section>
+          ) : null}
+        </main>
+      </FadeIn>
     </>
   );
 };

@@ -1,7 +1,8 @@
-import React from "react";
-import { IoIosStar } from "react-icons/io";
+import React, { useState } from "react";
+import { IoIosStar, IoMdShare } from "react-icons/io";
 import { Link } from "react-router-dom";
 import { IoIosArrowRoundBack } from "react-icons/io";
+import { MdContentCopy } from "react-icons/md";
 
 const ListingHero = ({
   product,
@@ -12,6 +13,27 @@ const ListingHero = ({
   thumbnail,
 }) => {
   const { title, generalAddressArea, metadata } = product;
+  const currentUrl = window.location.href;
+  const [copied, setCopied] = useState(false);
+
+  const handleShare = async () => {
+    if (navigator.share) {
+      try {
+        await navigator.share({
+          title: title,
+          text: "Check out this listing!",
+          url: currentUrl,
+        });
+      } catch (error) {
+        console.error("Error sharing:", error);
+      }
+    } else {
+      navigator.clipboard.writeText(currentUrl);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000); // Reset text after 2s
+    }
+  };
+
   return (
     <section className="relative h-[600px] w-full lg:h-[calc(100vh-85px)]">
       <img
@@ -32,7 +54,7 @@ const ListingHero = ({
         <p className="w-[250px] truncate text-base font-normal md:text-lg">
           {product.description}
         </p>
-        <div className="w-full overflow-hidden">
+        <div className="flex items-center gap-4">
           <p className="my-3 flex items-center justify-start gap-3 text-sm">
             {metadata.rating_summary?.rating ? (
               <>
@@ -41,27 +63,36 @@ const ListingHero = ({
               </>
             ) : null}{" "}
             <span className="rounded-full bg-white p-1 px-3 text-black">
-              {" "}
               {generalAddressArea}
             </span>
           </p>
-          <div className="no-scrollbar flex h-auto w-2/3 gap-3 overflow-x-auto">
-            {metadata.images.map((image, index) => (
-              <div
-                key={index}
-                className="h-[40px] w-[50px] cursor-pointer rounded-md md:h-[100px] md:w-[150px]"
-              >
-                <img
-                  src={image.url}
-                  alt={title}
-                  className="h-full w-full rounded-lg object-cover"
-                  onClick={(e) => {
-                    setCurrentImage(image.url);
-                  }}
-                />
-              </div>
-            ))}
-          </div>
+          {/* Share Button */}
+          <button
+            onClick={handleShare}
+            className={`flex items-center gap-2 rounded-full bg-white p-1 px-3 text-black shadow-md transition-all duration-300 hover:bg-primary hover:text-white ${
+              copied ? "bg-primary text-black" : ""
+            }`}
+          >
+            <MdContentCopy size={18} />
+            <span className="hidden md:inline">
+              {copied ? "Link Copied!" : "Share Listing"}
+            </span>
+          </button>
+        </div>
+        <div className="no-scrollbar flex h-auto w-2/3 gap-3 overflow-x-auto">
+          {metadata.images.map((image, index) => (
+            <div
+              key={index}
+              className="h-[40px] w-[50px] cursor-pointer rounded-md md:h-[100px] md:w-[150px]"
+            >
+              <img
+                src={image.url}
+                alt={title}
+                className="h-full w-full rounded-lg object-cover"
+                onClick={() => setCurrentImage(image.url)}
+              />
+            </div>
+          ))}
         </div>
       </div>
     </section>
