@@ -76,6 +76,7 @@ export const LoaderMotion = ({ children }) => {
       variants={loadingVariant}
       initial="hidden"
       whileInView="visible"
+      viewport={{ once: true }}
       className="flex h-screen w-full items-center justify-center"
     >
       {children}

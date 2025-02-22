@@ -25,6 +25,13 @@ const {
   assignment,
   file,
   home,
+  invest,
+  hasslefree,
+  clipboard,
+  attach,
+  avatar1,
+  avatar2,
+  avatar3,
 } = Assets;
 
 export const services = [
@@ -155,6 +162,34 @@ export const aboutRaum = [
   },
 ];
 
+export const raumInvest = [
+  {
+    title: `Hassle-free property management.`,
+    subtitle: `Our expert team ensures your property is always in top shape, maximizing returns without the hassle. Invest smarter, live easier!`,
+    image: hasslefree,
+  },
+  {
+    title: `Access to high-demand African tourism markets.`,
+    subtitle: `Our strategically located shortlets are in some of the continent’s most sought-after destinations, ensuring high occupancy rates and strong returns.`,
+    image: payment,
+  },
+  {
+    title: `Earn passive income without daily involvement.`,
+    subtitle: `We handle all the details—from property management to guest services—so you can enjoy the benefits of passive income.`,
+    image: wallet,
+  },
+  {
+    title: `Transparency with yearly performance reports.`,
+    subtitle: `Know exactly how your money is working for you, backed by clear, reliable insights. Trust and transparency—your peace of mind, guaranteed."`,
+    image: clipboard,
+  },
+  {
+    title: `Diversify your investment portfolio.`,
+    subtitle: `Expand your financial horizons with Raum Africa! Investing in shortlets offers a unique opportunity to diversify your portfolio, reducing risk while tapping into the thriving African tourism market.`,
+    image: attach,
+  },
+];
+
 export const raumHost = [
   {
     title: `Host and earn at your convenience`,
@@ -223,6 +258,30 @@ export const howToHost = [
   },
 ];
 
+export const howToInvest = [
+  {
+    title: `Step 1:`,
+    subtitle: `Indicate interest by filling the form link: 
+https://forms.gle/oMTy5GNUyS7k4Ub76`,
+    id: 1,
+  },
+  {
+    title: `Step 2:`,
+    subtitle: `Make payment and join the community of smart investors`,
+    id: 2,
+  },
+  {
+    title: `Step 3:`,
+    subtitle: `Receive info of which apartment your purchased slots has gone into`,
+    id: 3,
+  },
+  {
+    title: `Step 4:`,
+    subtitle: `Sit back and relax while Raum africa does all the heavy lifting from setup, management down to marketing nad you enjoy your returns, roi/dividends are paid out quarterly which will amount to up to 50% per year with reports of the apartment performance`,
+    id: 4,
+  },
+];
+
 export const faqs = [
   {
     title: "How do I book a short term rental through the app?",
@@ -252,6 +311,24 @@ export const faqs = [
     title: "What is your refund policy?",
     description: `Refund policies can be found in the details of each listing. Kindly check for specific details of refund policy under each listing. For further assistance kindly click the link below for a swift response.`,
     link: "+2348146072247",
+  },
+];
+
+export const testimonialsData = [
+  {
+    img: avatar1,
+    name: "Henry Udu",
+    test: `Investing with Raum Africa has been a game-changer for me! The returns are consistent, and I love how they handle things.`,
+  },
+  {
+    img: avatar2,
+    name: "Amara Uche",
+    test: `Raum Africa's transparency is unmatched. The yearly performance reports keep me informed.`,
+  },
+  {
+    img: avatar3,
+    name: "Adebolawale Lara",
+    test: `I was hesitant at first, but Raum  made the process so simple and returns have exceeded my expectations.`,
   },
 ];
 

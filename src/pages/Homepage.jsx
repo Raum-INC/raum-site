@@ -8,6 +8,7 @@ import Download from "../components/home/Download";
 import CallToAction from "../components/home/CallToAction";
 import HomepageHelmet from "../components/helmets/HomepageHelmet";
 import Faqs from "../components/Faqs";
+import InvestCTA from "../components/InvestCTA";
 
 const Homepage = () => {
   const heroTitle = "Discover your Dream<br>apartment with Raum Africa";
@@ -20,6 +21,7 @@ const Homepage = () => {
       <Services />
       <Earn />
       <Features />
+      <InvestCTA />
       <AboutRaum />
       <Download />
       <Faqs />

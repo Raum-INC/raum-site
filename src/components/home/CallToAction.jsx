@@ -13,24 +13,26 @@ const CallToAction = () => {
       itemType={
         currentRoute === "/host"
           ? "https://raum.africa/host"
-          : "https://raum.africa/"
+            ? currentRoute === "/invest"
+            : "https://raum.africa/invest"
+          : "https://raum.africa"
       }
-      className="w-full my-10 px-8"
+      className="my-10 w-full px-8"
     >
       <section
-        className={`animate-bounce custom-bounce w-full max-w-6xl mx-auto p-8 flex flex-col md:flex-row justify-center items-center gap-5 bg-primary md:h-auto rounded-3xl`}
+        className={`custom-bounce mx-auto flex w-full max-w-6xl animate-bounce flex-col items-center justify-center gap-5 rounded-3xl bg-primary p-8 md:h-auto md:flex-row`}
       >
         {currentRoute === "/host" ? (
           <>
-            <div className="md:w-2/3 w-full space-y-3">
-              <h4 itemProp="title" className="text-xl md:text-2xl font-bold">
+            <div className="w-full space-y-3 md:w-2/3">
+              <h4 itemProp="title" className="text-xl font-bold md:text-2xl">
                 Not a Registered Business? That won't do!
               </h4>
               <p itemProp="description" className="text-base">
                 Let's get you registered in 10 business working days. Just fill
                 out our form and we'll be right with you.
               </p>
-              <ul className="pl-5 text-base list-disc list-outside">
+              <ul className="list-outside list-disc pl-5 text-base">
                 <li>Gain access to a business account</li>
                 <li>
                   Create a safe environment for your customers to transact with
@@ -41,13 +43,13 @@ const CallToAction = () => {
                 </li>
               </ul>
             </div>
-            <div className="md:w-1/3 w-full flex justify-end items-center">
+            <div className="flex w-full items-center justify-end md:w-1/3">
               <a
                 itemProp="form"
                 target="_blank"
                 rel="noopener noreferrer"
                 title="Fill the form!"
-                className="w-[200px] h-[34px] md:w-[205px] md:h-[50px] text-sm rounded-full border-2 border-white text-white hover:bg-white hover:text-primary md:text-base font-bold flex justify-center items-center transition-all duration-300 ease-in-out"
+                className="flex h-[34px] w-[200px] items-center justify-center rounded-full border-2 border-white text-sm font-bold text-white transition-all duration-300 ease-in-out hover:bg-white hover:text-primary md:h-[50px] md:w-[205px] md:text-base"
                 href="https://forms.gle/nGqvBQTDqCT9SyaX6"
               >
                 <FaWpforms size={20} className="mr-2" />
@@ -55,10 +57,10 @@ const CallToAction = () => {
               </a>
             </div>
           </>
-        ) : (
+        ) : currentRoute === "/" ? (
           <>
-            <div className="md:w-2/3 w-full space-y-3">
-              <h4 itemProp="title" className="text-xl md:text-2xl font-bold">
+            <div className="w-full space-y-3 md:w-2/3">
+              <h4 itemProp="title" className="text-xl font-bold md:text-2xl">
                 Struggling to find the perfect short-term rental?
               </h4>
               <p itemProp="description" className="text-base">
@@ -68,13 +70,13 @@ const CallToAction = () => {
                 hassle-free.{" "}
               </p>
             </div>
-            <div className="md:w-1/3 w-full flex justify-end items-center">
+            <div className="flex w-full items-center justify-end md:w-1/3">
               <a
                 itemProp="form"
                 target="_blank"
                 rel="noopener noreferrer"
                 title="Chat with Raum Africa on WhatsApp"
-                className="w-[200px] h-[34px] md:w-[205px] md:h-[50px] text-sm rounded-full border-2 border-white text-white hover:bg-white hover:text-primary md:text-base font-bold flex justify-center items-center transition-all duration-300 ease-in-out"
+                className="flex h-[34px] w-[200px] items-center justify-center rounded-full border-2 border-white text-sm font-bold text-white transition-all duration-300 ease-in-out hover:bg-white hover:text-primary md:h-[50px] md:w-[205px] md:text-base"
                 href="https://wa.me/message/ZVNY4C3AJ6F5I1"
               >
                 <FaWhatsapp size={20} className="mr-2" />
@@ -82,7 +84,29 @@ const CallToAction = () => {
               </a>
             </div>
           </>
-        )}
+        ) : null}
+
+        {currentRoute === "/invest" ? (
+          <>
+            <div className="flex w-full justify-center space-y-3 md:w-2/3 md:justify-start">
+              <h4 itemProp="title" className="text-xl font-bold md:text-2xl">
+                Ready to Join the Co-Hosting Revolution?
+              </h4>
+            </div>
+            <div className="flex w-full flex-col items-center justify-center md:w-1/3 md:flex-row md:justify-end">
+              <a
+                itemProp="form"
+                target="_blank"
+                rel="noopener noreferrer"
+                title="Invest with Raum Africa"
+                className="flex h-[34px] w-auto items-center justify-center text-nowrap rounded-full border-2 border-white px-5 text-sm font-bold text-white transition-all duration-300 ease-in-out hover:bg-white hover:text-primary md:h-[50px] md:w-auto md:text-base"
+                href="https://forms.gle/oMTy5GNUyS7k4Ub76"
+              >
+                Click Here to See If You Qualify to Invest!
+              </a>
+            </div>
+          </>
+        ) : null}
       </section>
     </main>
   );
