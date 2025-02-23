@@ -188,17 +188,17 @@ const Hero = ({ heroTitle, hostTitle, investTitle, investDescription }) => {
             ) : (
               <>
                 <img
-                  title="Invest in High-Yield Airbnb Rentals with Raum Africa"
+                  title="Discover your Dream apartment with Raum Africa"
                   loading="lazy"
                   src={Assets.mobileHero}
-                  alt="Invest in High-Yield Airbnb Rentals with Raum Africa"
+                  alt="Discover your Dream apartment with Raum Africa"
                   className="block w-10/12 lg:hidden"
                 />
                 <img
-                  title="Invest in High-Yield Airbnb Rentals with Raum Africa"
+                  title="Discover your Dream apartment with Raum Africa"
                   loading="lazy"
                   src={Assets.hero_bg3}
-                  alt="Invest in High-Yield Airbnb Rentals with Raum Africa"
+                  alt="Discover your Dream apartment with Raum Africa"
                   className="hero-desktop-image bottom-0 mx-auto hidden aspect-auto w-10/12 object-cover object-top px-8 md:absolute md:h-[500px] lg:block"
                 />
               </>

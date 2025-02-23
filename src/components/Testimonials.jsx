@@ -22,7 +22,11 @@ const Testimonials = () => {
             key={index}
           >
             <div className="flex h-[120px] w-[120px] items-center justify-start">
-              <img src={testimonial.img} alt={testimonial.name} />
+              <img
+                src={testimonial.img}
+                alt={testimonial.name}
+                className="aspect-square w-[120px] rounded-full"
+              />
             </div>
             <div className="flex h-[170px] flex-col items-start justify-between rounded-lg bg-[#25242A] p-5">
               <p className="line-clamp-4">{testimonial.test}</p>

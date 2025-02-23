@@ -66,6 +66,7 @@ export const Assets = {
   avatar1: require("../assets/avatar1.svg").default,
   avatar2: require("../assets/avatar2.svg").default,
   avatar3: require("../assets/avatar3.svg").default,
+  amara: require("../assets/amara.png"),
   building_bkg: require("../assets/building_bkg.svg").default,
 };
 

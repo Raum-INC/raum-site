@@ -32,6 +32,7 @@ const {
   avatar1,
   avatar2,
   avatar3,
+  amara,
 } = Assets;
 
 export const services = [
@@ -339,7 +340,7 @@ export const testimonialsData = [
     test: `Investing with Raum Africa has been a game-changer for me! The returns are consistent, and I love how they handle things.`,
   },
   {
-    img: avatar2,
+    img: amara,
     name: "Amara Uche",
     test: `Raum Africa's transparency is unmatched. The yearly performance reports keep me informed.`,
   },
