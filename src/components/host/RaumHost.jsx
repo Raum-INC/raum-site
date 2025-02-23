@@ -18,14 +18,16 @@ const RaumHost = () => {
         <section className="mx-auto my-10 flex w-full max-w-6xl flex-col gap-10">
           <div className="space-y-5">
             <h1 itemProp="title" className="text-2xl font-semibold md:text-4xl">
-              {invest ? "Why invest in Raum Africa" : "Why become a Raum Host?"}
+              {invest
+                ? "Why Invest in Short-Term Rentals with Raum Africa?"
+                : "Why become a Raum Host?"}
             </h1>
             <p
               itemProp="description"
               className="text-base font-normal md:text-2xl"
             >
               {invest
-                ? `With prime properties, expert management, and a growing demand for short-term rentals, your investment works smarter, not harder. Start building wealth today—one stay at a time!`
+                ? `Africa's booming tourism and short-let industry create one of the most profitable real estate opportunities today. Here’s why you should invest:`
                 : `Whether you want to host for a few days occasionally or want to
               earn money more frequently, with Raum Africa you can fit hosting
               around your schedule.`}

@@ -56,6 +56,14 @@ const How = () => {
                         className="pt-2 text-sm font-normal md:text-base"
                       >
                         {item.subtitle}
+                        {item.link && (
+                          <a
+                            href={item?.link}
+                            className="rounded-full bg-white p-1 px-3 text-[#252525]"
+                          >
+                            Here!
+                          </a>
+                        )}
                       </p>
                     </div>
                   </div>

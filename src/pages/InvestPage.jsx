@@ -8,17 +8,17 @@ import Faqs from "../components/Faqs";
 import Testimonials from "../components/Testimonials";
 
 const InvestPage = () => {
-  const investTitle = `Invest in High-Yield</br>Airbnb Rentals with Just</br>$500!`;
-  const investDescription = `Earn up to 50% annually with Raum Africa's co-hosting investment program. Let us do the heavy lifting while you enjoy stress-free returns`;
+  const investTitle = `Invest in High-Yield</br>Short-Term Rentals</br>with Just $500!`;
+  const investDescription = `Earn up to 50% annually with Africa's fastest-growing Airbnb investment model. We handle everything—you earn passive income hassle-free.`;
   return (
     <main>
       <InvestHelmet />
       <Hero investTitle={investTitle} investDescription={investDescription} />
       <HostHero />
       <How />
-      <CallToAction />
       <Faqs />
       <Testimonials />
+      <CallToAction />
     </main>
   );
 };

@@ -1,11 +1,21 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { faqs } from "./data";
+import { faqs, investFaqs } from "./data";
 import { FaChevronDown, FaChevronUp } from "react-icons/fa";
 import { useLocation } from "react-router-dom";
 
 const Faqs = () => {
   const [icons, setIcons] = useState(true);
+  const [activeFaq, setActiveFaq] = useState(faqs);
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.pathname === "/invest") {
+      setActiveFaq(investFaqs);
+    } else {
+      setActiveFaq(faqs);
+    }
+  }, [activeFaq]);
 
   const handleActive = (index) => {
     if (icons === index) {
@@ -42,8 +52,6 @@ const Faqs = () => {
     },
   };
 
-  const location = useLocation();
-
   return (
     <motion.main
       itemScope
@@ -64,7 +72,7 @@ const Faqs = () => {
         </h3>
       </div>
       <AnimatePresence>
-        {faqs.map((faq, index) => (
+        {activeFaq.map((faq, index) => (
           <motion.div
             key={index}
             variants={faqsVariants}
