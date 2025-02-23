@@ -25,6 +25,14 @@ const {
   assignment,
   file,
   home,
+  invest,
+  hasslefree,
+  clipboard,
+  attach,
+  avatar1,
+  avatar2,
+  avatar3,
+  amara,
 } = Assets;
 
 export const services = [
@@ -155,6 +163,34 @@ export const aboutRaum = [
   },
 ];
 
+export const raumInvest = [
+  {
+    title: `Hands-Off, Hassle-Free Property Management`,
+    subtitle: `Our expert team handles everything; from setup to marketing, pricing, and guest vetting, so you sit back and earn without lifting a finger.`,
+    image: hasslefree,
+  },
+  {
+    title: `Invest in High-Demand Locations`,
+    subtitle: `We strategically acquire and manage properties in top tourist and business hubs across Africa, ensuring high occupancy rates and strong rental yields.`,
+    image: payment,
+  },
+  {
+    title: `Earn Passive Income with Up to 50% Annual Returns`,
+    subtitle: `With our co-hosting/investing model, you receive quarterly payouts while we take care of the daily operations.`,
+    image: wallet,
+  },
+  {
+    title: `100% Transparency & Performance Reports`,
+    subtitle: `Track your investment's performance with detailed quarterly financial reports, giving you full control and confidence.`,
+    image: clipboard,
+  },
+  {
+    title: `A Smarter, Diversified Investment`,
+    subtitle: `Short-term rentals outperform traditional real estate, delivering higher returns with faster liquidity options.`,
+    image: attach,
+  },
+];
+
 export const raumHost = [
   {
     title: `Host and earn at your convenience`,
@@ -223,6 +259,30 @@ export const howToHost = [
   },
 ];
 
+export const howToInvest = [
+  {
+    title: `Step 1:`,
+    subtitle: `Apply to invest: `,
+    link: "https://forms.gle/oMTy5GNUyS7k4Ub76",
+    id: 1,
+  },
+  {
+    title: `Step 2:`,
+    subtitle: `Fund your investment with as little as $500.`,
+    id: 2,
+  },
+  {
+    title: `Step 3:`,
+    subtitle: `We allocate your investment to a high-performing short-let property.`,
+    id: 3,
+  },
+  {
+    title: `Step 4:`,
+    subtitle: `Relax & earn! You receive quarterly profits, with a potential 50% annual return.`,
+    id: 4,
+  },
+];
+
 export const faqs = [
   {
     title: "How do I book a short term rental through the app?",
@@ -252,6 +312,42 @@ export const faqs = [
     title: "What is your refund policy?",
     description: `Refund policies can be found in the details of each listing. Kindly check for specific details of refund policy under each listing. For further assistance kindly click the link below for a swift response.`,
     link: "+2348146072247",
+  },
+];
+export const investFaqs = [
+  {
+    title: `How does Raum Africa's investment model work?`,
+    description: `We acquire and manage short-term rental properties across Africa. Your funds are pooled with other investors to co-own income-generating Airbnbs. We handle everything—you collect passive income.`,
+  },
+  {
+    title: `What's my expected return on investment (ROI)?`,
+    description: `You can earn up to 50% annually, with profits paid out every quarter based on the performance of the rental unit(s) you're invested in.`,
+  },
+  {
+    title: `Can I withdraw or exit my investment`,
+    description: `Yes! We offer flexible exit options. After a minimum lock-in period, you can sell your stake to other investors or liquidate based on our structured buyback program.`,
+  },
+  {
+    title: ` Is my investment safe?`,
+    description: `Yes! Your investment is backed by real-world assets, meaning you're investing in physical properties in prime locations—not speculative assets.`,
+  },
+];
+
+export const testimonialsData = [
+  {
+    img: avatar1,
+    name: "Henry Udu",
+    test: `Investing with Raum Africa has been a game-changer for me! The returns are consistent, and I love how they handle things.`,
+  },
+  {
+    img: amara,
+    name: "Amara Uche",
+    test: `Raum Africa's transparency is unmatched. The yearly performance reports keep me informed.`,
+  },
+  {
+    img: avatar3,
+    name: "Adebolawale Lara",
+    test: `I was hesitant at first, but Raum  made the process so simple and returns have exceeded my expectations.`,
   },
 ];
 

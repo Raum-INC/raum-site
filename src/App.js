@@ -28,6 +28,7 @@ import DashFilter from "./pages/DashFilter";
 import ReserveBooking from "./pages/ReserveBooking";
 import DashResult from "./pages/DashResult";
 import { AnimatePresence } from "framer-motion";
+import InvestPage from "./pages/InvestPage";
 
 function ContentWrapper({ children }) {
   const [isContentAvailable, setIsContentAvailable] = useState(false);
@@ -102,6 +103,7 @@ function App() {
               <Route path="/" element={<Homepage />} />
               <Route path="/host" element={<Host />} />
               <Route path="/blog" element={<Blog />} />
+              <Route path="/invest" element={<InvestPage />} />
               <Route path="/admin-dashboard" element={<AdminDashboard />} />
               <Route path="/admin-dashboard/filter" element={<DashFilter />} />
               <Route

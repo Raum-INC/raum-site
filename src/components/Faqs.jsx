@@ -1,11 +1,21 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { faqs } from "./data";
+import { faqs, investFaqs } from "./data";
 import { FaChevronDown, FaChevronUp } from "react-icons/fa";
 import { useLocation } from "react-router-dom";
 
 const Faqs = () => {
   const [icons, setIcons] = useState(true);
+  const [activeFaq, setActiveFaq] = useState(faqs);
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.pathname === "/invest") {
+      setActiveFaq(investFaqs);
+    } else {
+      setActiveFaq(faqs);
+    }
+  }, [activeFaq]);
 
   const handleActive = (index) => {
     if (icons === index) {
@@ -42,8 +52,6 @@ const Faqs = () => {
     },
   };
 
-  const location = useLocation();
-
   return (
     <motion.main
       itemScope
@@ -56,15 +64,15 @@ const Faqs = () => {
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true }}
-      className="w-full h-auto p-10 flex flex-col gap-5"
+      className="flex h-auto w-full flex-col gap-5 p-10"
     >
-      <div className="flex flex-col justify-center items-center gap-2 my-10">
-        <h3 itemProp="title" className="font-semibold text-xl md:text-4xl">
+      <div className="my-10 flex flex-col items-center justify-center gap-2">
+        <h3 itemProp="title" className="text-xl font-semibold md:text-4xl">
           Frequently Asked Questions
         </h3>
       </div>
       <AnimatePresence>
-        {faqs.map((faq, index) => (
+        {activeFaq.map((faq, index) => (
           <motion.div
             key={index}
             variants={faqsVariants}
@@ -74,40 +82,40 @@ const Faqs = () => {
             onClick={() => handleActive(index)}
             className={
               icons === index
-                ? "w-full md:w-4/5 mx-auto flex flex-row-reverse gap-4 md:gap-10 p-5 md:p-10 border-transparent bg-primary text-white rounded-3xl"
-                : "w-full md:w-4/5 mx-auto flex flex-row-reverse gap-4 md:gap-10 p-5 md:p-10 border-2 border-white  text-white rounded-3xl"
+                ? "mx-auto flex w-full flex-row-reverse gap-4 rounded-3xl border-transparent bg-primary p-5 text-white md:w-4/5 md:gap-10 md:p-10"
+                : "mx-auto flex w-full flex-row-reverse gap-4 rounded-3xl border-2 border-white p-5 text-white md:w-4/5 md:gap-10 md:p-10"
             }
           >
             <motion.div itemProp="icon" className="w-10">
               {icons === index ? (
                 <FaChevronUp
                   size={25}
-                  className="w-full transition-all ease-in-out duration-300"
+                  className="w-full transition-all duration-300 ease-in-out"
                 />
               ) : (
                 <FaChevronDown
                   size={25}
-                  className="w-full transition-all ease-in-out duration-300"
+                  className="w-full transition-all duration-300 ease-in-out"
                 />
               )}
             </motion.div>
-            <div className="w-full flex justify-start items-start flex-col gap-4">
+            <div className="flex w-full flex-col items-start justify-start gap-4">
               <h4
                 itemProp="title"
-                className="font-bold text-xs md:text-lg text-left"
+                className="text-left text-xs font-bold md:text-lg"
               >
                 {faq.title}
               </h4>
               {icons === index ? (
-                <div className="flex flex-col transition-all ease-in-out duration-300">
+                <div className="flex flex-col transition-all duration-300 ease-in-out">
                   <p
                     itemProp="description"
-                    className="font-normal text-left text-[10px] md:text-base leading-[14px]"
+                    className="text-left text-[10px] font-normal leading-[14px] md:text-base"
                   >
                     {faq.description}
                   </p>
                   {faq.list && (
-                    <ul className="list-disc py-2 list-inside font-normal text-left text-[10px] md:text-base leading-[14px]">
+                    <ul className="list-inside list-disc py-2 text-left text-[10px] font-normal leading-[14px] md:text-base">
                       {faq.list.map((item, index) => (
                         <li key={index}>{item}</li>
                       ))}
@@ -116,7 +124,7 @@ const Faqs = () => {
                   {faq.link && (
                     <a
                       href={`tel:${faq.link}`}
-                      className="my-2 p-2 px-5 bg-white rounded-full w-fit text-[#151419] font-bold"
+                      className="my-2 w-fit rounded-full bg-white p-2 px-5 font-bold text-[#151419]"
                     >
                       Call Now
                     </a>

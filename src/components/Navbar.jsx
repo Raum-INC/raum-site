@@ -13,7 +13,11 @@ const Navbar = () => {
   const location = useLocation();
 
   const getLogo = () => {
-    if (location.pathname === "/" || location.pathname === "/host") {
+    if (
+      location.pathname === "/" ||
+      location.pathname === "/host" ||
+      location.pathname === "/invest"
+    ) {
       return Assets.raumLogo2; // Replace with your special logo asset
     } else {
       return Assets.raumLogo; // Default logo for other routes
@@ -73,10 +77,10 @@ const Navbar = () => {
       variants={navbarVariant}
       initial="hidden"
       animate="visible"
-      className="absolute top-0 left-0 right-0"
+      className="absolute left-0 right-0 top-0"
     >
-      <nav className="w-full bg-transparent p-4 px-8 md:p-4 md:px-12 flex justify-between items-center relative z-40">
-        <div className="hidden md:block invisible w-1/3"></div>
+      <nav className="relative z-40 flex w-full items-center justify-between bg-transparent p-4 px-8 md:p-4 md:px-12">
+        <div className="invisible hidden w-1/3 md:block"></div>
         <button className="w-1/3">
           <Link
             to="/"
@@ -88,20 +92,20 @@ const Navbar = () => {
             <img
               src={getLogo()}
               alt="Logo"
-              className="w-[70px] md:w-[150px] md:mx-auto"
+              className="w-[70px] md:mx-auto md:w-[150px]"
             />
           </Link>
         </button>
         <motion.div
           animate={{ type: "spring", stiffness: 500 }}
-          className="py-4 pl-4 w-auto md:w-1/3 flex justify-end items-center gap-5 overflow-hidden"
+          className="flex w-auto items-center justify-end gap-5 overflow-hidden py-4 pl-4 md:w-1/3"
         >
           <div
             onClick={() => {
               toggleNav();
               toggleFalse();
             }}
-            className="w-[30px] h-[30px] flex justify-end items-center"
+            className="flex h-[30px] w-[30px] items-center justify-end"
           >
             {nav === false && (
               <AnimatePresence>
@@ -113,7 +117,9 @@ const Navbar = () => {
                 >
                   <AiOutlineMenu
                     className={`${
-                      location.pathname === "/" || location.pathname === "/host"
+                      location.pathname === "/" ||
+                      location.pathname === "/host" ||
+                      location.pathname === "/invest"
                         ? "text-black"
                         : "text-white"
                     }`}
@@ -153,7 +159,7 @@ const Navbar = () => {
               exit="initial"
               className={
                 nav
-                  ? "bg-black w-11/12 font-normal  mx-auto rounded-3xl p-8 flex flex-col lg:flex-row justify-center items-center gap-3 absolute top-[80px] left-0 right-0"
+                  ? "absolute left-0 right-0 top-[80px] mx-auto flex w-11/12 flex-col items-center justify-center gap-3 rounded-3xl bg-black p-8 font-normal lg:flex-row"
                   : "hidden"
               }
             >
@@ -180,7 +186,7 @@ const Navbar = () => {
                 </Link>
               </li> */}
 
-              <li className="p-2 hover:text-primary hover:scale-105 hover:-translate-y-1 transition-all duration-300 ease-in-out">
+              <li className="p-2 transition-all duration-300 ease-in-out hover:-translate-y-1 hover:scale-105 hover:text-primary">
                 <Link
                   onClick={() => {
                     toggleNav();
@@ -192,7 +198,31 @@ const Navbar = () => {
                   Host App
                 </Link>
               </li>
-              <li className="p-2 hover:text-primary hover:scale-105 hover:-translate-y-1 transition-all duration-300 ease-in-out">
+              <li className="p-2 transition-all duration-300 ease-in-out hover:-translate-y-1 hover:scale-105 hover:text-primary">
+                <Link
+                  onClick={() => {
+                    toggleNav();
+                    toggleFalse();
+                  }}
+                  to="/invest"
+                  className="p-3"
+                >
+                  Invest
+                </Link>
+              </li>
+              <li className="p-2 transition-all duration-300 ease-in-out hover:-translate-y-1 hover:scale-105 hover:text-primary">
+                <Link
+                  onClick={() => {
+                    toggleNav();
+                    toggleFalse();
+                  }}
+                  to="/blog"
+                  className="p-3"
+                >
+                  Blog
+                </Link>
+              </li>
+              <li className="p-2 transition-all duration-300 ease-in-out hover:-translate-y-1 hover:scale-105 hover:text-primary">
                 <Link
                   onClick={() => {
                     toggleNav();
@@ -204,7 +234,7 @@ const Navbar = () => {
                   About Us
                 </Link>
               </li>
-              <li className="p-2 hover:text-primary hover:scale-105 hover:-translate-y-1 transition-all duration-300 ease-in-out">
+              <li className="p-2 transition-all duration-300 ease-in-out hover:-translate-y-1 hover:scale-105 hover:text-primary">
                 <Link
                   onClick={() => {
                     toggleNav();
@@ -217,7 +247,7 @@ const Navbar = () => {
                 </Link>
               </li>
 
-              <li className="p-2 hover:text-primary hover:scale-105 hover:-translate-y-1 transition-all duration-300 ease-in-out">
+              <li className="p-2 transition-all duration-300 ease-in-out hover:-translate-y-1 hover:scale-105 hover:text-primary">
                 <Link
                   onClick={() => {
                     toggleNav();
@@ -229,7 +259,7 @@ const Navbar = () => {
                   Our Terms
                 </Link>
               </li>
-              <li className="p-2 hover:text-primary hover:scale-105 hover:-translate-y-1 transition-all duration-300 ease-in-out">
+              <li className="p-2 transition-all duration-300 ease-in-out hover:-translate-y-1 hover:scale-105 hover:text-primary">
                 <Link
                   onClick={() => {
                     toggleNav();
@@ -241,7 +271,7 @@ const Navbar = () => {
                   Privacy Policy
                 </Link>
               </li>
-              <li className="p-2 hover:text-primary hover:scale-105 hover:-translate-y-1 transition-all duration-300 ease-in-out">
+              <li className="p-2 transition-all duration-300 ease-in-out hover:-translate-y-1 hover:scale-105 hover:text-primary">
                 <Link
                   onClick={() => {
                     toggleNav();
@@ -259,7 +289,7 @@ const Navbar = () => {
                   falseNav();
                 }}
               >
-                <li className="p-3 px-10 bg-primary border-none text-white font-medium rounded-full w-full text-center">
+                <li className="w-full rounded-full border-none bg-primary p-3 px-10 text-center font-medium text-white">
                   Earn More
                 </li>
               </button>

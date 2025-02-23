@@ -106,11 +106,11 @@ const BlogList = () => {
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true }}
-      className="w-full h-auto bg-[#F8F8F8] overflow-hidden"
+      className="h-auto w-full overflow-hidden bg-[#F8F8F8]"
     >
       <section className="p-4 lg:p-12">
-        <div className="w-full flex flex-col lg:flex-row lg:justify-between lg:items-center gap-5">
-          <h1 className="text-primary_text font-bold text-lg lg:text-4xl">
+        <div className="flex w-full flex-col gap-5 lg:flex-row lg:items-center lg:justify-between">
+          <h1 className="text-lg font-bold text-primary_text lg:text-4xl">
             Latest posts
           </h1>
           <div className="flex gap-2 lg:gap-5">
@@ -118,8 +118,8 @@ const BlogList = () => {
               onClick={() => handleFilter("All")}
               className={
                 activeFilter === "All"
-                  ? "bg-primary_text text-white p-2 px-4 lg:p-4 lg:px-8 border border-secondary rounded-full transition-all duration-500 ease-in-out"
-                  : "bg-white text-primary_text p-2 px-4 lg:p-4 lg:px-8 border border-secondary rounded-full hover:bg-primary_text hover:text-white transition-all duration-500 ease-in-out"
+                  ? "rounded-full border border-secondary bg-primary_text p-2 px-4 text-white transition-all duration-500 ease-in-out lg:p-4 lg:px-8"
+                  : "rounded-full border border-secondary bg-white p-2 px-4 text-primary_text transition-all duration-500 ease-in-out hover:bg-primary_text hover:text-white lg:p-4 lg:px-8"
               }
             >
               All
@@ -128,8 +128,8 @@ const BlogList = () => {
               onClick={() => handleFilter("Article")}
               className={
                 activeFilter === "Article"
-                  ? "bg-primary_text text-white p-2 px-4 lg:p-4 lg:px-8 border border-secondary rounded-full transition-all duration-500 ease-in-out"
-                  : "bg-white text-primary_text p-2 px-4 lg:p-4 lg:px-8 border border-secondary rounded-full hover:bg-primary_text hover:text-white transition-all duration-500 ease-in-out"
+                  ? "rounded-full border border-secondary bg-primary_text p-2 px-4 text-white transition-all duration-500 ease-in-out lg:p-4 lg:px-8"
+                  : "rounded-full border border-secondary bg-white p-2 px-4 text-primary_text transition-all duration-500 ease-in-out hover:bg-primary_text hover:text-white lg:p-4 lg:px-8"
               }
             >
               Articles
@@ -138,8 +138,8 @@ const BlogList = () => {
               onClick={() => handleFilter("Resource")}
               className={
                 activeFilter === "Resource"
-                  ? "bg-primary_text text-white p-2 px-4 lg:p-4 lg:px-8 border border-secondary rounded-full transition-all duration-500 ease-in-out"
-                  : "bg-white text-primary_text p-2 px-4 lg:p-4 lg:px-8 border border-secondary rounded-full hover:bg-primary_text hover:text-white transition-all duration-500 ease-in-out"
+                  ? "rounded-full border border-secondary bg-primary_text p-2 px-4 text-white transition-all duration-500 ease-in-out lg:p-4 lg:px-8"
+                  : "rounded-full border border-secondary bg-white p-2 px-4 text-primary_text transition-all duration-500 ease-in-out hover:bg-primary_text hover:text-white lg:p-4 lg:px-8"
               }
             >
               Resources
@@ -148,7 +148,7 @@ const BlogList = () => {
         </div>
       </section>
       <AnimatePresence>
-        <section className="w-full grid lg:grid-cols-2 gap-8 p-4 lg:px-10 text-black">
+        <section className="grid w-full gap-8 p-4 text-black lg:grid-cols-2 lg:px-10">
           {paginatedData.map((blog) => (
             <Link to={`/blog/${blog.slug}`} key={blog.slug}>
               <motion.div
@@ -156,29 +156,29 @@ const BlogList = () => {
                 initial="initial"
                 whileInView="animate"
                 viewport={{ once: true }}
-                className="w-full h-full flex flex-col justify-center bg-white text-black rounded-[30px] hover:scale-105 transition-all duration-300 ease-in-out shadow-xl"
+                className="flex h-full w-full flex-col justify-center rounded-[30px] bg-white text-black shadow-xl transition-all duration-300 ease-in-out hover:scale-105"
               >
                 <img
                   src={blog.image}
                   alt={blog.alt}
-                  className="w-full h-[360px] rounded-t-3xl object-cover"
+                  className="h-[360px] w-full rounded-t-3xl object-cover"
                 />
-                <div className="w-full h-full p-4 lg:p-8 space-y-5 ">
-                  <p className="flex items-center gap-5 text-secondary font-normal text-base">
+                <div className="h-full w-full space-y-5 p-4 lg:p-8">
+                  <p className="flex items-center gap-5 text-base font-normal text-secondary">
                     {blog.category}
-                    <span className="w-7 h-[1px] bg-[#A3A3A3]"></span>
+                    <span className="h-[1px] w-7 bg-[#A3A3A3]"></span>
                     {blog.date}
                   </p>
-                  <h2 className="font-bold text-lg lg:text-2xl text-primary_text">
+                  <h2 className="text-lg font-bold text-primary_text lg:text-2xl">
                     {blog.title}
                   </h2>
-                  <div className="flex justify-start items-center gap-5">
+                  <div className="flex items-center justify-start gap-5">
                     <img
                       src={blog.authorImage}
                       alt={blog.author}
-                      className="w-10 h-10 rounded-full"
+                      className="h-10 w-10 rounded-full"
                     />
-                    <p className="text-secondary font-medium text-lg">
+                    <p className="text-lg font-medium text-secondary">
                       {blog?.author}
                     </p>
                   </div>
@@ -189,13 +189,13 @@ const BlogList = () => {
         </section>
       </AnimatePresence>
 
-      <div className="flex justify-center gap-5 my-10">
+      <div className="my-10 flex justify-center gap-5">
         <button
           onClick={() => {
             handlePrevPage();
           }}
           disabled={currentPage === 1}
-          className="bg-white text-primary_text p-2 px-4 lg:p-4 lg:px-8 border border-secondary rounded-full cursor-pointer hover:bg-primary_text hover:text-white transition-all duration-500 ease-in-out"
+          className="cursor-pointer rounded-full border border-secondary bg-white p-2 px-4 text-primary_text transition-all duration-500 ease-in-out hover:bg-primary_text hover:text-white lg:p-4 lg:px-8"
         >
           Previous Page
         </button>
@@ -204,7 +204,7 @@ const BlogList = () => {
             handleNextPage();
           }}
           disabled={paginatedData.length < itemsPerPage}
-          className="bg-white text-primary_text p-2 px-4 lg:p-4 lg:px-8 border border-secondary rounded-full cursor-pointer hover:bg-primary_text hover:text-white transition-all duration-500 ease-in-out"
+          className="cursor-pointer rounded-full border border-secondary bg-white p-2 px-4 text-primary_text transition-all duration-500 ease-in-out hover:bg-primary_text hover:text-white lg:p-4 lg:px-8"
         >
           Next Page
         </button>

@@ -58,6 +58,16 @@ export const Assets = {
   circletick: require("../assets/circle_tick.svg").default,
   appleicon: require("../assets/appleicon.svg").default,
   playstoreicon: require("../assets/playstoreicon.svg").default,
+  invest: require("../assets/invest.svg").default,
+  hasslefree: require("../assets/hasslefree.svg").default,
+  clipboard: require("../assets/clipboard.svg").default,
+  attach: require("../assets/attach.svg").default,
+  invest_image: require("../assets/invest-image.svg").default,
+  avatar1: require("../assets/avatar1.svg").default,
+  avatar2: require("../assets/avatar2.svg").default,
+  avatar3: require("../assets/avatar3.svg").default,
+  amara: require("../assets/amara.png"),
+  building_bkg: require("../assets/building_bkg.svg").default,
 };
 
 export const AboutUs = {
