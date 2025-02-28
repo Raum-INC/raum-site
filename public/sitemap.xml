@@ -2,34 +2,50 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://raum.africa/</loc>
-    <lastmod>2024-03-22</lastmod>
+    <lastmod>2025-02-20</lastmod>
   </url>
   <url>
     <loc>https://raum.africa/host</loc>
-    <lastmod>2024-03-22</lastmod>
+    <lastmod>2025-02-20</lastmod>
+  </url>
+  <url>
+    <loc>https://raum.africa/invest</loc>
+    <lastmod>2025-02-20</lastmod>
+  </url>
+  <url>
+    <loc>https://raum.africa/admin-dashboard</loc>
+    <lastmod>2025-02-20</lastmod>
+  </url>
+  <url>
+    <loc>https://raum.africa/admin-dashboard/filter</loc>
+    <lastmod>2025-02-20</lastmod>
+  </url>
+  <url>
+    <loc>https://raum.africa/admin-dashboard/filter/result</loc>
+    <lastmod>2025-02-20</lastmod>
   </url>
   <url>
     <loc>https://raum.africa/about</loc>
-    <lastmod>2024-03-22</lastmod>
+    <lastmod>2025-02-20</lastmod>
   </url>
   <url>
     <loc>https://raum.africa/contact</loc>
-    <lastmod>2024-03-22</lastmod>
+    <lastmod>2025-02-20</lastmod>
   </url>
   <url>
     <loc>https://raum.africa/blog</loc>
-    <lastmod>2024-03-22</lastmod>
+    <lastmod>2025-02-20</lastmod>
   </url>
   <url>
     <loc>https://raum.africa/terms-and-conditions</loc>
-    <lastmod>2024-03-22</lastmod>
+    <lastmod>2025-02-20</lastmod>
   </url>
   <url>
     <loc>https://raum.africa/privacy-policy</loc>
-    <lastmod>2024-03-22</lastmod>
+    <lastmod>2025-02-20</lastmod>
   </url>
   <url>
     <loc>https://raum.africa/default-cancellation-policy</loc>
-    <lastmod>2024-03-22</lastmod>
+    <lastmod>2025-02-20</lastmod>
   </url>
 </urlset>
