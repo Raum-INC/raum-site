@@ -6,6 +6,7 @@ import How from "../components/host/How";
 import CallToAction from "../components/home/CallToAction";
 import Faqs from "../components/Faqs";
 import Testimonials from "../components/Testimonials";
+import Nairobi from "../components/Nairobi";
 
 const InvestPage = () => {
   const investTitle = `Invest in High-Yield</br>Short-Term Rentals</br>with Just $500!`;
@@ -16,6 +17,7 @@ const InvestPage = () => {
       <Hero investTitle={investTitle} investDescription={investDescription} />
       <HostHero />
       <How />
+      <Nairobi />
       <Faqs />
       <Testimonials />
       <CallToAction />

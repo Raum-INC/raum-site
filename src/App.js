@@ -17,7 +17,6 @@ import Blog from "./pages/Blog";
 import BlogDetails from "./pages/BlogDetails";
 import Host from "./pages/Host";
 import ContentBlock from "./pages/ContentBlock";
-import Hidden from "./pages/Hidden";
 import Navigation from "./components/Navigation";
 import ListingDetails from "./pages/ListingDetails";
 import NotFound from "./pages/NotFound";
@@ -29,6 +28,7 @@ import ReserveBooking from "./pages/ReserveBooking";
 import DashResult from "./pages/DashResult";
 import { AnimatePresence } from "framer-motion";
 import InvestPage from "./pages/InvestPage";
+// import StudioRoute from "./pages/StudioRoute";
 
 function ContentWrapper({ children }) {
   const [isContentAvailable, setIsContentAvailable] = useState(false);
@@ -54,7 +54,7 @@ function ContentWrapper({ children }) {
           navigate("/not-found");
         }
       } catch (error) {
-        navigate("/not-found");
+        console.log(error);
       }
     };
 
@@ -103,6 +103,7 @@ function App() {
               <Route path="/" element={<Homepage />} />
               <Route path="/host" element={<Host />} />
               <Route path="/blog" element={<Blog />} />
+              {/* <Route path="/raum-cms" element={<StudioRoute />} /> */}
               <Route path="/invest" element={<InvestPage />} />
               <Route path="/admin-dashboard" element={<AdminDashboard />} />
               <Route path="/admin-dashboard/filter" element={<DashFilter />} />
@@ -121,7 +122,6 @@ function App() {
               />
               <Route path="/about" element={<About />} />
               <Route path="/contact" element={<Contact />} />
-              <Route path="/hidden" element={<Hidden />} />
               <Route
                 path="/:id"
                 element={

@@ -1,23 +1,23 @@
 /* embla.css */
 .embla {
-  width: 100%;
+  /* width: 100%; */
   margin: auto;
   --slide-height: 19rem;
   --slide-spacing: 1rem;
 }
 .embla__viewport {
   overflow: hidden;
-  width: 100%;
+  /* width: 100%; */
 }
 .embla__container {
   backface-visibility: hidden;
   display: flex;
   touch-action: pan-y pinch-zoom;
   margin-left: calc(var(--slide-spacing) * -1);
-  width: 100%;
+  /* width: 100%; */
 }
 .embla__slide {
-  flex: 0 0 70%;
+  /* flex: 0 0 100%; */
   min-width: 0;
   padding-left: var(--slide-spacing);
 }
