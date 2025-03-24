@@ -5,6 +5,7 @@ import { client } from "../lib/sanity";
 
 const Nairobi = () => {
   const [data, setData] = useState([]);
+  const [selectedIndex, setSelectedIndex] = useState(0);
 
   useEffect(() => {
     const getData = async () => {
