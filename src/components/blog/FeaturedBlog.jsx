@@ -79,40 +79,40 @@ const FeaturedBlog = () => {
     <main
       itemScope
       itemType="https://raum.africa/blog"
-      className="w-full h-auto flex flex-col lg:flex-row items-center justify-between lg:justify-between gap-10 mb-10 lg:mb-0 overflow-hidden"
+      className="mb-10 flex h-auto w-full flex-col items-center justify-between gap-10 overflow-hidden lg:mb-0 lg:flex-row lg:justify-between"
     >
       <Link
         to={`/blog/${feature[0]?.slug}`}
         key={feature[0]?.slug}
-        className="lg:w-[600px] lg:h-[650px] hover:scale-105 transition-all duration-300 ease-in-out"
+        className="transition-all duration-300 ease-in-out hover:scale-105 lg:h-[650px] lg:w-[600px]"
       >
-        <section className="w-full h-full flex flex-col bg-white text-black rounded-[30px]">
-          <div className="w-full h-[360px]">
+        <section className="flex h-full w-full flex-col rounded-[30px] bg-white text-black">
+          <div className="h-[360px] w-full">
             <img
               itemProp="image"
               src={feature[0]?.image}
               alt={feature[0]?.alt}
-              className="w-full h-full rounded-t-3xl object-cover"
+              className="h-full w-full rounded-t-3xl object-cover"
             />
           </div>
-          <div className="w-full h-full p-4 lg:p-8 space-y-5 ">
+          <div className="h-full w-full space-y-5 p-4 lg:p-8">
             <p
               itemProp="blogCategory"
-              className="flex items-center gap-5 text-secondary font-normal text-base"
+              className="flex items-center gap-5 text-base font-normal text-secondary"
             >
               {feature[0]?.category}
-              <span itemProp="date" className="w-7 h-[1px] bg-[#A3A3A3]"></span>
+              <span itemProp="date" className="h-[1px] w-7 bg-[#A3A3A3]"></span>
               {feature[0]?.date}
             </p>
             <h2
               itemProp="title"
-              className="font-bold text-lg lg:text-2xl text-primary_text"
+              className="text-lg font-bold text-primary_text lg:text-2xl"
             >
               {feature[0]?.title}
             </h2>
             <p
               itemProp="description"
-              className="text-secondary font-medium text-lg"
+              className="text-lg font-medium text-secondary"
             >
               {feature[0]?.description}
             </p>
@@ -123,37 +123,37 @@ const FeaturedBlog = () => {
         variants={featuredVariants}
         initial="hidden"
         animate="visible"
-        className="w-full h-full lg:w-1/2 flex flex-col justify-center items-center gap-10 lg:gap-2"
+        className="flex h-full w-full flex-col items-center justify-center gap-10 lg:w-1/2 lg:gap-2"
       >
         {slicedPosts.map((item) => (
           <Link
             to={`/blog/${item.slug}`}
             key={item.slug}
-            className="w-full lg:w-[650px] lg:h-[300px] flex flex-col lg:flex-row gap-10 justify-between items-center hover:scale-105 transition-all duration-300 ease-in-out"
+            className="flex w-full flex-col items-center justify-between gap-10 transition-all duration-300 ease-in-out hover:scale-105 lg:h-[300px] lg:w-[650px] lg:flex-row"
           >
-            <div className="w-full lg:w-1/2 h-full flex justify-center items-center">
+            <div className="flex h-full w-full items-center justify-center lg:w-1/2">
               <img
                 itemProp="image"
                 src={item.image}
                 alt={item.title}
-                className="w-full h-[300px] object-cover lg:w-[300px] lg:h-[250px] rounded-3xl"
+                className="h-[300px] w-full rounded-3xl object-cover lg:h-[250px] lg:w-[300px]"
               />
             </div>
             <div className="w-full lg:w-1/2">
               <p
                 itemProp="blogCategory"
-                className="flex items-center gap-5 font-normal text-base lg:text-lg text-secondary"
+                className="flex items-center gap-5 text-base font-normal text-secondary lg:text-lg"
               >
                 {item.category}
                 <span
                   itemProp="date"
-                  className="w-7 h-[1px] bg-[#A3A3A3]"
+                  className="h-[1px] w-7 bg-[#A3A3A3]"
                 ></span>
                 {item.date}
               </p>
               <h2
                 itemProp="title"
-                className="font-bold text-lg lg:text-2xl text-[#C7C7C7]"
+                className="text-lg font-bold text-[#C7C7C7] lg:text-2xl"
               >
                 {item.title}
               </h2>

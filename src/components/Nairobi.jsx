@@ -1,13 +1,10 @@
 import React, { useCallback, useEffect, useState } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import "../embla.css"; // Ensure you include the CSS for Embla
-import { use } from "react";
 import { client } from "../lib/sanity";
-import { Link } from "react-router-dom";
 
 const Nairobi = () => {
   const [data, setData] = useState([]);
-  const [selectedIndex, setSelectedIndex] = useState(0);
 
   useEffect(() => {
     const getData = async () => {
