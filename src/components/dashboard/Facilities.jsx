@@ -3,7 +3,7 @@ import { PiTelevisionSimpleLight } from "react-icons/pi";
 import { CgGym } from "react-icons/cg";
 import { GoShieldLock } from "react-icons/go";
 import { MdPool } from "react-icons/md";
-import { LuParkingSquare } from "react-icons/lu";
+import { LuSquareParking } from "react-icons/lu";
 import { MdOutlineOutdoorGrill } from "react-icons/md";
 import { IoIosWifi } from "react-icons/io";
 import { TbDeviceComputerCamera } from "react-icons/tb";
@@ -47,7 +47,7 @@ const Facilities = ({ metadata }) => {
     {
       key: "parking",
       label: "Parking",
-      icon: <LuParkingSquare size={20} className="text-white" />,
+      icon: <LuSquareParking size={20} className="text-white" />,
     },
     {
       key: "bbq-grill",
@@ -72,20 +72,20 @@ const Facilities = ({ metadata }) => {
   ];
 
   return (
-    <div className="w-full grid grid-cols-2 lg:grid-cols-3 justify-start items-start gap-2">
+    <div className="grid w-full grid-cols-2 items-start justify-start gap-2 lg:grid-cols-3">
       {facilitiesList.map(
         (facility) =>
           metadata.facilities[facility.key] && (
             <div
               key={facility.key}
-              className="p-3 whitespace-nowrap border border-white/60 rounded-md font-medium flex justify-start md:justify-center items-center gap-5"
+              className="flex items-center justify-start gap-5 whitespace-nowrap rounded-md border border-white/60 p-3 font-medium md:justify-center"
             >
               <p>{facility.icon}</p>
               <p className="text-xs md:text-base">
                 {facility.key === "gym" ? "Gym" : `${facility.label}`}
               </p>
             </div>
-          )
+          ),
       )}
     </div>
   );
