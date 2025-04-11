@@ -2,8 +2,6 @@ import axios from "axios";
 import Paystack from "@paystack/inline-js";
 
 const BASE_URL = "https://staging-cp.raum.africa/";
-const PAYSTACK_SECRET_KEY =
-  "Bearer pk_test_2827a38e3fad06d96245a33aa94f749de05f60ce";
 
 /**
  * Fetch property availability based on date.
@@ -107,7 +105,6 @@ export async function fetchBookingDetails(bookingId) {
       "Error fetching booking details:",
       e.response?.data?.message || e.message,
     );
-    console.error("Error URL:", e.response?.config?.url);
     return null;
   }
 }
@@ -154,23 +151,29 @@ async function getPaymentSession(bookingId, variantId, email, discountCode) {
 
     const paystackPopup = new Paystack();
 
-    paystackPopup.resumeTransaction(accessCode, {
-      onSuccess: async (data) => {
-        console.log("Payment successful! ", data);
-        const completedSuccessfully = await completeCartAfterPayment(cartId);
-        console.log(`Completed payment successfully: ${completedSuccessfully}`);
-      },
-      onError: (data) => {
-        console.error("Payment failed: ", data);
-      },
-      onCancel: (data) => {
-        console.log("Payment cancelled. ", data);
-      },
+    return new Promise((resolve) => {
+      paystackPopup.resumeTransaction(accessCode, {
+        onSuccess: async (data) => {
+          console.log("Payment successful!", data);
+          const completedSuccessfully = await completeCartAfterPayment(cartId);
+          console.log(
+            `Completed payment successfully: ${completedSuccessfully}`,
+          );
+          resolve({ cartId, paymentCompleted: completedSuccessfully });
+        },
+        onError: (data) => {
+          console.error("Payment failed:", data);
+          resolve({ cartId, paymentCompleted: false });
+        },
+        onCancel: (data) => {
+          console.log("Payment cancelled.", data);
+          resolve({ cartId, paymentCompleted: false });
+        },
+      });
     });
-
-    return { cartId };
   } catch (error) {
     console.error("Error in getPaymentSession:", error.message);
+    return { cartId: null, paymentCompleted: false };
   }
 }
 
@@ -203,7 +206,7 @@ export async function exec(
 
     if (!response || !response.booking) {
       console.error("Error: Booking could not be created.");
-      return;
+      return { bookingDetails: null, success: false };
     }
 
     bookingId = response.booking.id;
@@ -221,33 +224,33 @@ export async function exec(
 
   if (!contactResponse) {
     console.error("Error: Failed to provide contact information.");
-    return;
+    return { bookingDetails: null, success: false };
   }
 
   // Step 3: Initialize the payment session
-  const { cartId } = await getPaymentSession(
+  const { cartId, paymentCompleted } = await getPaymentSession(
     bookingId,
     variantId,
     email,
     discountCode,
   );
 
-  if (!cartId) {
-    console.error("Error: Failed to retrieve cart ID.");
-    return;
+  if (!cartId || !paymentCompleted) {
+    console.error("Error: Payment was not successful.");
+    return { bookingDetails: null, success: false };
   }
 
   console.log("Cart ID from Payment Session:", cartId);
 
-  // Step 5: Fetch booking details after successful payment
+  // Step 4: Fetch booking details only after successful payment
   const bookingDetails = await fetchBookingDetails(bookingId);
   if (bookingDetails) {
     console.log("Booking Details after Payment:", bookingDetails);
+    return { bookingDetails, success: true };
   } else {
     console.error("Error: Failed to fetch booking details.");
+    return { bookingDetails: null, success: false };
   }
-
-  return bookingDetails;
 }
 
 /**
@@ -256,6 +259,5 @@ export async function exec(
 export async function exec2(cartId) {
   const completedSuccessfully = await completeCartAfterPayment(cartId);
   console.log(`Completed payment successfully: ${completedSuccessfully}`);
-
   return completedSuccessfully;
 }

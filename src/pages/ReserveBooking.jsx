@@ -5,8 +5,15 @@ import { FaCircleCheck } from "react-icons/fa6";
 import { TiMinus, TiPlus } from "react-icons/ti";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import { exec, exec2, reservePropeerty } from "../lib/sandbox2";
+import {
+  exec,
+  exec2,
+  getPropertyAvailability,
+  reservePropeerty,
+} from "../lib/sandbox2";
 import { BiTrash } from "react-icons/bi";
+import { Link } from "react-router-dom";
+import BookingInfo from "../components/listings/BookingInfo";
 
 const ReserveBooking = () => {
   const { productId } = useParams();
@@ -17,6 +24,7 @@ const ReserveBooking = () => {
   const [nights, setNights] = useState(1); // Number of nights
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
+  const [unavailableDates, setUnavailableDates] = useState([]);
   const [guestCount, setGuestCount] = useState(1);
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
@@ -26,10 +34,11 @@ const ReserveBooking = () => {
   const [emailError, setEmailError] = useState(false);
   const [formErrors, setFormErrors] = useState({});
   const [loading, setLoading] = useState(false);
+  const [paymentSuccess, setPaymentSuccess] = useState(false);
   const [bookingDetails, setBookingDetails] = useState({});
   const [cartId, setCartId] = useState(null);
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const validateEmail = (email) => {
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
@@ -55,7 +64,7 @@ const ReserveBooking = () => {
   useEffect(() => {
     axios
       .get(
-        `https://cp.raum.africa/store/products/${productId}?currency_code=ngn`,
+        `https://staging-cp.raum.africa/store/products/${productId}?currency_code=ngn`,
       )
       .then((response) => {
         const fetchedProduct = response.data.product;
@@ -83,6 +92,40 @@ const ReserveBooking = () => {
     const newTotalPrice = nightsTotal + cautionFee;
     setTotalPrice(newTotalPrice);
   };
+
+  useEffect(() => {
+    if (productId) {
+      const fetchUnavailableDates = async () => {
+        try {
+          const data = await getPropertyAvailability(productId, startDate);
+          console.log("Fetched bookings:", data);
+
+          if (Array.isArray(data)) {
+            const allUnavailableDates = data.flatMap((booking) => {
+              const start = new Date(booking.bookingStartDate);
+              const end = new Date(booking.bookingEndDate);
+              const dates = [];
+
+              // Get every date from start to end (inclusive)
+              let currentDate = new Date(start);
+              while (currentDate <= end) {
+                dates.push(new Date(currentDate));
+                currentDate.setDate(currentDate.getDate() + 1);
+              }
+
+              return dates;
+            });
+
+            setUnavailableDates(allUnavailableDates);
+          }
+        } catch (error) {
+          console.error("Error fetching unavailable dates:", error);
+        }
+      };
+
+      fetchUnavailableDates();
+    }
+  }, [productId]);
 
   useEffect(() => {
     if (product) {
@@ -122,7 +165,8 @@ const ReserveBooking = () => {
     setFormErrors({});
 
     try {
-      const result = await exec(
+      setPaymentSuccess(false); // Reset payment success state
+      const { bookingDetails, success } = await exec(
         null,
         productId,
         variantId,
@@ -133,16 +177,17 @@ const ReserveBooking = () => {
         email,
         phone,
         discountCode,
-        // totalPrice,
       );
 
-      if (result) {
-        setBookingDetails(result);
-        setCartId(result.cartId);
-        // await reservePropeerty(productId, startDate, endDate, guestCount);
+      if (success) {
+        // Only set booking details here, after payment is completed and details are fetched
+        setBookingDetails(bookingDetails);
+        setPaymentSuccess(true); // Set payment success state
+      } else {
+        console.error("Booking flow failed or was cancelled.");
       }
     } catch (error) {
-      console.error("Error in payment process:", error);
+      console.error("Error during payment process:", error);
     } finally {
       setLoading(false);
     }
@@ -156,64 +201,23 @@ const ReserveBooking = () => {
 
   return (
     <main className="min-h-screen w-full p-6 lg:p-9">
-      {Object.keys(bookingDetails).length > 0 ? (
-        // Booking Information Section
-        <div className="flex flex-col items-center justify-center gap-5 rounded bg-gray-100 p-6 text-black">
-          <h2 className="text-2xl font-bold text-primary">Booking Details</h2>
-          <p>
-            <strong>Booking ID:</strong> {bookingDetails.bookingId || "N/A"}
-          </p>
-          <p>
-            <strong>Customer Name:</strong> {name}
-          </p>
-          <p>
-            <strong>Email:</strong> {email}
-          </p>
-          <p>
-            <strong>Phone:</strong> {phone}
-          </p>
-          <p>
-            <strong>Check-in Date:</strong> {startDate.toLocaleDateString()}
-          </p>
-          <p>
-            <strong>Check-out Date:</strong> {endDate.toLocaleDateString()}
-          </p>
-          <p>
-            <strong>Guests:</strong> {guestCount}
-          </p>
-          <p>
-            <strong>Total Price:</strong> N{totalPrice.toLocaleString("en-NG")}
-          </p>
-          <button
-            onClick={() => {
-              setBookingDetails({}); // Reset to allow another booking
-            }}
-            className="mt-5 rounded bg-primary px-5 py-3 text-white"
-          >
-            Make Another Booking
-          </button>
-        </div>
-      ) : (
+      {bookingDetails && paymentSuccess ? (
+        // ✅ Show Booking Information Only After Payment Success
         <>
-          {/* <div className="flex w-full">
-            <div className="invisible hidden h-auto w-1/3 lg:block"></div>
-            <div className="mb-8 flex h-auto w-full items-center justify-center gap-3 rounded bg-white/10 p-5 lg:w-2/3 lg:gap-10 lg:bg-transparent">
-              <p className="text-primary">Details</p>
-              <div className="flex items-center justify-center gap-2 text-fade">
-                <span className="h-[0.5px] w-2 bg-fade lg:w-8"></span>
-                <FaCircleCheck />
-                <span className="h-[0.5px] w-2 bg-fade lg:w-8"></span>
-              </div>
-              <p className="text-fade">Payment</p>
-              <div className="flex items-center justify-center gap-2 text-fade">
-                <span className="h-[0.5px] w-2 bg-fade lg:w-8"></span>
-                <FaCircleCheck />
-                <span className="h-[0.5px] w-2 bg-fade lg:w-8"></span>
-              </div>
-              <p className="text-fade">Receipt</p>
-            </div>
-          </div> */}
-
+          <BookingInfo
+            bookingDetails={bookingDetails}
+            setPaymentSuccess={setPaymentSuccess}
+            setBookingDetails={setBookingDetails}
+            setCartId={setCartId}
+            startDate={startDate}
+            endDate={endDate}
+            guestCount={guestCount}
+            totalPrice={totalPrice}
+          />
+        </>
+      ) : (
+        // ✅ Render Booking Form before payment
+        <>
           <form
             // action={(e) => e.preventDefault()}
             className="flex h-full w-full flex-col gap-10 lg:flex-row lg:gap-0"
@@ -222,33 +226,40 @@ const ReserveBooking = () => {
               <>
                 <section className="h-full w-full lg:w-1/3">
                   <h1 className="text-xl font-medium">Booking Summary</h1>
-                  <div className="flex w-full items-center gap-2 lg:pt-5  border lg:border-0 rounded pr-2">
+                  <div className="flex w-full items-center gap-2 rounded border pr-2 lg:border-0 lg:pt-5">
                     <img
                       src={product.thumbnail}
                       alt={product.title}
-                      className="h-[120px] object-cover lg:h-16 w-[120px] lg:w-16 rounded-l lg:rounded"
+                      className="h-[120px] w-[120px] rounded-l object-cover lg:h-16 lg:w-16 lg:rounded"
                     />
                     <div className="flex w-full flex-col gap-8 lg:flex-row lg:justify-between">
                       <div className="flex flex-col lg:gap-2">
-                        <p className="text-sm lg:text-base font-medium">{product.title}</p>
-                        <p className="lg:text-sm text-xs font-normal underline">
-                           {product.generalAddressArea}
+                        <p className="text-sm font-medium lg:text-base">
+                          {product.title}
+                        </p>
+                        <p className="text-xs font-normal underline lg:text-sm">
+                          {product.generalAddressArea}
                         </p>
                       </div>
-                      <div className="flex lg:flex-col gap-2 justify-between lg:items-end">
-                        <p className="font-bold">N{price.toLocaleString("en-NG")}</p>
+                      <div className="flex justify-between gap-2 lg:flex-col lg:items-end">
+                        <p className="font-bold">
+                          N{price.toLocaleString("en-NG")}
+                        </p>
                         <button onClick={() => navigate(-1)}>
-                          <BiTrash size={25} className="p-1 rounded-md bg-white text-black" />
+                          <BiTrash
+                            size={25}
+                            className="rounded-md bg-white p-1 text-black"
+                          />
                         </button>
                       </div>
                     </div>
                   </div>
                   <div className="flex flex-col pt-5">
                     <div className="flex w-full gap-4">
-                      <div className="w-16 hidden lg:block"></div>
+                      <div className="hidden w-16 lg:block"></div>
                       <div className="w-full">
                         <p className="">Coupon/Discount code</p>
-                        <div className="w-full flex gap-4">
+                        <div className="flex w-full gap-4">
                           <div className="flex w-full flex-col items-center justify-between gap-2">
                             <div className="flex w-full items-center justify-between gap-5">
                               <input
@@ -279,7 +290,7 @@ const ReserveBooking = () => {
                     </div>
                   </div>
                   <div className="flex w-full gap-4 pt-5">
-                    <div className="invisible w-16 hidden lg:block"></div>
+                    <div className="invisible hidden w-16 lg:block"></div>
                     <div className="w-full divide-y-[1px] divide-faded/30">
                       <p className="flex w-full justify-between py-2">
                         Nights <span>{nights}</span>
@@ -388,6 +399,7 @@ const ReserveBooking = () => {
                           selectsStart
                           startDate={startDate}
                           endDate={endDate}
+                          excludeDates={unavailableDates} // Lock unavailable dates
                           dateFormat="MMMM d, yyyy"
                         />
                       </label>
@@ -403,6 +415,7 @@ const ReserveBooking = () => {
                           selectsEnd
                           startDate={startDate}
                           endDate={endDate}
+                          excludeDates={unavailableDates} // Lock unavailable dates
                           minDate={
                             new Date(startDate.getTime() + 24 * 60 * 60 * 1000)
                           } // Ensure min 1 night

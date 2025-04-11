@@ -25,20 +25,20 @@ const ListingReserve = ({ variants, metadata, productId, product }) => {
           </p>
         </div>
         <div className="mb-3 h-14 w-full rounded-md bg-primary">
-          <a
+          {/* <a
             target="_blank"
             rel="noopener noreferrer"
             href={`https://api.whatsapp.com/send?phone=2348146072247&text=${encodeURI(`Hi, I'm interested in making a reservation for ${product.title}\n\nhttps://raum.africa/admin-dashboard/product/${productId}\n\n`)}`}
             className="flex h-full w-full items-center justify-center text-white"
           >
             Reserve
-          </a>
-          {/* <Link
+          </a> */}
+          <Link
             to={`/admin-dashboard/product/reserve/${productId}`}
             className="flex h-full w-full items-center justify-center text-white"
           >
             Reserve
-          </Link> */}
+          </Link>
         </div>
         <p className="pb-3 text-center text-fade">You won't be charged yet</p>
         <div className="h-[0.5px] w-full bg-primary/10"></div>

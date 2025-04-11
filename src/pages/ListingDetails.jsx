@@ -33,7 +33,7 @@ const ListingDetails = () => {
     setLoading(true);
     axios
       .get(
-        `https://cp.raum.africa/store/products/${productId}?currency_code=ngn`
+        `https://staging-cp.raum.africa/store/products/${productId}?currency_code=ngn`,
       )
       .then((response) => {
         // Format the price by dividing original_price within variants by 100
@@ -55,7 +55,7 @@ const ListingDetails = () => {
 
     // Fetch reviews data for the product
     axios
-      .get(`https://cp.raum.africa/store/products/${productId}/reviews`)
+      .get(`https://staging-cp.raum.africa/store/products/${productId}/reviews`)
       .then((response) => {
         setReviews(response.data.reviews);
       })
@@ -126,7 +126,7 @@ const ListingDetails = () => {
       </Helmet>
       <main
         onClick={() => (isFullScreen ? setIsFullScreen(false) : null)}
-        className="w-full min-h-screen flex flex-col gap-5 bg-primary_text text-white overflow-hidden relative"
+        className="relative flex min-h-screen w-full flex-col gap-5 overflow-hidden bg-primary_text text-white"
       >
         <FadeIn>
           <ListingHero
@@ -139,7 +139,7 @@ const ListingDetails = () => {
           />
         </FadeIn>
         <FadeIn>
-          <section className="w-full max-w-7xl mx-auto h-auto py-5 flex flex-wrap justify-center items-center gap-5 p-5">
+          <section className="mx-auto flex h-auto w-full max-w-7xl flex-wrap items-center justify-center gap-5 p-5 py-5">
             <Facilities metadata={metadata} />
           </section>
         </FadeIn>
@@ -147,14 +147,14 @@ const ListingDetails = () => {
           <VideoDisplay videoUrl={videoUrl} videoTitle={videoTitle} />
         </FadeIn> */}
         <FadeIn>
-          <section className="w-full h-auto max-w-7xl mx-auto flex justify-between items-start gap-10">
+          <section className="mx-auto flex h-auto w-full max-w-7xl items-start justify-between gap-10">
             <LisitingTexts product={product} productId={productId} />
           </section>
         </FadeIn>
         <FadeIn>
-          <section className="w-full h-auto border-t border-b border-[#2C2C2C]">
-            <div className="w-full h-auto max-w-7xl mx-auto flex flex-col justify-between items-start gap-5 p-5">
-              <h3 className="text-base md:text-3xl font-semibold">
+          <section className="h-auto w-full border-b border-t border-[#2C2C2C]">
+            <div className="mx-auto flex h-auto w-full max-w-7xl flex-col items-start justify-between gap-5 p-5">
+              <h3 className="text-base font-semibold md:text-3xl">
                 House Rules
               </h3>
               <ListingRules product={product} />
@@ -162,11 +162,11 @@ const ListingDetails = () => {
           </section>
         </FadeIn>
         <FadeIn>
-          <section className="w-full h-auto">
-            <div className="w-full h-auto max-w-7xl mx-auto flex flex-col justify-between items-start gap-5 p-5">
-              <h3 className="text-base md:text-3xl font-semibold">Reviews</h3>
-              <div className="flex gap-5 justify-start items-center">
-                <p className="flex gap-2 items-center justify-start">
+          <section className="h-auto w-full">
+            <div className="mx-auto flex h-auto w-full max-w-7xl flex-col items-start justify-between gap-5 p-5">
+              <h3 className="text-base font-semibold md:text-3xl">Reviews</h3>
+              <div className="flex items-center justify-start gap-5">
+                <p className="flex items-center justify-start gap-2">
                   <IoIosStar size={20} className="text-primary" />
                   {reviews[0]?.rating}
                 </p>
@@ -175,21 +175,21 @@ const ListingDetails = () => {
                   {reviews?.length} review{reviews.length > 1 ? "s" : ""}
                 </p>
               </div>
-              <div className="w-full h-auto grid grid-flow-col gap-5 overflow-x-auto">
+              <div className="grid h-auto w-full grid-flow-col gap-5 overflow-x-auto">
                 {reviews?.length > 0 ? (
                   reviews?.map((review) => (
                     <div
                       key={review.id}
-                      className="w-[280px] md:w-[400px] h-[200px] bg-[#1E1E1E] p-5 rounded md"
+                      className="md h-[200px] w-[280px] rounded bg-[#1E1E1E] p-5 md:w-[400px]"
                     >
-                      <div className="flex gap-5 justify-start items-center">
+                      <div className="flex items-center justify-start gap-5">
                         <img
                           src={Assets.raumFavi}
                           alt="logo"
-                          className="w-10 h-10 rounded-full"
+                          className="h-10 w-10 rounded-full"
                         />
                         <div>
-                          <p className="text-sm  capitalize">
+                          <p className="text-sm capitalize">
                             {review?.customer.first_name}{" "}
                             {review.customer.last_name}
                           </p>
@@ -198,7 +198,7 @@ const ListingDetails = () => {
                           </p>
                         </div>
                       </div>
-                      <p className="text-sm py-3">{review?.content}</p>
+                      <p className="py-3 text-sm">{review?.content}</p>
                     </div>
                   ))
                 ) : (
@@ -209,20 +209,20 @@ const ListingDetails = () => {
           </section>
         </FadeIn>
         <FadeIn>
-          <section className="w-full h-auto border-t border-b border-[#2C2C2C]">
-            <div className="max-w-7xl mx-auto flex flex-col justify-between items-start gap-5 p-5">
-              <h3 className="text-base md:text-3xl font-semibold">
+          <section className="h-auto w-full border-b border-t border-[#2C2C2C]">
+            <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-5 p-5">
+              <h3 className="text-base font-semibold md:text-3xl">
                 {owner.last_name} {owner.first_name}
               </h3>
-              <div className="flex gap-10 justify-start items-center">
+              <div className="flex items-center justify-start gap-10">
                 <div className="w-[60px]">
                   <img
                     src={thumbnail}
                     alt="raum logo"
-                    className="aspect-square object-cover rounded-full"
+                    className="aspect-square rounded-full object-cover"
                   />
                 </div>
-                <div className="flex gap-5 justify-start item text-primary">
+                <div className="item flex justify-start gap-5 text-primary">
                   <a href="tel:+2348148228901">
                     <FaPhoneAlt size={18} />
                   </a>

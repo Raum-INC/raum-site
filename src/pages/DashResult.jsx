@@ -19,7 +19,7 @@ const DashResult = () => {
 
       try {
         const response = await fetch(
-          "https://cp.raum.africa/store/products/search?status=published",
+          `https://staging-cp.raum.africa/store/products/search?status=published`,
           {
             method: "POST",
             headers: { "Content-Type": "application/json" },

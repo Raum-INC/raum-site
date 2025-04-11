@@ -12,18 +12,18 @@ const DashCategory = () => {
   useEffect(() => {
     // Fetch categories
     axios
-      .get("https://cp.raum.africa/store/product-categories")
+      .get(`https://staging-cp.raum.africa/store/product-categories`)
       .then((response) => {
-        // console.log("Categories:", response.data.product_categories); // Log categories
+        // console.log(`Categories:`, response.data.product_categories); // Log categories
         setCategories(response.data.product_categories);
       })
       .catch((error) => {
-        console.error("Error fetching categories:", error);
+        console.error(`Error fetching categories:`, error);
       });
 
     // Fetch products
     axios
-      .get("https://cp.raum.africa/store/products?currency_code=ngn")
+      .get(`https://staging-cp.raum.africa/store/products?currency_code=ngn`)
       .then((response) => {
         // console.log("Products:", response.data.products); // Log products
         const formattedProducts = response.data.products.map((product) => {

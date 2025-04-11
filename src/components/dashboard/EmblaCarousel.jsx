@@ -12,9 +12,9 @@ const EmblaCarousel = ({ slides }) => {
   return (
     <div className="embla w-full">
       <div className="embla__viewport w-full overflow-hidden" ref={emblaRef}>
-        <div className="embla__container w-full flex">
+        <div className="embla__container flex w-full">
           {slides.map((slide, index) => (
-            <div className="embla__slide w-full flex-[0_0_100%]" key={index}>
+            <div className="w-full flex-[0_0_80%] pl-4" key={index}>
               {slide}
             </div>
           ))}

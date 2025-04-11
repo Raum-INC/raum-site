@@ -21,7 +21,9 @@ const DashFilter = () => {
   useEffect(() => {
     const fetchFilters = async () => {
       try {
-        const response = await fetch("https://cp.raum.africa/admin/domain");
+        const response = await fetch(
+          `https://staging-cp.raum.africa/admin/domain`,
+        );
         if (!response.ok) {
           throw new Error("Failed to fetch filter options");
         }
@@ -56,7 +58,7 @@ const DashFilter = () => {
     const highlightFetch = async () => {
       try {
         const response = await fetch(
-          "https://cp.raum.africa/store/product-tags",
+          `https://staging-cp.raum.africa/store/product-tags`,
         );
 
         if (!response.ok) {
@@ -90,7 +92,7 @@ const DashFilter = () => {
     const categoriesFetch = async () => {
       try {
         const response = await fetch(
-          "https://cp.raum.africa/store/product-categories",
+          `https://staging-cp.raum.africa/store/product-categories`,
         );
 
         if (!response.ok) {
@@ -172,7 +174,7 @@ const DashFilter = () => {
 
     try {
       const response = await fetch(
-        "https://cp.raum.africa/store/products/search?status=published",
+        `https://staging-cp.raum.africa/store/products/search?status=published`,
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
