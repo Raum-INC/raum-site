@@ -259,6 +259,35 @@ export const howToHost = [
   },
 ];
 
+export const developmentGoalsData = [
+  {
+    title: `SDG 7. Affordable and clean energy`,
+    icon: powersupply,
+    list: [
+      `We're committed to promoting affordable and clean energy in the shortlet industry. By connecting shortlet owners with energy-efficient solutions, we're helping to reduce carbon emissions and lower operating costs.`,
+      `We empower shortlet owners to adopt renewable energy sources, such as solar power, and implement energy-saving measures. By promoting energy efficiency, we're helping to create a more sustainable future.`,
+    ],
+  },
+  {
+    title: `SDG 11. Sustainable cities and comunities`,
+    icon: ac,
+    list: [
+      `We're connecting sustainable shortlet owners with eco-conscious travelers. By providing a platform for sustainable listings, we're helping to create a more sustainable tourism industry.`,
+      `Our platform empowers shortlet owners to implement sustainable practices and reduce their environmental impact. By promoting eco-friendly accommodations, we're contributing to a greener future.`,
+    ],
+  },
+  {
+    title: `SDG 17. Partnership for the goals`,
+    icon: security,
+    list: [
+      `By partnering with different organisations we're committed to reducing environmental impact and promoting social equity through our shortlet program. Together, we're working towards Sustainable Cities and Communities and also affordable and clean environment.`,
+      `Our shortlet program is more than just achieving SDG Goals. It's a platform for positive change.`,
+    ],
+    cta: `Join us in our mission to create a sustainable future. Lets be part of the change we want to see.`,
+    ctaLink: `https://forms.gle/oMTy5GNUyS7k4Ub76`,
+  },
+];
+
 export const howToInvest = [
   {
     title: `Step 1:`,

@@ -6,6 +6,7 @@ import Faqs from "../components/Faqs";
 import HostDownload from "../components/host/HostDownload";
 import HostHelmet from "../components/helmets/HostHelmet";
 import CallToAction from "../components/home/CallToAction";
+import DevelopmentGoals from "../components/host/DevelopmentGoals";
 
 const Host = () => {
   const heroTitle = "Make money hosting<br>with Raum Africa in Nigeria";
@@ -17,6 +18,7 @@ const Host = () => {
       <Hero heroTitle={heroTitle} hostTitle={hostTitle} />
       <HostHero />
       <How />
+      <DevelopmentGoals />
       <Faqs />
       <CallToAction />
       <HostDownload />
