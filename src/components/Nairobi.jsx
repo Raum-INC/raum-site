@@ -52,10 +52,10 @@ const Nairobi = () => {
 
   return (
     <main className="relative flex w-full flex-col items-center justify-center bg-[#121216] py-10 text-white">
-      <h2 className="text-center font-semibold lg:text-2xl">
+      <h2 itemProp="Title" className="text-center font-semibold lg:text-2xl">
         Want to view some of our current properties?
       </h2>
-      <p className="my-2 text-sm text-gray-300">
+      <p itemProp="Description" className="my-2 text-sm text-gray-300">
         Here's one of our properties in Nairobi
       </p>
 
@@ -68,6 +68,7 @@ const Nairobi = () => {
           <div className="embla__container mx-auto flex h-[400px] w-full">
             {data.map((slide, index) => (
               <a
+                itemProp="Link"
                 aria-label={`View details for ${slide.title}`}
                 title={slide.title}
                 href={`${slide.slug}`}
@@ -77,17 +78,26 @@ const Nairobi = () => {
                 key={index}
               >
                 <img
+                  itemProp="Image"
                   src={slide.image}
                   alt={slide.alt}
                   className="h-full w-full rounded-xl object-cover object-center"
                 />
                 <div className="absolute inset-0 flex h-full w-full flex-col justify-end bg-gradient-to-t from-black/45 to-transparent p-10">
-                  <p className="text-lg font-bold text-white lg:text-2xl">
+                  <p
+                    itemProp="Title"
+                    className="text-lg font-bold text-white lg:text-2xl"
+                  >
                     {slide.title}
                   </p>
-                  <p className="text-sm">{slide.location}</p>
+                  <p itemProp="Location" className="text-sm">
+                    {slide.location}
+                  </p>
                 </div>
-                <p className="absolute right-0 top-0 m-5 rounded-full bg-black p-1 px-4">
+                <p
+                  itemProp="Location"
+                  className="absolute right-0 top-0 m-5 rounded-full bg-black p-1 px-4"
+                >
                   {slide.availability}
                 </p>
               </a>

@@ -28,8 +28,9 @@ const ListingRules = ({ product }) => {
     <>
       {markdownContent && (
         <main className="flex h-auto w-full flex-col items-start justify-center gap-5">
-          <p>Cancellation Policy</p>
+          <p itemProp="Cancellation Policy">Cancellation Policy</p>
           <ReactMarkdown
+            itemProp={`description`}
             className={`h-auto w-full max-w-7xl ${
               showMore === false ? `line-clamp-3` : ""
             } prose ${headings} ${p} ${strong} ${anchorLists}`}

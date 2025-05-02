@@ -12,7 +12,7 @@ const DevelopmentGoals = () => {
         <h4 itemProp="title" className="text-2xl font-bold md:text-4xl">
           Our sustainable development goals
         </h4>
-        <p className="text-base font-normal md:text-lg">
+        <p itemProp="description" className="text-base font-normal md:text-lg">
           RAUM INC is committed to empowering shortlet businesses to become
           sustainable leaders in the hospitality industry. By focusing on
           environmental sustainability, social responsibility, and economic
@@ -27,11 +27,16 @@ const DevelopmentGoals = () => {
               alt={goal.title}
               className="size-12 lg:size-20"
             />
-            <h5 className="my-3 text-xl font-bold md:text-2xl">{goal.title}</h5>
+            <h5
+              itemProp="Development Goal Title"
+              className="my-3 text-xl font-bold md:text-2xl"
+            >
+              {goal.title}
+            </h5>
             <ul className="ml-10 list-disc text-base font-normal md:text-lg">
               {goal.list.map((item, idx) => (
                 <li key={idx} className="my-2 leading-[25px] lg:leading-[50px]">
-                  <p>{item}</p>
+                  <p itemProp="Development Goal Description">{item}</p>
                 </li>
               ))}
             </ul>

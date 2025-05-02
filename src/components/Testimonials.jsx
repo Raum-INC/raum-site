@@ -23,6 +23,7 @@ const Testimonials = () => {
           >
             <div className="flex h-[120px] w-[120px] items-center justify-start">
               <img
+                itemProp={`Testimonial: ${testimonial.name}`}
                 src={testimonial.img}
                 alt={testimonial.name}
                 className="aspect-square w-[120px] rounded-full"
@@ -30,7 +31,12 @@ const Testimonials = () => {
             </div>
             <div className="flex h-[170px] flex-col items-start justify-between rounded-lg bg-[#25242A] p-5">
               <p className="line-clamp-4">{testimonial.test}</p>
-              <p className="font-semibold">{testimonial.name}</p>
+              <p
+                itemProp={`Testimonial: ${testimonial.name}`}
+                className="font-semibold"
+              >
+                {testimonial.name}
+              </p>
             </div>
           </div>
         ))}
