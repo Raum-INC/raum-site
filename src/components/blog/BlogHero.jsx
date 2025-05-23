@@ -5,18 +5,21 @@ const BlogHero = () => {
     <main
       itemScope
       itemType="https://raum.africa/blog"
-      className="w-full h-auto"
+      className="h-auto w-full"
     >
-      <section className="p-4 lg:p-12 space-y-10">
-        <h1 itemProp="title" className="font-bold text-3xl lg:text-6xl">
+      <section className="space-y-10 p-4 lg:p-12">
+        <h1 itemProp="title" className="text-3xl font-bold lg:text-6xl">
           Blog
         </h1>
-        <p itemProp="description" className="font-medium text-base lg:text-lg">
-          We are revolutionizing staycations by providing an all-in-one platform
+        <p itemProp="description" className="text-base font-medium lg:text-lg">
+          Discover how we're transforming the staycation experience with
+          <br /> an all-in-one platform that makes booking short-term and
+          extended
+          <br /> stays easier than ever. Through relatable storytelling, we show
+          you
+          <br /> smart home features and a strong commitment to sustainability,
           <br />
-          for booking short-term and long stays, along with dream properties,
-          <br />
-          using AI, VR tours, smart home tech, and prioritize sustainability.
+          redefining what it means to get away without going far.
         </p>
       </section>
       <section className="p-4 lg:p-12">

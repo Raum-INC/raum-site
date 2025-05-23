@@ -63,6 +63,7 @@ const BlogList = () => {
       const result = await client.fetch(query);
       setData(result);
       setFilteredData(result);
+      console.log(result);
     } catch (error) {
       console.error("Error fetching data:", error);
     }
@@ -135,14 +136,24 @@ const BlogList = () => {
               Articles
             </button>
             <button
-              onClick={() => handleFilter("Resource")}
+              onClick={() => handleFilter("Storytelling")}
               className={
-                activeFilter === "Resource"
+                activeFilter === "Storytelling"
                   ? "rounded-full border border-secondary bg-primary_text p-2 px-4 text-white transition-all duration-500 ease-in-out lg:p-4 lg:px-8"
                   : "rounded-full border border-secondary bg-white p-2 px-4 text-primary_text transition-all duration-500 ease-in-out hover:bg-primary_text hover:text-white lg:p-4 lg:px-8"
               }
             >
-              Resources
+              Storytelling
+            </button>
+            <button
+              onClick={() => handleFilter("Featured")}
+              className={
+                activeFilter === "Featured"
+                  ? "rounded-full border border-secondary bg-primary_text p-2 px-4 text-white transition-all duration-500 ease-in-out lg:p-4 lg:px-8"
+                  : "rounded-full border border-secondary bg-white p-2 px-4 text-primary_text transition-all duration-500 ease-in-out hover:bg-primary_text hover:text-white lg:p-4 lg:px-8"
+              }
+            >
+              Featured
             </button>
           </div>
         </div>
