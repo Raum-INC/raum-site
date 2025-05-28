@@ -29,7 +29,7 @@ const ReserveBooking = () => {
   const [bookingDetails, setBookingDetails] = useState({});
   const [cartId, setCartId] = useState(null);
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const validateEmail = (email) => {
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
@@ -222,33 +222,40 @@ const ReserveBooking = () => {
               <>
                 <section className="h-full w-full lg:w-1/3">
                   <h1 className="text-xl font-medium">Booking Summary</h1>
-                  <div className="flex w-full items-center gap-2 lg:pt-5  border lg:border-0 rounded pr-2">
+                  <div className="flex w-full items-center gap-2 rounded border pr-2 lg:border-0 lg:pt-5">
                     <img
                       src={product.thumbnail}
                       alt={product.title}
-                      className="h-[120px] object-cover lg:h-16 w-[120px] lg:w-16 rounded-l lg:rounded"
+                      className="h-[120px] w-[120px] rounded-l object-cover lg:h-16 lg:w-16 lg:rounded"
                     />
                     <div className="flex w-full flex-col gap-8 lg:flex-row lg:justify-between">
                       <div className="flex flex-col lg:gap-2">
-                        <p className="text-sm lg:text-base font-medium">{product.title}</p>
-                        <p className="lg:text-sm text-xs font-normal underline">
-                           {product.generalAddressArea}
+                        <p className="text-sm font-medium lg:text-base">
+                          {product.title}
+                        </p>
+                        <p className="text-xs font-normal underline lg:text-sm">
+                          {product.generalAddressArea}
                         </p>
                       </div>
-                      <div className="flex lg:flex-col gap-2 justify-between lg:items-end">
-                        <p className="font-bold">N{price.toLocaleString("en-NG")}</p>
+                      <div className="flex justify-between gap-2 lg:flex-col lg:items-end">
+                        <p className="font-bold">
+                          N{price.toLocaleString("en-NG")}
+                        </p>
                         <button onClick={() => navigate(-1)}>
-                          <BiTrash size={25} className="p-1 rounded-md bg-white text-black" />
+                          <BiTrash
+                            size={25}
+                            className="rounded-md bg-white p-1 text-black"
+                          />
                         </button>
                       </div>
                     </div>
                   </div>
                   <div className="flex flex-col pt-5">
                     <div className="flex w-full gap-4">
-                      <div className="w-16 hidden lg:block"></div>
+                      <div className="hidden w-16 lg:block"></div>
                       <div className="w-full">
                         <p className="">Coupon/Discount code</p>
-                        <div className="w-full flex gap-4">
+                        <div className="flex w-full gap-4">
                           <div className="flex w-full flex-col items-center justify-between gap-2">
                             <div className="flex w-full items-center justify-between gap-5">
                               <input
@@ -279,7 +286,7 @@ const ReserveBooking = () => {
                     </div>
                   </div>
                   <div className="flex w-full gap-4 pt-5">
-                    <div className="invisible w-16 hidden lg:block"></div>
+                    <div className="invisible hidden w-16 lg:block"></div>
                     <div className="w-full divide-y-[1px] divide-faded/30">
                       <p className="flex w-full justify-between py-2">
                         Nights <span>{nights}</span>

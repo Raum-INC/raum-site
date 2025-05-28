@@ -22,9 +22,6 @@ const BlogHero = () => {
           redefining what it means to get away without going far.
         </p>
       </section>
-      <section className="p-4 lg:p-12">
-        <FeaturedBlog />
-      </section>
     </main>
   );
 };

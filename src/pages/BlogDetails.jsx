@@ -295,6 +295,7 @@ const BlogDetails = () => {
                 </h3>
               </div>
             </div>
+
             {/* Related Posts */}
             <motion.div
               variants={listVariants}

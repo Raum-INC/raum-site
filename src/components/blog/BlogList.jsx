@@ -1,14 +1,16 @@
 import React, { useEffect, useState } from "react";
-import { client } from "../../lib/sanity";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 
-const BlogList = () => {
-  const [data, setData] = useState([]);
+const BlogList = ({ blogs = [] }) => {
   const [filteredData, setFilteredData] = useState([]);
   const [activeFilter, setActiveFilter] = useState("All");
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 4;
+
+  useEffect(() => {
+    setFilteredData(blogs);
+  }, [blogs]);
 
   const componentVariant = {
     visible: {
@@ -44,31 +46,6 @@ const BlogList = () => {
     },
   };
 
-  const getData = async () => {
-    const query = `*[_type == 'blog']{ 
-      _createdAt,
-      author,
-      title,
-      category,
-      description,
-      date,
-      'slug': slug.current,
-      'image': image.asset->url,
-      'authorImage': image.asset->url,
-      'alt': image.alt,
-      content,
-      'contentImg': content.image.asset->url,
-    }`;
-    try {
-      const result = await client.fetch(query);
-      setData(result);
-      setFilteredData(result);
-      console.log(result);
-    } catch (error) {
-      console.error("Error fetching data:", error);
-    }
-  };
-
   const paginateData = (data, currentPage, itemsPerPage) => {
     const startIndex = (currentPage - 1) * itemsPerPage;
     const endIndex = startIndex + itemsPerPage;
@@ -77,12 +54,11 @@ const BlogList = () => {
 
   const handleFilter = (category) => {
     if (category === "All") {
-      setFilteredData(data);
+      setFilteredData(blogs);
     } else {
-      const filtered = data.filter((blog) => blog.category === category);
+      const filtered = blogs.filter((blog) => blog.category === category);
       setFilteredData(filtered);
     }
-
     setActiveFilter(category);
     setCurrentPage(1); // Reset to first page when changing filters
   };
@@ -95,10 +71,7 @@ const BlogList = () => {
     setCurrentPage((prevPage) => prevPage - 1);
   };
 
-  useEffect(() => {
-    getData();
-  }, []);
-
+  console.log(blogs[0].author);
   const paginatedData = paginateData(filteredData, currentPage, itemsPerPage);
 
   return (
@@ -158,6 +131,7 @@ const BlogList = () => {
           </div>
         </div>
       </section>
+
       <AnimatePresence>
         <section className="grid w-full gap-8 p-4 text-black lg:grid-cols-2 lg:px-10">
           {paginatedData.map((blog) => (
@@ -167,13 +141,15 @@ const BlogList = () => {
                 initial="initial"
                 whileInView="animate"
                 viewport={{ once: true }}
-                className="flex h-full w-full flex-col justify-center rounded-[30px] bg-white text-black shadow-xl transition-all duration-300 ease-in-out hover:scale-105"
+                className="flex h-full w-full flex-col justify-center rounded-[30px] bg-white text-black shadow-xl transition-all duration-300 ease-in-out"
               >
-                <img
-                  src={blog.image}
-                  alt={blog.alt}
-                  className="h-[360px] w-full rounded-t-3xl object-cover"
-                />
+                <div className="h-[200px] w-full">
+                  <img
+                    src={blog.image}
+                    alt={blog.alt}
+                    className="h-full w-full rounded-t-3xl object-cover"
+                  />
+                </div>
                 <div className="h-full w-full space-y-5 p-4 lg:p-8">
                   <p className="flex items-center gap-5 text-base font-normal text-secondary">
                     {blog.category}

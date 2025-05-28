@@ -1,12 +1,8 @@
-import React, { useState, useEffect } from "react";
-import { client } from "../../lib/sanity";
+import React from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 
-const FeaturedBlog = () => {
-  const [data, setData] = useState([]);
-  const [feature, setFeature] = useState([]);
-
+const FeaturedBlog = ({ data = [], feature = [] }) => {
   const featuredVariants = {
     visible: {
       opacity: 1,
@@ -24,54 +20,6 @@ const FeaturedBlog = () => {
     },
   };
 
-  useEffect(() => {
-    const getData = async () => {
-      const query = `*[_type == 'blog']{
-        _createdAt,
-        title,
-        category,
-        description,
-        date,
-        'slug': slug.current,
-        'image': image.asset->url,
-        'alt': image.alt,
-        content
-      }`;
-      try {
-        const result = await client.fetch(query);
-        setData(result);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    };
-
-    getData();
-  }, []);
-
-  useEffect(() => {
-    const getData = async () => {
-      const query = `*[_type == 'blog' && category == 'Featured']{
-        _createdAt,
-        title,
-        category,
-        description,
-        date,
-        'slug': slug.current,
-        'image': image.asset->url,
-        'alt': image.alt,
-        content
-        }`;
-      try {
-        const result = await client.fetch(query);
-        setFeature(result);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    };
-
-    getData();
-  }, []);
-
   // Take the first 3 elements
   const slicedPosts = data.slice(0, 3);
 
@@ -79,7 +27,7 @@ const FeaturedBlog = () => {
     <main
       itemScope
       itemType="https://raum.africa/blog"
-      className="mb-10 flex h-auto w-full flex-col items-center justify-between gap-10 overflow-hidden lg:mb-0 lg:flex-row lg:justify-between"
+      className="mb-10 flex h-auto w-full flex-col items-center justify-between gap-10 overflow-hidden p-4 lg:mb-0 lg:flex-row lg:justify-between lg:p-12"
     >
       <Link
         to={`/blog/${feature[0]?.slug}`}
@@ -116,6 +64,16 @@ const FeaturedBlog = () => {
             >
               {feature[0]?.description}
             </p>
+            <div className="flex items-center justify-start gap-5">
+              <img
+                src={feature[0]?.authorImage}
+                alt={feature[0]?.author}
+                className="h-10 w-10 rounded-full"
+              />
+              <p className="text-lg font-medium text-secondary">
+                {feature[0]?.author}
+              </p>
+            </div>
           </div>
         </section>
       </Link>

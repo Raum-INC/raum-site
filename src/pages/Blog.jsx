@@ -1,12 +1,64 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import BlogHero from "../components/blog/BlogHero";
 import useBearStore from "../store/store";
 import BlogList from "../components/blog/BlogList";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { Helmet } from "react-helmet-async";
+import FeaturedBlog from "../components/blog/FeaturedBlog";
+import { client } from "../lib/sanity";
+import { ClipLoader } from "react-spinners";
 
 const Blog = () => {
   const { falseNav } = useBearStore();
+  const [blogs, setBlogs] = useState([]);
+  const [featured, setFeatured] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchBlogs = async () => {
+      setLoading(true);
+      try {
+        const blogQuery = `*[_type == 'blog']{
+          _createdAt,
+          title,
+          category,
+          description,
+          date,
+          'slug': slug.current,
+          'image': image.asset->url,
+          'alt': image.alt,
+          content,
+          author,
+          'authorImage': image.asset->url,
+
+        }`;
+        const featuredQuery = `*[_type == 'blog' && category == 'Featured']{
+          _createdAt,
+          title,
+          category,
+          description,
+          date,
+          'slug': slug.current,
+          'image': image.asset->url,
+          'alt': image.alt,
+          content,
+          author,
+          'authorImage': image.asset->url,
+        }`;
+        const [blogsResult, featuredResult] = await Promise.all([
+          client.fetch(blogQuery),
+          client.fetch(featuredQuery),
+        ]);
+        setBlogs(blogsResult);
+        setFeatured(featuredResult);
+      } catch (error) {
+        console.error("Error fetching blog data:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchBlogs();
+  }, []);
 
   const componentVariant = {
     visible: {
@@ -22,6 +74,18 @@ const Blog = () => {
     hidden: {
       opacity: 0,
       translateY: -50,
+    },
+  };
+
+  const loadingVariant = {
+    hidden: {
+      opacity: 0,
+    },
+    visible: {
+      opacity: 1,
+      transition: {
+        duration: 0.7,
+      },
     },
   };
 
@@ -59,9 +123,30 @@ const Blog = () => {
         <link rel="canonical" href="https://raum.africa/blog" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Helmet>
-
-      <BlogHero />
-      <BlogList />
+      {loading ? (
+        <AnimatePresence>
+          <motion.div
+            variants={loadingVariant}
+            initial="hidden"
+            animate="visible"
+            className="flex h-screen w-full items-center justify-center"
+          >
+            <ClipLoader
+              color="#00F"
+              loading={loading}
+              size={150}
+              aria-label="Loading Spinner"
+              data-testid="loader"
+            />
+          </motion.div>
+        </AnimatePresence>
+      ) : (
+        <>
+          <BlogHero />
+          <FeaturedBlog data={blogs} feature={featured} />
+          <BlogList blogs={blogs} />
+        </>
+      )}
     </motion.div>
   );
 };
