@@ -32,18 +32,18 @@ const FeaturedBlog = ({ data = [], feature = [] }) => {
       <Link
         to={`/blog/${feature[0]?.slug}`}
         key={feature[0]?.slug}
-        className="transition-all duration-300 ease-in-out hover:scale-105 lg:h-[650px] lg:w-[600px]"
+        className="group flex flex-col lg:h-[650px] lg:w-[600px]"
       >
-        <section className="flex h-full w-full flex-col rounded-[30px] bg-white text-black">
-          <div className="h-[360px] w-full">
+        <section className="flex h-full w-full flex-col overflow-hidden rounded-[30px] bg-white text-black">
+          <div className="h-[500px] w-full overflow-hidden">
             <img
               itemProp="image"
               src={feature[0]?.image}
               alt={feature[0]?.alt}
-              className="h-full w-full rounded-t-3xl object-cover"
+              className="h-full w-full rounded-t-3xl object-cover transition-all duration-300 ease-in-out group-hover:scale-105"
             />
           </div>
-          <div className="h-full w-full space-y-5 p-4 lg:p-8">
+          <div className="h-[250px] w-full space-y-5 p-4 lg:p-8">
             <p
               itemProp="blogCategory"
               className="flex items-center gap-5 text-base font-normal text-secondary"

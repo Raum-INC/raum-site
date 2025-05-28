@@ -141,16 +141,16 @@ const BlogList = ({ blogs = [] }) => {
                 initial="initial"
                 whileInView="animate"
                 viewport={{ once: true }}
-                className="flex h-full w-full flex-col justify-center rounded-[30px] bg-white text-black shadow-xl transition-all duration-300 ease-in-out"
+                className="group flex h-[600px] w-full flex-col justify-center overflow-hidden rounded-[30px] bg-white text-black shadow-xl transition-all duration-300 ease-in-out"
               >
-                <div className="h-[200px] w-full">
+                <div className="h-[350px] w-full overflow-hidden">
                   <img
                     src={blog.image}
                     alt={blog.alt}
-                    className="h-full w-full rounded-t-3xl object-cover"
+                    className="h-full w-full rounded-t-3xl object-cover transition-all duration-300 ease-in-out group-hover:scale-105"
                   />
                 </div>
-                <div className="h-full w-full space-y-5 p-4 lg:p-8">
+                <div className="h-[250px] w-full space-y-5 p-4 lg:p-8">
                   <p className="flex items-center gap-5 text-base font-normal text-secondary">
                     {blog.category}
                     <span className="h-[1px] w-7 bg-[#A3A3A3]"></span>
