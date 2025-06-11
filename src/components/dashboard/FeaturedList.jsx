@@ -7,36 +7,7 @@ import { MdLocationPin } from "react-icons/md";
 import EmblaCarousel from "./EmblaCarousel";
 import "../../embla.css"; // Ensure you include the CSS for Embla
 
-const FeaturedList = () => {
-  const [listings, setListings] = useState([]);
-
-  useEffect(() => {
-    axios
-      .get("https://cp.raum.africa/store/products?currency_code=ngn")
-      .then((response) => {
-        // Filter only the featured products
-        const featuredListings = response.data.products.filter(
-          (product) =>
-            product.tags &&
-            product.tags.some((tag) => tag.value === "Featured"),
-        );
-        // Limit the number of listings to 10
-        const limitedFeaturedListings = featuredListings.slice(0, 10);
-        // Format the price by dividing original_price by 100
-        const formattedListings = limitedFeaturedListings.map((listing) => ({
-          ...listing,
-          variants: listing.variants.map((variant) => ({
-            ...variant,
-            original_price: variant.original_price / 100,
-          })),
-        }));
-        setListings(formattedListings);
-      })
-      .catch((error) => {
-        console.error("Error fetching data:", error);
-      });
-  }, []);
-
+const FeaturedList = ({ listings }) => {
   const renderSlides = () =>
     listings.map((listing, index) => (
       <Link

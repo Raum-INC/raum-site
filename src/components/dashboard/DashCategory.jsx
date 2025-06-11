@@ -1,46 +1,10 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
+import React, { useState } from "react";
 import { CiHeart } from "react-icons/ci";
 import { Link } from "react-router-dom";
 import { MdLocationPin } from "react-icons/md";
 
-const DashCategory = () => {
-  const [categories, setCategories] = useState([]);
-  const [products, setProducts] = useState([]);
+const DashCategory = ({ categories, products }) => {
   const [selectedCategory, setSelectedCategory] = useState("all-categories");
-
-  useEffect(() => {
-    // Fetch categories
-    axios
-      .get("https://cp.raum.africa/store/product-categories")
-      .then((response) => {
-        // console.log("Categories:", response.data.product_categories); // Log categories
-        setCategories(response.data.product_categories);
-      })
-      .catch((error) => {
-        console.error("Error fetching categories:", error);
-      });
-
-    // Fetch products
-    axios
-      .get("https://cp.raum.africa/store/products?currency_code=ngn")
-      .then((response) => {
-        // console.log("Products:", response.data.products); // Log products
-        const formattedProducts = response.data.products.map((product) => {
-          return {
-            ...product,
-            variants: product.variants.map((variant) => ({
-              ...variant,
-              original_price: variant.original_price / 100,
-            })),
-          };
-        });
-        setProducts(formattedProducts);
-      })
-      .catch((error) => {
-        console.error("Error fetching products:", error);
-      });
-  }, []);
 
   // Function to handle category selection
   const handleCategorySelect = (id) => {

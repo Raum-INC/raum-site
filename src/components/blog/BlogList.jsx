@@ -9,7 +9,11 @@ const BlogList = ({ blogs = [] }) => {
   const itemsPerPage = 4;
 
   useEffect(() => {
-    setFilteredData(blogs);
+    // Sort blogs by _createdAt descending (most recent first)
+    const sorted = [...blogs].sort(
+      (a, b) => new Date(b._createdAt) - new Date(a._createdAt),
+    );
+    setFilteredData(sorted);
   }, [blogs]);
 
   const componentVariant = {
