@@ -89,19 +89,21 @@ const CallToAction = () => {
         {currentRoute === "/invest" ? (
           <>
             <div className="flex w-full justify-center space-y-3 md:w-2/3 md:justify-start">
-              <h4 itemProp="title" className="text-xl font-bold md:text-2xl">
-                Ready to Join the Co-Hosting Revolution?
-              </h4>
-              <p>
-                Contact our{" "}
-                <a
-                  href="https://wa.me/message/ZVNY4C3AJ6F5I1"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Support Line
-                </a>
-              </p>
+              <div className="flex flex-col gap-5">
+                <h4 itemProp="title" className="text-xl font-bold md:text-2xl">
+                  Ready to Join the Co-Hosting Revolution?
+                </h4>
+                <p>
+                  Contact our{" "}
+                  <a
+                    href="https://wa.me/message/ZVNY4C3AJ6F5I1"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Support Line
+                  </a>
+                </p>
+              </div>
             </div>
             <div className="flex w-full flex-col items-center justify-center md:w-1/3 md:flex-row md:justify-end">
               <a
