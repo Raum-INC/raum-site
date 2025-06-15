@@ -10,7 +10,7 @@ const InvestHelmet = () => {
       <meta property="og:site_name" content="Invest with Raum Africa" />
       <meta
         name="description"
-        content="Earn up to 50% annually with Raum Africa's co-hosting investment program. Let us do the heavy lifting while you enjoy stress-free returns"
+        content="Earn up to 30% returns in 12 months with Raum Africa's co-hosting investment program. Let us do the heavy lifting while you enjoy stress-free returns"
       />
       <meta
         property="og:title"
@@ -19,7 +19,7 @@ const InvestHelmet = () => {
       <meta property="og:type" content="website" />
       <meta
         property="og:description"
-        content="Earn up to 50% annually with Raum Africa's co-hosting investment program. Let us do the heavy lifting while you enjoy stress-free returns"
+        content="Earn up to 30% returns in 12 months with Raum Africa's co-hosting investment program. Let us do the heavy lifting while you enjoy stress-free returns"
       />
       <meta
         property="og:image"
@@ -56,7 +56,7 @@ const InvestHelmet = () => {
       <meta name="twitter:site" content="@rauminc" />
       <meta
         name="twitter:description"
-        content="Earn up to 50% annually with Raum Africa's co-hosting investment program. Let us do the heavy lifting while you enjoy stress-free returns"
+        content="Earn up to 30% returns in 12 months with Raum Africa's co-hosting investment program. Let us do the heavy lifting while you enjoy stress-free returns"
       />
     </Helmet>
   );

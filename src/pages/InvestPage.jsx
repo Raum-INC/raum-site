@@ -10,7 +10,7 @@ import Nairobi from "../components/Nairobi";
 
 const InvestPage = () => {
   const investTitle = `Invest in High-Yield</br>Short-Term Rentals</br>with Just $500!`;
-  const investDescription = `Earn up to 50% annually with Africa's fastest-growing Airbnb investment model. We handle everything—you earn passive income hassle-free.`;
+  const investDescription = `Earn up to 30% returns in 12 months with Africa's fastest-growing Airbnb investment model. We handle everything—you earn passive income hassle-free.`;
   return (
     <main>
       <InvestHelmet />

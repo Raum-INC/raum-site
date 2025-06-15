@@ -175,7 +175,7 @@ export const raumInvest = [
     image: payment,
   },
   {
-    title: `Earn Passive Income with Up to 50% Annual Returns`,
+    title: `Earn Passive Income with Up to 30% returns in 12 months`,
     subtitle: `With our co-hosting/investing model, you receive quarterly payouts while we take care of the daily operations.`,
     image: wallet,
   },
@@ -307,7 +307,7 @@ export const howToInvest = [
   },
   {
     title: `Step 4:`,
-    subtitle: `Relax & earn! You receive quarterly profits, with a potential 50% annual return.`,
+    subtitle: `Relax & earn! You receive quarterly profits, with a potential 30% returns in 12 months.`,
     id: 4,
   },
 ];
@@ -350,7 +350,7 @@ export const investFaqs = [
   },
   {
     title: `What's my expected return on investment (ROI)?`,
-    description: `You can earn up to 50% annually, with profits paid out every quarter based on the performance of the rental unit(s) you're invested in.`,
+    description: `You can earn up to 30% returns in 12 months, with profits paid out every quarter based on the performance of the rental unit(s) you're invested in.`,
   },
   {
     title: `Can I withdraw or exit my investment`,

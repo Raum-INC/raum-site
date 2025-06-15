@@ -27,11 +27,14 @@ export default {
       name: 'date',
       type: 'string',
       title: 'Date',
+      initialValue: () => new Date().toISOString(),
     },
     {
       name: 'slug',
       type: 'slug',
       title: 'Slug',
+      options: {source: 'title'},
+      validation: (rule) => rule.required(),
     },
     {
       name: 'image',
