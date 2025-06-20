@@ -1,7 +1,24 @@
 import React, { useCallback, useEffect, useState } from "react";
 import useEmblaCarousel from "embla-carousel-react";
+import { FaLocationDot } from "react-icons/fa6";
 import "../embla.css"; // Ensure you include the CSS for Embla
 import { client } from "../lib/sanity";
+
+const EmblaDots = ({ slides, selectedIndex, onDotClick }) => (
+  <div className="mt-10 flex justify-center gap-2">
+    {slides.map((_, idx) => (
+      <button
+        key={idx}
+        type="button"
+        className={`h-3 w-3 rounded-full border-2 border-white transition-all duration-200 ${
+          selectedIndex === idx ? "bg-white" : "bg-transparent"
+        }`}
+        aria-label={`Go to slide ${idx + 1}`}
+        onClick={() => onDotClick(idx)}
+      />
+    ))}
+  </div>
+);
 
 const Nairobi = () => {
   const [data, setData] = useState([]);
@@ -50,8 +67,16 @@ const Nairobi = () => {
     if (emblaApi) emblaApi.scrollNext();
   }, [emblaApi]);
 
+  // Add dot click handler
+  const onDotClick = useCallback(
+    (idx) => {
+      if (emblaApi) emblaApi.scrollTo(idx);
+    },
+    [emblaApi],
+  );
+
   return (
-    <main className="relative flex w-full flex-col items-center justify-center bg-[#121216] py-10 text-white">
+    <main className="relative flex h-auto w-full flex-col items-center justify-center bg-[#121216] py-10 text-white">
       <h2 itemProp="Title" className="text-center font-semibold lg:text-2xl">
         Want to view some of our current properties?
       </h2>
@@ -60,12 +85,12 @@ const Nairobi = () => {
       </p>
 
       {/* Embla Carousel */}
-      <div className="embla mx-auto w-10/12 max-w-6xl">
+      <div className="embla mx-auto h-auto w-10/12 max-w-6xl">
         <div
-          className="embla__viewport w-full overflow-hidden rounded-md"
+          className="embla__viewport w-full overflow-hidden rounded-2xl border-2 border-[#2A2A2A]"
           ref={emblaRef}
         >
-          <div className="embla__container mx-auto flex h-[400px] w-full">
+          <div className="embla__container mx-auto flex h-[650px] min-w-full overflow-hidden">
             {data.map((slide, index) => (
               <a
                 itemProp="Link"
@@ -74,23 +99,29 @@ const Nairobi = () => {
                 href={`${slide.slug}`}
                 rel="noreferrer"
                 target="_blank"
-                className={`embla__slide relative h-[400px] w-full ${index <= 1 ? "flex-[0_0_105%] lg:flex-[0_0_102%]" : "flex-[0_0_80]"} items-center justify-center`}
+                className={`embla__slide h-full w-full flex-col ${index <= 1 ? "flex-[0_0_100%] lg:flex-[0_0_100%]" : "flex-[0_0_80]"} items-center justify-between`}
                 key={index}
               >
-                <img
-                  itemProp="Image"
-                  src={slide.image}
-                  alt={slide.alt}
-                  className="h-full w-full rounded-xl object-cover object-center"
-                />
-                <div className="absolute inset-0 flex h-full w-full flex-col justify-end bg-gradient-to-t from-black/45 to-transparent p-10">
+                <div className="h-[500px] w-full">
+                  <img
+                    itemProp="Image"
+                    src={slide.image}
+                    alt={slide.alt}
+                    className="h-full w-full rounded-xl rounded-b-none object-cover object-center"
+                  />
+                </div>
+                <div className="mt-10 flex h-full w-full flex-col items-center">
                   <p
                     itemProp="Title"
                     className="text-lg font-bold text-white lg:text-2xl"
                   >
                     {slide.title}
                   </p>
-                  <p itemProp="Location" className="text-sm">
+                  <p
+                    itemProp="Location"
+                    className="flex items-center gap-3 text-sm underline"
+                  >
+                    <FaLocationDot className="text-[#7F7F7F]" />
                     {slide.location}
                   </p>
                 </div>
@@ -103,7 +134,14 @@ const Nairobi = () => {
               </a>
             ))}
           </div>
+          {/* Embla dots */}
+          {/* Embla dots */}
         </div>
+        <EmblaDots
+          slides={data}
+          selectedIndex={selectedIndex}
+          onDotClick={onDotClick}
+        />
       </div>
     </main>
   );
