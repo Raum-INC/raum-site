@@ -196,7 +196,7 @@ const InvestDetails = () => {
             </h1>
             <p className="font-medium underline">{data.location}</p>
             {/* thumbnails */}
-            <div className="flex items-center gap-2">
+            <div className="no-scrollbar flex items-center gap-2 overflow-x-scroll">
               {data.moreImages &&
                 data.moreImages.length > 0 &&
                 data.moreImages.map((img, index) => (
@@ -204,7 +204,7 @@ const InvestDetails = () => {
                     key={index}
                     src={img.asset?.url || urlFor(img).url()}
                     alt={img.alt || `Image ${index + 1}`}
-                    className={`h-[100px] w-[125px] cursor-pointer rounded-[10px] border-[3px] object-cover ${
+                    className={`h-[50px] w-[75px] cursor-pointer rounded-[10px] border-[3px] object-cover xl:h-[100px] xl:w-[125px] ${
                       (mainImage.asset?.url || mainImage.url) ===
                       (img.asset?.url || urlFor(img).url())
                         ? "border-primary"
@@ -297,16 +297,16 @@ const InvestDetails = () => {
               ))}
             </div>
 
-            <div className="flex h-auto w-full flex-col items-start justify-center gap-5">
+            <div className="my-10 flex h-auto w-full flex-col items-start justify-center gap-5">
               <p className="text-lg font-semibold xl:text-2xl">
                 Slots remaining
               </p>
               <div className="flex w-full items-center justify-between">
-                <p className="">7 slots total</p>
+                <p className="text-sm xl:text-base">7 slots total</p>
                 <span className="h-8 w-px bg-white/50"></span>
-                <p className="">7 slots taken</p>
+                <p className="text-sm xl:text-base">7 slots taken</p>
                 <span className="h-8 w-px bg-white/50"></span>
-                <p className="">7 slots remaining</p>
+                <p className="text-sm xl:text-base">7 slots remaining</p>
               </div>
             </div>
 

@@ -34,7 +34,9 @@ const InvestCalculator = () => {
         Investment Returns Estimator
       </h4>
       <div className="mt-5 flex flex-col gap-5">
-        <p>1. How much would you like to invest?</p>
+        <p className="mt-6 text-sm font-medium xl:text-base">
+          1. How much would you like to invest?
+        </p>
         <p className="h-12 w-full rounded-md bg-[#111111] p-3 text-xl font-bold text-white outline-none">
           {`₦${amount.toLocaleString("en-NG")}`}
         </p>
@@ -56,7 +58,9 @@ const InvestCalculator = () => {
         </div>
       </div>
 
-      <p className="mt-6 font-medium">2. Choose your investment duration:</p>
+      <p className="mt-3 text-sm font-medium xl:text-base">
+        2. Choose your investment duration:
+      </p>
       <div className="mt-3 flex items-center justify-between gap-5 xl:gap-10">
         {durations.map((d) => (
           <button
@@ -73,7 +77,9 @@ const InvestCalculator = () => {
         ))}
       </div>
 
-      <p className="mt-6 font-medium">3. Reinvest profits?</p>
+      <p className="mt-6 text-sm font-medium xl:text-base">
+        3. Reinvest profits?
+      </p>
       <div className="mt-3 flex items-center gap-3">
         {/* Toggle Switch */}
         <button
@@ -95,7 +101,7 @@ const InvestCalculator = () => {
       </div>
 
       {/* Summary Box */}
-      <div className="mt-8 rounded-xl bg-[#18181c] p-6 text-white">
+      <div className="mt-8 rounded-xl bg-[#18181c] p-6 text-sm font-medium text-white xl:text-base">
         <div className="flex flex-col gap-2">
           <div className="flex justify-between">
             <span>Capital Invested:</span>
