@@ -27,17 +27,51 @@ export default {
       name: 'date',
       type: 'string',
       title: 'Date',
+      initialValue: () => new Date().toISOString(),
     },
     {
       name: 'slug',
       type: 'slug',
       title: 'Slug',
+      options: {source: 'title'},
+      validation: (rule) => rule.required(),
     },
     {
       name: 'image',
       type: 'image',
       title: 'Image',
       fields: [{type: 'text', name: 'alt', title: 'Alt Text'}],
+    },
+    {
+      name: 'moreImages',
+      title: 'More Images',
+      type: 'array',
+      of: [
+        {
+          type: 'image',
+          fields: [{type: 'text', name: 'alt', title: 'Alt Text'}],
+        },
+      ],
+    },
+    {
+      name: 'guests',
+      type: 'string',
+      title: 'Guests',
+    },
+    {
+      name: 'bedroom',
+      type: 'string',
+      title: 'Bedroom',
+    },
+    {
+      name: 'bed',
+      type: 'string',
+      title: 'Bed',
+    },
+    {
+      name: 'bath',
+      type: 'string',
+      title: 'Bath',
     },
     {
       name: 'content',

@@ -3,6 +3,8 @@ import useEmblaCarousel from "embla-carousel-react";
 import { FaLocationDot } from "react-icons/fa6";
 import "../embla.css"; // Ensure you include the CSS for Embla
 import { client } from "../lib/sanity";
+import { Link } from "react-router-dom";
+import Autoplay from "embla-carousel-autoplay";
 
 const EmblaDots = ({ slides, selectedIndex, onDotClick }) => (
   <div className="mt-10 flex justify-center gap-2">
@@ -49,11 +51,14 @@ const Nairobi = () => {
     getData();
   }, []);
 
-  const [emblaRef, emblaApi] = useEmblaCarousel({
-    loop: true,
-    align: "center",
-    containScroll: "trim",
-  });
+  const [emblaRef, emblaApi] = useEmblaCarousel(
+    {
+      loop: true,
+      align: "center",
+      containScroll: "trim",
+    },
+    [Autoplay({ delay: 5000, stopOnInteraction: false })],
+  );
 
   useEffect(() => {
     if (!emblaApi) return;
@@ -90,16 +95,14 @@ const Nairobi = () => {
           className="embla__viewport w-full overflow-hidden rounded-2xl border-2 border-[#2A2A2A]"
           ref={emblaRef}
         >
-          <div className="embla__container mx-auto flex h-[650px] min-w-full overflow-hidden">
+          <div className="embla__container flex h-[650px] min-w-full">
             {data.map((slide, index) => (
-              <a
+              <Link
                 itemProp="Link"
                 aria-label={`View details for ${slide.title}`}
                 title={slide.title}
-                href={`${slide.slug}`}
-                rel="noreferrer"
-                target="_blank"
-                className={`embla__slide h-full w-full flex-col ${index <= 1 ? "flex-[0_0_100%] lg:flex-[0_0_100%]" : "flex-[0_0_80]"} items-center justify-between`}
+                to={`/invest/${slide.slug}`}
+                className="embla__slide relative h-full w-full flex-[0_0_100%] flex-col items-center justify-between"
                 key={index}
               >
                 <div className="h-[500px] w-full">
@@ -131,12 +134,11 @@ const Nairobi = () => {
                 >
                   {slide.availability}
                 </p>
-              </a>
+              </Link>
             ))}
           </div>
-          {/* Embla dots */}
-          {/* Embla dots */}
         </div>
+        {/* Embla dots */}
         <EmblaDots
           slides={data}
           selectedIndex={selectedIndex}

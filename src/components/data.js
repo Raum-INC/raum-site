@@ -538,3 +538,26 @@ export const hostGuideData = [
     image: Guide.step4,
   },
 ];
+
+export const investDetailsData = [
+  {
+    icon: ac,
+    title: `Investment duration and terms`,
+    description: `Exit after the first year and retrieve 100% of your capital, along with earned profit.`,
+  },
+  {
+    icon: security,
+    title: `Continuity plans`,
+    description: `Reinvest in upcoming properties within our expanding portfolio.`,
+  },
+  {
+    icon: security,
+    title: `How long do you want it?`,
+    description: `Stay longer and watch your returns grow with compounding shortlet gains.`,
+  },
+  {
+    icon: bath,
+    title: `Hands-Off Investment, Hands-On Returns`,
+    description: `We take care of everything: property maintenance, guest turnover, bookings, cleaning, and marketing. As an investor, your role is simple. Earn and watch your returns.`,
+  },
+];

@@ -14,6 +14,67 @@ function urlFor(source) {
   return builder.image(source);
 }
 
+export const myPortableTextComponents = {
+  block: {
+    // Customizing common block types
+    h1: ({ children }) => (
+      <h1 itemProp="heading" className="py-4 text-4xl">
+        {children}
+      </h1>
+    ),
+    h2: ({ children }) => (
+      <h2 itemProp="heading" className="py-4 text-left text-3xl">
+        {children}
+      </h2>
+    ),
+    h3: ({ children }) => (
+      <h3 itemProp="heading" className="py-4 text-left text-2xl">
+        {children}
+      </h3>
+    ),
+    h4: ({ children }) => (
+      <h4 itemProp="heading" className="py-4 text-left text-xl">
+        {children}
+      </h4>
+    ),
+    blockquote: ({ children }) => (
+      <blockquote className="rounded-md bg-primary_text p-12 text-white">
+        {children}
+      </blockquote>
+    ),
+    basic: ({ children }) => (
+      <p itemProp="article" className="text-justify text-4xl">
+        {children}
+      </p>
+    ),
+  },
+  list: {
+    // Customizing common list types
+    bullet: ({ children }) => (
+      <ul itemProp="list" className="list-inside list-disc space-y-3 p-5">
+        {children}
+      </ul>
+    ),
+    number: ({ children }) => (
+      <ol itemProp="list" className="list-inside list-decimal space-y-3 p-5">
+        {children}
+      </ol>
+    ),
+  },
+  types: {
+    // Customizing image rendering
+    image: ({ value }) => (
+      <div className="my-8 flex justify-center">
+        <img
+          src={urlFor(value.asset).url()} // Use the URL builder here
+          alt={value.alt || "Blog Image"}
+          className="h-auto max-w-full rounded-lg shadow-lg"
+        />
+      </div>
+    ),
+  },
+};
+
 const BlogDetails = () => {
   const [blogData, setBlogData] = useState(null);
   const [data, setData] = useState(null);
@@ -149,67 +210,6 @@ const BlogDetails = () => {
       </AnimatePresence>
     );
   }
-
-  const myPortableTextComponents = {
-    block: {
-      // Customizing common block types
-      h1: ({ children }) => (
-        <h1 itemProp="heading" className="py-4 text-4xl">
-          {children}
-        </h1>
-      ),
-      h2: ({ children }) => (
-        <h2 itemProp="heading" className="py-4 text-left text-3xl">
-          {children}
-        </h2>
-      ),
-      h3: ({ children }) => (
-        <h3 itemProp="heading" className="py-4 text-left text-2xl">
-          {children}
-        </h3>
-      ),
-      h4: ({ children }) => (
-        <h4 itemProp="heading" className="py-4 text-left text-xl">
-          {children}
-        </h4>
-      ),
-      blockquote: ({ children }) => (
-        <blockquote className="rounded-md bg-primary_text p-12 text-white">
-          {children}
-        </blockquote>
-      ),
-      basic: ({ children }) => (
-        <p itemProp="article" className="text-justify text-4xl">
-          {children}
-        </p>
-      ),
-    },
-    list: {
-      // Customizing common list types
-      bullet: ({ children }) => (
-        <ul itemProp="list" className="list-inside list-disc space-y-3 p-5">
-          {children}
-        </ul>
-      ),
-      number: ({ children }) => (
-        <ol itemProp="list" className="list-inside list-decimal space-y-3 p-5">
-          {children}
-        </ol>
-      ),
-    },
-    types: {
-      // Customizing image rendering
-      image: ({ value }) => (
-        <div className="my-8 flex justify-center">
-          <img
-            src={urlFor(value.asset).url()} // Use the URL builder here
-            alt={value.alt || "Blog Image"}
-            className="h-auto max-w-full rounded-lg shadow-lg"
-          />
-        </div>
-      ),
-    },
-  };
 
   return (
     <>
