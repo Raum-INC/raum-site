@@ -6,66 +6,17 @@ import { Helmet } from "react-helmet-async";
 import PageWrapper, { FadeIn } from "../components/Motion";
 import { motion, AnimatePresence } from "framer-motion";
 import { ClipLoader } from "react-spinners";
-import axios from "axios";
+import useDashboardData from "../hooks/useDashboardData";
 
 const DashHome = () => {
   const [showContent, setShowContent] = useState(false);
-  const [listings, setListings] = useState([]);
-  const [categories, setCategories] = useState([]);
-  const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const { listings, categories, products, loading } = useDashboardData();
 
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowContent(true);
     }, 2000);
     return () => clearTimeout(timer);
-  }, []);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const [productsRes, categoriesRes] = await Promise.all([
-          axios.get("https://cp.raum.africa/store/products?currency_code=ngn"),
-          axios.get("https://cp.raum.africa/store/product-categories"),
-        ]);
-
-        // Featured Listings
-        const featuredListings = productsRes.data.products.filter(
-          (product) =>
-            product.tags &&
-            product.tags.some((tag) => tag.value === "Featured"),
-        );
-        const limitedFeaturedListings = featuredListings.slice(0, 10);
-        const formattedListings = limitedFeaturedListings.map((listing) => ({
-          ...listing,
-          variants: listing.variants.map((variant) => ({
-            ...variant,
-            original_price: variant.original_price / 100,
-          })),
-        }));
-        setListings(formattedListings);
-
-        // All Products
-        const formattedProducts = productsRes.data.products.map((product) => ({
-          ...product,
-          variants: product.variants.map((variant) => ({
-            ...variant,
-            original_price: variant.original_price / 100,
-          })),
-        }));
-        setProducts(formattedProducts);
-
-        // Categories
-        setCategories(categoriesRes.data.product_categories);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchData();
   }, []);
 
   const loadingVariant = {

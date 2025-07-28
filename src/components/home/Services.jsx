@@ -1,6 +1,8 @@
 import React from "react";
 import { services } from "../data";
 import { motion } from "framer-motion";
+import { Assets } from "../../assets";
+import { Link } from "react-router-dom";
 
 const Services = () => {
   const containerVariant = {
@@ -30,35 +32,65 @@ const Services = () => {
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true }}
-      className="w-full h-auto p-8"
+      className="h-auto w-full p-8"
     >
-      <section className="w-full max-w-6xl my-10 mx-auto flex flex-col lg:flex-row justify-center items-center gap-10 lg:gap-0 lg:divide-x-[0.8px] divide-primary">
-        {services.map((service, index) => (
-          <div
-            key={index}
-            className="w-full flex lg:flex-col gap-4 lg:gap-5 justify-start items-start lg:items-center text-center"
-          >
-            <div className="">
-              <img
-                itemProp="image"
-                src={service.image}
-                alt={service.alt}
-                className="w-6 md:w-20 h-w-6 md:h-20"
-              />
+      <section className="mx-auto my-10 flex w-full max-w-6xl flex-col items-center justify-center gap-10">
+        <h3 className="text-xl font-semibold xl:text-4xl">Our services</h3>
+        <div className="grid h-auto w-full grid-cols-2 gap-5 xl:grid-cols-3">
+          {services.map((service, index) => (
+            <div
+              key={index}
+              className="flex h-[150px] w-full flex-col items-start justify-center gap-2 overflow-hidden rounded-lg xl:h-[280px]"
+            >
+              {service.image && (
+                <div
+                  className={`${service.image === Assets.service_6 ? "flex h-full w-full flex-col items-start justify-end gap-3" : "h-full w-full"}`}
+                >
+                  <img
+                    itemProp="image"
+                    src={service.image}
+                    alt={service.alt}
+                    className={`${service.image === Assets.service_6 ? "h-auto w-[150px]" : "h-full w-full object-cover"}`}
+                  />
+                  {service.text && <p className="w-3/4">{service.text}</p>}
+                </div>
+              )}
+              {service.title && (
+                <div className="flex h-full w-full flex-col items-start justify-between gap-2 py-1">
+                  <div className="h-auto w-[18px] xl:w-[75px]">
+                    <img
+                      itemProp="image"
+                      src={service.icon}
+                      alt={service.alt}
+                      className="h-auto w-full"
+                    />
+                  </div>
+                  <h2
+                    itemProp="title"
+                    className="text-sm font-bold md:text-2xl"
+                  >
+                    {service.title}
+                  </h2>
+                  <p
+                    itemProp="description"
+                    className="text-left text-[8px] font-normal md:text-base"
+                  >
+                    {service.description}
+                  </p>
+                  <Link
+                    to={service.link}
+                    className="text-primary underline"
+                    onClick={() =>
+                      window.scrollTo({ top: 0, behavior: "smooth" })
+                    }
+                  >
+                    More details
+                  </Link>
+                </div>
+              )}
             </div>
-            <div className="w-4/5 flex flex-col justify-center items-start lg:items-center gap-2">
-              <h2 itemProp="title" className="text-lg md:text-2xl">
-                {service.title}
-              </h2>
-              <p
-                itemProp="description"
-                className="font-normal text-left lg:text-center text-xs md:text-base"
-              >
-                {service.description}
-              </p>
-            </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </section>
     </motion.main>
   );

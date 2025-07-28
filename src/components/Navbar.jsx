@@ -7,69 +7,45 @@ import { Link, useLocation } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import useBearStore from "../store/store";
 
+const NAV_LINKS = [
+  { to: "/admin-dashboard", label: "Our Listings" },
+  { to: "/guest", label: "Guest" },
+  { to: "/host", label: "Host" },
+  { to: "/invest", label: "Invest" },
+  { to: "/about", label: "About us" },
+  { to: "/contact", label: "Contact" },
+  { to: "/blog", label: "Blog" },
+  // { to: "/terms-and-conditions", label: "Our Terms" },
+  // { to: "/privacy-policy", label: "Privacy Policy" },
+  // { to: "/default-cancellation-policy", label: "Cancellations" },
+];
+
 const Navbar = () => {
   const { toggle, toggleFalse, nav, toggleNav, falseNav } = useBearStore();
-
   const location = useLocation();
 
-  const getLogo = () => {
-    if (
-      location.pathname === "/" ||
-      location.pathname === "/host" ||
-      location.pathname === "/invest"
-    ) {
-      return Assets.raumLogo2; // Replace with your special logo asset
-    } else {
-      return Assets.raumLogo; // Default logo for other routes
-    }
-  };
+  const getLogo = () =>
+    ["/host", "/invest", "/guest"].includes(location.pathname)
+      ? Assets.raumLogo2
+      : Assets.raumLogo;
 
   const navbarVariant = {
-    hidden: {
-      opacity: 1,
-      translateY: -50,
-    },
+    hidden: { opacity: 1, translateY: -50 },
     visible: {
       opacity: 1,
       translateY: 0,
-      transition: {
-        type: "spring",
-        stiffness: 30,
-        duration: 1,
-      },
+      transition: { type: "spring", stiffness: 30, duration: 1 },
     },
   };
 
   const navtoggleVariant = {
-    initial: {
-      opacity: 0,
-      transition: {
-        duration: 0.3,
-      },
-    },
-    animate: {
-      opacity: 1,
-      transition: {
-        duration: 0.5,
-      },
-    },
+    initial: { opacity: 0, transition: { duration: 0.3 } },
+    animate: { opacity: 1, transition: { duration: 0.5 } },
   };
 
-  const adminVariant = {
-    initial: {
-      translateY: -100,
-      transition: {
-        duration: 1,
-        delay: 0.75,
-      },
-    },
-    animate: {
-      translateY: 0,
-      transition: {
-        duration: 1,
-        delay: 0.75,
-      },
-    },
+  const handleNavLinkClick = () => {
+    toggleNav();
+    toggleFalse();
   };
 
   return (
@@ -80,8 +56,7 @@ const Navbar = () => {
       className="absolute left-0 right-0 top-0"
     >
       <nav className="relative z-40 flex w-full items-center justify-between bg-transparent p-4 px-8 md:p-4 md:px-12">
-        <div className="invisible hidden w-1/3 md:block"></div>
-        <button className="w-1/3">
+        <button className="w-auto">
           <Link
             to="/"
             onClick={() => {
@@ -96,19 +71,17 @@ const Navbar = () => {
             />
           </Link>
         </button>
+
         <motion.div
           animate={{ type: "spring", stiffness: 500 }}
-          className="flex w-auto items-center justify-end gap-5 overflow-hidden py-4 pl-4 md:w-1/3"
+          className="flex w-auto items-center justify-end gap-5 overflow-hidden py-4 pl-4 md:w-1/3 xl:hidden"
         >
           <div
-            onClick={() => {
-              toggleNav();
-              toggleFalse();
-            }}
+            onClick={handleNavLinkClick}
             className="flex h-[30px] w-[30px] items-center justify-end"
           >
-            {nav === false && (
-              <AnimatePresence>
+            <AnimatePresence>
+              {!nav ? (
                 <motion.button
                   variants={navtoggleVariant}
                   initial="initial"
@@ -116,20 +89,15 @@ const Navbar = () => {
                   exit="initial"
                 >
                   <AiOutlineMenu
-                    className={`${
-                      location.pathname === "/" ||
-                      location.pathname === "/host" ||
-                      location.pathname === "/invest"
+                    className={
+                      ["/host", "/invest", "/guest"].includes(location.pathname)
                         ? "text-black"
                         : "text-white"
-                    }`}
+                    }
                     size={25}
                   />
                 </motion.button>
-              </AnimatePresence>
-            )}
-            {nav === true && (
-              <AnimatePresence>
+              ) : (
                 <motion.button
                   variants={navtoggleVariant}
                   initial="initial"
@@ -137,152 +105,38 @@ const Navbar = () => {
                   exit="initial"
                 >
                   <MdClose
-                    className={`${
-                      location.pathname === "/" || location.pathname === "/host"
+                    className={
+                      ["/", "/host"].includes(location.pathname)
                         ? "text-black"
                         : "text-white"
-                    }`}
+                    }
                     size={25}
                   />
                 </motion.button>
-              </AnimatePresence>
-            )}
+              )}
+            </AnimatePresence>
           </div>
         </motion.div>
 
         <AnimatePresence>
-          {nav === true && (
+          {nav && (
             <motion.ul
               variants={navtoggleVariant}
               initial="initial"
               animate="animate"
               exit="initial"
-              className={
-                nav
-                  ? "absolute left-0 right-0 top-[80px] mx-auto flex w-11/12 flex-col items-center justify-center gap-3 rounded-3xl bg-black p-8 font-normal lg:flex-row"
-                  : "hidden"
-              }
+              className="absolute left-0 right-0 top-[80px] mx-auto flex w-11/12 flex-col items-center justify-center gap-3 rounded-3xl bg-black p-8 font-normal lg:flex-row xl:hidden"
             >
-              {/* <Link
-                onClick={() => {
-                  toggleNav();
-                  toggleFalse();
-                }}
-                to="/appguide"
-                className="p-3"
-              >
-                App Guide
-              </Link> */}
-              {/* <li className="p-2">
-                <Link
-                  onClick={() => {
-                    toggleNav();
-                    toggleFalse();
-                  }}
-                  to="/blog"
-                  className="p-3"
+              {NAV_LINKS.map(({ to, label }) => (
+                <li
+                  key={to}
+                  className="p-2 transition-all duration-300 ease-in-out hover:-translate-y-1 hover:scale-105 hover:text-primary"
                 >
-                  Blog
-                </Link>
-              </li> */}
-
-              <li className="p-2 transition-all duration-300 ease-in-out hover:-translate-y-1 hover:scale-105 hover:text-primary">
-                <Link
-                  onClick={() => {
-                    toggleNav();
-                    toggleFalse();
-                  }}
-                  to="/host"
-                  className="p-3"
-                >
-                  Host App
-                </Link>
-              </li>
-              <li className="p-2 transition-all duration-300 ease-in-out hover:-translate-y-1 hover:scale-105 hover:text-primary">
-                <Link
-                  onClick={() => {
-                    toggleNav();
-                    toggleFalse();
-                  }}
-                  to="/invest"
-                  className="p-3"
-                >
-                  Invest
-                </Link>
-              </li>
-              <li className="p-2 transition-all duration-300 ease-in-out hover:-translate-y-1 hover:scale-105 hover:text-primary">
-                <Link
-                  onClick={() => {
-                    toggleNav();
-                    toggleFalse();
-                  }}
-                  to="/blog"
-                  className="p-3"
-                >
-                  Blog
-                </Link>
-              </li>
-              <li className="p-2 transition-all duration-300 ease-in-out hover:-translate-y-1 hover:scale-105 hover:text-primary">
-                <Link
-                  onClick={() => {
-                    toggleNav();
-                    toggleFalse();
-                  }}
-                  to="/about"
-                  className="p-3"
-                >
-                  About Us
-                </Link>
-              </li>
-              <li className="p-2 transition-all duration-300 ease-in-out hover:-translate-y-1 hover:scale-105 hover:text-primary">
-                <Link
-                  onClick={() => {
-                    toggleNav();
-                    toggleFalse();
-                  }}
-                  to="contact"
-                  className="p-3"
-                >
-                  Contact
-                </Link>
-              </li>
-
-              <li className="p-2 transition-all duration-300 ease-in-out hover:-translate-y-1 hover:scale-105 hover:text-primary">
-                <Link
-                  onClick={() => {
-                    toggleNav();
-                    toggleFalse();
-                  }}
-                  to="/terms-and-conditions"
-                  className="p-3"
-                >
-                  Our Terms
-                </Link>
-              </li>
-              <li className="p-2 transition-all duration-300 ease-in-out hover:-translate-y-1 hover:scale-105 hover:text-primary">
-                <Link
-                  onClick={() => {
-                    toggleNav();
-                    toggleFalse();
-                  }}
-                  to="/privacy-policy"
-                  className="p-3"
-                >
-                  Privacy Policy
-                </Link>
-              </li>
-              <li className="p-2 transition-all duration-300 ease-in-out hover:-translate-y-1 hover:scale-105 hover:text-primary">
-                <Link
-                  onClick={() => {
-                    toggleNav();
-                    toggleFalse();
-                  }}
-                  to="/default-cancellation-policy"
-                  className="p-3"
-                >
-                  Cancellations
-                </Link>
-              </li>
+                  <Link onClick={handleNavLinkClick} to={to} className="p-3">
+                    {label}
+                  </Link>
+                </li>
+              ))}
               <button
                 onClick={() => {
                   toggle();
@@ -296,6 +150,31 @@ const Navbar = () => {
             </motion.ul>
           )}
         </AnimatePresence>
+
+        <motion.div className="hidden h-full w-full xl:block">
+          <ul className="flex w-full items-center justify-end gap-5">
+            <>
+              {NAV_LINKS.map(({ to, label, index }) => (
+                <Link to={to} key={index} onClick={handleNavLinkClick}>
+                  <li
+                    className={`p-2 px-4 text-base font-medium ${["/host", "/invest", "/guest"].includes(location.pathname) ? "text-black" : "text-white"} drop-shadow-2xl transition-all duration-500 ease-in-out hover:scale-110 hover:font-semibold`}
+                  >
+                    {label}
+                  </li>
+                </Link>
+              ))}
+              <button
+                className="w-auto rounded-full border-none bg-primary p-3 px-10 text-center font-medium text-white"
+                onClick={() => {
+                  toggle();
+                  falseNav();
+                }}
+              >
+                Earn More
+              </button>
+            </>
+          </ul>
+        </motion.div>
       </nav>
     </motion.header>
   );

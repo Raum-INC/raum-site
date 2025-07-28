@@ -29,15 +29,23 @@ import DashResult from "./pages/DashResult";
 import { AnimatePresence } from "framer-motion";
 import InvestPage from "./pages/InvestPage";
 import InvestDetails from "./pages/InvestDetails";
+import GuestPage from "./pages/GuestPage";
 
 function ContentWrapper({ children }) {
-  const [isContentAvailable, setIsContentAvailable] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [contentData, setContentData] = useState(null);
   const navigate = useNavigate();
   const { id } = useParams();
 
   useEffect(() => {
+    // Prevent fetching for /not-found route
+    if (!id || id === "not-found") {
+      navigate("/not-found", { replace: true });
+      return;
+    }
+
     const fetchContent = async () => {
+      setLoading(true);
       try {
         const response = await fetch(
           `https://cp.raum.africa/store/content-block/${id}`,
@@ -45,24 +53,34 @@ function ContentWrapper({ children }) {
         if (response.ok) {
           const data = await response.json();
           if (data.content) {
-            setIsContentAvailable(true);
             setContentData(data.content);
           } else {
-            navigate("/not-found");
+            navigate("/not-found", { replace: true });
           }
         } else {
-          navigate("/not-found");
+          navigate("/not-found", { replace: true });
         }
       } catch (error) {
-        console.log(error);
+        navigate("/not-found", { replace: true });
+      } finally {
+        setLoading(false);
       }
     };
 
     fetchContent();
   }, [id, navigate]);
 
-  if (!isContentAvailable) {
-    return null; // Or a loading spinner, etc.
+  if (loading) {
+    // You can use your spinner here
+    return (
+      <div className="flex h-screen w-full items-center justify-center">
+        <span>Loading...</span>
+      </div>
+    );
+  }
+
+  if (!contentData) {
+    return null;
   }
 
   return React.cloneElement(children, { contentData });
@@ -104,6 +122,7 @@ function App() {
               <Route path="/host" element={<Host />} />
               <Route path="/blog" element={<Blog />} />
               <Route path="/invest" element={<InvestPage />} />
+              <Route path="/guest" element={<GuestPage />} />
               <Route path="/admin-dashboard" element={<AdminDashboard />} />
               <Route path="/admin-dashboard/filter" element={<DashFilter />} />
               <Route
@@ -117,7 +136,7 @@ function App() {
                 element={<ListingDetails />}
               />
               <Route
-                path="admin-dashboard/product/reserve/:productId"
+                path="/admin-dashboard/product/reserve/:productId"
                 element={<ReserveBooking />}
               />
               <Route path="/about" element={<About />} />
@@ -130,8 +149,9 @@ function App() {
                   </ContentWrapper>
                 }
               />
-              <Route path="/not-found" element={<NotFound />} />
+              {/* Catch-all route for 404 - must be last */}
               <Route path="*" element={<NotFound />} />
+              <Route path="/not-found" element={<NotFound />} />
             </Routes>
           </AnimatePresence>
         </div>

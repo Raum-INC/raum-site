@@ -33,29 +33,69 @@ const {
   avatar2,
   avatar3,
   amara,
+  service_1,
+  service_2,
+  service_3,
+  service_4,
+  service_5,
+  service_6,
 } = Assets;
 
 export const services = [
   {
     id: 0,
-    title: `Short Term Rentals`,
-    description: `Experience an exclusive short-term rental service with personalized accommodations, seamless booking, and exceptional hosts, redefining travel with memorable and adventurous getaways.`,
-    image: alarm,
-    alt: `${alarm}`,
+    image: service_1,
+    alt: "Raum Africa Services",
   },
   {
     id: 1,
-    title: `Property Management`,
-    description: `Empower property owners with our advanced property management feature, streamlining bookings, pricing, and guest communication for a seamless and rewarding hosting experience.`,
-    image: companies,
-    alt: `${companies}`,
+    image: service_2,
+    alt: "Raum Africa Services",
   },
   {
     id: 2,
+    title: `Short Term Rentals`,
+    description: `Experience an exclusive short-term rental service with personalized accommodations, seamless booking, and exceptional hosts, redefining travel with memorable and adventurous getaways.`,
+    icon: alarm,
+    link: "/guest",
+    alt: `${alarm}`,
+  },
+  {
+    id: 3,
+    title: `Property Management`,
+    description: `Empower property owners with our advanced property management feature, streamlining bookings, pricing, and guest communication for a seamless and rewarding hosting experience.`,
+    icon: companies,
+    link: "/host",
+    alt: `${companies}`,
+  },
+  {
+    id: 4,
+    image: service_3,
+    alt: "Raum Africa Services",
+  },
+  {
+    id: 5,
+    image: service_4,
+    alt: "Raum Africa Services",
+  },
+  {
+    id: 6,
+    image: service_6,
+    alt: "Raum Africa Services",
+    text: "People already enjoying our various shotlets across Africa",
+  },
+  {
+    id: 7,
     title: `Property acquisition`,
     description: `Explore and secure your ideal real estate investment effortlessly with our innovative property acquisition feature, connecting you with sellers, expert guidance, and a commitment to your investment success.`,
-    image: lease,
+    icon: lease,
+    link: "/invest",
     alt: `${lease}`,
+  },
+  {
+    id: 8,
+    image: service_5,
+    alt: "Raum Africa Services",
   },
 ];
 
@@ -74,6 +114,24 @@ export const earn = [
     id: 2,
     title: `Receive payouts in minutes`,
     description: `You will receive your earnings within an hour of receiving the notification of a booking payment confirmation. No need to wait around for payday.`,
+  },
+];
+
+export const reserveData = [
+  {
+    id: 0,
+    title: `Download the app or use our web listing`,
+    description: `Browse, book, and manage your reservations from anywhere. Download our app for a smoother experience on the go, or explore our fully responsive website for quick bookings.`,
+  },
+  {
+    id: 1,
+    title: `Set your availability`,
+    description: `Tell us your preferred dates, check-in time, and how long you plan to stay. We’ll show you only what’s available and ready for your timeframe`,
+  },
+  {
+    id: 2,
+    title: `Check in`,
+    description: `Once your reservation is confirmed, just show up and settle in. You’ll receive full check-in details ahead of time — from directions to access instructions.`,
   },
 ];
 

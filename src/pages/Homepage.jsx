@@ -9,6 +9,8 @@ import CallToAction from "../components/home/CallToAction";
 import HomepageHelmet from "../components/helmets/HomepageHelmet";
 import Faqs from "../components/Faqs";
 import InvestCTA from "../components/InvestCTA";
+import NewHero from "../components/home/NewHero";
+import HomeFeaturedListings from "../components/home/HomeFeaturedListings";
 
 const Homepage = () => {
   const heroTitle = "Discover your Dream<br>apartment with Raum Africa";
@@ -17,11 +19,13 @@ const Homepage = () => {
   return (
     <main>
       <HomepageHelmet />
-      <Hero heroTitle={heroTitle} hostTitle={hostTitle} />
+      <NewHero />
+      {/* <Hero heroTitle={heroTitle} hostTitle={hostTitle} /> */}
+      <HomeFeaturedListings />
       <Services />
-      <Earn />
+      {/* <Earn /> */}
       <Features />
-      <InvestCTA />
+      {/* <InvestCTA /> */}
       <AboutRaum />
       <Download />
       <Faqs />
