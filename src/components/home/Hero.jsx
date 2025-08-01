@@ -178,15 +178,15 @@ const Hero = ({
               </>
             )}
             {isGuest && (
-              <>
+              <div className="relative flex h-[500px] w-full items-end justify-center overflow-hidden">
                 <img
                   title="Discover your Dream apartment with Raum Africa"
                   loading="lazy"
                   src={guestImage}
                   alt="Discover your Dream apartment with Raum Africa"
-                  className="h-[500px] w-auto p-4"
+                  className="absolute -bottom-8 h-full w-[1000px] object-cover p-4 xl:-bottom-20"
                 />
-              </>
+              </div>
             )}
           </div>
         </motion.div>

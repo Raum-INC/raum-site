@@ -54,19 +54,19 @@ export const services = [
   },
   {
     id: 2,
-    title: `Short Term Rentals`,
-    description: `Experience an exclusive short-term rental service with personalized accommodations, seamless booking, and exceptional hosts, redefining travel with memorable and adventurous getaways.`,
+    title: `Property Management for Hosts`,
+    description: `Our all-in-one platform helps property owners manage bookings, pricing, and guest communication effortlessly. With built-in automation and performance insights, Raum empowers hosts to deliver consistent, high-quality stays.`,
     icon: alarm,
-    link: "/guest",
-    alt: `${alarm}`,
+    link: "/host",
+    alt: `${companies}`,
   },
   {
     id: 3,
-    title: `Property Management`,
-    description: `Empower property owners with our advanced property management feature, streamlining bookings, pricing, and guest communication for a seamless and rewarding hosting experience.`,
+    title: `Eco-Smart Short-Term Rentals`,
+    description: `Book eco-smart short-term rentals in top cities from Lagos to Nairobi and beyond. Our fully furnished serviced apartments are equipped with smart-home technology, IoT-enabled climate control, and sustainable features. Whether you're traveling for work or leisure, enjoy a comfortable, tech-enabled stay with trusted support and seamless booking.`,
     icon: companies,
-    link: "/host",
-    alt: `${companies}`,
+    link: "/guest",
+    alt: `${alarm}`,
   },
   {
     id: 4,
@@ -86,6 +86,58 @@ export const services = [
   },
   {
     id: 7,
+    title: `Real Estate Acquisition Support`,
+    description: `Looking to invest in real estate? Raum connects you with vetted listings, seller networks, and expert guidance to help you find and secure your next income-generating property, locally or across emerging markets.`,
+    icon: lease,
+    link: "/invest",
+    alt: `${lease}`,
+  },
+  {
+    id: 8,
+    image: service_5,
+    alt: "Raum Africa Services",
+  },
+];
+
+export const servicesMobile = [
+  {
+    id: 2,
+    title: `Short Term Rentals`,
+    description: `Experience an exclusive short-term rental service with personalized accommodations, seamless booking, and exceptional hosts, redefining travel with memorable and adventurous getaways.`,
+    icon: alarm,
+    link: "/guest",
+    alt: `${alarm}`,
+  },
+  {
+    id: 0,
+    image: service_1,
+    alt: "Raum Africa Services",
+  },
+  {
+    id: 1,
+    image: service_2,
+    alt: "Raum Africa Services",
+  },
+  {
+    title: `Property Management`,
+    id: 3,
+    description: `Empower property owners with our advanced property management feature, streamlining bookings, pricing, and guest communication for a seamless and rewarding hosting experience.`,
+    icon: companies,
+    link: "/host",
+    alt: `${companies}`,
+  },
+  {
+    id: 4,
+    image: service_3,
+    alt: "Raum Africa Services",
+  },
+  {
+    id: 5,
+    image: service_4,
+    alt: "Raum Africa Services",
+  },
+  {
+    id: 7,
     title: `Property acquisition`,
     description: `Explore and secure your ideal real estate investment effortlessly with our innovative property acquisition feature, connecting you with sellers, expert guidance, and a commitment to your investment success.`,
     icon: lease,
@@ -102,18 +154,18 @@ export const services = [
 export const earn = [
   {
     id: 0,
-    title: `Host more, earn more`,
-    description: `Our community of 1+ million guests will send you plenty of booking requests. When demand is high, you can maximize your earnings.`,
+    title: `Download the app or use our web listing`,
+    description: `Browse, book, and manage your reservations from anywhere. Download our app for a smoother experience on the go, or explore our fully responsive website for quick bookings.`,
   },
   {
     id: 1,
     title: `Set your availability`,
-    description: `Host as frequently and for as long as you prefer. Weekdays, weekends, or evenings — tailor your hosting schedule to suit your lifestyle.`,
+    description: `Tell us your preferred dates, check-in time, and how long you plan to stay. We'll show you only what's available and ready for your timeframe.`,
   },
   {
     id: 2,
-    title: `Receive payouts in minutes`,
-    description: `You will receive your earnings within an hour of receiving the notification of a booking payment confirmation. No need to wait around for payday.`,
+    title: `Check in`,
+    description: `Once your reservation is confirmed, just show up and settle in. You'll receive full check-in details ahead of time — from directions to access instructions.`,
   },
 ];
 
@@ -126,12 +178,12 @@ export const reserveData = [
   {
     id: 1,
     title: `Set your availability`,
-    description: `Tell us your preferred dates, check-in time, and how long you plan to stay. We’ll show you only what’s available and ready for your timeframe`,
+    description: `Tell us your preferred dates, check-in time, and how long you plan to stay. We'll show you only what's available and ready for your timeframe`,
   },
   {
     id: 2,
     title: `Check in`,
-    description: `Once your reservation is confirmed, just show up and settle in. You’ll receive full check-in details ahead of time — from directions to access instructions.`,
+    description: `Once your reservation is confirmed, just show up and settle in. You'll receive full check-in details ahead of time — from directions to access instructions.`,
   },
 ];
 
