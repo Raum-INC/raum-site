@@ -113,7 +113,7 @@ function App() {
       <Router>
         <div className="relative z-50">
           <Navigation />
-          <SelfHelp />
+          {/* <SelfHelp /> */}
         </div>
         <div onClick={falseNav} className="">
           <AnimatePresence>

@@ -32,6 +32,7 @@ export const Assets = {
   assignment: require("../assets/assignment.svg").default,
   file: require("../assets/file.svg").default,
   home: require("../assets/home.svg").default,
+  aws: require("../assets/aws.svg").default,
   under_construction: require("../assets/under_construction.svg").default,
   short_term: require("../assets/short_term.svg").default,
   property_management: require("../assets/property_management.svg").default,
