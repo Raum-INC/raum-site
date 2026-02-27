@@ -10,7 +10,7 @@ import HomepageHelmet from "../components/helmets/HomepageHelmet";
 import Faqs from "../components/Faqs";
 import InvestCTA from "../components/InvestCTA";
 import NewHero from "../components/home/NewHero";
-import HomeFeaturedListings from "../components/home/HomeFeaturedListings";
+// import HomeFeaturedListings from "../components/home/HomeFeaturedListings";
 
 const Homepage = () => {
   const heroTitle = "Discover your Dream<br>apartment with Raum Africa";
@@ -21,7 +21,7 @@ const Homepage = () => {
       <HomepageHelmet />
       <NewHero />
       {/* <Hero heroTitle={heroTitle} hostTitle={hostTitle} /> */}
-      <HomeFeaturedListings />
+      {/* <HomeFeaturedListings /> */}
       <Services />
       {/* <Earn /> */}
       <Features />
